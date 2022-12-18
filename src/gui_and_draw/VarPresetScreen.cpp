@@ -7,6 +7,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+#include <libintl.h>
+
 #include "VarPresetScreen.h"
 #include "ParmMgr.h"
 
@@ -14,7 +16,7 @@
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-VarPresetScreen::VarPresetScreen( ScreenMgr* mgr ) : TabScreen( mgr, 300, 600, "Variable Presets", (-6 * 20) - 25) // 6 rows * 20 StdHeight of UI objects, 25 Height of Tabs
+VarPresetScreen::VarPresetScreen( ScreenMgr* mgr ) : TabScreen( mgr, 300, 600, _("Variable Presets"), (-6 * 20) - 25) // 6 rows * 20 StdHeight of UI objects, 25 Height of Tabs
 {
     //==== Variables ====//
     m_NVarLast = 0;
@@ -24,11 +26,11 @@ VarPresetScreen::VarPresetScreen( ScreenMgr* mgr ) : TabScreen( mgr, 300, 600, "
     //( (Vsp_Group*) tree_tab )->SetAllowDrop( true );
     //tree_tab->callback( staticScreenCB, this );
 
-    Fl_Group* pick_tab = AddTab( "Create" );
+    Fl_Group* pick_tab = AddTab( _("Create") );
     ( (Vsp_Group*) pick_tab )->SetAllowDrop( true );
     pick_tab->callback( staticScreenCB, this );
 
-    Fl_Group* adj_tab = AddTab( "Adjust" );
+    Fl_Group* adj_tab = AddTab( _("Adjust") );
     Fl_Group* pick_group = AddSubGroup( pick_tab, 5 );
     m_AdjustGroup = AddSubScroll( adj_tab, 5 );
     m_AdjustGroup->type( Fl_Scroll::VERTICAL_ALWAYS );
@@ -41,41 +43,41 @@ VarPresetScreen::VarPresetScreen( ScreenMgr* mgr ) : TabScreen( mgr, 300, 600, "
 
     m_ChangeStateLayout.SetChoiceButtonWidth( m_ChangeStateLayout.GetButtonWidth() );
 
-    m_ChangeStateLayout.AddDividerBox( "Select Preset" );
-    m_ChangeStateLayout.AddChoice( m_GroupChoice, "Group" );
-    m_ChangeStateLayout.AddChoice( m_SettingChoice, "Setting");
-    m_ChangeStateLayout.AddButton( m_ApplyButton, "Apply" );
+    m_ChangeStateLayout.AddDividerBox( _("Select Preset") );
+    m_ChangeStateLayout.AddChoice( m_GroupChoice, _("Group") );
+    m_ChangeStateLayout.AddChoice( m_SettingChoice, _("Setting"));
+    m_ChangeStateLayout.AddButton( m_ApplyButton, _("Apply") );
     m_ChangeStateLayout.AddYGap();
 
-    m_ChangeStateLayout.AddDividerBox( "Edit" );
+    m_ChangeStateLayout.AddDividerBox( _("Edit") );
 
     m_ChangeStateLayout.SetButtonWidth( ( m_ChangeStateLayout.GetRemainX() ) / 2 );
     m_ChangeStateLayout.SetSameLineFlag( true );
     m_ChangeStateLayout.SetFitWidthFlag( false );
-    m_ChangeStateLayout.AddButton( m_SaveButton , "Save Changes" );
+    m_ChangeStateLayout.AddButton( m_SaveButton , _("Save Changes") );
     m_SaveButton.Deactivate();
-    m_ChangeStateLayout.AddButton( m_DeleteButton, "Delete Current" );
+    m_ChangeStateLayout.AddButton( m_DeleteButton, _("Delete Current") );
 
     // Everything Relevant to "Pick" Tab
     m_PickLayout.SetGroupAndScreen( pick_group, this );
 
-    m_PickLayout.AddDividerBox( "Create Preset" );
+    m_PickLayout.AddDividerBox( _("Create Preset") );
     m_PickLayout.SetSameLineFlag( true );
-    m_PickLayout.AddInput( m_GroupInput, "Group", m_PickLayout.GetButtonWidth() );
+    m_PickLayout.AddInput( m_GroupInput, _("Group"), m_PickLayout.GetButtonWidth() );
     m_PickLayout.SetFitWidthFlag( false );
-    m_PickLayout.AddButton( m_AddGroupButton, "Add" );
+    m_PickLayout.AddButton( m_AddGroupButton, _("Add") );
     m_PickLayout.ForceNewLine();
 
     m_PickLayout.SetFitWidthFlag( true );
-    m_PickLayout.AddInput( m_SettingInput, "Setting", m_PickLayout.GetButtonWidth() );
+    m_PickLayout.AddInput( m_SettingInput, _("Setting"), m_PickLayout.GetButtonWidth() );
     m_PickLayout.SetFitWidthFlag( false );
-    m_PickLayout.AddButton( m_AddSettingButton, "Add" );
+    m_PickLayout.AddButton( m_AddSettingButton, _("Add") );
     m_PickLayout.ForceNewLine();
     m_PickLayout.SetSameLineFlag( false );
     m_PickLayout.SetFitWidthFlag( true );
     m_PickLayout.AddYGap();
 
-    m_PickLayout.AddDividerBox( "Variable" );
+    m_PickLayout.AddDividerBox( _("Variable") );
 
     m_PickLayout.SetChoiceButtonWidth( m_PickLayout.GetButtonWidth() );
 
@@ -87,8 +89,8 @@ VarPresetScreen::VarPresetScreen( ScreenMgr* mgr ) : TabScreen( mgr, 300, 600, "
     m_PickLayout.AddYGap();
 
     m_PickLayout.SetButtonWidth( ( m_PickLayout.GetRemainX() ) / 2 );
-    m_PickLayout.AddButton( m_AddVarButton, "Add Variable" );
-    m_PickLayout.AddButton( m_DelVarButton, "Delete Variable" );
+    m_PickLayout.AddButton( m_AddVarButton, _("Add Variable") );
+    m_PickLayout.AddButton( m_DelVarButton, _("Delete Variable") );
 
     m_PickLayout.ForceNewLine();
 
@@ -97,7 +99,7 @@ VarPresetScreen::VarPresetScreen( ScreenMgr* mgr ) : TabScreen( mgr, 300, 600, "
 
     m_PickLayout.AddYGap();
 
-    m_PickLayout.AddDividerBox( "Variable List" );
+    m_PickLayout.AddDividerBox( _("Variable List") );
 
     // Pointer for the widths of each column in the browser to support resizing
     // Last column width must be 0
@@ -217,7 +219,7 @@ bool VarPresetScreen::Update()
 
     m_VarBrowser->column_char( ':' );         // use : as the column character
 
-    sprintf( str, "@b@.COMP:@b@.GROUP:@b@.PARM" );
+    sprintf( str, _("@b@.COMP:@b@.GROUP:@b@.PARM") );
     m_VarBrowser->add( str );
 
     int num_vars = VarPresetMgr.GetNumVars();
@@ -289,7 +291,7 @@ void VarPresetScreen::RebuildAdjustTab()
             m_AdjustLayout.AddDividerBox( ParmMgr.FindParmContainer( contID )->GetName() );
         }
 
-        m_AdjustLayout.AddSlider( m_ParmSliderVec[i], "AUTO_UPDATE", 10, "%7.3f" );
+        m_AdjustLayout.AddSlider( m_ParmSliderVec[i], _("AUTO_UPDATE"), 10, "%7.3f" );
         m_ParmSliderVec[i].Update( pID );
     }
 
@@ -360,14 +362,14 @@ void VarPresetScreen::CheckSaveStatus( int g_index, int s_index )
                 {
                     if ( p->Get() != p_val[j] )
                     {
-                        m_SaveButton.GetFlButton()->label( "*SAVE CHANGES*" );
+                        m_SaveButton.GetFlButton()->label( _("*SAVE CHANGES*") );
                         m_SaveButton.Activate();
                         return;
                     }
                     else
                     {
                         m_SaveButton.Deactivate();
-                        m_SaveButton.GetFlButton()->label( "Save Changes" );
+                        m_SaveButton.GetFlButton()->label( _("Save Changes") );
                     }
                 }
             }
@@ -484,7 +486,7 @@ void VarPresetScreen::GuiDeviceCallBack( GuiDevice* device )
         {
             if ( VarPresetMgr.GetActiveSettingIndex() == -1 && !VarPresetMgr.GetDeleteFlag() )
             {
-                fl_alert( "Error: At least 1 setting required before switching groups." );
+                fl_alert( _("Error: At least 1 setting required before switching groups.") );
             }
             else
             {

@@ -5,6 +5,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+#include <libintl.h>
+
 #include "ScreenshotScreen.h"
 #include "ScreenMgr.h"
 
@@ -15,7 +17,7 @@
 
 #include "FL/Fl_File_Chooser.H"
 
-ScreenshotScreen::ScreenshotScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 270, 233+48+20, "Screenshot" )
+ScreenshotScreen::ScreenshotScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 270, 233+48+20, _("Screenshot") )
 {
     m_FLTK_Window->callback( staticCloseCB, this );
     m_MainLayout.SetGroupAndScreen( m_FLTK_Window, this );
@@ -34,11 +36,11 @@ ScreenshotScreen::ScreenshotScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 270, 23
     m_BorderLayout.AddSubGroupLayout( m_CurrentViewportSizeLayout, m_BorderLayout.GetRemainX(), hcurrview );
     m_BorderLayout.AddY( hcurrview );
 
-    m_CurrentViewportSizeLayout.AddDividerBox("Viewport Size");
+    m_CurrentViewportSizeLayout.AddDividerBox(_("Viewport Size"));
     m_CurrentViewportSizeLayout.AddYGap();
     m_CurrentViewportSizeLayout.SetButtonWidth( 60 );
-    m_CurrentViewportSizeLayout.AddOutput( m_CurrentWidth, "Width" );
-    m_CurrentViewportSizeLayout.AddOutput( m_CurrentHeight, "Height" );
+    m_CurrentViewportSizeLayout.AddOutput( m_CurrentWidth, _("Width") );
+    m_CurrentViewportSizeLayout.AddOutput( m_CurrentHeight, _("Height") );
 
     int hviewport = m_ViewportSizeLayout.GetDividerHeight() +
     4 * m_ViewportSizeLayout.GetStdHeight() +
@@ -48,7 +50,7 @@ ScreenshotScreen::ScreenshotScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 270, 23
     m_BorderLayout.AddSubGroupLayout( m_ViewportSizeLayout, m_BorderLayout.GetRemainX(), hviewport );
     m_BorderLayout.AddY( hviewport );
 
-    m_ViewportSizeLayout.AddDividerBox("Output Size");
+    m_ViewportSizeLayout.AddDividerBox(_("Output Size"));
     m_ViewportSizeLayout.AddYGap();
 
     m_ViewportSizeLayout.SetFitWidthFlag( false );
@@ -58,26 +60,26 @@ ScreenshotScreen::ScreenshotScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 270, 23
     m_ViewportSizeLayout.SetButtonWidth( 20 );
     m_ViewportSizeLayout.AddButton(m_SelectRatio, "", 1);
     m_ViewportSizeLayout.SetButtonWidth( 60 );
-    m_ViewportSizeLayout.AddSlider(m_NewRatio, "Ratio", 1.0, "%7.3f");
+    m_ViewportSizeLayout.AddSlider(m_NewRatio, _("Ratio"), 1.0, "%7.3f");
     m_ViewportSizeLayout.ForceNewLine();
 
     m_ViewportSizeLayout.SetButtonWidth( 20 );
     m_ViewportSizeLayout.AddButton(m_SelectWidth, "", -1);
     m_ViewportSizeLayout.SetButtonWidth( 60 );
-    m_ViewportSizeLayout.AddSlider(m_NewWidth, "Width", 1.0, "%7.0f");
+    m_ViewportSizeLayout.AddSlider(m_NewWidth, _("Width"), 1.0, "%7.0f");
     m_ViewportSizeLayout.ForceNewLine();
 
     m_ViewportSizeLayout.SetButtonWidth( 20 );
     m_ViewportSizeLayout.AddButton(m_SelectHeight, "", -1);
     m_ViewportSizeLayout.SetButtonWidth( 60 );
-    m_ViewportSizeLayout.AddSlider(m_NewHeight, "Height", 1.0, "%7.0f");
+    m_ViewportSizeLayout.AddSlider(m_NewHeight, _("Height"), 1.0, "%7.0f");
     m_ViewportSizeLayout.ForceNewLine();
     m_ViewportSizeLayout.AddYGap();
 
     m_ViewportSizeLayout.SetFitWidthFlag( true );
     m_ViewportSizeLayout.SetSameLineFlag( false );
 
-    m_ViewportSizeLayout.AddButton(m_SetToCurrentSize, "Reset to Viewport Size");
+    m_ViewportSizeLayout.AddButton(m_SetToCurrentSize, _("Reset to Viewport Size"));
 
     int htransparent = m_TransparentLayout.GetDividerHeight() +
                     2 * m_TransparentLayout.GetStdHeight() +
@@ -87,13 +89,13 @@ ScreenshotScreen::ScreenshotScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 270, 23
     m_BorderLayout.AddSubGroupLayout( m_TransparentLayout, m_BorderLayout.GetRemainX(), hviewport );
     m_BorderLayout.AddY( htransparent );
 
-    m_TransparentLayout.AddDividerBox( "Transparency" );
+    m_TransparentLayout.AddDividerBox( _("Transparency") );
     m_TransparentLayout.AddYGap();
-    m_TransparentLayout.AddButton( m_TransparentBG, "Transparent Background" );
-    m_TransparentLayout.AddButton( m_AutoCrop, "Auto Crop Transparent Background" );
+    m_TransparentLayout.AddButton( m_TransparentBG, _("Transparent Background") );
+    m_TransparentLayout.AddButton( m_AutoCrop, _("Auto Crop Transparent Background") );
 
     m_BorderLayout.AddYGap();
-    m_BorderLayout.AddButton(m_CapturePNG, "Capture PNG");
+    m_BorderLayout.AddButton(m_CapturePNG, _("Capture PNG"));
 
     //Initialize Width and Height Values
     m_SelectRatio.GetFlButton()->value( 1 );
@@ -126,7 +128,7 @@ void ScreenshotScreen::Show()
     //===== GLEW associates the framebuffer calls to their appropriate extension calls. =====//
     if ( !glewIsSupported( "GL_ARB_framebuffer_object" ) && !m_showedOpenGLErrorMessage )
     {
-        fl_message( "Some features may be disabled due to a lower version of OpenGL.\nUpgrade to OpenGL 2.1 or higher." );
+        fl_message( _("Some features may be disabled due to a lower version of OpenGL.\nUpgrade to OpenGL 2.1 or higher.") );
         m_showedOpenGLErrorMessage = true;
     }
 }
@@ -270,7 +272,7 @@ void ScreenshotScreen::GuiDeviceCallBack( GuiDevice* device )
     else if ( device == &m_CapturePNG )
     {
         std::string fileName = m_ScreenMgr->GetSelectFileScreen()->FileChooser(
-                "Create or Select a PNG File", "*.png" );
+                _("Create or Select a PNG File"), "*.png" );
 
         if( !fileName.empty() && glwin )
         {

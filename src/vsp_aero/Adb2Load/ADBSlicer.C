@@ -3,7 +3,7 @@
 // version 1.3 as detailed in the LICENSE file which accompanies this software.
 //
 //////////////////////////////////////////////////////////////////////
-
+#include <gettext.h>
 #include "ADBSlicer.H"
 
 /*##############################################################################
@@ -157,9 +157,9 @@ void ADBSLICER::LoadFile(char *name)
     
     else {
      
-       printf("No %s.adb file found! \n",file_name);
-       printf("Please run vspaero first. \n");
-       printf("You can run vspaero with the -geom option to only write out a viewable geometry. \n");
+       printf(_("No %s.adb file found! \n"),file_name);
+       printf(_("Please run vspaero first. \n"));
+       printf(_("You can run vspaero with the -geom option to only write out a viewable geometry. \n)");
        fflush(NULL);
        exit(1);  
  
@@ -222,7 +222,7 @@ void ADBSLICER::SliceGeometry(char *name)
     
     else {
      
-       printf("No %s.cuts file found! \n",file_name);
+       printf(_("No %s.cuts file found! \n"),file_name);
        fflush(NULL);
        exit(1);  
  
@@ -263,14 +263,14 @@ void ADBSLICER::ParseCalculixFile(char *name)
        
        // Output statistics
        
-       if ( Verbose_ ) printf("Max node number: %d \n",MaxCalculixNode_);
-       if ( Verbose_ ) printf("Max element number: %d \n",MaxCalculixElement_);
+       if ( Verbose_ ) printf(_("Max node number: %d \n"),MaxCalculixNode_);
+       if ( Verbose_ ) printf(_("Max element number: %d \n"),MaxCalculixElement_);
        
        NodeOffSet_ = (MaxCalculixNode_/10000)*10000 + 20000;
        
        ElementOffSet_ = (MaxCalculixElement_/10000)*10000 + 20000;
        
-       if ( Verbose_ ) printf("Recommended Node/Element OffSets: %d %d \n",NodeOffSet_, ElementOffSet_);
+       if ( Verbose_ ) printf((_"Recommended Node/Element OffSets: %d %d \n"),NodeOffSet_, ElementOffSet_);
        
        if ( !Verbose_ ) printf("%d %d \n",NodeOffSet_, ElementOffSet_);
       
@@ -363,7 +363,7 @@ void ADBSLICER::InterpolateSolutionToCalculix(char *name)
        
        if ( ModelType == VLM_MODEL ) {
        
-          if ( Verbose_ ) printf("VSPAERO model is VLM \n");
+          if ( Verbose_ ) printf(_("VSPAERO model is VLM \n"));
           
           Interp.IngoreBoundingBox();
           
@@ -381,8 +381,8 @@ void ADBSLICER::InterpolateSolutionToCalculix(char *name)
 
        // Output statistics
        
-       if ( Verbose_ ) printf("Max node number with offset: %d \n",MaxCalculixNode_ + NodeOffSet_);
-       if ( Verbose_ ) printf("Max element number with offset: %d \n",MaxCalculixElement_ + ElementOffSet_);
+       if ( Verbose_ ) printf(_("Max node number with offset: %d \n"),MaxCalculixNode_ + NodeOffSet_);
+       if ( Verbose_ ) printf(_("Max element number with offset: %d \n"),MaxCalculixElement_ + ElementOffSet_);
                     
     }
     
@@ -390,7 +390,7 @@ void ADBSLICER::InterpolateSolutionToCalculix(char *name)
     
     else {
      
-       printf("No Calculix %s file found! \n",CalculixFileName);
+       printf(_("No Calculix %s file found! \n"),CalculixFileName);
        fflush(NULL);
        exit(1);  
  
@@ -429,7 +429,7 @@ void ADBSLICER::LoadMeshData(void)
 
     if ( (adb_file = fopen(file_name_w_ext,"rb")) == NULL ) {
 
-       printf("Could not open either an adb or madb file... ! \n");fflush(NULL);
+       printf(_("Could not open either an adb or madb file... ! \n"));fflush(NULL);
                      
        exit(1);
        
@@ -523,7 +523,7 @@ void ADBSLICER::LoadMeshData(void)
  
        fread(WingListName_[i], c_size, 100, adb_file);
        
-       printf("Wing: %d ... %s \n",i,WingListName_[i]);fflush(NULL);
+       printf(_("Wing: %d ... %s \n",i,WingListName_[i]));fflush(NULL);
        
        fread(&DumInt, i_size, 1, adb_file);
        
@@ -608,7 +608,7 @@ void ADBSLICER::LoadMeshData(void)
         
     printf("NumberOfRotors: %d \n",NumberOfRotors);fflush(NULL);
 
-    if ( FILE_VERSION == 3 ) printf("There are %d nozzles defined \n",NumberOfNozzles);
+    if ( FILE_VERSION == 3 ) printf(_("There are %d nozzles defined \n"),NumberOfNozzles);
      
     NumberOfPropulsionElements = NumberOfRotors + NumberOfNozzles;
     
@@ -616,7 +616,7 @@ void ADBSLICER::LoadMeshData(void)
     
     // Read in the rotor data
     
-    printf("Reading in the rotor data ... \n");
+    printf(_("Reading in the rotor data ... \n"));
     
     j = 0;
     
@@ -842,7 +842,7 @@ void ADBSLICER::LoadSolutionCaseList(void)
 
     if ( (adb_file = fopen(file_name_w_ext,"r")) == NULL ) {
 
-       printf("Could not open the adb case list file... ! \n");fflush(NULL);
+       printf(_("Could not open the adb case list file... ! \n"));fflush(NULL);
                      
        exit(1);
 
@@ -913,7 +913,7 @@ void ADBSLICER::LoadSolutionData(int Case)
 
     if ( (adb_file = fopen(file_name_w_ext,"rb")) == NULL ) {
 
-       printf("Could not open either an adb or madb file... ! \n");fflush(NULL);
+       printf(_("Could not open either an adb or madb file... ! \n"));fflush(NULL);
                      
        exit(1);
 
@@ -1142,7 +1142,7 @@ void ADBSLICER::CreateTriEdges(void)
     int max_edge, new_edge, *jump_pnt, Error;
     GL_EDGE_ENTRY *list, *tlist;
 
-    printf("Finding tri edges... \n");fflush(NULL);
+    printf(_("Finding tri edges... \n"));fflush(NULL);
 
     Error = 0;
 
@@ -1222,7 +1222,7 @@ void ADBSLICER::CreateTriEdges(void)
 
              if ( start_edge != 1 ) {
 
-                 printf("Error: tris contain edges not in tet grid! \n");fflush(NULL);
+                 printf(_("Error: tris contain edges not in tet grid! \n"));fflush(NULL);
 
                  exit(1);
 
@@ -1345,7 +1345,7 @@ void ADBSLICER::CreateTriEdges(void)
 
                 if ( start_edge != 1 ) {
 
-                    printf("Error: tris contain edges not in tet grid! \n");fflush(NULL);
+                    printf(_("Error: tris contain edges not in tet grid! \n"));fflush(NULL);
 
                     exit(1);
 
@@ -1482,8 +1482,8 @@ void ADBSLICER::CreateTriEdges(void)
 
             if ( start_edge == 1 ) {
 
-               printf("Surface triangulation as input is messed up! \n");
-               printf("Error found while storing surface edges...\n");fflush(NULL);
+               printf(_("Surface triangulation as input is messed up! \n"));
+               printf(_("Error found while storing surface edges...\n"));fflush(NULL);
 
                exit(1);
 
@@ -1497,9 +1497,9 @@ void ADBSLICER::CreateTriEdges(void)
 
     }
 
-    printf("Number of nodes: %d \n",NumberOfNodes);
-    printf("Number of tris: %d \n",NumberOfTris);
-    printf("Number of edges is: %d \n",NumberOfEdges);fflush(NULL);
+    printf(_("Number of nodes: %d \n)"),NumberOfNodes);
+    printf(_("Number of tris: %d \n"),NumberOfTris);
+    printf(_("Number of edges is: %d \n"),NumberOfEdges);fflush(NULL);
 
     // Free up the scratch space
 
@@ -1508,7 +1508,7 @@ void ADBSLICER::CreateTriEdges(void)
 
     // Error noting
 
-    if ( Error ) printf("Note... mesh may not be closed! \n");fflush(NULL);
+    if ( Error ) printf(_("Note... mesh may not be closed! \n"));fflush(NULL);
 
 }
 
@@ -1649,7 +1649,7 @@ void ADBSLICER::LoadCutsFile(void)
     
     else {
        
-       printf("Could not open cuts file: %s \n",file_name_w_ext);
+       printf(_("Could not open cuts file: %s \n"),file_name_w_ext);
        
     }
   
@@ -1691,7 +1691,7 @@ void ADBSLICER::Slice(int Case)
           xyz_4[1] =  1.e6;
           xyz_4[2] =  1.e6;
 
-          fprintf(SliceFile,"BLOCK Cut_%d_at_X:_%f \n", c, CutPlaneValue[c]);
+          fprintf(SliceFile,_("BLOCK Cut_%d_at_X:_%f \n"), c, CutPlaneValue[c]);
 
        }
 
@@ -1713,7 +1713,7 @@ void ADBSLICER::Slice(int Case)
           xyz_4[1] =  CutPlaneValue[c];
           xyz_4[2] =  1.e6;
 
-          fprintf(SliceFile,"BLOCK Cut_%d_at_Y:_%f \n", c, CutPlaneValue[c]);
+          fprintf(SliceFile,_("BLOCK Cut_%d_at_Y:_%f \n"), c, CutPlaneValue[c]);
 
        }
 
@@ -1735,7 +1735,7 @@ void ADBSLICER::Slice(int Case)
           xyz_4[1] =  1.e6;
           xyz_4[2] =  CutPlaneValue[c];
 
-          fprintf(SliceFile,"BLOCK Cut_%d_at_Z:_%f \n", c, CutPlaneValue[c]);
+          fprintf(SliceFile,_("BLOCK Cut_%d_at_Z:_%f \n"), c, CutPlaneValue[c]);
 
        }
 
@@ -1871,7 +1871,7 @@ void ADBSLICER::CleanCalculixInpFile(char *filename1, char *newfilename)
 
     if ( (File1 = fopen(file_name_w_ext,"r")) == NULL ) {
        
-       printf("Could not open calulix file: %s for input! \n",file_name_w_ext);
+       printf(_("Could not open calulix file: %s for input! \n"),file_name_w_ext);
        
        fflush(NULL); exit(1);
        
@@ -1881,7 +1881,7 @@ void ADBSLICER::CleanCalculixInpFile(char *filename1, char *newfilename)
 
     if ( (NewFile = fopen(file_name_w_ext,"w")) == NULL ) {
        
-       printf("Could not open calulix file: %s for output! \n",file_name_w_ext);
+       printf(_("Could not open calulix file: %s for output! \n"),file_name_w_ext);
        
        fflush(NULL); exit(1);
        
@@ -1930,7 +1930,7 @@ void ADBSLICER::CleanCalculixInpFile(char *filename1, char *newfilename)
                          
                          if ( Node[j] == Node[k] ) {
                             
-                            printf("Element %d is whacked --> j,k: %d %d ---> Nodes: %d %d \n",ElementID,j,k,Node[j],Node[k]);
+                            printf(_("Element %d is whacked --> j,k: %d %d ---> Nodes: %d %d \n"),ElementID,j,k,Node[j],Node[k]);
                             
                             Whacked = 1;
                             
@@ -1987,7 +1987,7 @@ void ADBSLICER::ScaleCalulixInpPressureLoads(char *filename1, char *newfilename,
     char file_name_w_ext[10000], DumChar[10000];
     FILE *File1, *NewFile;
  
-    printf("Scaling pressure... \n");
+    printf(_("Scaling pressure... \n"));
     
     LoadsScaled = 0;
     
@@ -1997,7 +1997,7 @@ void ADBSLICER::ScaleCalulixInpPressureLoads(char *filename1, char *newfilename,
 
     if ( (File1 = fopen(file_name_w_ext,"r")) == NULL ) {
        
-       printf("Could not open calulix file: %s for input! \n",file_name_w_ext);
+       printf(_("Could not open calulix file: %s for input! \n"),file_name_w_ext);
        
        fflush(NULL); exit(1);
        
@@ -2007,7 +2007,7 @@ void ADBSLICER::ScaleCalulixInpPressureLoads(char *filename1, char *newfilename,
 
     if ( (NewFile = fopen(file_name_w_ext,"w")) == NULL ) {
        
-       printf("Could not open calulix file: %s for output! \n",file_name_w_ext);
+       printf(_("Could not open calulix file: %s for output! \n"),file_name_w_ext);
        
        fflush(NULL); exit(1);
        
@@ -2033,7 +2033,7 @@ void ADBSLICER::ScaleCalulixInpPressureLoads(char *filename1, char *newfilename,
              
              fgets(DumChar,2000,File1);
              
-            // printf("Looking at: %s \n",DumChar);
+            // printf(_("Looking at: %s \n"),DumChar);
              
              if ( strlen(DumChar) < 2 ) Done = 1;
              
@@ -2045,7 +2045,7 @@ void ADBSLICER::ScaleCalulixInpPressureLoads(char *filename1, char *newfilename,
                 
                 LoadsScaled++;
                 
-            //    printf("Scaling pressure from: %f to %f \n",Pressure,Pressure*ScaleFactor);
+            //    printf(_("Scaling pressure from: %f to %f \n"),Pressure,Pressure*ScaleFactor);
     
              }
              
@@ -2076,7 +2076,7 @@ void ADBSLICER::ScaleCalulixInpPressureLoads(char *filename1, char *newfilename,
        
     }
     
-    printf("Scaled %d pressure DLOADs \n",LoadsScaled);
+    printf(_("Scaled %d pressure DLOADs \n"),LoadsScaled);
 
     fclose(File1);
     fclose(NewFile);
@@ -2103,13 +2103,13 @@ void ADBSLICER::OptimizationCalculixInpFile(char *filename1, char *filename2, ch
        
     // Open the sizing file
     
-    printf("Sizing element thickness and saving data... \n");
+    printf(_("Sizing element thickness and saving data... \n"));
 
     sprintf(file_name_w_ext,"%s.sized",filename1);
     
     if ( (SizingFile = fopen(file_name_w_ext,"w")) == NULL ) {
 
-       printf("Could not open the thickness sizing file: %s for output. \n",file_name_w_ext);
+       printf(_("Could not open the thickness sizing file: %s for output. \n"),file_name_w_ext);
        fflush(NULL);exit(1);
        
     }
@@ -2182,11 +2182,11 @@ void ADBSLICER::OptimizationCalculixInpFile(char *filename1, char *filename2, ch
     
     Savg *= 1.e9;
     
-    printf("Max Allowable Stress: %f x e6 \n",MaxStress_/1.e6);
-    printf("Max stress during optimization was: %f \n",Smax);
-    printf("Max stress/Max Allow: %f \n",Smax/MaxStress_);
-    printf("Avg stress during optimization was: %f \n",Savg);
-    printf("Avg stress/Max Allow: %f \n",Savg/MaxStress_);
+    printf(_("Max Allowable Stress: %f x e6 \n"),MaxStress_/1.e6);
+    printf(_("Max stress during optimization was: %f \n"),Smax);
+    printf(_("Max stress/Max Allow: %f \n"),Smax/MaxStress_);
+    printf(_("Avg stress during optimization was: %f \n"),Savg);
+    printf(_("Avg stress/Max Allow: %f \n"),Savg/MaxStress_);
       
     fclose(SizingFile);
 
@@ -2225,13 +2225,13 @@ void ADBSLICER::SmoothSkinThickness(char *filename1)
 
     if ( (File1 = fopen(file_name_w_ext,"r")) == NULL ) {
        
-       printf("Could not open calulix file: %s for input! \n",file_name_w_ext);
+       printf(_("Could not open calulix file: %s for input! \n"),file_name_w_ext);
        
        fflush(NULL); exit(1);
        
     }
 
-    printf("Looking for element list: %s \n",ElementLabel_);
+    printf(_("Looking for element list: %s \n"),ElementLabel_);
     
     sprintf(SearchLabel,"%s",ElementLabel_);
     
@@ -2245,7 +2245,7 @@ void ADBSLICER::SmoothSkinThickness(char *filename1)
 
        if ( !AllDone && strstr(DumChar,"*ELEMENT") != NULL && strstr(DumChar,SearchLabel) != NULL ) {
     
-          printf("Grabbing element data for... DumChar: %s \n",DumChar);
+          printf(_("Grabbing element data for... DumChar: %s \n"),DumChar);
                     
           j = Done = 0;
           
@@ -2270,7 +2270,7 @@ void ADBSLICER::SmoothSkinThickness(char *filename1)
                     
                 if ( j > MaxElements ) {
                    
-                   printf("Resizing element array... \n");fflush(NULL);
+                   printf(_("Resizing element array... \n"));fflush(NULL);
                    
                    ElementData = resize_int_array(ElementData, 7*MaxElements, 1.25*7*MaxElements);
                    
@@ -2332,7 +2332,7 @@ void ADBSLICER::SmoothSkinThickness(char *filename1)
 
     fclose(File1);
     
-    printf("Smoothing %d elements \n",NumElementsToSmooth);
+    printf(_("Smoothing %d elements \n"),NumElementsToSmooth);
     
     // Now smooth the thickness for this list
     
@@ -2419,7 +2419,7 @@ void ADBSLICER::ResizeCalculixInputFileSkins(char *filename1, char *newfilename)
 
     if ( (File1 = fopen(file_name_w_ext,"r")) == NULL ) {
        
-       printf("Could not open calculix file: %s for input! \n",file_name_w_ext);
+       printf(_("Could not open calculix file: %s for input! \n"),file_name_w_ext);
        
        fflush(NULL); exit(1);
        
@@ -2429,7 +2429,7 @@ void ADBSLICER::ResizeCalculixInputFileSkins(char *filename1, char *newfilename)
 
     if ( (NewFile = fopen(file_name_w_ext,"w")) == NULL ) {
        
-       printf("Could not open calulix file: %s for output! \n",file_name_w_ext);
+       printf(_("Could not open calulix file: %s for output! \n"),file_name_w_ext);
        
        fflush(NULL); exit(1);
        
@@ -2449,7 +2449,7 @@ void ADBSLICER::ResizeCalculixInputFileSkins(char *filename1, char *newfilename)
 
        if ( !AllDone && strstr(DumChar,"*ELEMENT") != NULL && strstr(DumChar,SearchLabel) != NULL ) {
     
-          printf("Setting up thickness for... DumChar: %s \n",DumChar);
+          printf(_("Setting up thickness for... DumChar: %s \n"),DumChar);
           
           sprintf(SaveLine,"%s",DumChar);
 
@@ -2487,7 +2487,7 @@ void ADBSLICER::ResizeCalculixInputFileSkins(char *filename1, char *newfilename)
                                         
                 if ( j > MaxElements ) {
                    
-                   printf("Resizing element list... \n");fflush(NULL);
+                   printf(_("Resizing element list... \n"));fflush(NULL);
                    
                    ElementData = resize_int_array(ElementData, 8*MaxElements, 1.25*8*MaxElements);
                    
@@ -2557,7 +2557,7 @@ void ADBSLICER::ResizeCalculixInputFileSkins(char *filename1, char *newfilename)
                   
                 if ( CalculixElement[ElementID].Thickness <= Thickness ) {
                    
-               //  printf("Working on group: %d... with thickness: %f ... and element: %d has thickness: %f and is set to group: %d \n",
+               //  printf(_("Working on group: %d... with thickness: %f ... and element: %d has thickness: %f and is set to group: %d \n"),
                //  t,
                //  Thickness,
                //  ElementID,
@@ -2576,14 +2576,14 @@ void ADBSLICER::ResizeCalculixInputFileSkins(char *filename1, char *newfilename)
        //     
        //      ElementID = ElementData[8*k-7];
        //       
-       //      printf("Element: %d has thickness: %f and is set to group: %d \n",
+       //      printf(_("Element: %d has thickness: %f and is set to group: %d \n"),
        //      ElementID,
        //      CalculixElement[ElementID].Thickness,
        //      CalculixElement[ElementID].SizingGroup);
        //     
        //  }
 
-          printf("Writing out new element lists... \n");fflush(NULL);
+          printf(_("Writing out new element lists... \n"));fflush(NULL);
           
           fprintf(NewFile,"%s",DumChar);   
           
@@ -2593,7 +2593,7 @@ void ADBSLICER::ResizeCalculixInputFileSkins(char *filename1, char *newfilename)
           
           for ( t = 1 ; t < NumberOfCalculixSizingGroups_ ; t++ ) {
        
-             printf("Working on group: %d \n",t);fflush(NULL);
+             printf(_("Working on group: %d \n"),t);fflush(NULL);
              
              fprintf(NewFile,"*ELEMENT, TYPE=S6, ELSET=%s.%-d\n",ElementLabel_,t);
              
@@ -2643,13 +2643,13 @@ void ADBSLICER::ResizeCalculixInputFileSkins(char *filename1, char *newfilename)
                
           Done = 1;
           
-          printf("NumUsedElements: %d ... and NumberOfElements: %d \n",NumUsedElements,NumberOfElements);
+          printf(_("NumUsedElements: %d ... and NumberOfElements: %d \n"),NumUsedElements,NumberOfElements);
           
        }
 
        else if ( !AllDone && strstr(DumChar,"*ELEMENT") != NULL && strstr(DumChar,SearchLabel) == NULL ) {
           
-          printf("Skipping over element data for... DumChar: %s \n",DumChar);
+          printf(_("Skipping over element data for... DumChar: %s \n"),DumChar);
         
           fprintf(NewFile,"%s",DumChar);
           
@@ -2685,7 +2685,7 @@ void ADBSLICER::ResizeCalculixInputFileSkins(char *filename1, char *newfilename)
           
           if ( strstr(DumChar,SearchLabel) != NULL ) {
              
-             printf("found shell skin statement... %s \n",DumChar); fflush(NULL);
+             printf(_("found shell skin statement... %s \n"),DumChar); fflush(NULL);
              
              // Read in the 2nd line of this SHELL statement...
              
@@ -2721,17 +2721,17 @@ void ADBSLICER::ResizeCalculixInputFileSkins(char *filename1, char *newfilename)
        
     }
     
-    printf("New minimum thickness: %f \n",CalculixMinSizingThickness_);
+    printf(_("New minimum thickness: %f \n"),CalculixMinSizingThickness_);
     printf("New maximum thickness: %f \n",CalculixMaxSizingThickness_);
     printf("\n");
-    printf("Old volume: %f \n",Volume[0]);
-    printf("New volume: %f \n",Volume[1]);
-    printf("Volume Ratio New/Old: %f \n",Volume[1]/Volume[0]);
+    printf(_("Old volume: %f \n"),Volume[0]);
+    printf(_("New volume: %f \n"),Volume[1]);
+    printf(_("Volume Ratio New/Old: %f \n"),Volume[1]/Volume[0]);
     printf("\n");
-    printf("Wetted Area: %f \n",Area);
+    printf(_("Wetted Area: %f \n"),Area);
     printf("\n");
-    printf("Old average thickness: %f \n",Volume[0]/Area);    
-    printf("New average thickness: %f \n",Volume[1]/Area);
+    printf(_("Old average thickness: %f \n"),Volume[0]/Area);    
+    printf(_("New average thickness: %f \n"),Volume[1]/Area);
 
     fclose(File1);
     fclose(NewFile);
@@ -2771,7 +2771,7 @@ void ADBSLICER::ResizeCalculixInputFileSkinsOld(char *filename1, char *newfilena
 
     if ( (File1 = fopen(file_name_w_ext,"r")) == NULL ) {
        
-       printf("Could not open calculix file: %s for input! \n",file_name_w_ext);
+       printf(_("Could not open calculix file: %s for input! \n"),file_name_w_ext);
        
        fflush(NULL); exit(1);
        
@@ -2781,7 +2781,7 @@ void ADBSLICER::ResizeCalculixInputFileSkinsOld(char *filename1, char *newfilena
 
     if ( (NewFile = fopen(file_name_w_ext,"w")) == NULL ) {
        
-       printf("Could not open calulix file: %s for output! \n",file_name_w_ext);
+       printf(_("Could not open calulix file: %s for output! \n"),file_name_w_ext);
        
        fflush(NULL); exit(1);
        
@@ -2801,7 +2801,7 @@ void ADBSLICER::ResizeCalculixInputFileSkinsOld(char *filename1, char *newfilena
 
        if ( !AllDone && strstr(DumChar,"*ELEMENT") != NULL && strstr(DumChar,SearchLabel) != NULL ) {
     
-          printf("Setting up thickness for... DumChar: %s \n",DumChar);
+          printf(_("Setting up thickness for... DumChar: %s \n"),DumChar);
           
           sprintf(SaveLine,"%s",DumChar);
 
@@ -2929,7 +2929,7 @@ void ADBSLICER::ResizeCalculixInputFileSkinsOld(char *filename1, char *newfilena
           
           if ( strstr(DumChar,SearchLabel) != NULL ) {
              
-             printf("found shell skin statement... %s \n",DumChar); fflush(NULL);
+             printf(_("found shell skin statement... %s \n"),DumChar); fflush(NULL);
              
              // Read in the 2nd line of this SHELL statement...
              
@@ -2953,17 +2953,17 @@ void ADBSLICER::ResizeCalculixInputFileSkinsOld(char *filename1, char *newfilena
        
     }
     
-    printf("New minimum thickness: %f \n",MinThick);
-    printf("New maximum thickness: %f \n",MaxThick);
+    printf(_("New minimum thickness: %f \n"),MinThick);
+    printf(_("New maximum thickness: %f \n"),MaxThick);
     printf("\n");
-    printf("Old volume: %f \n",Volume[0]);
-    printf("New volume: %f \n",Volume[1]);
-    printf("Volume Ratio New/Old: %f \n",Volume[1]/Volume[0]);
+    printf(_("Old volume: %f \n",Volume[0]);
+    printf(_("New volume: %f \n",Volume[1]);
+    printf(_("Volume Ratio New/Old: %f \n"),Volume[1]/Volume[0]);
     printf("\n");
-    printf("Wetted Area: %f \n",Area);
+    printf(_("Wetted Area: %f \n",Area);
     printf("\n");
-    printf("Old average thickness: %f \n",Volume[0]/Area);    
-    printf("New average thickness: %f \n",Volume[1]/Area);
+    printf(_("Old average thickness: %f \n"),Volume[0]/Area);    
+    printf(_("New average thickness: %f \n"),Volume[1]/Area);
 
     fclose(File1);
     fclose(NewFile);
@@ -2994,7 +2994,7 @@ void ADBSLICER::LoadCalculixINPFileSurfaceElements(char *name)
 
     if ( (CalculixFile = fopen(file_name_w_ext,"r")) == NULL ) {
 
-       printf("Could not open calculix input file file... ! \n");fflush(NULL);
+       printf(_("Could not open calculix input file file... ! \n"));fflush(NULL);
                      
        exit(1);
        
@@ -3040,7 +3040,7 @@ void ADBSLICER::LoadCalculixINPFileSurfaceElements(char *name)
       
     }
 
-    if ( Verbose_ ) printf("Found a total of %d nodes \n",NumNodes);
+    if ( Verbose_ ) printf(_("Found a total of %d nodes \n"),NumNodes);
 
     rewind(CalculixFile);
     
@@ -3078,8 +3078,8 @@ void ADBSLICER::LoadCalculixINPFileSurfaceElements(char *name)
 
     }
        
-    if ( Verbose_ ) printf("Found %d surface nodes \n",NumNodes);
-    if ( Verbose_ ) printf("Found %d surface elements \n",NumElements);
+    if ( Verbose_ ) printf(_("Found %d surface nodes \n"),NumNodes);
+    if ( Verbose_ ) printf(_("Found %d surface elements \n"),NumElements);
     fflush(NULL);
     
     FEM_Mesh.NodeList = new INTERP_NODE[NumNodes + 1];
@@ -3327,7 +3327,7 @@ int *ADBSLICER::RenumberCalulixINPFile(char *name)
 
     if ( (CalculixFile = fopen(file_name_w_ext,"r")) == NULL ) {
 
-       printf("Could not open calculix input file file... ! \n");fflush(NULL);
+       printf(_("Could not open calculix input file file... ! \n"));fflush(NULL);
                      
        exit(1);
        
@@ -3373,7 +3373,7 @@ int *ADBSLICER::RenumberCalulixINPFile(char *name)
       
     }
 
-    if ( Verbose_ ) printf("Found a total of %d nodes \n",NumNodes);
+    if ( Verbose_ ) printf(_("Found a total of %d nodes \n"),NumNodes);
 
     rewind(CalculixFile);
     
@@ -3413,8 +3413,8 @@ int *ADBSLICER::RenumberCalulixINPFile(char *name)
 
     }
        
-    if ( Verbose_ ) printf("Found %d nodes \n",NumNodes);
-    if ( Verbose_ ) printf("Found %d elements \n",NumElements);
+    if ( Verbose_ ) printf(_("Found %d nodes \n"),NumNodes);
+    if ( Verbose_ ) printf(_("Found %d elements \n"),NumElements);
     
     fflush(NULL);
     
@@ -3477,7 +3477,7 @@ int *ADBSLICER::RenumberCalulixINPFile(char *name)
        
     }
     
-    printf("Checking... i is: %d ... and... NumNodes is: %d \n",i,NumNodes);
+    printf(_("Checking... i is: %d ... and... NumNodes is: %d \n"),i,NumNodes);
  
     rewind(CalculixFile);    
 
@@ -3563,7 +3563,7 @@ int *ADBSLICER::RenumberCalulixINPFile(char *name)
        
     }
     
-    printf("Checking... i is: %d ... and... NumElements is: %d \n",i,NumElements);
+    printf(_("Checking... i is: %d ... and... NumElements is: %d \n"),i,NumElements);
     
     fclose(CalculixFile);
      
@@ -3577,7 +3577,7 @@ int *ADBSLICER::RenumberCalulixINPFile(char *name)
        
     }
     
-    printf("Max node number: %d \n",MaxNodes);
+    printf(_("Max node number: %d \n"),MaxNodes);
     
     MaxTris = 0;
 
@@ -3587,7 +3587,7 @@ int *ADBSLICER::RenumberCalulixINPFile(char *name)
        
     }
 
-    printf("Max element number: %d \n",MaxTris);
+    printf(_("Max element number: %d \n"),MaxTris);
            
     CalculixNodePerm_ = new int[MaxNodes + 1];
     
@@ -3642,7 +3642,7 @@ void ADBSLICER::WriteOutRenumberedCalculixINPFile(char *name)
 
     if ( (InpFile = fopen(file_name_w_ext,"r")) == NULL ) {
        
-       printf("Could not open calulix file: %s for input! \n",file_name_w_ext);
+       printf(_("Could not open calulix file: %s for input! \n"),file_name_w_ext);
        
        fflush(NULL); exit(1);
        
@@ -3833,7 +3833,7 @@ void ADBSLICER::WriteOutRenumberedCalculixINPFile(char *name)
           
           else if ( strstr(DumChar,"*DLOAD") != NULL ) {
              
-         //    printf("Working DLOAD List: %s \n",DumChar);fflush(NULL);
+         //    printf(_("Working DLOAD List: %s \n"),DumChar);fflush(NULL);
              
           //   printf("DLOAD ... %s \n",DumChar);
              
@@ -3876,7 +3876,7 @@ void ADBSLICER::WriteOutRenumberedCalculixINPFile(char *name)
           
           else if ( strstr(DumChar,"*CLOAD") != NULL ) {
              
-            // printf("Working CLOAD List: %s \n",DumChar);fflush(NULL);
+            // printf(_("Working CLOAD List: %s \n"),DumChar);fflush(NULL);
              
              fprintf(NewFile,"%s",DumChar);
              
@@ -3911,7 +3911,7 @@ void ADBSLICER::WriteOutRenumberedCalculixINPFile(char *name)
                     
           else if ( strstr(DumChar,"*EQUATION") != NULL ) {
              
-            // printf("Working EQUATION List: %s \n",DumChar);fflush(NULL);
+            // printf(_("Working EQUATION List: %s \n"),DumChar);fflush(NULL);
              
              fprintf(NewFile,"%s",DumChar);
              
@@ -3941,7 +3941,7 @@ void ADBSLICER::WriteOutRenumberedCalculixINPFile(char *name)
 
           else if ( strstr(DumChar,"*BOUNDARY") != NULL ) {
              
-            // printf("Working BOUNDARY List: %s \n",DumChar);fflush(NULL);
+            // printf(_("Working BOUNDARY List: %s \n"),DumChar);fflush(NULL);
              
              fprintf(NewFile,"%s",DumChar);
 
@@ -3981,7 +3981,7 @@ void ADBSLICER::WriteOutRenumberedCalculixINPFile(char *name)
           
           else if ( strstr(DumChar,"*NORMAL") != NULL ) {
 
-          //   printf("Working NORMAL List: %s \n",DumChar);fflush(NULL);
+          //   printf(_("Working NORMAL List: %s \n"),DumChar);fflush(NULL);
 
              Editing = 1;
              
@@ -4034,15 +4034,15 @@ void ADBSLICER::CreateVSPInterpMesh(void)
 
     printf("fuckme! \n");fflush(NULL);
     
-    printf("Number of VSP Nodes: %d \n",NumberOfNodes);
-    printf("Number of VSP Tris: %d \n",NumberOfTris);
+    printf(_("Number of VSP Nodes: %d \n"),NumberOfNodes);
+    printf(_("Number of VSP Tris: %d \n"),NumberOfTris);
     
     VSP_Mesh.number_of_nodes = NumberOfNodes;
     VSP_Mesh.number_of_tris = NumberOfTris;
     
     if ( ModelType == VLM_MODEL ) {
        
-       printf("Model is VLM \n");
+       printf(_("Model is VLM \n"));
        
        VSP_Mesh.number_of_nodes *= 2;
        
@@ -4122,7 +4122,7 @@ void ADBSLICER::WriteOutCalculixStaticAnalysisFile(char *name, int AnalysisType)
 
     if ( (InpFile = fopen(file_name_w_ext,"r")) == NULL ) {
        
-       printf("Could not open calulix file: %s for input! \n",file_name_w_ext);
+       printf(_("Could not open calulix file: %s for input! \n"),file_name_w_ext);
        
        fflush(NULL); exit(1);
        
@@ -4144,7 +4144,7 @@ void ADBSLICER::WriteOutCalculixStaticAnalysisFile(char *name, int AnalysisType)
     
     else {
        
-       printf("Unknown CALCULIX analysis type! \n");
+       printf(_("Unknown CALCULIX analysis type! \n"));
        fflush(NULL);exit(1);
        
     }       
@@ -4295,7 +4295,7 @@ void ADBSLICER::WriteOutCalculixStaticAnalysisFile(char *name, int AnalysisType)
 
            else if ( strstr(DumChar,"*ELEMENT") != NULL && strstr(DumChar,"B32") != NULL ) {
               
-              printf("Element list! \n");
+              printf(_("Element list! \n"));
               
               sscanf(DumChar,"*ELEMENT, TYPE=S6,%s",SetName);
               
@@ -4347,7 +4347,7 @@ void ADBSLICER::WriteOutCalculixStaticAnalysisFile(char *name, int AnalysisType)
            
            else if ( strstr(DumChar,"*SHELL SECTION") != NULL ) {
               
-              printf("Shell definition! \n");
+              printf(_("Shell definition! \n"));
               
               printf("DumChar: %s \n",DumChar);
 
@@ -4386,7 +4386,7 @@ void ADBSLICER::WriteOutCalculixStaticAnalysisFile(char *name, int AnalysisType)
 
            else if ( strstr(DumChar,"*ORIENTATION") != NULL ) {
 
-              printf("Orientation definition! \n");
+              printf(_("Orientation definition! \n"));
 
               // strtok modifies base string contents, work from copy to leave DumChar un-changed.
               strcpy( DumChar2, DumChar );
@@ -4418,7 +4418,7 @@ void ADBSLICER::WriteOutCalculixStaticAnalysisFile(char *name, int AnalysisType)
 
            else if ( strstr(DumChar,"*MATERIAL") != NULL ) {
               
-              printf("Material definition! \n");
+              printf(_("Material definition! \n"));
 
               // strtok modifies base string contents, work from copy to leave DumChar un-changed.
               strcpy( DumChar2, DumChar );
@@ -4518,7 +4518,7 @@ void ADBSLICER::WriteOutCalculixStaticAnalysisFile(char *name, int AnalysisType)
        
        else {
           
-          printf("Unknown CALCULIX analysis type! \n");
+          printf(_("Unknown CALCULIX analysis type! \n"));
           fflush(NULL);exit(1);
           
        }
@@ -4602,7 +4602,7 @@ void ADBSLICER::MergeCalculixFiles(char *filename1, char *filename2, char *newfi
 
     if ( (File1 = fopen(file_name_w_ext,"r")) == NULL ) {
        
-       printf("Could not open calulix file: %s for input! \n",file_name_w_ext);
+       printf(_("Could not open calulix file: %s for input! \n"),file_name_w_ext);
        
        fflush(NULL); exit(1);
        
@@ -4612,7 +4612,7 @@ void ADBSLICER::MergeCalculixFiles(char *filename1, char *filename2, char *newfi
 
     if ( (File2 = fopen(file_name_w_ext,"r")) == NULL ) {
        
-       printf("Could not open calulix file: %s for input! \n",file_name_w_ext);
+       printf(_("Could not open calulix file: %s for input! \n"),file_name_w_ext);
        
        fflush(NULL); exit(1);
        
@@ -4622,7 +4622,7 @@ void ADBSLICER::MergeCalculixFiles(char *filename1, char *filename2, char *newfi
 
     if ( (NewFile = fopen(file_name_w_ext,"w")) == NULL ) {
        
-       printf("Could not open calulix file: %s for output! \n",file_name_w_ext);
+       printf(_("Could not open calulix file: %s for output! \n"),file_name_w_ext);
        
        fflush(NULL); exit(1);
        
@@ -4630,7 +4630,7 @@ void ADBSLICER::MergeCalculixFiles(char *filename1, char *filename2, char *newfi
             
     // Copy everything up to *STEP statement from file 1
     
-    fprintf(NewFile,"**Element, Node, Shell, and Material Data from File: %s \n",filename1);
+    fprintf(NewFile,_("**Element, Node, Shell, and Material Data from File: %s \n"),filename1);
     fprintf(NewFile,"\n");
        
     Done = 0;
@@ -4660,7 +4660,7 @@ void ADBSLICER::MergeCalculixFiles(char *filename1, char *filename2, char *newfi
     // Copy everything up to *STEP statement from file 2
     
     fprintf(NewFile,"\n");    
-    fprintf(NewFile,"**Element, Node, Shell, and Material Data from File: %s \n",filename2);
+    fprintf(NewFile,_("**Element, Node, Shell, and Material Data from File: %s \n"),filename2);
     fprintf(NewFile,"\n");
        
     Done = 0;
@@ -4712,7 +4712,7 @@ void ADBSLICER::MergeCalculixFiles(char *filename1, char *filename2, char *newfi
 
        if ( !Done && strstr(DumChar,"*DLOAD") != NULL ) {
 
-          fprintf(NewFile,"**LOAD Data from File: %s \n",filename1);
+          fprintf(NewFile,_("**LOAD Data from File: %s \n"),filename1);
           fprintf(NewFile,"\n");
               
           fprintf(NewFile,"%s",DumChar);
@@ -4756,7 +4756,7 @@ void ADBSLICER::MergeCalculixFiles(char *filename1, char *filename2, char *newfi
     // Copy everything from File 2 down to the *NODE FILE statement
     
     fprintf(NewFile,"\n");    
-    fprintf(NewFile,"**LOAD Data from File: %s \n",filename2);
+    fprintf(NewFile,_("**LOAD Data from File: %s \n"),filename2);
     fprintf(NewFile,"\n");
     fprintf(NewFile,"*DLOAD\n");
        
@@ -4784,12 +4784,12 @@ void ADBSLICER::MergeCalculixFiles(char *filename1, char *filename2, char *newfi
 
     // Copy remaining stuff from File 1
     
-    fprintf(NewFile,"**Remaining Lines from File: %s \n",filename1);
+    fprintf(NewFile,_("**Remaining Lines from File: %s \n"),filename1);
     fprintf(NewFile,"\n");
        
     Done = 0;
     
-    fprintf(NewFile,"*NODE FILE\n");
+    fprintf(NewFile,_("*NODE FILE\n"));
     
     while ( !Done ) {
     
@@ -4851,7 +4851,7 @@ void ADBSLICER::LoadCalculixData(char *filename)
 
     // Open the calculix solution file
     
-    printf("Opening the Calculix frd file... \n");
+    printf(_("Opening the Calculix frd file... \n"));
 
     sprintf(file_name_w_ext,"%s.frd",filename);
     
@@ -5325,8 +5325,8 @@ void ADBSLICER::LoadCalculixData(char *filename)
 
     }
  
-    printf("Max Deflection: %f \n",DsMax);
-    printf("Min Principal Stresses: S1,2,3_min: %f, %f, %f \n",S1_Min,S2_Min,S3_Min);
-    printf("Max Principal Stresses: S1,2,3_max: %f, %f, %f \n",S1_Max,S2_Max,S3_Max);
+    printf(_("Max Deflection: %f \n"),DsMax);
+    printf(_("Min Principal Stresses: S1,2,3_min: %f, %f, %f \n"),S1_Min,S2_Min,S3_Min);
+    printf(_("Max Principal Stresses: S1,2,3_max: %f, %f, %f \n"),S1_Max,S2_Max,S3_Max);
 
 }

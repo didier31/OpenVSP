@@ -5,6 +5,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+#include <libintl.h>
+
 #include "PodScreen.h"
 #include "ScreenMgr.h"
 #include "PodGeom.h"
@@ -13,15 +15,15 @@
 //==== Constructor ====//
 PodScreen::PodScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 525, "Pod" )
 {
-    Fl_Group* design_tab = AddTab( "Design" );
+    Fl_Group* design_tab = AddTab( _("Design") );
     Fl_Group* design_group = AddSubGroup( design_tab, 5 );
 
     m_DesignLayout.SetGroupAndScreen( design_group, this );
-    m_DesignLayout.AddDividerBox( "Design" );
+    m_DesignLayout.AddDividerBox( _("Design") );
 
     //==== Design ====//
-    m_DesignLayout.AddSlider( m_LengthSlider, "Length", 10, "%7.3f" );
-    m_DesignLayout.AddSlider( m_FineSlider, "Fine Ratio", 5, "%7.3f" );
+    m_DesignLayout.AddSlider( m_LengthSlider, _("Length"), 10, "%7.3f" );
+    m_DesignLayout.AddSlider( m_FineSlider, _("Fine Ratio"), 5, "%7.3f" );
     m_DesignLayout.AddYGap();
 
 }

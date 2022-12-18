@@ -5,6 +5,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+#include <libintl.h>
+
 #include "AeroStructScreen.h"
 #include "ScreenMgr.h"
 #include "ScreenBase.h"
@@ -22,7 +24,7 @@
 
 
 //==== Constructor ====//
-AeroStructScreen::AeroStructScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 400, 600, "Aero Structure Coupled Analysis" )
+AeroStructScreen::AeroStructScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 400, 600, _("Aero Structure Coupled Analysis") )
 {
     m_MainLayout.SetGroupAndScreen( m_FLTK_Window, this );
 
@@ -35,55 +37,55 @@ AeroStructScreen::AeroStructScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 400, 60
 
     m_BorderLayout.AddDividerBox( "VSPAERO" );
 
-    m_BorderLayout.AddButton( m_ShowVSPAEROGUI, "Show VSPAERO GUI" );
-    m_BorderLayout.AddButton( m_ExecuteVSPAERO, "Execute VSPAERO" );
+    m_BorderLayout.AddButton( m_ShowVSPAEROGUI, _("Show VSPAERO GUI") );
+    m_BorderLayout.AddButton( m_ExecuteVSPAERO, _("Execute VSPAERO") );
 
     m_BorderLayout.AddYGap();
-    m_BorderLayout.AddDividerBox( "FEA Mesh" );
+    m_BorderLayout.AddDividerBox( _("FEA Mesh") );
 
-    m_BorderLayout.AddChoice( m_StructureChoice, "Structure" );
+    m_BorderLayout.AddChoice( m_StructureChoice, _("Structure") );
 
     m_BorderLayout.SetFitWidthFlag( false );
     m_BorderLayout.SetSameLineFlag( true );
 
     m_BorderLayout.SetButtonWidth( m_BorderLayout.GetW() / 2 );
 
-    m_BorderLayout.AddButton( m_ShowFEAMeshGUI, "Show FEA Structure GUI" );
-    m_BorderLayout.AddButton( m_ShowFEAAssemblyGUI, "Show FEA Assembly GUI" );
+    m_BorderLayout.AddButton( m_ShowFEAMeshGUI, _("Show FEA Structure GUI" ));
+    m_BorderLayout.AddButton( m_ShowFEAAssemblyGUI, _("Show FEA Assembly GUI" ));
     m_BorderLayout.ForceNewLine();
 
 
-    m_BorderLayout.AddButton( m_ExecuteRemeshAllFEAMesh, "Remesh All" );
-    m_BorderLayout.AddButton( m_ExecuteMeshUnmeshedFEAMesh, "Mesh Unmeshed" );
+    m_BorderLayout.AddButton( m_ExecuteRemeshAllFEAMesh, _("Remesh All") );
+    m_BorderLayout.AddButton( m_ExecuteMeshUnmeshedFEAMesh, _("Mesh Unmeshed") );
     m_BorderLayout.ForceNewLine();
 
     m_BorderLayout.SetFitWidthFlag( true );
     m_BorderLayout.SetSameLineFlag( false );
 
-    m_BorderLayout.AddButton( m_ExportFEAMesh, "Export FEA Mesh" );
+    m_BorderLayout.AddButton( m_ExportFEAMesh, _("Export FEA Mesh" ));
 
-    m_BorderLayout.AddButton( m_ExecuteCGXMesh, "Visualize Mesh in cgx" );
+    m_BorderLayout.AddButton( m_ExecuteCGXMesh, _("Visualize Mesh in cgx" ));
 
     m_BorderLayout.AddYGap();
     m_BorderLayout.AddDividerBox( "Loads" );
 
     m_BorderLayout.SetButtonWidth( m_BorderLayout.GetW() / 3 );
 
-    m_BorderLayout.AddSlider( m_DynPressSlider, "Dynamic Pressure", 100, "%7.3f"  );
-    m_BorderLayout.AddButton( m_ExecuteLoads, "Apply Loads" );
+    m_BorderLayout.AddSlider( m_DynPressSlider, _("Dynamic Pressure"), 100, "%7.3f"  );
+    m_BorderLayout.AddButton( m_ExecuteLoads, _("Apply Loads") );
 
-    m_BorderLayout.AddButton( m_ExecuteCGXInput, "Visualize Input in cgx" );
+    m_BorderLayout.AddButton( m_ExecuteCGXInput, _("Visualize Input in cgx") );
 
     m_BorderLayout.AddYGap();
     m_BorderLayout.AddDividerBox( "CalculiX" );
 
-    m_BorderLayout.AddButton( m_ExecuteCalculiX, "Solve Structure" );
+    m_BorderLayout.AddButton( m_ExecuteCalculiX, _("Solve Structure") );
 
     m_BorderLayout.AddYGap();
-    m_BorderLayout.AddDividerBox( "Viewer" );
+    m_BorderLayout.AddDividerBox( _("Viewer") );
 
-    m_BorderLayout.AddButton( m_ExecuteViewer, "Visualize Results in vspviewer" );
-    m_BorderLayout.AddButton( m_ExecuteCGXSolution, "Visualize Results in cgx" );
+    m_BorderLayout.AddButton( m_ExecuteViewer, _("Visualize Results in vspviewer") );
+    m_BorderLayout.AddButton( m_ExecuteCGXSolution, _("Visualize Results in cgx") );
 
     m_BorderLayout.ForceNewLine();
 
@@ -402,7 +404,7 @@ void * asmonitorfun( void *data )
 
             Fl::lock();
             // Any FL calls must occur between Fl::lock() and Fl::unlock().
-            as->AddOutputText( "Done\n" );
+            as->AddOutputText( _("Done\n") );
             Fl::unlock();
 
 #ifdef WIN32
@@ -492,15 +494,15 @@ void AeroStructScreen::GuiDeviceCallBack( GuiDevice* gui_device )
 
             if ( AeroStructMgr.m_StructAssyFlagVec[ AeroStructMgr.m_CurrStructAssyIndex() ] )         // Currently a structure
             {
-                FeaMeshMgr.addOutputText( "Exporting Mesh Files\n" );
+                FeaMeshMgr.addOutputText( _("Exporting Mesh Files\n") );
                 FeaMeshMgr.ExportFeaMesh( id );
             }
             else                                                                                      // Currently an assembly.
             {
-                FeaMeshMgr.addOutputText( "Exporting Mesh Files\n" );
+                FeaMeshMgr.addOutputText( _("Exporting Mesh Files\n") );
                 FeaMeshMgr.ExportAssemblyMesh( id );
             }
-            FeaMeshMgr.addOutputText( "Done\n" );
+            FeaMeshMgr.addOutputText( _("Done\n") );
         }
     }
     else if ( gui_device == &m_ExecuteLoads )

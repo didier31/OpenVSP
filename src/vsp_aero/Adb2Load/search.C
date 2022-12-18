@@ -1,3 +1,4 @@
+#include <libintl.h>
 #include "search.H"
 
 int leafs = 0;
@@ -36,7 +37,7 @@ LEAF *create_cfd_tree(INTERP_MESH *Mesh)
 
     num_nodes = 0;
 
-    printf("Inserting %d triangles into tree... \n",Mesh->number_of_tris);
+    printf(_("Inserting %d triangles into tree... \n"),Mesh->number_of_tris);
 
     for ( i = 1 ; i <= Mesh->number_of_tris ; i++ ) {
 
@@ -100,7 +101,7 @@ LEAF *create_cfd_tree(INTERP_MESH *Mesh)
 
     create_tree_leafs(root);
 
-    printf("Created %d branches in binary tree \n",leafs);
+    printf(_("Created %d branches in binary tree \n"),leafs);
 
     return(root);
 
@@ -132,7 +133,7 @@ void create_tree_leafs(LEAF *root)
 
     if ( fmod(leafs,50) == 0 ) {
 
-       printf("Created %d branches in binary tree \r",leafs);
+       printf(_("Created %d branches in binary tree \r"),leafs);
 
     }
 
@@ -298,7 +299,7 @@ int *merge_sort(LEAF *root)
 
     if ( list_1 == NULL || list_2 == NULL ) {
 
-       printf("Memory allocation failed in merge_sort! \n");
+       printf(_("Memory allocation failed in merge_sort! \n"));
 
        exit(1);
 

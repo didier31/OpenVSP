@@ -55,18 +55,18 @@ VSPAEROScreen::VSPAEROScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO_SCREEN_
     m_ConsoleLayout.SetSameLineFlag( true );
     m_ConsoleLayout.SetFitWidthFlag( false );
 
-    m_ConsoleLayout.AddButton( m_SolverButton, "Launch Solver" );
-    m_ConsoleLayout.AddButton( m_KillSolverButton, "Kill Solver" );
+    m_ConsoleLayout.AddButton( m_SolverButton, _("Launch Solver") );
+    m_ConsoleLayout.AddButton( m_KillSolverButton, _("Kill Solver") );
 
     m_ConsoleLayout.ForceNewLine();
 
-    m_ConsoleLayout.AddButton( m_PlotButton, "Show Results Mgr" );
-    m_ConsoleLayout.AddButton( m_ViewerButton, "Launch Viewer" );
+    m_ConsoleLayout.AddButton( m_PlotButton, _("Show Results Mgr") );
+    m_ConsoleLayout.AddButton( m_ViewerButton, _("Launch Viewer") );
 
     m_ConsoleLayout.ForceNewLine();
 
-    m_ConsoleLayout.AddButton( m_LoadExistingResultsButton, "Load Previous Results" );
-    m_ConsoleLayout.AddButton( m_ExportResultsToCsvButton, "Export to *.csv" );
+    m_ConsoleLayout.AddButton( m_LoadExistingResultsButton, _("Load Previous Results") );
+    m_ConsoleLayout.AddButton( m_ExportResultsToCsvButton, _("Export to *.csv") );
     m_ExportResultsToCsvButton.Deactivate();
 
     // Execute
@@ -74,7 +74,7 @@ VSPAEROScreen::VSPAEROScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO_SCREEN_
     m_ConstantAreaLayout.AddSubGroupLayout( m_ExecuteLayout, m_ConstantAreaLayout.GetW(), execute_height );
 
     //==== Overview Tab ====//
-    Fl_Group* overview_tab = AddTab( "Overview" );
+    Fl_Group* overview_tab = AddTab( _("Overview") );
     Fl_Group* overview_group = AddSubGroup( overview_tab, window_border_width );
     m_OverviewLayout.SetGroupAndScreen( overview_group, this );
 
@@ -98,15 +98,15 @@ VSPAEROScreen::VSPAEROScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO_SCREEN_
         4 * m_LeftColumnLayout.GetStdHeight() );
     m_LeftColumnLayout.AddY( m_CaseSetupLayout.GetH() );
 
-    m_CaseSetupLayout.AddDividerBox( "Case Setup" );
+    m_CaseSetupLayout.AddDividerBox( _("Case Setup") );
 
     m_CaseSetupLayout.SetSameLineFlag( true );
     m_CaseSetupLayout.SetFitWidthFlag( false );
 
     // Analysis method radio button group setup
     m_CaseSetupLayout.SetButtonWidth( m_CaseSetupLayout.GetW() / 2 );
-    m_CaseSetupLayout.AddButton( m_AeroMethodToggleVLM, "Vortex Lattice (VLM)" );
-    m_CaseSetupLayout.AddButton( m_AeroMethodTogglePanel, "Panel Method" );
+    m_CaseSetupLayout.AddButton( m_AeroMethodToggleVLM, _("Vortex Lattice (VLM)") );
+    m_CaseSetupLayout.AddButton( m_AeroMethodTogglePanel, _("Panel Method") );
 
     m_AeroMethodToggleGroup.Init( this );
     m_AeroMethodToggleGroup.AddButton( m_AeroMethodToggleVLM.GetFlButton() );
@@ -122,11 +122,11 @@ VSPAEROScreen::VSPAEROScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO_SCREEN_
     m_CaseSetupLayout.InitWidthHeightVals();
     m_CaseSetupLayout.SetSameLineFlag( false );
     m_CaseSetupLayout.SetFitWidthFlag( true );
-    m_CaseSetupLayout.AddChoice( m_GeomSetChoice, "Geometry Set:" );
+    m_CaseSetupLayout.AddChoice( m_GeomSetChoice, _("Geometry Set:") );
 
     m_CaseSetupLayout.AddYGap();
 
-    m_CaseSetupLayout.AddButton( m_PreviewDegenButton, "Preview VLM Geometry" );
+    m_CaseSetupLayout.AddButton( m_PreviewDegenButton, _("Preview VLM Geometry") );
 
     m_LeftColumnLayout.AddYGap();
     m_LeftColumnLayout.AddYGap();
@@ -137,15 +137,15 @@ VSPAEROScreen::VSPAEROScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO_SCREEN_
         6 * m_LeftColumnLayout.GetStdHeight() );
     m_LeftColumnLayout.AddY( m_RefLengthLayout.GetH() );
 
-    m_RefLengthLayout.AddDividerBox( "Reference Area, Lengths" );
+    m_RefLengthLayout.AddDividerBox( _("Reference Area, Lengths") );
 
     m_RefLengthLayout.SetSameLineFlag( true );
     m_RefLengthLayout.SetFitWidthFlag( false );
 
     m_RefLengthLayout.SetButtonWidth( m_RefLengthLayout.GetW() / 2 );
 
-    m_RefLengthLayout.AddButton( m_RefManualToggle, "Manual" );
-    m_RefLengthLayout.AddButton( m_RefChoiceToggle, "From Model" );
+    m_RefLengthLayout.AddButton( m_RefManualToggle, _("Manual") );
+    m_RefLengthLayout.AddButton( m_RefChoiceToggle, _("From Model") );
     m_RefLengthLayout.ForceNewLine();
 
     m_RefLengthLayout.InitWidthHeightVals();
@@ -153,11 +153,11 @@ VSPAEROScreen::VSPAEROScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO_SCREEN_
     m_RefLengthLayout.SetSameLineFlag( false );
     m_RefLengthLayout.SetFitWidthFlag( true );
 
-    m_RefLengthLayout.AddChoice( m_RefWingChoice, "Ref. Wing" );
+    m_RefLengthLayout.AddChoice( m_RefWingChoice, _("Ref. Wing") );
 
-    m_RefLengthLayout.AddSlider( m_SrefSlider, "Sref", 1000.0, "%7.3f" );
-    m_RefLengthLayout.AddSlider( m_brefSlider, "bref", 100.0, "%7.3f" );
-    m_RefLengthLayout.AddSlider( m_crefSlider, "cref", 100.0, "%7.3f" );
+    m_RefLengthLayout.AddSlider( m_SrefSlider, _("Sref"), 1000.0, "%7.3f" );
+    m_RefLengthLayout.AddSlider( m_brefSlider, _("bref"), 100.0, "%7.3f" );
+    m_RefLengthLayout.AddSlider( m_crefSlider, _("cref"), 100.0, "%7.3f" );
 
     m_RefToggle.Init( this );
     m_RefToggle.AddButton( m_RefManualToggle.GetFlButton() );
@@ -171,14 +171,14 @@ VSPAEROScreen::VSPAEROScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO_SCREEN_
         6 * m_LeftColumnLayout.GetStdHeight() );
     m_LeftColumnLayout.AddY( m_MomentRefLayout.GetH() );
 
-    m_MomentRefLayout.AddDividerBox( "Moment Reference Position" );
+    m_MomentRefLayout.AddDividerBox( _("Moment Reference Position") );
 
     m_MomentRefLayout.SetButtonWidth( 125 );
 
     m_MomentRefLayout.SetSameLineFlag( true );
-    m_MomentRefLayout.AddChoice( m_CGSetChoice, "Mass Set:",  m_MomentRefLayout.GetButtonWidth() );
+    m_MomentRefLayout.AddChoice( m_CGSetChoice, _("Mass Set:"),  m_MomentRefLayout.GetButtonWidth() );
     m_MomentRefLayout.SetFitWidthFlag( false );
-    m_MomentRefLayout.AddButton( m_MassPropButton, "Calc CG" );
+    m_MomentRefLayout.AddButton( m_MassPropButton, _("Calc CG") );
     m_MomentRefLayout.ForceNewLine();
 
     m_MomentRefLayout.SetSameLineFlag( false );
@@ -186,7 +186,7 @@ VSPAEROScreen::VSPAEROScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO_SCREEN_
 
     m_MomentRefLayout.InitWidthHeightVals();
 
-    m_MomentRefLayout.AddSlider( m_NumSliceSlider, "Num Slices", 100, "%4.0f" );
+    m_MomentRefLayout.AddSlider( m_NumSliceSlider, _("Num Slices"), 100, "%4.0f" );
     m_MomentRefLayout.AddSlider( m_XcgSlider, "Xref", 100.0, "%7.3f" );
     m_MomentRefLayout.AddSlider( m_YcgSlider, "Yref", 100.0, "%7.3f" );
     m_MomentRefLayout.AddSlider( m_ZcgSlider, "Zref", 100.0, "%7.3f" );
@@ -199,7 +199,7 @@ VSPAEROScreen::VSPAEROScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO_SCREEN_
         5 * m_RightColumnLayout.GetStdHeight() );
     m_RightColumnLayout.AddY( m_FlowCondLayout.GetH() );
 
-    m_FlowCondLayout.AddDividerBox( "Flow Condition" );
+    m_FlowCondLayout.AddDividerBox( _("Flow Condition") );
     m_FlowCondLayout.SetSameLineFlag( false );
     m_FlowCondLayout.SetFitWidthFlag( true );
 

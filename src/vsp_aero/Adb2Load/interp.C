@@ -1,3 +1,4 @@
+#include <libintl.h>
 #include "interp.H"
 
 // The code...
@@ -29,7 +30,7 @@ INTERP::INTERP(void)
 INTERP::INTERP(const INTERP &Interp)
 {
 
-    printf("INTERP copy not implemented! \n");fflush(NULL);exit(1);
+    printf(_("INTERP copy not implemented! \n"));fflush(NULL);exit(1);
 
 }
 
@@ -219,8 +220,8 @@ void INTERP::CalculateNormals(INTERP_MESH *Mesh)
 
     }
 
-    printf("Volume: %f \n",Volume);
-    printf("Area: %f \n",Area);
+    printf(_("Volume: %f \n"),Volume);
+    printf(_("Area: %f \n"),Area);
 
 }
 
@@ -377,7 +378,7 @@ void INTERP::InterpolateSolution(INTERP_MESH *Mesh1, INTERP_MESH *Mesh2)
 
     /* create the CFD binary search tree */
 
-    printf("Creating the binary search tree ... \n");
+    printf(_("Creating the binary search tree ... \n"));
 
     root = create_cfd_tree(Mesh1);
 
@@ -397,7 +398,7 @@ void INTERP::InterpolateSolution(INTERP_MESH *Mesh1, INTERP_MESH *Mesh2)
 
     closest = 0;
 
-    printf("Working on tris ... \n");
+    printf(_("Working on tris ... \n"));
 
     printf("Mesh2->number_of_tris: %d \n",Mesh2->number_of_tris);
 
@@ -409,13 +410,13 @@ void INTERP::InterpolateSolution(INTERP_MESH *Mesh1, INTERP_MESH *Mesh2)
 
     Tolerance = 2.*MAX3(tol_x,tol_y,tol_z);
 
-    printf("Tolerance: %f \n",Tolerance);
+    printf(_("Tolerance: %f \n"),Tolerance);
 
     for ( k = 1 ; k <= Mesh2->number_of_tris ; k++ ) {
 
        if ( k - 500*(int)(k/500.) == 0 ) {
 
-          printf("Finished %d tris \r",k);
+          printf(_("Finished %d tris \r"),k);
 
           fflush(NULL);
 
@@ -500,7 +501,7 @@ void INTERP::InterpolateSolution(INTERP_MESH *Mesh1, INTERP_MESH *Mesh2)
 
 		   	   if ( node->ignore_normals == 1 ) {
 
-	               printf("Error in finding interpolation donor! \n");
+	               printf(_("Error in finding interpolation donor! \n"));
 
 	               exit(1);
 
@@ -630,15 +631,15 @@ void INTERP::InterpolateSolution(INTERP_MESH *Mesh1, INTERP_MESH *Mesh2)
 
     }
 
-    printf("Finished %d tris \n",k);
+    printf(_("Finished %d tris \n"),k);
 
-    printf("Used closest point for %d nodes \n",closest);
+    printf(_("Used closest point for %d nodes \n"),closest);
 
-    printf("Turn off normal contraints for %d nodes \n",NormalOff);
+    printf(_("Turn off normal contraints for %d nodes \n"),NormalOff);
 
-    printf("Used a maximum radius of %d \n",max_radius);
+    printf(_("Used a maximum radius of %d \n"),max_radius);
 
-    if ( OutOfBox > 0 ) printf("There were %d nodes on mesh 2 are outside of the bounding box of mesh 1 ! \n",OutOfBox);
+    if ( OutOfBox > 0 ) printf(_("There were %d nodes on mesh 2 are outside of the bounding box of mesh 1 ! \n"),OutOfBox);
 
     free(node);
 
@@ -670,7 +671,7 @@ void INTERP::WriteADBFile(INTERP_MESH *Mesh, char *Name)
 
     if ( (adb_file = fopen(file_name_w_ext,"wb")) == NULL ) {
 
-       printf("Could not open the file: %s for input! \n",file_name_w_ext);
+       printf(_("Could not open the file: %s for input! \n"),file_name_w_ext);
 
        exit(1);
 
@@ -721,7 +722,7 @@ void INTERP::WriteADBFile(INTERP_MESH *Mesh, char *Name)
        
     }
 
-    printf("Writing out geometry... \n");
+    printf(_("Writing out geometry... \n"));
 
     // Write out the geometry information
 

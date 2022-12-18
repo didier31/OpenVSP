@@ -1,3 +1,4 @@
+#include <libintl.h>
 
 #include "ManageTextureScreen.h"
 #include "GraphicEngine.h"
@@ -26,13 +27,13 @@ ManageTextureScreen::ManageTextureScreen( ScreenMgr * mgr ) : BasicScreen( mgr, 
         m_MainLayout.GetRemainY() - borderPaddingWidth );
 
     m_BorderLayout.SetChoiceButtonWidth( smallButtonWidth );
-    m_BorderLayout.AddChoice( m_GeomChoice, "Comp:" );
+    m_BorderLayout.AddChoice( m_GeomChoice, _("Comp:") );
     m_BorderLayout.AddYGap();
 
-    m_BorderLayout.AddDividerBox( "Texture" );
+    m_BorderLayout.AddDividerBox( _("Texture") );
     m_BorderLayout.AddY( yGapForDisplay );
 
-    m_BorderLayout.AddButton( m_AddButton , "Add...");
+    m_BorderLayout.AddButton( m_AddButton , _("Add..."));
     m_BorderLayout.AddYGap();
 
     m_BorderLayout.AddSubGroupLayout( m_ActiveTextureLayout,
@@ -42,32 +43,32 @@ ManageTextureScreen::ManageTextureScreen( ScreenMgr * mgr ) : BasicScreen( mgr, 
     m_BorderLayout.AddY( m_ActiveTextureLayout.GetH() );
 
     m_ActiveTextureLayout.SetChoiceButtonWidth( smallButtonWidth );
-    m_ActiveTextureLayout.AddChoice( m_EditChoice, "Edit:" );
+    m_ActiveTextureLayout.AddChoice( m_EditChoice, _("Edit:") );
     m_ActiveTextureLayout.AddYGap();
 
-    m_ActiveTextureLayout.AddButton( m_DeleteButton , "Delete");
+    m_ActiveTextureLayout.AddButton( m_DeleteButton , _("Delete"));
     m_ActiveTextureLayout.AddYGap();
 
     m_ActiveTextureLayout.SetButtonWidth( smallButtonWidth );
-    m_ActiveTextureLayout.AddInput( m_NameInput, "Name:" );
+    m_ActiveTextureLayout.AddInput( m_NameInput, _("Name:") );
     m_ActiveTextureLayout.AddYGap();
 
     m_ActiveTextureLayout.SetFitWidthFlag( true );
     m_ActiveTextureLayout.SetButtonWidth( sliderButtonWidth );
     m_ActiveTextureLayout.SetInputWidth( sliderInputWidth );
 
-    m_ActiveTextureLayout.AddSlider( m_UPosSlider, "U Position", 1, "%6.5f" );
-    m_ActiveTextureLayout.AddSlider( m_WPosSlider, "W Position", 1, "%6.5f" );
+    m_ActiveTextureLayout.AddSlider( m_UPosSlider, _("U Position"), 1, "%6.5f" );
+    m_ActiveTextureLayout.AddSlider( m_WPosSlider, _("W Position"), 1, "%6.5f" );
     m_ActiveTextureLayout.AddYGap();
 
-    m_ActiveTextureLayout.AddSlider( m_UScaleSlider, "U Scale", 1, "%6.5f" );
-    m_ActiveTextureLayout.AddSlider( m_WScaleSlider, "W Scale", 1, "%6.5f" );
+    m_ActiveTextureLayout.AddSlider( m_UScaleSlider, _("U Scale"), 1, "%6.5f" );
+    m_ActiveTextureLayout.AddSlider( m_WScaleSlider, _("W Scale"), 1, "%6.5f" );
     m_ActiveTextureLayout.AddYGap();
 
-    m_ActiveTextureLayout.AddSlider( m_TransparencySlider, "Transparency", 1, "%6.5f" );
+    m_ActiveTextureLayout.AddSlider( m_TransparencySlider, _("Transparency"), 1, "%6.5f" );
     m_ActiveTextureLayout.AddYGap();
 
-    m_ActiveTextureLayout.AddDividerBox( "Texture Coords" );
+    m_ActiveTextureLayout.AddDividerBox( _("Texture Coords") );
     m_ActiveTextureLayout.AddYGap();
 
     m_ActiveTextureLayout.SetButtonWidth( m_ActiveTextureLayout.GetCanvasWidth()/2 +(borderPaddingWidth*2));
@@ -75,9 +76,9 @@ ManageTextureScreen::ManageTextureScreen( ScreenMgr * mgr ) : BasicScreen( mgr, 
     m_ActiveTextureLayout.SetFitWidthFlag( false );
     m_ActiveTextureLayout.SetSameLineFlag( true );
 
-    m_ActiveTextureLayout.AddButton( m_FlipUToggle, "Flip U" );
+    m_ActiveTextureLayout.AddButton( m_FlipUToggle, _("Flip U") );
     m_ActiveTextureLayout.AddX( borderPaddingWidth*2 );
-    m_ActiveTextureLayout.AddButton( m_FlipWToggle, "Flip W" );
+    m_ActiveTextureLayout.AddButton( m_FlipWToggle, _("Flip W") );
 
      //// Add GL 2D Window.
     texGLGroup = new Fl_Group(5, 75, 280, 280, "GL_WIN");
@@ -254,7 +255,7 @@ void ManageTextureScreen::GuiDeviceCallBack( GuiDevice* device )
         if ( device == &m_AddButton )
         {
             std::string fileName = m_ScreenMgr->GetSelectFileScreen()->FileChooser(
-                "Select Image File", "*.{tga,png,jpg}", false );
+                _("Select Image File"), "*.{tga,png,jpg}", false );
 
             if ( !fileName.empty() )
             {

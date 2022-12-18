@@ -6,6 +6,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+#include <libintl.h>
+
 #include "PickSetScreen.h"
 #include "ScreenMgr.h"
 
@@ -32,16 +34,16 @@ PickSetScreen::PickSetScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 150, 120, "Pi
 
     m_MainLayout.AddSubGroupLayout( m_BorderLayout, m_MainLayout.GetRemainX() - borderPaddingWidth, m_MainLayout.GetRemainY() - borderPaddingWidth );
 
-    m_BorderLayout.AddDividerBox( "Sets" );
+    m_BorderLayout.AddDividerBox( _("Sets") );
     m_BorderLayout.SetChoiceButtonWidth( 0 );
 
     m_BorderLayout.AddChoice( m_PickSetChoice, "" );
     m_BorderLayout.AddYGap();
 
-    m_BorderLayout.AddButton( m_AcceptButton, "OK" );
+    m_BorderLayout.AddButton( m_AcceptButton, _("OK") );
     m_BorderLayout.AddYGap();
 
-    m_BorderLayout.AddButton( m_CancelButton, "Cancel" );
+    m_BorderLayout.AddButton( m_CancelButton, _("Cancel") );
 
 }
 

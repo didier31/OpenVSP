@@ -5,23 +5,25 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+#include <libintl.h>
+
 #include "HingeScreen.h"
 #include "HingeGeom.h"
 #include "ScreenMgr.h"
 
 
 //==== Constructor ====//
-HingeScreen::HingeScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 525, "Hinge" )
+HingeScreen::HingeScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 525, _("Hinge") )
 {
-    Fl_Group* orient_tab = AddTab( "Orient" );
+    Fl_Group* orient_tab = AddTab( _("Orient") );
     Fl_Group* orient_group = AddSubGroup( orient_tab, 5 );
 
     m_BaseOrientationLayout.SetGroupAndScreen( orient_group, this );
 
-    m_BaseOrientationLayout.AddDividerBox( "Orient Base" );
+    m_BaseOrientationLayout.AddDividerBox( _("Orient Base") );
 
-    m_BaseOrientationLayout.AddButton( m_OrientRotToggle, "Rotations (Use XForm Tab)" );
-    m_BaseOrientationLayout.AddButton( m_OrientVecToggle, "Vectors" );
+    m_BaseOrientationLayout.AddButton( m_OrientRotToggle, _("Rotations (Use XForm Tab)") );
+    m_BaseOrientationLayout.AddButton( m_OrientVecToggle, _("Vectors") );
 
     m_OrientTypeGroup.Init( this );
     m_OrientTypeGroup.AddButton( m_OrientRotToggle.GetFlButton() );
@@ -29,7 +31,7 @@ HingeScreen::HingeScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 525, "Hinge" 
 
     m_BaseOrientationLayout.AddYGap();
 
-    m_BaseOrientationLayout.AddDividerBox( "Vectors" );
+    m_BaseOrientationLayout.AddDividerBox( _("Vectors") );
 
     // Individual SubSurface Parameters
     m_PrimaryDirLayout.SetGroupAndScreen( AddSubGroup( orient_tab, 5 ), this );
@@ -57,7 +59,7 @@ HingeScreen::HingeScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 525, "Hinge" 
 
     m_SecondaryDirLayout.SetSameLineFlag( true );
     m_SecondaryDirLayout.SetFitWidthFlag( false );
-    m_SecondaryDirLayout.AddLabel( "Reference", m_SecondaryDirLayout.GetButtonWidth() );
+    m_SecondaryDirLayout.AddLabel( _("Reference"), m_SecondaryDirLayout.GetButtonWidth() );
     m_SecondaryDirLayout.AddButton( m_SecondaryXToggle, "X" );
     m_SecondaryDirLayout.AddButton( m_SecondaryYToggle, "Y" );
     m_SecondaryDirLayout.AddButton( m_SecondaryZToggle, "Z" );
@@ -75,12 +77,12 @@ HingeScreen::HingeScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 525, "Hinge" 
     m_VectorLayout.AddYGap();
     m_VectorLayout.AddDividerBox( "Axis" );
 
-    m_PrimTypeChoice.AddItem( "VECTOR3D" );
-    m_PrimTypeChoice.AddItem( "POINT3D" );
-    m_PrimTypeChoice.AddItem( "SURFPT" );
-    m_PrimTypeChoice.AddItem( "UDIR" );
-    m_PrimTypeChoice.AddItem( "WDIR" );
-    m_PrimTypeChoice.AddItem( "NDIR" );
+    m_PrimTypeChoice.AddItem( _("VECTOR3D") );
+    m_PrimTypeChoice.AddItem( _("POINT3D") );
+    m_PrimTypeChoice.AddItem( _("SURFPT") );
+    m_PrimTypeChoice.AddItem( _("UDIR") );
+    m_PrimTypeChoice.AddItem( _("WDIR") );
+    m_PrimTypeChoice.AddItem( _("NDIR") );
     m_VectorLayout.AddChoice( m_PrimTypeChoice, "Type" );
 
     m_VectorLayout.AddYGap();
@@ -90,10 +92,10 @@ HingeScreen::HingeScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 525, "Hinge" 
 
     m_PrimVecLayout.SetFitWidthFlag( false );
     m_PrimVecLayout.SetSameLineFlag( true );
-    m_PrimVecLayout.AddLabel( "Direction Vector:", 170 );
+    m_PrimVecLayout.AddLabel( _("Direction Vector:"), 170 );
     m_PrimVecLayout.SetButtonWidth( m_PrimVecLayout.GetRemainX() / 2 );
-    m_PrimVecLayout.AddButton( m_PrimVecRelToggle, "Rel" );
-    m_PrimVecLayout.AddButton( m_PrimVecAbsToggle, "Abs" );
+    m_PrimVecLayout.AddButton( m_PrimVecRelToggle, _("Rel") );
+    m_PrimVecLayout.AddButton( m_PrimVecAbsToggle, _("Abs") );
     m_PrimVecLayout.ForceNewLine();
 
     m_PrimVecAbsRelToggle.Init( this );
@@ -121,10 +123,10 @@ HingeScreen::HingeScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 525, "Hinge" 
 
     m_PrimOffLayout.SetFitWidthFlag( false );
     m_PrimOffLayout.SetSameLineFlag( true );
-    m_PrimOffLayout.AddLabel( "Offset:", 170 );
+    m_PrimOffLayout.AddLabel( _("Offset:"), 170 );
     m_PrimOffLayout.SetButtonWidth( m_PrimOffLayout.GetRemainX() / 2 );
-    m_PrimOffLayout.AddButton( m_PrimOffRelToggle, "Rel" );
-    m_PrimOffLayout.AddButton( m_PrimOffAbsToggle, "Abs" );
+    m_PrimOffLayout.AddButton( m_PrimOffRelToggle, _("Rel") );
+    m_PrimOffLayout.AddButton( m_PrimOffAbsToggle, _("Abs") );
     m_PrimOffLayout.ForceNewLine();
 
     m_PrimOffAbsRelToggle.Init( this );
@@ -158,15 +160,15 @@ HingeScreen::HingeScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 525, "Hinge" 
     m_SecVecLayout.SetGroupAndScreen( AddSubGroup( orient_tab, 5 ), this );
     m_SecVecLayout.SetY(  m_VectorLayout.GetY() );
 
-    m_SecVecLayout.AddDividerBox( "Reference Vector" );
+    m_SecVecLayout.AddDividerBox( _("Reference Vector") );
 
     m_SecVecLayout.SetFitWidthFlag( false );
     m_SecVecLayout.SetSameLineFlag( true );
 
     m_SecVecLayout.SetButtonWidth( m_SecVecLayout.GetRemainX() / 3 );
-    m_SecVecLayout.AddLabel( "Reference Vec", m_SecVecLayout.GetButtonWidth() );
-    m_SecVecLayout.AddButton( m_SecVecAbsToggle, "Rel" );
-    m_SecVecLayout.AddButton( m_SecVecRelToggle, "Abs" );
+    m_SecVecLayout.AddLabel( _("Reference Vec"), m_SecVecLayout.GetButtonWidth() );
+    m_SecVecLayout.AddButton( m_SecVecAbsToggle, _("Rel") );
+    m_SecVecLayout.AddButton( m_SecVecRelToggle, _("Abs") );
     m_SecVecLayout.ForceNewLine();
 
     m_SecVecAbsRelToggle.Init( this );
@@ -184,7 +186,7 @@ HingeScreen::HingeScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 525, "Hinge" 
     m_SecondaryVecDirGroup.AddButton( m_SecondaryVecZToggle.GetFlButton() );
 
 
-    Fl_Group* motion_tab = AddTab( "Motion" );
+    Fl_Group* motion_tab = AddTab( _("Motion") );
     Fl_Group* motion_group = AddSubGroup( motion_tab, 5 );
 
     m_MotionLayout.SetGroupAndScreen( motion_group, this );
@@ -196,21 +198,21 @@ HingeScreen::HingeScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 525, "Hinge" 
     m_MotionLayout.SetSameLineFlag( false );
     m_MotionLayout.SetFitWidthFlag( true );
 
-    m_MotionLayout.AddDividerBox( "DOF and Coordinates" );
+    m_MotionLayout.AddDividerBox( _("DOF and Coordinates") );
 
     m_MotionLayout.AddYGap();
 
-    m_MotionLayout.AddDividerBox( "Translate" );
+    m_MotionLayout.AddDividerBox( _("Translate") );
     m_MotionLayout.SetSameLineFlag( true );
 
     m_MotionLayout.SetFitWidthFlag( false );
     m_MotionLayout.SetButtonWidth( tw );
     m_MotionLayout.AddButton( m_JointTransMinToggle, "" );
     m_MotionLayout.SetButtonWidth( sw );
-    m_MotionLayout.AddButton( m_JointTransMinSetButton, "Set" );
+    m_MotionLayout.AddButton( m_JointTransMinSetButton, _("Set") );
     m_MotionLayout.SetFitWidthFlag( true );
     m_MotionLayout.SetButtonWidth( bw - tw - sw );
-    m_MotionLayout.AddSlider( m_JointTransMinSlider, "Min", 10, "%6.2f" );
+    m_MotionLayout.AddSlider( m_JointTransMinSlider, _("Min"), 10, "%6.2f" );
     m_MotionLayout.ForceNewLine();
 
 
@@ -218,36 +220,36 @@ HingeScreen::HingeScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 525, "Hinge" 
     m_MotionLayout.SetButtonWidth( tw );
     m_MotionLayout.AddButton( m_JointTranslateToggle, "" );
     m_MotionLayout.SetButtonWidth( sw );
-    m_MotionLayout.AddButton( m_JointTranslateRngButton, "Rng" );
+    m_MotionLayout.AddButton( m_JointTranslateRngButton, _("Rng") );
     m_MotionLayout.SetFitWidthFlag( true );
     m_MotionLayout.SetButtonWidth( bw - tw - sw );
-    m_MotionLayout.AddSlider( m_JointTranslateSlider, "Translate", 10, "%6.2f" );
+    m_MotionLayout.AddSlider( m_JointTranslateSlider, _("Translate"), 10, "%6.2f" );
     m_MotionLayout.ForceNewLine();
 
     m_MotionLayout.SetFitWidthFlag( false );
     m_MotionLayout.SetButtonWidth( tw );
     m_MotionLayout.AddButton( m_JointTransMaxToggle, "" );
     m_MotionLayout.SetButtonWidth( sw );
-    m_MotionLayout.AddButton( m_JointTransMaxSetButton, "Set" );
+    m_MotionLayout.AddButton( m_JointTransMaxSetButton, _("Set") );
     m_MotionLayout.SetFitWidthFlag( true );
     m_MotionLayout.SetButtonWidth( bw - tw - sw );
-    m_MotionLayout.AddSlider( m_JointTransMaxSlider, "Max", 10, "%6.2f" );
+    m_MotionLayout.AddSlider( m_JointTransMaxSlider, _("Max"), 10, "%6.2f" );
     m_MotionLayout.ForceNewLine();
 
 
     m_MotionLayout.AddYGap();
     m_MotionLayout.SetSameLineFlag( false );
-    m_MotionLayout.AddDividerBox( "Rotate" );
+    m_MotionLayout.AddDividerBox( _("Rotate") );
     m_MotionLayout.SetSameLineFlag( true );
 
     m_MotionLayout.SetFitWidthFlag( false );
     m_MotionLayout.SetButtonWidth( tw );
     m_MotionLayout.AddButton( m_JointRotMinToggle, "" );
     m_MotionLayout.SetButtonWidth( sw );
-    m_MotionLayout.AddButton( m_JointRotMinSetButton, "Set" );
+    m_MotionLayout.AddButton( m_JointRotMinSetButton, _("Set") );
     m_MotionLayout.SetFitWidthFlag( true );
     m_MotionLayout.SetButtonWidth( bw - tw - sw );
-    m_MotionLayout.AddSlider( m_JointRotMinSlider, "Min", 100, "%6.2f" );
+    m_MotionLayout.AddSlider( m_JointRotMinSlider, _("Min"), 100, "%6.2f" );
     m_MotionLayout.ForceNewLine();
 
 
@@ -255,20 +257,20 @@ HingeScreen::HingeScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 525, "Hinge" 
     m_MotionLayout.SetButtonWidth( tw );
     m_MotionLayout.AddButton( m_JointRotateToggle, "" );
     m_MotionLayout.SetButtonWidth( sw );
-    m_MotionLayout.AddButton( m_JointRotateRngButton, "Rng" );
+    m_MotionLayout.AddButton( m_JointRotateRngButton, _("Rng") );
     m_MotionLayout.SetFitWidthFlag( true );
     m_MotionLayout.SetButtonWidth( bw - tw - sw );
-    m_MotionLayout.AddSlider( m_JointRotateSlider, "Rotate", 100, "%6.2f" );
+    m_MotionLayout.AddSlider( m_JointRotateSlider, _("Rotate"), 100, "%6.2f" );
     m_MotionLayout.ForceNewLine();
 
     m_MotionLayout.SetFitWidthFlag( false );
     m_MotionLayout.SetButtonWidth( tw );
     m_MotionLayout.AddButton( m_JointRotMaxToggle, "" );
     m_MotionLayout.SetButtonWidth( sw );
-    m_MotionLayout.AddButton( m_JointRotMaxSetButton, "Set" );
+    m_MotionLayout.AddButton( m_JointRotMaxSetButton, _("Set") );
     m_MotionLayout.SetFitWidthFlag( true );
     m_MotionLayout.SetButtonWidth( bw - tw - sw );
-    m_MotionLayout.AddSlider( m_JointRotMaxSlider, "Max", 100, "%6.2f" );
+    m_MotionLayout.AddSlider( m_JointRotMaxSlider, _("Max"), 100, "%6.2f" );
     m_MotionLayout.ForceNewLine();
 
     RemoveTab( GetTab( m_SubSurfTab_ind ) );
