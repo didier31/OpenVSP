@@ -1,4 +1,4 @@
-#include <libintl.h>
+#include <intl.h>
 #include "search.H"
 
 int leafs = 0;

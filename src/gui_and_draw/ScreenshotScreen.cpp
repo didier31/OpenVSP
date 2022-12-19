@@ -5,7 +5,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include <libintl.h>
+#include <intl.h>
 
 #include "ScreenshotScreen.h"
 #include "ScreenMgr.h"

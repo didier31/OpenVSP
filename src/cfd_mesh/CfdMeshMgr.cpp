@@ -12,6 +12,8 @@
 #include "main.h"
 #include "MeshAnalysis.h"
 
+#include <intl.h>
+
 #ifdef DEBUG_CFD_MESH
 // #include <direct.h>
 #include <sys/stat.h>
@@ -48,94 +50,94 @@ void CfdMeshMgrSingleton::GenerateMesh()
     m_MeshInProgress = true;
 
 #ifdef DEBUG_TIME_OUTPUT
-    addOutputText( "Init Timer\n" );
+    addOutputText( _("Init Timer\n"));
 #endif
 
-    addOutputText( "Transfer Mesh Settings\n" );
+    addOutputText( _("Transfer Mesh Settings\n") );
     TransferMeshSettings();
 
-    addOutputText( "Fetching Bezier Surfaces\n" );
+    addOutputText( _("Fetching Bezier Surfaces\n") );
 
     vector< XferSurf > xfersurfs;
     FetchSurfs( xfersurfs );
 
     // UpdateSourcesAndWakes must be before m_Vehicle->HideAll() to prevent components 
     // being being added to or removed from the CFD Mesh set
-    addOutputText( "Update Sources And Wakes\n" );
+    addOutputText( _("Update Sources And Wakes\n") );
     UpdateSourcesAndWakes();
     WakeMgr.SetStretchMeshFlag( true );
 
     // Hide all geoms after fetching their surfaces
     m_Vehicle->HideAll();
 
-    addOutputText( "Cleanup\n" );
+    addOutputText( _("Cleanup\n") );
     CleanUp();
 
-    addOutputText( "Loading Bezier Surfaces\n" );
+    addOutputText( _("Loading Bezier Surfaces\n") );
     LoadSurfs( xfersurfs );
 
     if ( GetSettingsPtr()->m_IntersectSubSurfs )
     {
-        addOutputText( "Transfer Subsurface Data\n" );
+        addOutputText( _("Transfer Subsurface Data\n") );
         TransferSubSurfData();
     }
 
-    addOutputText( "Clean Merge Surfaces\n" );
+    addOutputText( _("Clean Merge Surfaces\n") );
     CleanMergeSurfs();
 
     if ( m_SurfVec.size() == 0 )
     {
-        addOutputText( "No Surfaces To Mesh\n" );
+        addOutputText( _("No Surfaces To Mesh\n") );
         m_MeshInProgress = false;
         MessageMgr::getInstance().Send( "ScreenMgr", "UpdateAllScreens" );
         return;
     }
 
-    addOutputText( "Update Domain\n" );
+    addOutputText( _("Update Domain\n") );
     UpdateDomain();
 
-    addOutputText( "Build Domain\n" );
+    addOutputText( _("Build Domain\n") );
     BuildDomain();
 
-    addOutputText( "Build Grid\n" );
+    addOutputText( _("Build Grid\n") );
     BuildGrid();
 
     // addOutputText( "Intersect\n" ); // Output in intersect() itself.
     Intersect();
 
-    addOutputText( "Binary Adaptation Curve Approximation\n" );
+    addOutputText( _("Binary Adaptation Curve Approximation)\n" );
     BinaryAdaptIntCurves();
 
-    addOutputText( "Build Target Map\n" );
+    addOutputText( _("Build Target Map\n") );
     BuildTargetMap( CfdMeshMgrSingleton::VOCAL_OUTPUT );
 
     // addOutputText( "InitMesh\n" ); // Output inside InitMesh
     InitMesh( );
 
-    addOutputText( "Sub Tag tris\n" );
+    addOutputText( _("Sub Tag tris\n") );
     SubTagTris();
 
-    addOutputText( "Remesh\n" );
+    addOutputText( _("Remesh\n") );
     Remesh( CfdMeshMgrSingleton::VOCAL_OUTPUT );
 
     if ( GetSettingsPtr()->m_ConvertToQuadsFlag )
     {
-        addOutputText( "ConvertToQuads\n" );
+        addOutputText( _("ConvertToQuads\n") );
         ConvertToQuads();
     }
 
-    addOutputText( "ConnectBorderEdges\n" );
+    addOutputText( _("ConnectBorderEdges\n") );
     ConnectBorderEdges( false );        // No Wakes
     ConnectBorderEdges( true );         // Only Wakes
 
-    addOutputText( "Post Mesh\n" );
+    addOutputText( _("Post Mesh\n") );
     PostMesh();
 
     //addOutputText( "Triangle Quality\n");
     //string qual = CfdMeshMgr.GetQualString();
     //addOutputText( qual.c_str() );
 
-    addOutputText( "Build Single Tag Map\n" );
+    addOutputText( _("Build Single Tag Map\n") );
     SubSurfaceMgr.BuildSingleTagMap();
 
     addOutputText( "Exporting Files\n" );

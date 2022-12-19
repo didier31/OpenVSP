@@ -7,7 +7,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include <libintl.h>
+#include <intl.h>
 
 #include "VarPresetScreen.h"
 #include "ParmMgr.h"

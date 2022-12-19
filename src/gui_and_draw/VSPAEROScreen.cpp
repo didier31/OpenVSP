@@ -11,6 +11,7 @@
 #include "VSPAEROPlotScreen.h"
 #include "FileUtil.h"
 #include <FL/fl_ask.H>
+#include <intl.h>
 
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
@@ -54,7 +55,6 @@ VSPAEROScreen::VSPAEROScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO_SCREEN_
 
     m_ConsoleLayout.SetSameLineFlag( true );
     m_ConsoleLayout.SetFitWidthFlag( false );
-
     m_ConsoleLayout.AddButton( m_SolverButton, _("Launch Solver") );
     m_ConsoleLayout.AddButton( m_KillSolverButton, _("Kill Solver") );
 

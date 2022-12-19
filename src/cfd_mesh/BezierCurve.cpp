@@ -18,6 +18,8 @@
 
 #include "eli/geom/curve/length.hpp"
 
+#include <intl.h>
+
 typedef piecewise_curve_type::index_type curve_index_type;
 typedef piecewise_curve_type::tolerance_type curve_tolerance_type;
 typedef piecewise_curve_type::bounding_box_type curve_bounding_box_type;
@@ -374,7 +376,7 @@ void Bezier_curve::InterpolateLinear( const vector< vec3d > & input_pnt_vec )
 
     if ( !plc.create( m_Curve ) )
     {
-        std::cerr << "Failed to create linear curve. " << __LINE__ << std::endl;
+        std::cerr << _("Failed to create linear curve. ") << __LINE__ << std::endl;
     }
 }
 

@@ -5,7 +5,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include <libintl.h>
+#include <intl.h>
 
 #include "HingeScreen.h"
 #include "HingeGeom.h"

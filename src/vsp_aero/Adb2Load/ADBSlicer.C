@@ -3,7 +3,7 @@
 // version 1.3 as detailed in the LICENSE file which accompanies this software.
 //
 //////////////////////////////////////////////////////////////////////
-#include <gettext.h>
+#include <intl.h>
 #include "ADBSlicer.H"
 
 /*##############################################################################
@@ -159,7 +159,7 @@ void ADBSLICER::LoadFile(char *name)
      
        printf(_("No %s.adb file found! \n"),file_name);
        printf(_("Please run vspaero first. \n"));
-       printf(_("You can run vspaero with the -geom option to only write out a viewable geometry. \n)");
+       printf(_("You can run vspaero with the -geom option to only write out a viewable geometry. \n"));
        fflush(NULL);
        exit(1);  
  
@@ -270,7 +270,7 @@ void ADBSLICER::ParseCalculixFile(char *name)
        
        ElementOffSet_ = (MaxCalculixElement_/10000)*10000 + 20000;
        
-       if ( Verbose_ ) printf((_"Recommended Node/Element OffSets: %d %d \n"),NodeOffSet_, ElementOffSet_);
+       if ( Verbose_ ) printf(_("Recommended Node/Element OffSets: %d %d \n"),NodeOffSet_, ElementOffSet_);
        
        if ( !Verbose_ ) printf("%d %d \n",NodeOffSet_, ElementOffSet_);
       
@@ -523,11 +523,11 @@ void ADBSLICER::LoadMeshData(void)
  
        fread(WingListName_[i], c_size, 100, adb_file);
        
-       printf(_("Wing: %d ... %s \n",i,WingListName_[i]));fflush(NULL);
+       printf(_("Wing: %d ... %s \n"),i,WingListName_[i]);fflush(NULL);
        
        fread(&DumInt, i_size, 1, adb_file);
        
-       printf("ComponentID: %d \n",DumInt);
+       printf(_("ComponentID: %d \n"),DumInt);
      
     }
     
@@ -663,8 +663,8 @@ void ADBSLICER::LoadMeshData(void)
        BIO.fread(&(NumberOfCourseNodesForLevel[Level]), i_size, 1, adb_file);    
        BIO.fread(&(NumberOfCourseEdgesForLevel[Level]), i_size, 1, adb_file);          
      
-       printf("Number of course nodes for level: %d is: %d \n",Level,NumberOfCourseNodesForLevel[Level]);fflush(NULL);
-       printf("Number of course edges for level: %d is: %d \n",Level,NumberOfCourseEdgesForLevel[Level]);fflush(NULL);
+       printf(_("Number of course nodes for level: %d is: %d \n"),Level,NumberOfCourseNodesForLevel[Level]);fflush(NULL);
+       printf(_("Number of course edges for level: %d is: %d \n"),Level,NumberOfCourseEdgesForLevel[Level]);fflush(NULL);
   
        CoarseNodeList_[Level] = new NODE[NumberOfCourseNodesForLevel[Level] + 1];
        CoarseEdgeList_[Level] = new EDGE[NumberOfCourseEdgesForLevel[Level] + 1];
@@ -1635,7 +1635,7 @@ void ADBSLICER::LoadCutsFile(void)
           
           fscanf(cut_file,"%s %f \n",CutType,&(CutPlaneValue[i]));
           
-          printf("CutType: %s ... Value: %f \n",CutType,CutPlaneValue[i]);
+          printf(_("CutType: %s ... Value: %f \n"),CutType,CutPlaneValue[i]);
           
           if ( strcmp(CutType,"x") == 0 ) CutPlaneType[i] = XCUT;
           if ( strcmp(CutType,"y") == 0 ) CutPlaneType[i] = YCUT;
@@ -1691,7 +1691,7 @@ void ADBSLICER::Slice(int Case)
           xyz_4[1] =  1.e6;
           xyz_4[2] =  1.e6;
 
-          fprintf(SliceFile,_("BLOCK Cut_%d_at_X:_%f \n"), c, CutPlaneValue[c]);
+          fprintf(SliceFile,"BLOCK Cut_%d_at_X:_%f \n", c, CutPlaneValue[c]);
 
        }
 
@@ -1713,7 +1713,7 @@ void ADBSLICER::Slice(int Case)
           xyz_4[1] =  CutPlaneValue[c];
           xyz_4[2] =  1.e6;
 
-          fprintf(SliceFile,_("BLOCK Cut_%d_at_Y:_%f \n"), c, CutPlaneValue[c]);
+          fprintf(SliceFile,"BLOCK Cut_%d_at_Y:_%f \n", c, CutPlaneValue[c]);
 
        }
 
@@ -1735,7 +1735,7 @@ void ADBSLICER::Slice(int Case)
           xyz_4[1] =  1.e6;
           xyz_4[2] =  CutPlaneValue[c];
 
-          fprintf(SliceFile,_("BLOCK Cut_%d_at_Z:_%f \n"), c, CutPlaneValue[c]);
+          fprintf(SliceFile,"BLOCK Cut_%d_at_Z:_%f \n", c, CutPlaneValue[c]);
 
        }
 
@@ -2342,7 +2342,7 @@ void ADBSLICER::SmoothSkinThickness(char *filename1)
     zero_float_array(NewThick, NumberOfCalculixNodes);
     zero_float_array(Area, NumberOfCalculixNodes);
     
-    printf("Number of Calculix Elements: %d \n",NumberOfCalculixElements);fflush(NULL);
+    printf(_("Number of Calculix Elements: %d \n"),NumberOfCalculixElements);fflush(NULL);
     
     for ( Iter = 1 ; Iter <= 50 ; Iter++ ) {
        
@@ -2549,7 +2549,7 @@ void ADBSLICER::ResizeCalculixInputFileSkins(char *filename1, char *newfilename)
              
              Thickness = CalculixMinSizingThickness_ + t*CalculixDThickness_;
              
-             printf("Looking at Thickness group: %d --> Max thickness of: %f \n",t, Thickness);
+             printf(_("Looking at Thickness group: %d --> Max thickness of: %f \n"),t, Thickness);
              
              for ( k = 1 ; k <= NumberOfElements ; k++ ) {
                 
@@ -2956,11 +2956,11 @@ void ADBSLICER::ResizeCalculixInputFileSkinsOld(char *filename1, char *newfilena
     printf(_("New minimum thickness: %f \n"),MinThick);
     printf(_("New maximum thickness: %f \n"),MaxThick);
     printf("\n");
-    printf(_("Old volume: %f \n",Volume[0]);
-    printf(_("New volume: %f \n",Volume[1]);
+    printf(_("Old volume: %f \n"),Volume[0]);
+    printf(_("New volume: %f \n"),Volume[1]);
     printf(_("Volume Ratio New/Old: %f \n"),Volume[1]/Volume[0]);
     printf("\n");
-    printf(_("Wetted Area: %f \n",Area);
+    printf(_("Wetted Area: %f \n"),Area);
     printf("\n");
     printf(_("Old average thickness: %f \n"),Volume[0]/Area);    
     printf(_("New average thickness: %f \n"),Volume[1]/Area);
@@ -3161,7 +3161,7 @@ void ADBSLICER::LoadCalculixINPFileSurfaceElements(char *name)
           
           if ( FindClosestNode_ && strstr(SaveChar,"Skin") == NULL ) {
              
-             printf("Node %d at: %f %f %f with distance of: %f for: %s \n",
+             printf(_("Node %d at: %f %f %f with distance of: %f for: %s \n"),
               FEM_Mesh.NodeList[BestNode].node_id,
               FEM_Mesh.NodeList[BestNode].x,
               FEM_Mesh.NodeList[BestNode].y,
@@ -4630,7 +4630,7 @@ void ADBSLICER::MergeCalculixFiles(char *filename1, char *filename2, char *newfi
             
     // Copy everything up to *STEP statement from file 1
     
-    fprintf(NewFile,_("**Element, Node, Shell, and Material Data from File: %s \n"),filename1);
+    fprintf(NewFile,"**Element, Node, Shell, and Material Data from File: %s \n",filename1);
     fprintf(NewFile,"\n");
        
     Done = 0;
@@ -4660,7 +4660,7 @@ void ADBSLICER::MergeCalculixFiles(char *filename1, char *filename2, char *newfi
     // Copy everything up to *STEP statement from file 2
     
     fprintf(NewFile,"\n");    
-    fprintf(NewFile,_("**Element, Node, Shell, and Material Data from File: %s \n"),filename2);
+    fprintf(NewFile,"**Element, Node, Shell, and Material Data from File: %s \n",filename2);
     fprintf(NewFile,"\n");
        
     Done = 0;
@@ -4712,7 +4712,7 @@ void ADBSLICER::MergeCalculixFiles(char *filename1, char *filename2, char *newfi
 
        if ( !Done && strstr(DumChar,"*DLOAD") != NULL ) {
 
-          fprintf(NewFile,_("**LOAD Data from File: %s \n"),filename1);
+          fprintf(NewFile,"**LOAD Data from File: %s \n",filename1);
           fprintf(NewFile,"\n");
               
           fprintf(NewFile,"%s",DumChar);
@@ -4784,7 +4784,7 @@ void ADBSLICER::MergeCalculixFiles(char *filename1, char *filename2, char *newfi
 
     // Copy remaining stuff from File 1
     
-    fprintf(NewFile,_("**Remaining Lines from File: %s \n"),filename1);
+    fprintf(NewFile,"**Remaining Lines from File: %s \n",filename1);
     fprintf(NewFile,"\n");
        
     Done = 0;
@@ -5196,7 +5196,7 @@ void ADBSLICER::LoadCalculixData(char *filename)
              
        // Now read in the displacements 
        
-       printf("Reading in displacements... \n");fflush(NULL);
+       printf(_("Reading in displacements... \n"));fflush(NULL);
           
        Done = 0;
        

@@ -22,6 +22,8 @@ using std::string;
 using std::stack;
 using std::vector;
 
+#include <intl.h>
+
 class Vehicle;
 
 namespace vsp
@@ -52,7 +54,7 @@ public:
     void NoError()
     {
         m_ErrorCode = VSP_OK;
-        m_ErrorString = "No Error";
+        m_ErrorString = _("No Error");
     }
 };
 

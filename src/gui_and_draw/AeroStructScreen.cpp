@@ -5,7 +5,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include <libintl.h>
+#include <intl.h>
 
 #include "AeroStructScreen.h"
 #include "ScreenMgr.h"

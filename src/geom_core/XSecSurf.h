@@ -17,6 +17,7 @@
 
 #include <string>
 #include <deque>
+#include <intl.h>
 
 using std::string;
 using std::deque;
@@ -53,7 +54,7 @@ public:
         m_WidthDir = wdir;
         if ( pdir == wdir )
         {
-            printf("Error, principal and width directions identical.\n");
+            printf(_("Error, principal and width directions identical.\n"));
             assert( false );
         }
         m_WidthShift = wshift;

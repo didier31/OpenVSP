@@ -6,7 +6,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include <libintl.h>
+#include <intl.h>
 
 #include "PickSetScreen.h"
 #include "ScreenMgr.h"
