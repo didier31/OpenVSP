@@ -1117,7 +1117,7 @@ void CloseNASTRAN( FILE* fp, FILE* temp, FILE* nkey_fp )
         char * buffer = (char*)malloc( sizeof( char )*lSize + 1 );
         if ( buffer == NULL )
         {
-            printf( "WriteNASTRAN memory error\n" );
+            printf( _("WriteNASTRAN memory error\n") );
         }
 
         // Copy the file into the buffer:
@@ -1125,7 +1125,7 @@ void CloseNASTRAN( FILE* fp, FILE* temp, FILE* nkey_fp )
         buffer[ result ] = '\0';
         if ( result != lSize )
         {
-            printf( "WriteNASTRAN reading error\n" );
+            printf( _("WriteNASTRAN reading error\n") );
         }
 
         // The whole file is now loaded in the memory buffer. Write to NASTRAN file

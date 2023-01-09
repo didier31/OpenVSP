@@ -2,7 +2,9 @@ CMAKE_MINIMUM_REQUIRED(VERSION 3.1)
 
 PROJECT (VSP)
 
-include_directories(intl)
+find_package(Intl)
+
+include_directories(intl ${Intl_INCLUDE_DIR})
 
 # Use this to see the command that CMake is using to build code
 #SET(CMAKE_VERBOSE_MAKEFILE   ON  CACHE BOOL "" FORCE)

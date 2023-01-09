@@ -17,6 +17,8 @@
 #include "MessageMgr.h"
 #include "VspUtil.h"
 
+#include <intl.h>
+
 //=============================================================//
 //=============================================================//
 
@@ -120,7 +122,7 @@ bool FeaMeshMgrSingleton::LoadSurfaces()
 
     if ( !fea_struct )
     {
-        addOutputText( "FeaMesh Failed: Invalid FeaStructure Selection\n" );
+        addOutputText( _("FeaMesh Failed: Invalid FeaStructure Selection\n") );
         m_FeaMeshInProgress = false;
         return false;
     }
@@ -341,18 +343,18 @@ void FeaMeshMgrSingleton::GenerateFeaMesh()
     m_FeaMeshInProgress = true;
 
 #ifdef DEBUG_TIME_OUTPUT
-    addOutputText( "Init Timer\n" );
+    addOutputText( _("Init Timer\n") );
 #endif
 
-    addOutputText( "Transfer Mesh Settings\n" );
+    addOutputText( _("Transfer Mesh Settings\n") );
     TransferMeshSettings();
 
-    addOutputText( "Load Surfaces\n" );
+    addOutputText( _("Load Surfaces\n") );
     LoadSurfaces();
 
     if ( m_SurfVec.size() == 0 )
     {
-        addOutputText( "No Surfaces.  Done.\n" );
+        addOutputText( _("No Surfaces.  Done.\n") );
         m_FeaMeshInProgress = false;
         MessageMgr::getInstance().Send( "ScreenMgr", "UpdateAllScreens" );
         return;
@@ -366,10 +368,10 @@ void FeaMeshMgrSingleton::GenerateFeaMesh()
 
     GetMassUnit();
 
-    addOutputText( "Transfer FEA Data\n" );
+    addOutputText( _("Transfer FEA Data\n") );
     TransferFeaData();
 
-    addOutputText( "Transfer Subsurf Data\n" );
+    addOutputText( _("Transfer Subsurf Data\n") );
     TransferSubSurfData();
 
     // Needs to be after TransferSubSurfData so SubSurf BC's can be indexed.
@@ -378,36 +380,36 @@ void FeaMeshMgrSingleton::GenerateFeaMesh()
 
     TransferDrawObjData();
 
-    addOutputText( "Merge Co-Planar Parts\n" );
+    addOutputText( _("Merge Co-Planar Parts\n") );
     MergeCoplanarParts();
 
-    addOutputText( "Add Structure Parts\n" );
+    addOutputText( _("Add Structure Parts\n") );
     AddStructureSurfParts();
 
-    addOutputText( "Clean Merge Surfs\n" );
+    addOutputText( _("Clean Merge Surfs\n") );
     CleanMergeSurfs(); // Must be called before AddStructureFixPoints to prevent FEA Fix Point surface misidentification
 
     // Must be after CleanMergeSurfs() as that is when m_SurfVec is last updated.
     BuildMeshOrientationLookup();
 
-    addOutputText( "Add Structure Fix Points\n" );
+    addOutputText( _("Add Structure Fix Points\n") );
     AddStructureFixPoints();
 
-    addOutputText( "Add Structure Trim Planes\n" );
+    addOutputText( _("Add Structure Trim Planes\n") );
     AddStructureTrimPlanes();
 
-    addOutputText( "Identify CompID Names\n" );
+    addOutputText( _("Identify CompID Names\n") );
     IdentifyCompIDNames();
 
     // TODO: Update and Build Domain for Half Mesh?
 
-    addOutputText( "Build Slice Planes\n" );
+    addOutputText( _("Build Slice Planes\n") );
     BuildGrid();
 
-    // addOutputText( "Intersect\n" ); // Output in intersect() itself.
+    // addOutputText( _("Intersect\n") ); // Output in intersect() itself.
     Intersect();
 
-    addOutputText( "Binary Adaptation Curve Approximation\n" );
+    addOutputText( _("Binary Adaptation Curve Approximation\n") );
     BinaryAdaptIntCurves();
 
     m_IntersectComplete = true;
@@ -416,7 +418,7 @@ void FeaMeshMgrSingleton::GenerateFeaMesh()
     {
         UpdateDrawObjs();
 
-        addOutputText( "Finished\n" );
+        addOutputText( _("Finished\n") );
 
         m_FeaMeshInProgress = false;
         m_CADOnlyFlag = false;
@@ -424,57 +426,57 @@ void FeaMeshMgrSingleton::GenerateFeaMesh()
         return;
     }
 
-    addOutputText( "Build Target Map\n" );
+    addOutputText( _("Build Target Map\n") );
     BuildTargetMap( CfdMeshMgrSingleton::VOCAL_OUTPUT );
 
-    // addOutputText( "InitMesh\n" ); // Output inside InitMesh
+    // addOutputText( _("InitMesh\n") ); // Output inside InitMesh
     InitMesh();
 
-    addOutputText( "Sub Tag Tris\n" );
+    addOutputText( _("Sub Tag Tris\n") );
     SubTagTris();
 
-    addOutputText( "Set Fixed Points\n" );
+    addOutputText( _("Set Fixed Points\n") );
     SetFixPointSurfaceNodes();
 
-    addOutputText( "Remesh\n" );
+    addOutputText( _("Remesh\n") );
     Remesh( CfdMeshMgrSingleton::VOCAL_OUTPUT );
 
     if ( GetMeshPtr()->m_StructSettings.m_ConvertToQuadsFlag )
     {
-        addOutputText( "ConvertToQuads\n" );
+        addOutputText( _("ConvertToQuads\n") );
         ConvertToQuads();
     }
 
-    addOutputText( "ConnectBorderEdges\n" );
+    addOutputText( _("ConnectBorderEdges\n") );
     ConnectBorderEdges( false );        // No Wakes
     ConnectBorderEdges( true );         // Only Wakes
 
-    addOutputText( "Post Mesh\n" );
+    addOutputText( _("Post Mesh\n") );
     PostMesh();
 
-    addOutputText( "Build Single Tag Map\n" );
+    addOutputText( _("Build Single Tag Map\n") );
     SubSurfaceMgr.BuildSingleTagMap();
 
-    addOutputText( "Check Subsurf Border Intersect\n" );
+    addOutputText( _("Check Subsurf Border Intersect\n") );
     CheckSubSurfBorderIntersect();
 
-    addOutputText( "Check Duplicate Subsurface Intersects\n" );
+    addOutputText( _("Check Duplicate Subsurface Intersects\n") );
     CheckDuplicateSSIntersects();
 
-    addOutputText( "Build Fea Mesh\n" );
+    addOutputText( _("Build Fea Mesh\n") );
     BuildFeaMesh();
 
-    addOutputText( "Tag Fea Nodes\n" );
+    addOutputText( _("Tag Fea Nodes\n") );
     TagFeaNodes();
 
-    addOutputText( "Remove Subsurf FEA Tris\n" );
+    addOutputText( _("Remove Subsurf FEA Tris\n") );
     RemoveSubSurfFeaTris();
 
     GetMeshPtr()->m_MeshReady = true;
 
     UpdateDrawObjs();
 
-    addOutputText( "Finished\n" );
+    addOutputText( _("Finished\n") );
 
     m_FeaMeshInProgress = false;
     MessageMgr::getInstance().Send( "ScreenMgr", "UpdateAllScreens" );
@@ -689,7 +691,7 @@ void FeaMeshMgrSingleton::MergeCoplanarParts()
                         // Output warning if FeaParts are different due to data loss (symmetric parts retain all FeaPart data)
                         if ( all_feaprt_ind_vec[i] != all_feaprt_ind_vec[j] )
                         {
-                            string output = "WARNING: Coplanar Surfaces Merged: " + fea_part_vec[all_feaprt_ind_vec[i]]->GetName() +
+                            string output = _("WARNING: Coplanar Surfaces Merged: ") + fea_part_vec[all_feaprt_ind_vec[i]]->GetName() +
                                 ", " + fea_part_vec[all_feaprt_ind_vec[j]]->GetName() + "\n";
 
                             addOutputText( output );
@@ -1145,7 +1147,7 @@ void FeaMeshMgrSingleton::BuildFeaMesh()
                 // Check for collapsed beam elements (caused by bug in Intersect where invalid intersection points are added to m_BinMap)
                 if ( dist( start_pnt, end_pnt ) < FLT_EPSILON )
                 {
-                    printf( "Warning: Collapsed Beam Element Skipped\n" );
+                    printf( _("Warning: Collapsed Beam Element Skipped\n") );
                     break;
                 }
 
@@ -1211,7 +1213,7 @@ void FeaMeshMgrSingleton::BuildFeaMesh()
     if ( all_pnt_vec.size() == 0 )
     {
         m_FeaMeshInProgress = false;
-        addOutputText( "Error: No Nodes in Mesh\n" );
+        addOutputText( _("Error: No Nodes in Mesh\n") );
         return;
     }
 
@@ -1408,7 +1410,7 @@ void FeaMeshMgrSingleton::SetFixPointSurfaceNodes()
                     }
                     else
                     {
-                        string message = "\tNo node found for " + fix_point_name + ". Adjust GridDensity.\n";
+                        string message = _("\tNo node found for ") + fix_point_name + _(". Adjust GridDensity.\n");
                         addOutputText( message );
                     }
                 }
@@ -1420,7 +1422,7 @@ void FeaMeshMgrSingleton::SetFixPointSurfaceNodes()
 // Called first from SurfaceIntersectionMgr::Intersect()
 void FeaMeshMgrSingleton::SetFixPointBorderNodes()
 {
-    addOutputText( "SetFixPointBorderNodes\n" );
+    addOutputText( _("SetFixPointBorderNodes\n") );
 
     for ( size_t n = 0; n < GetMeshPtr()->m_NumFeaFixPoints; n++ )
     {
@@ -1484,7 +1486,7 @@ void FeaMeshMgrSingleton::SetFixPointBorderNodes()
                         if ( success )
                         {
                             string fix_point_name = GetMeshPtr()->m_FeaPartNameVec[fxpt.m_FeaPartIndex];
-                            string message = "\tBorder Intersect Point Set for " + fix_point_name + "\n";
+                            string message = _("\tBorder Intersect Point Set for ") + fix_point_name + "\n";
                             addOutputText( message );
                             split = true;
                         }
@@ -1514,7 +1516,7 @@ void FeaMeshMgrSingleton::SetFixPointBorderNodes()
 // Called immediately next from SurfaceIntersectionMgr::Intersect()
 void FeaMeshMgrSingleton::CheckFixPointIntersects()
 {
-    addOutputText( "CheckFixPointIntersects\n" );
+    addOutputText( _("CheckFixPointIntersects\n") );
     // Identify and set FeaFixPoints on intersection curves
 
     for ( size_t n = 0; n < GetMeshPtr()->m_NumFeaFixPoints; n++ )
@@ -1656,7 +1658,7 @@ void FeaMeshMgrSingleton::CheckFixPointIntersects()
                             GetMeshPtr()->m_FixPntVec[n].m_BorderFlag[j] = INTERSECT_FIX_POINT;
 
                             string fix_point_name = GetMeshPtr()->m_FeaPartNameVec[fxpt.m_FeaPartIndex];
-                            string message = "\tIntersection Found for " + fix_point_name + "\n";
+                            string message = _("\tIntersection Found for ") + fix_point_name + "\n";
                             addOutputText( message );
                             split = true;
                         }
@@ -2153,7 +2155,7 @@ void FeaMeshMgrSingleton::MergeFeaPartSSEdgeOverlap()
                                             if ( std::find( remove_chain_list.begin(), remove_chain_list.end(), ( *c1 ) ) == remove_chain_list.end() )
                                             {
                                                 string part = GetMeshPtr()->m_FeaPartNameVec[surfA->GetFeaPartIndex()];
-                                                string message = "Merged Intersection Curve: " + part + " and " + ss_vec[ss].GetName() + "\n";
+                                                string message = _("Merged Intersection Curve: ") + part + _(" and ") + ss_vec[ss].GetName() + "\n";
                                                 addOutputText( message );
 
                                                 remove_chain_list.push_back( *c1 );
@@ -2373,7 +2375,7 @@ void FeaMeshMgrSingleton::TagFeaNodes()
             if ( GetMeshPtr()->m_FixPntVec[j].m_NodeIndex[k] < 0 )
             {
                 char buf[512];
-                sprintf( buf, "FixPoint %s %d not found in mesh\n",
+                sprintf( buf, _("FixPoint %s %d not found in mesh\n"),
                          GetMeshPtr()->m_FeaPartNameVec[ GetMeshPtr()->m_FixPntVec[j].m_FeaPartIndex ].c_str(),
                          k );
                 addOutputText( string( buf ) );
@@ -2583,7 +2585,7 @@ void FeaMeshMgrSingleton::ExportAssemblyMesh( const string &assembly_id )
 
     m_AssemblySettings.CopyPostOpFrom( &(fea_assembly->m_AssemblySettings) );
 
-    addOutputText( "Exporting Assembly Mesh.\n" );
+    addOutputText( _("Exporting Assembly Mesh.\n") );
 
     // Transfer common property and material data to FeaMeshMgr.
     TransferPropMatData();

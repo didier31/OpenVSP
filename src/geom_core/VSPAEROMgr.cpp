@@ -1938,13 +1938,13 @@ string VSPAEROMgrSingleton::ComputeSolverBatch( FILE * logFile )
 
 
         //====== Modify/Update the setup file ======//
-        if ( m_Verbose ) { printf( "Writing vspaero setup file: %s\n", m_SetupFile.c_str() ); }
+        if ( m_Verbose ) { printf( _("Writing vspaero setup file: %s\n"), m_SetupFile.c_str() ); }
         CreateSetupFile();
 
         //====== Modify/Update the groups file for unsteady analysis ======//
         if ( m_RotateBladesFlag() )
         {
-            if ( m_Verbose ) { printf( "Writing vspaero groups file: %s\n", m_GroupsFile.c_str() ); }
+            if ( m_Verbose ) { printf( _("Writing vspaero groups file: %s\n"), m_GroupsFile.c_str() ); }
             CreateGroupsFile();
         }
 
@@ -3003,7 +3003,7 @@ void VSPAEROMgrSingleton::ReadStabFile( string filename, vector <string> &res_id
 
                                 if ( m_Verbose )
                                 {
-                                    printf( "\tMapping table col name to CSG name: \n" );
+                                    printf( _("\tMapping table col name to CSG name: \n") );
                                 }
                                 if ( m_Verbose )
                                 {
@@ -3019,7 +3019,7 @@ void VSPAEROMgrSingleton::ReadStabFile( string filename, vector <string> &res_id
                                 }
                                 else
                                 {
-                                    printf( "\tERROR (i_field - i_field_offset) > m_ControlSurfaceGroupVec.size()\n" );
+                                    printf( _("\tERROR (i_field - i_field_offset) > m_ControlSurfaceGroupVec.size()\n") );
                                     printf( "\t      (  %u    -    %d         ) >            %zu             \n", i_field, i_field_offset, m_ControlSurfaceGroupVec.size() );
                                 }
 

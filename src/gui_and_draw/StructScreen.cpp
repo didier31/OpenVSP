@@ -2728,7 +2728,7 @@ void StructScreen::GuiDeviceCallBack( GuiDevice* device )
     }
     else if ( device == &m_FeaExportFEMButton )
     {
-        FeaMeshMgr.addOutputText( "Exporting Mesh Files\n" );
+        FeaMeshMgr.addOutputText( _("Exporting Mesh Files\n") );
         FeaMeshMgr.ExportFeaMesh( m_StructIDs[ StructureMgr.m_CurrStructIndex() ] );
     }
     else if ( device == &m_IntersectOnlyButton )
@@ -2744,7 +2744,7 @@ void StructScreen::GuiDeviceCallBack( GuiDevice* device )
     }
     else if ( device == &m_ExportCADButton )
     {
-        FeaMeshMgr.addOutputText( "Exporting CAD Files\n" );
+        FeaMeshMgr.addOutputText( _("Exporting CAD Files\n") );
         FeaMeshMgr.ExportCADFiles();
     }
     else if ( device == &m_ResetPartDisplayButton )

@@ -4,6 +4,8 @@
 #include "glm/ext.hpp"
 #include "Display.h"
 
+#include <intl.h>
+
 namespace VSPGraphic
 {
 static glm::vec3 _mouseLocInWorld = glm::vec3(0xFFFFFFFF);
@@ -71,7 +73,7 @@ void Ruler::placeRuler( const glm::vec3 &v1, const glm::vec3 &v2, const glm::vec
 
 void Ruler::reset()
 {
-    _label = "Ruler";
+    _label = _("Ruler");
 
     _v1 = glm::vec3(0xFFFFFFFF);
     _v2 = glm::vec3(0xFFFFFFFF);

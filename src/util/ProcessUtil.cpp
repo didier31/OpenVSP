@@ -23,6 +23,7 @@
 #include <csignal>
 #endif
 
+#include <intl.h>
 
 void SleepForMilliseconds( unsigned int sleep_time)
 {
@@ -195,13 +196,13 @@ int ProcessUtil::ForkCmd( const string &path, const string &cmd, const vector<st
 
     if ( !CreatePipe( &m_StdoutPipe[PIPE_READ], &m_StdoutPipe[PIPE_WRITE], &saAttr, 0 ) )
     {
-        printf( "Error StdoutRd CreatePipe\n" );
+        printf( _("Error StdoutRd CreatePipe\n") );
         exit( 0 );
     }
 
     if ( !SetHandleInformation( m_StdoutPipe[PIPE_READ], HANDLE_FLAG_INHERIT, 0 ) )
     {
-        printf( "Stdout SetHandleInformation\n" );
+        printf( _("Stdout SetHandleInformation\n") );
         exit( 0 );
     }
 
@@ -240,7 +241,7 @@ int ProcessUtil::ForkCmd( const string &path, const string &cmd, const vector<st
         &pi )                    // Pointer to PROCESS_INFORMATION structure.
     )
     {
-        printf( "CreateProcess failed (%d).\n", GetLastError() );
+        printf( _("CreateProcess failed (%d).\n"), GetLastError() );
         return 0;
     }
 
@@ -248,7 +249,7 @@ int ProcessUtil::ForkCmd( const string &path, const string &cmd, const vector<st
 
     if( pipe( m_StdoutPipe ) < 0 )
     {
-        printf( "Error allocating pipe for child output redirect\n");
+        printf( _("Error allocating pipe for child output redirect\n"));
         return -1;
     }
 
@@ -261,7 +262,7 @@ int ProcessUtil::ForkCmd( const string &path, const string &cmd, const vector<st
         if( dup2( m_StdoutPipe[PIPE_WRITE], STDOUT_FILENO ) == -1 ||
             dup2( m_StdoutPipe[PIPE_WRITE], STDERR_FILENO ) == -1 )
         {
-            printf( "Error redirecting child stdout\n" );
+            printf( _("Error redirecting child stdout\n") );
             exit( 0 );
         }
 
@@ -271,7 +272,7 @@ int ProcessUtil::ForkCmd( const string &path, const string &cmd, const vector<st
         if ( path.empty() ) // Search OS path for cmd
         {
             if( cppexecvp( cmd, opts ) < 0 ) {
-                printf( "execvp error\n" );
+                printf( _("execvp error\n") );
             }
         }
         else // Full path to cmd specified.
@@ -284,7 +285,7 @@ int ProcessUtil::ForkCmd( const string &path, const string &cmd, const vector<st
             command += cmd;
 
             if( cppexecv( command, opts ) < 0 ) {
-                printf( "execv error\n" );
+                printf( _("execv error\n") );
             }
         }
     }
@@ -293,7 +294,7 @@ int ProcessUtil::ForkCmd( const string &path, const string &cmd, const vector<st
         close( m_StdoutPipe[PIPE_READ] );
         close( m_StdoutPipe[PIPE_WRITE] );
 
-        printf( "Fork failed (%d).\n", childPid );
+        printf( _("Fork failed (%d).\n"), childPid );
         return 0;
     }
 #endif
@@ -421,7 +422,7 @@ void ProcessUtil::StartThread( LPTHREAD_START_ROUTINE threadfun, LPVOID data )
     if(m_Handle==NULL)
     {
         //THREAD CREATION FAILED
-        printf("ERROR: Thread creation failed \n\tFile: %s \tLine:%d\n",__FILE__,__LINE__);
+        printf(_("ERROR: Thread creation failed \n\tFile: %s \tLine:%d\n"),__FILE__,__LINE__);
     }
 }
 #else
@@ -525,7 +526,7 @@ void MonitorProcess( FILE * logFile, ProcessUtil *process, const string &msgLabe
 
     if( logFile )
     {
-        fprintf( logFile, "Done\n" );
+        fprintf( logFile, _("Done\n") );
     }
     else
     {

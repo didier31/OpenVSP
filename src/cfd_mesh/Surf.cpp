@@ -17,6 +17,8 @@
 #include "IntersectPatch.h"
 #include <cfloat>  //For DBL_EPSILON
 
+#include <intl.h>
+
 Surf::Surf()
 {
     m_GridDensityPtr = 0;
@@ -928,7 +930,7 @@ void Surf::InitMesh( vector< ISegChain* > chains, const vector < vec2d > &adduw,
 //               (iind0 == jind1 && iind1 == jind0) )
 //          {
 //              dup = true;
-//              //printf("Surf: Duplicate Seg \n" );
+//              //printf(_("Surf: Duplicate Seg \n") );
 //          }
 //      }
 //      if ( !dup )
@@ -961,12 +963,12 @@ void Surf::InitMesh( vector< ISegChain* > chains, const vector < vec2d > &adduw,
 //              newMeshSegVec.push_back( addseg1 );
 //              newMeshSegVec.push_back( addseg2 );
 //
-//              //printf("Surf: %d Proj Pnt Dist = %f\n", (int)this, d );
-//              //printf("  Seg = %f %f   %f %f\n",
+//              //printf(_("Surf: %d Proj Pnt Dist = %f\n"), (int)this, d );
+//              //printf(_("  Seg = %f %f   %f %f\n"),
 //              //  uwPntVec[iind0].x(),  uwPntVec[iind0].y(),
 //              //  uwPntVec[iind1].x(),  uwPntVec[iind1].y());
 //              //vec3d p = CompPnt( uwPntVec[j].x(), uwPntVec[j].y() );
-//              //printf("  Pnt uv = %f %f    %f %f %f\n", uwPntVec[j].x(), uwPntVec[j].y(), p.x(), p.y(), p.z() );
+//              //printf(_("  Pnt uv = %f %f    %f %f %f\n"), uwPntVec[j].x(), uwPntVec[j].y(), p.x(), p.y(), p.z() );
 //          }
 //          else
 //          {

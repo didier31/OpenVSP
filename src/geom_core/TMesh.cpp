@@ -1395,7 +1395,7 @@ TTri::TTri( TMesh* tmesh )
 {
     static int cnt = 0;
     cnt++;
-//printf("Tri Construct Cnt = %d \n", cnt);
+//printf(_("Tri Construct Cnt = %d \n"), cnt);
     m_E0 = m_E1 = m_E2 = 0;
     m_N0 = m_N1 = m_N2 = 0;
     m_IgnoreTriFlag = false;
@@ -1409,7 +1409,7 @@ TTri::~TTri()
 {
     static int cnt = 0;
     cnt++;
-//printf("Tri Destruct Cnt = %d \n", cnt);
+//printf(_("Tri Destruct Cnt = %d \n"), cnt);
     int i;
 
     //==== Delete Split Edges ====//
@@ -3415,10 +3415,10 @@ void TMesh::CheckValid( FILE* fid )
             TTri* t1 = findTriPnts( ivTriVec[it], ivTriVec[it]->n1,  ivTriVec[it]->n2 );
             TTri* t2 = findTriPnts( ivTriVec[it], ivTriVec[it]->n2,  ivTriVec[it]->n0 );
 
-            printf( "Invalid Tri: %d \n", ivTriVec[it] );
-            printf( "   Tris: %d %d %d\n", t0, t1, t2 );
-            printf( "   Edges: %d %d %d\n", ivTriVec[it]->e0, ivTriVec[it]->e1, ivTriVec[it]->e2 );
-            printf( "   Nodes: %d %d %d\n", ivTriVec[it]->n0, ivTriVec[it]->n1, ivTriVec[it]->n2 );
+            printf( _("Invalid Tri: %d \n"), ivTriVec[it] );
+            printf( _("   Tris: %d %d %d\n"), t0, t1, t2 );
+            printf( _("   Edges: %d %d %d\n"), ivTriVec[it]->e0, ivTriVec[it]->e1, ivTriVec[it]->e2 );
+            printf( _("   Nodes: %d %d %d\n"), ivTriVec[it]->n0, ivTriVec[it]->n1, ivTriVec[it]->n2 );
         }
     **************************/
 
@@ -3465,9 +3465,9 @@ void TMesh::MeshStats( double* minEdgeLen, double* minTriAng, double* maxTriAng 
     }
     *minEdgeLen = sqrt( minLenSq );
 
-//  printf("Mesh Stats:\n");
-//  printf("  Num Tris = %d\n", tVec.size() );
-//  printf("  Min Edge Length = %f\n", *minEdgeLen );
+//  printf(_("Mesh Stats:\n"));
+//  printf(_("  Num Tris = %d\n"), tVec.size() );
+//  printf(_("  Min Edge Length = %f\n"), *minEdgeLen );
 
     int minTri = 0;
     int maxTri = 0;
@@ -3517,8 +3517,8 @@ void TMesh::MeshStats( double* minEdgeLen, double* minTriAng, double* maxTriAng 
     *minTriAng = minAng;
     *maxTriAng = maxAng;
 
-//  printf("  Min Angle = %f\n", minAng);
-//  printf("  Max Angle = %f\n", maxAng);
+//  printf(_("  Min Angle = %f\n"), minAng);
+//  printf(_("  Max Angle = %f\n"), maxAng);
 }
 
 TTri* TMesh::FindTriNodes( TTri* ignoreTri, TNode* n0, TNode* n1 )
@@ -3636,7 +3636,7 @@ void TMesh::StressTest()
     {
         if ( i % 10000 == 0 )
         {
-            printf( "Stress Test Iter = %d\n", i );
+            printf( _("Stress Test Iter = %d\n"), i );
         }
         TTri* t0 = new TTri( NULL );
         t0->m_N0   = new TNode();

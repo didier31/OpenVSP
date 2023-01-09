@@ -33,6 +33,9 @@
 #include "GuiInterface.h"
 #include "common.h"
 
+#include <locale.h>
+#include <libintl.h>
+
 using namespace vsp;
 using namespace std;
 
@@ -199,6 +202,12 @@ void ThreadCheckVersionNumber()
 
 int main( int argc, char** argv )
 {
+    //==== Internationalization ====//
+      setlocale(LC_ALL, "");
+      bindtextdomain ("fr", getenv("PWD"));
+      textdomain ("fr");
+      printf("%s\n", gettext("Aero Structure Coupled Analysis"));
+
     //==== Get Vehicle Ptr ====//
     Vehicle* vPtr = VehicleMgr.GetVehicle();
 

@@ -13,6 +13,8 @@
 #include "main.h"
 #include <float.h>
 
+#include <intl.h>
+
 //===================================================================//
 //=================        STEP Functions         ===================//
 //===================================================================//
@@ -1494,7 +1496,7 @@ void IGESutil::AddLabel( DLL_IGES_ENTITY& entity, const string& label )
     DLL_IGES_ENTITY_406 e406( model, true );
     if ( !e406.SetProperty_Name( label.c_str() ) )
     {
-        printf( "Warning: Failed to Set IGES Property Name\n" );
+        printf( _("Warning: Failed to Set IGES Property Name\n") );
     }
     entity.AddOptionalEntity( e406.GetRawPtr() );
     e406.Detach();

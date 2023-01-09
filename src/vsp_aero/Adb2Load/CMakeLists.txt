@@ -27,7 +27,7 @@ surfIDs.H
 utils.H
 )
 
-TARGET_LINK_LIBRARIES(vsploads
+TARGET_LINK_LIBRARIES(vsploads ${Intl_LIBRARIES}
 )
 
 INSTALL( TARGETS vsploads RUNTIME DESTINATION . )

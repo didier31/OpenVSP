@@ -29,6 +29,8 @@
 #include "eli/geom/intersect/intersect_axis_surface.hpp"
 #include "eli/geom/intersect/intersect_segment_surface.hpp"
 
+#include <intl.h>
+
 typedef piecewise_surface_type::index_type surface_index_type;
 typedef piecewise_surface_type::point_type surface_point_type;
 typedef piecewise_surface_type::rotation_matrix_type surface_rotation_matrix_type;
@@ -546,7 +548,7 @@ void VspSurf::CreateDisk( double dia, int ix, int iy )
 
     if ( !ppc.create( c ) )
     {
-        std::cerr << "Failed to create point for disk. " << __LINE__ << std::endl;
+        std::cerr << _("Failed to create point for disk. ") << __LINE__ << std::endl;
     }
     else
     {
@@ -574,7 +576,7 @@ void VspSurf::CreateDisk( double dia, int ix, int iy )
 
     if ( !pcc.create( c ) )
     {
-        std::cerr << "Failed to create circle for disk. " << __LINE__ << std::endl;
+        std::cerr << _("Failed to create circle for disk. ") << __LINE__ << std::endl;
     }
     else
     {
@@ -606,7 +608,7 @@ void VspSurf::SkinRibs( const vector<rib_data_type> &ribs, const vector < int > 
 
     if ( !setcond )
     {
-        printf( "Failure in SkinRibs set_conditions\n" );
+        printf( _("Failure in SkinRibs set_conditions\n") );
         return;
     }
 
@@ -622,7 +624,7 @@ void VspSurf::SkinRibs( const vector<rib_data_type> &ribs, const vector < int > 
 
     if ( !creat )
     {
-        printf( "Failure in SkinRibs create\n" );
+        printf( _("Failure in SkinRibs create\n") );
         return;
     }
 
@@ -688,7 +690,7 @@ void VspSurf::SkinCubicSpline( const vector<rib_data_type> &ribs, const vector<d
 
     if ( !setcond )
     {
-        printf( "Failure in SkinCubicSpline set_conditions\n" );
+        printf( _("Failure in SkinCubicSpline set_conditions\n") );
     }
 
     // set the delta u for each surface segment
@@ -705,7 +707,7 @@ void VspSurf::SkinCubicSpline( const vector<rib_data_type> &ribs, const vector<d
 
     if ( !creat )
     {
-        printf( "Failure in SkinCubicSpline create\n" );
+        printf( _("Failure in SkinCubicSpline create\n") );
     }
 
     ResetFlipNormal();
@@ -1006,7 +1008,7 @@ void VspSurf::CompCurvature( double u, double w, double& k1, double& k2, double&
     double slop = 1e-3;
     if( u < (umn - slop) || w < (wmn - slop) || u > (umx + slop) || w > (wmx + slop) )
     {
-        printf("BAD parameter in VspSurf::CompCurvature! %f %f\n", u, w );
+        printf(_("BAD parameter in VspSurf::CompCurvature! %f %f\n"), u, w );
         assert(false);
     }
 
@@ -1216,7 +1218,7 @@ void VspSurf::MakeUTess( const vector<int> &num_u, vector<double> &u, const std:
 
         if ( nusect != umerge.size() )
         {
-            printf( "Error.  num_u does not match umerge.\n" );
+            printf( _("Error.  num_u does not match umerge.\n") );
         }
         assert( uskip.size() == nusect );
 
@@ -1567,7 +1569,7 @@ void VspSurf::Tesselate( const vector<double> &u, const vector<double> &v, std::
 {
     if ( u.size() == 0 || v.size() == 0 )
     {
-        printf( "ERROR: Empty U or V vectors \n\tFile: %s \tLine:%d\n", __FILE__, __LINE__ );
+        printf( _("ERROR: Empty U or V vectors \n\tFile: %s \tLine:%d\n"), __FILE__, __LINE__ );
         return;
     }
 
@@ -1637,7 +1639,7 @@ void VspSurf::SplitTesselate( const vector<double> &usplit, const vector<double>
 {
     if ( usplit.size() == 0 || vsplit.size() == 0 )
     {
-        printf( "ERROR: Empty U or V split \n\tFile: %s \tLine:%d\n", __FILE__, __LINE__ );
+        printf( _("ERROR: Empty U or V split \n\tFile: %s \tLine:%d\n"), __FILE__, __LINE__ );
         return;
     }
     vector < int > iusplit;
@@ -2000,7 +2002,7 @@ bool VspSurf::CapWMin(int CapType)
     if (CapType == vsp::NO_END_CAP)
       return false;
 
-    std::cout << "Am Capping WMin on this one!" << std::endl;
+    std::cout << _("Am Capping WMin on this one!") << std::endl;
     return false;
 }
 
@@ -2009,7 +2011,7 @@ bool VspSurf::CapWMax(int CapType)
     if (CapType == vsp::NO_END_CAP)
       return false;
 
-    std::cout << "Am Capping WMax on this one!" << std::endl;
+    std::cout << _("Am Capping WMax on this one!") << std::endl;
     return false;
 }
 

@@ -499,7 +499,7 @@ bool NotEqParm::SetValCheckLimits( double val )
                 errMsgData.m_String = "Error";
                 errMsgData.m_IntVec.push_back( vsp::VSP_CANT_SET_NOT_EQ_PARM );
                 char buf[255];
-                sprintf( buf, "Error:  Attempt to set %s equal to %s.", m_Name.c_str(), oparm->GetName().c_str() );
+                sprintf( buf, _("Error:  Attempt to set %s equal to %s."), m_Name.c_str(), oparm->GetName().c_str() );
                 errMsgData.m_StringVec.emplace_back( string( buf ) );
 
                 MessageMgr::getInstance().SendAll( errMsgData );
@@ -800,8 +800,8 @@ void DriverGroup::Test( vector< string > parmIDs, double tol )
 
             if( failonce )
             {
-                printf( "Error, driver group mis-calculated parameters.\n" );
-                printf( " Drivers: " );
+                printf( _("Error, driver group mis-calculated parameters.\n") );
+                printf( _(" Drivers: ") );
                 for( int k = 0; k < m_Nchoice; k++ )
                 {
                     Parm* p = ParmMgr.FindParm( parmIDs[ checkchoices[k] ] );
@@ -813,7 +813,7 @@ void DriverGroup::Test( vector< string > parmIDs, double tol )
                 for( int k = 0; k < m_Nvar; k++ )
                 {
                     Parm* p = ParmMgr.FindParm( parmIDs[ k ] );
-                    printf(" %s orig: %f this: %f\n", p->GetName().c_str(), ovals[k], p->Get() );
+                    printf(_(" %s orig: %f this: %f\n"), p->GetName().c_str(), ovals[k], p->Get() );
                 }
                 printf( "\n" );
             }
@@ -830,7 +830,7 @@ void DriverGroup::Test( vector< string > parmIDs, double tol )
 
     if( !failever )
     {
-        printf( " Driver group test pass\n" );
+        printf( _(" Driver group test pass\n") );
     }
 
     SetChoices( ochoice );

@@ -102,16 +102,16 @@ void CfdMeshMgrSingleton::GenerateMesh()
     addOutputText( _("Build Grid\n") );
     BuildGrid();
 
-    // addOutputText( "Intersect\n" ); // Output in intersect() itself.
+    // addOutputText( _("Intersect\n") ); // Output in intersect() itself.
     Intersect();
 
-    addOutputText( _("Binary Adaptation Curve Approximation)\n" );
+    addOutputText( _("Binary Adaptation Curve Approximation)\n") );
     BinaryAdaptIntCurves();
 
     addOutputText( _("Build Target Map\n") );
     BuildTargetMap( CfdMeshMgrSingleton::VOCAL_OUTPUT );
 
-    // addOutputText( "InitMesh\n" ); // Output inside InitMesh
+    // addOutputText( _("InitMesh\n") ); // Output inside InitMesh
     InitMesh( );
 
     addOutputText( _("Sub Tag tris\n") );
@@ -133,17 +133,17 @@ void CfdMeshMgrSingleton::GenerateMesh()
     addOutputText( _("Post Mesh\n") );
     PostMesh();
 
-    //addOutputText( "Triangle Quality\n");
+    //addOutputText( _("Triangle Quality\n"));
     //string qual = CfdMeshMgr.GetQualString();
     //addOutputText( qual.c_str() );
 
     addOutputText( _("Build Single Tag Map\n") );
     SubSurfaceMgr.BuildSingleTagMap();
 
-    addOutputText( "Exporting Files\n" );
+    addOutputText( _("Exporting Files\n") );
     ExportFiles();
 
-    addOutputText( "Check Water Tight\n" );
+    addOutputText( _("Check Water Tight\n") );
     string resultTxt = CheckWaterTight();
     addOutputText( resultTxt );
 
@@ -698,7 +698,7 @@ void CfdMeshMgrSingleton::BuildTargetMap( int output_type )
     {
         if ( output_type != CfdMeshMgrSingleton::QUIET_OUTPUT )
         {
-            addOutputText( " Rigorous 3D Limiting\n", output_type );
+            addOutputText( _(" Rigorous 3D Limiting\n"), output_type );
         }
 
         for ( i = 0 ; i < ( int )m_SurfVec.size() ; i++ )
@@ -763,7 +763,7 @@ void CfdMeshMgrSingleton::Remesh( int output_type )
 
             num_tris += m_SurfVec[ i ]->GetMesh()->GetNumFaces();
 
-            sprintf( str, "Surf %d/%d Iter %d/10 Num Tris = %d\n", i + 1, nsurf, iter + 1, num_tris );
+            sprintf( str, _("Surf %d/%d Iter %d/10 Num Tris = %d\n"), i + 1, nsurf, iter + 1, num_tris );
             if ( output_type != CfdMeshMgrSingleton::QUIET_OUTPUT )
             {
                 addOutputText( str, output_type );
@@ -773,7 +773,7 @@ void CfdMeshMgrSingleton::Remesh( int output_type )
 
         if ( num_rev_removed > 0 )
         {
-            sprintf( str, "%d Reversed tris collapsed in final iteration.\n", num_rev_removed );
+            sprintf( str, _("%d Reversed tris collapsed in final iteration.\n"), num_rev_removed );
             if ( output_type != CfdMeshMgrSingleton::QUIET_OUTPUT )
             {
                 addOutputText( str, output_type );
@@ -783,7 +783,7 @@ void CfdMeshMgrSingleton::Remesh( int output_type )
 
     WakeMgr.StretchWakes();
 
-    sprintf( str, "Total Num Tris = %d\n", total_num_tris );
+    sprintf( str, _("Total Num Tris = %d\n"), total_num_tris );
     addOutputText( str, output_type );
 }
 
@@ -2105,12 +2105,12 @@ string CfdMeshMgrSingleton::CheckWaterTight()
     char resultStr[255];
     if ( num_border_edges || moreThanTwoTriPerEdge )
     {
-        sprintf( resultStr, "NOT Water Tight : %d Border Edges, %d Edges > 2 Tris\n",
+        sprintf( resultStr, _("NOT Water Tight : %d Border Edges, %d Edges > 2 Tris\n"),
                  num_border_edges, moreThanTwoTriPerEdge );
     }
     else
     {
-        sprintf( resultStr, "Is Water Tight\n" );
+        sprintf( resultStr, _("Is Water Tight\n") );
     }
 
     return string( resultStr );
@@ -2229,7 +2229,7 @@ int  CfdMeshMgrSingleton::FindPntIndex(  vec3d& pnt, vector< vec3d* > & allPntVe
         }
     }
 
-    printf( "Error: CfdMeshMgr.FindPntIndex can't find index\n" );
+    printf( _("Error: CfdMeshMgr.FindPntIndex can't find index\n") );
     return 0;
 }
 
@@ -2463,13 +2463,13 @@ void CfdMeshMgrSingleton::InitMesh( )
 
     if ( PrintProgress )
     {
-        addOutputText( "MatchWakes\n" );
+        addOutputText( _("MatchWakes\n") );
     }
     MatchWakes();
 
     if ( PrintProgress )
     {
-        addOutputText( "TessellateChains\n" );
+        addOutputText( _("TessellateChains\n") );
     }
     TessellateChains();
 
@@ -2491,13 +2491,13 @@ void CfdMeshMgrSingleton::InitMesh( )
 
     if ( PrintProgress )
     {
-        addOutputText( "RemoveInteriorTris\n" );
+        addOutputText( _("RemoveInteriorTris\n") );
     }
     RemoveInteriorTris();
 
     if ( PrintProgress )
     {
-        addOutputText( "RemoveTrimTris\n" );
+        addOutputText( _("RemoveTrimTris\n") );
     }
     RemoveTrimTris();
 
@@ -2535,7 +2535,7 @@ void CfdMeshMgrSingleton::TessellateChains()
     //  //double d = dist( (*c)->m_TessVec.front()->m_Pnt, (*c)->m_TessVec.back()->m_Pnt );
     //  //if ( d < 0.001 )
     //  //{
-    //  //  printf("Zero Length Chain\n");
+    //  //  printf(_("Zero Length Chain\n"));
     //  //}
 
     //  ////==== Compute Total Distance Between Points ====//
@@ -2551,7 +2551,7 @@ void CfdMeshMgrSingleton::TessellateChains()
     //  //  double d = dist( pa, pb );
     //  //  total_dist += d;
     //  //}
-    //  //printf("Total Chain Delta = %f \n", total_dist );
+    //  //printf(_("Total Chain Delta = %f \n"), total_dist );
     //}
 }
 
@@ -2789,7 +2789,7 @@ void CfdMeshMgrSingleton::BuildMesh()
         vector < vec2d > adduw;
         ForceSurfaceFixPoints( s, adduw );
 
-        sprintf( str, "InitMesh %d/%d\n", s+1, m_SurfVec.size() );
+        sprintf( str, _("InitMesh %d/%d\n"), s+1, m_SurfVec.size() );
         addOutputText( str );
         m_SurfVec[s]->InitMesh( surf_chains, adduw, this );
     }
@@ -3026,7 +3026,7 @@ void CfdMeshMgrSingleton::RemoveInteriorTris()
                     }
                     else // Can't determine if Tri is inside or outside based on neighbor votes
                     {
-                        printf( "IntExtCount ZERO!\n" );
+                        printf( _("IntExtCount ZERO!\n") );
                     }
 
                 }
@@ -3210,7 +3210,7 @@ void CfdMeshMgrSingleton::MatchBorderEdges( list< Edge* > edgeList )
         {
             if ( close_dist < dist_tol )
             {
-//printf("Match Edge %f %d \n",close_dist, edgeList.size()  );
+//printf(_("Match Edge %f %d \n"),close_dist, edgeList.size()  );
                 //==== Merge the 2 Edges ====//
                 double d0011 = dist_squared( close_e->n0->pnt, close_f->n0->pnt ) +
                                dist_squared( close_e->n1->pnt, close_f->n1->pnt );
@@ -3238,7 +3238,7 @@ void CfdMeshMgrSingleton::MatchBorderEdges( list< Edge* > edgeList )
             else
             {
                 close_e->debugFlag = true;
-//              printf("Close Dist = %f\n", close_dist );
+//              printf(_("Close Dist = %f\n"), close_dist );
                 edgeList.remove( close_e );
                 edgeList.remove( close_f );
 

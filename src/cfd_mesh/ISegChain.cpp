@@ -10,6 +10,8 @@
 #include "ISegChain.h"
 #include "CfdMeshMgr.h"
 
+#include <intl.h>
+
 //////////////////////////////////////////////////////////////////////
 //==== UW Point on Surface ====//
 //////////////////////////////////////////////////////////////////////
@@ -92,7 +94,7 @@ void IPnt::CompPnt_WithMetrics()
         }
         dave /= m_Puws.size();
 
-        printf( "Number in group %d average spread %e\n", m_Puws.size(), dave );
+        printf( _("Number in group %d average spread %e\n"), m_Puws.size(), dave );
     }
 
     m_Pnt = psum;
@@ -702,7 +704,7 @@ bool ISegChain::Match( ISegChain* B )
     if( dist_squared( pA0, pB1 ) < tol && dist_squared( pA1, pB0 ) < tol )
     {
         this->FlipDir();
-        printf( "Flipping\n" );
+        printf( _("Flipping\n") );
         return true;
     }
 
@@ -1148,12 +1150,12 @@ bool SplitCompare( const ISegSplit* a, const ISegSplit* b )
 vector< ISegChain* > ISegChain::SortAndSplit( SurfaceIntersectionSingleton *MeshMgr )
 {
 //for ( int i = 0 ; i < (int)m_SplitVec.size() ; i++ )
-//  printf("Split Index = %d %f\n", m_SplitVec[i]->m_Index,  m_SplitVec[i]->m_Fract );
+//  printf(_("Split Index = %d %f\n"), m_SplitVec[i]->m_Index,  m_SplitVec[i]->m_Fract );
 
     sort( m_SplitVec.begin(), m_SplitVec.end(), SplitCompare );
 
 //for ( int i = 0 ; i < (int)m_SplitVec.size() ; i++ )
-//  printf("Sort Split Index = %d %f\n", m_SplitVec[i]->m_Index,  m_SplitVec[i]->m_Fract );
+//  printf(_("Sort Split Index = %d %f\n"), m_SplitVec[i]->m_Index,  m_SplitVec[i]->m_Fract );
 
     vector< ISegChain* > new_chains;
 
@@ -1323,14 +1325,14 @@ void ISegChain::ApplyTess( SurfaceIntersectionSingleton *MeshMgr )
         //vec3d pB = m_SurfB->CompPnt( tuwb[i][0], tuwb[i][1] );
 
         //double d = dist( pA, pB );
-        //  printf( "%d Big D = %f \n",i, d );
+        //  printf( _("%d Big D = %f \n"),i, d );
 
         ip->CompPnt();
         m_TessVec.push_back( ip );
     }
 
 //double d = dist( m_TessVec.front()->m_Pnt,  m_TessVec.back()->m_Pnt );
-//printf("Tess Chain Size = %d %f\n", m_TessVec.size(), d );
+//printf(_("Tess Chain Size = %d %f\n"), m_TessVec.size(), d );
 }
 
 void ISegChain::SpreadDensity( )

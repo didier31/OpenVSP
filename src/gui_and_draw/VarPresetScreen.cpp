@@ -7,10 +7,10 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include <intl.h>
-
 #include "VarPresetScreen.h"
 #include "ParmMgr.h"
+
+#include <intl.h>
 
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
@@ -265,7 +265,7 @@ bool VarPresetScreen::Update()
 
 void VarPresetScreen::RebuildAdjustTab()
 {
-    //printf( "Rebuild Adjust Tab ================================== \n" );
+    //printf( _("Rebuild Adjust Tab ================================== \n") );
     m_AdjustGroup->clear();
     m_AdjustLayout.SetGroup( m_AdjustGroup );
     m_AdjustLayout.InitWidthHeightVals();
@@ -301,7 +301,7 @@ void VarPresetScreen::RebuildAdjustTab()
 
 void VarPresetScreen::RebuildMenus( int g_index )
 {
-    //printf( "Rebuilding Menus ====================================== \n" );
+    //printf( _("Rebuilding Menus ====================================== \n") );
     int s_index;
     vector < Preset > m_PresetVec = VarPresetMgr.GetPresetVec();
 
@@ -343,7 +343,7 @@ void VarPresetScreen::RebuildMenus( int g_index )
 
 void VarPresetScreen::CheckSaveStatus( int g_index, int s_index )
 {
-    //printf( "Checking Save Status ============================= \n" );
+    //printf( _("Checking Save Status ============================= \n") );
     // Compare Currently Saved Values with Current
     // if different notify user to save changes
     vector <Preset> m_PresetVec = VarPresetMgr.GetPresetVec();

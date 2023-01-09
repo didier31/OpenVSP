@@ -1,0 +1,1103 @@
+# French translations for PACKAGE package.
+# Copyright (C) 2022 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Didier <didu31@hotmail.fr>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenVSP 3.31.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-25 20:55+0100\n"
+"PO-Revision-Date: 2022-12-27 18:18+0100\n"
+"Last-Translator: Didier <didu31@hotmail.fr>\n"
+"Language-Team: French <didu31@hotmail.fr>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"X-Generator: Gtranslator 40.0\n"
+
+#: AeroStructScreen.cpp:27
+msgid "Aero Structure Coupled Analysis"
+msgstr "Analyse couplée à la structure aérodynamique"
+
+#: AeroStructScreen.cpp:40
+msgid "Show VSPAERO GUI"
+msgstr "Montrer l'interface VSAERO"
+
+#: AeroStructScreen.cpp:41
+msgid "Execute VSPAERO"
+msgstr "Exécuter VSPAERO"
+
+#: AeroStructScreen.cpp:44
+msgid "FEA Mesh"
+msgstr "Maillage d'analyse par EF"
+
+#: AeroStructScreen.cpp:46
+msgid "Structure"
+msgstr "Structure"
+
+#: AeroStructScreen.cpp:53
+msgid "Show FEA Structure GUI"
+msgstr "Structure AEF"
+
+#: AeroStructScreen.cpp:54
+msgid "Show FEA Assembly GUI"
+msgstr "Assemblage AEF"
+
+#: AeroStructScreen.cpp:58
+msgid "Remesh All"
+msgstr "Remailler tout"
+
+#: AeroStructScreen.cpp:59
+msgid "Mesh Unmeshed"
+msgstr "Mailler non-maillé"
+
+#: AeroStructScreen.cpp:65
+msgid "Export FEA Mesh"
+msgstr "Exporter maillage AEF"
+
+#: AeroStructScreen.cpp:67
+msgid "Visualize Mesh in cgx"
+msgstr "Voir maillage dans cgx"
+
+#: AeroStructScreen.cpp:74
+msgid "Dynamic Pressure"
+msgstr "Pressiion dynamique"
+
+#: AeroStructScreen.cpp:75
+msgid "Apply Loads"
+msgstr "Appliquer les charges"
+
+#: AeroStructScreen.cpp:77
+msgid "Visualize Input in cgx"
+msgstr "Voir les entrées dans cgx"
+
+#: AeroStructScreen.cpp:82
+msgid "Solve Structure"
+msgstr "Résoudre la structure"
+
+#: AeroStructScreen.cpp:85
+msgid "Viewer"
+msgstr "Vue"
+
+#: AeroStructScreen.cpp:87
+msgid "Visualize Results in vspviewer"
+msgstr "Voir les résultats dans vspviewer"
+
+#: AeroStructScreen.cpp:88
+msgid "Visualize Results in cgx"
+msgstr "Voir les résultats dans cgx"
+
+#: AeroStructScreen.cpp:407 AeroStructScreen.cpp:505
+msgid "Done\n"
+msgstr "Accompli\n"
+
+#: AeroStructScreen.cpp:497 AeroStructScreen.cpp:502 StructScreen.cpp:2731
+msgid "Exporting Mesh Files\n"
+msgstr "Exporter les fichiers de maillage\n"
+
+#: GroupLayout.cpp:753
+#, c-format
+msgid ""
+"ERROR: xdata.size() != ydata.size() \n"
+"\tFile: %s \tLine:%d\n"
+msgstr ""
+"ERREUR: xdata.size() != ydata.size()\n"
+"\tFichier: %s \tLigne: %d\n"
+
+#: GroupLayout.cpp:1204
+msgid "Container"
+msgstr "Conteneur"
+
+#: GroupLayout.cpp:1500
+msgid "Enforce"
+msgstr "Imposer"
+
+#: GroupLayout.cpp:1546
+msgid "Geom"
+msgstr "Geom"
+
+#: GroupLayout.cpp:1584
+msgid "Type"
+msgstr "Type"
+
+#: GroupLayout.cpp:1586
+msgid "Convert"
+msgstr "Convertir"
+
+#: GroupLayout.cpp:1591
+msgid "Convert to:"
+msgstr "Convertir vers:"
+
+#: GroupLayout.cpp:1597
+msgid "Linear"
+msgstr "Linéaire"
+
+#: GroupLayout.cpp:1598
+msgid "Spline (PCHIP)"
+msgstr "Spline (PCHIP)"
+
+#: GroupLayout.cpp:1599
+msgid "Cubic Bezier"
+msgstr "Bézier Cubique"
+
+#: GroupLayout.cpp:1600
+msgid "Approximate Cubic Bezier"
+msgstr "Approximer Bézier Cubique"
+
+#: GroupLayout.cpp:1621
+msgid "r/R Split"
+msgstr "Division r/R"
+
+#: GroupLayout.cpp:1630 GroupLayout.cpp:1635
+msgid "Split"
+msgstr "Division"
+
+#: GroupLayout.cpp:1643 GroupLayout.cpp:1647
+msgid "Split Pick"
+msgstr "Choix de Division"
+
+#: GroupLayout.cpp:1678 GroupLayout.cpp:1682
+msgid "Del Pick"
+msgstr "Suppr Choix"
+
+#: GroupLayout.cpp:1694
+msgid "Control Points"
+msgstr "Points de Contrôle"
+
+#: GroupLayout.cpp:1728
+#, c-format
+msgid ""
+"Error:  Column width array not zero terminated or column length mismatch: "
+msgstr ""
+"Erreur : le tableau de largeur de colonne ne se termine pas par zéro ou la "
+"longueur de colonne ne correspond pas :"
+
+#: GroupLayout.cpp:1890
+#, c-format
+msgid "'%s' insufficient width.\n"
+msgstr "'%s' langeur insuffisante.\n"
+
+#: GroupLayout.cpp:1894
+#, c-format
+msgid "'%s' insufficient height.\n"
+msgstr "'%s' hauteur insuffisante.\n"
+
+#: GuiDevice.cpp:1190
+#, c-format
+msgid "Error: Non-BoolParm %s associated with CheckButton %s.\n"
+msgstr ""
+"Erreur: Le paramètre %s n'est pas un booléen et ne peut donc être associé à "
+"%s : CheckButton.\n"
+
+#: GuiDevice.cpp:1263
+#, c-format
+msgid "Error: Non-IntParm %s associated with CheckButtonBit %s.\n"
+msgstr ""
+"Erreur: Le paramètre %s n'est pas un entier et ne peut donc être associé à "
+"%s : CheckButtonBit.\n"
+
+#: GuiDevice.cpp:1341
+#, c-format
+msgid "Error: Non-BoolParm %s associated with RadioButton %s.\n"
+msgstr ""
+"Erreur: Le paramètre %s n'est pas un booléen et ne peut donc être associé à "
+"%s : RadioButton.\n"
+
+#: GuiDevice.cpp:1414
+#, c-format
+msgid "Error: Non-BoolParm %s associated with ToggleButton %s.\n"
+msgstr ""
+"Erreur: Le paramètre %s n'est pas un booléen et ne peut donc être associé à "
+"%s : ToggleButton.\n"
+
+#: GuiDevice.cpp:1702
+#, c-format
+msgid "Error: Non-IntParm %s associated with Choice %s.\n"
+msgstr ""
+"Erreur: Le paramètre %s n'est pas un entier et ne peut donc être associé à "
+"%s : Choice.\n"
+
+#: GuiDevice.cpp:1947 GuiDevice.cpp:1983
+#, c-format
+msgid "Error: Non-FractionParm %s associated with FractParmSlider.\n"
+msgstr ""
+"Erreur: Le paramètre %s n'est pas une fraction et ne peut donc être associé "
+"à FractParmSlider.\n"
+
+#: GuiDevice.cpp:2980
+#, c-format
+msgid ""
+"Error: multiple same-name groups where there shouldn't be any. \n"
+"\tFile: %s \tLine:%d\n"
+msgstr ""
+"Erreur: plusieurs groupes de même nom alors que cela ne devrait pas.\n"
+"\tFichier: %s \tLigne:%d\n"
+
+#: HingeScreen.cpp:16
+msgid "Hinge"
+msgstr "Charnière"
+
+#: HingeScreen.cpp:18
+msgid "Orient"
+msgstr "Orienter"
+
+#: HingeScreen.cpp:23
+msgid "Orient Base"
+msgstr "Base d'Orientation"
+
+#: HingeScreen.cpp:25
+msgid "Rotations (Use XForm Tab)"
+msgstr "Rotations (Utiliser l'onglet XForm)"
+
+#: HingeScreen.cpp:26 HingeScreen.cpp:34
+msgid "Vectors"
+msgstr "Vecteurs"
+
+#: HingeScreen.cpp:62
+msgid "Reference"
+msgstr "Référence"
+
+#: HingeScreen.cpp:80
+msgid "VECTOR3D"
+msgstr "VECTOR3D"
+
+#: HingeScreen.cpp:81
+msgid "POINT3D"
+msgstr "POINT3D"
+
+#: HingeScreen.cpp:82
+msgid "SURFPT"
+msgstr "SURFPT"
+
+#: HingeScreen.cpp:83
+msgid "UDIR"
+msgstr "UDIR"
+
+#: HingeScreen.cpp:84
+msgid "WDIR"
+msgstr "WDIR"
+
+#: HingeScreen.cpp:85
+msgid "NDIR"
+msgstr "NDIR"
+
+#: HingeScreen.cpp:95
+msgid "Direction Vector:"
+msgstr "Vecteur Directeur:"
+
+#: HingeScreen.cpp:97 HingeScreen.cpp:128 HingeScreen.cpp:170
+#: PropScreen.cpp:261 PropScreen.cpp:292 PropScreen.cpp:340 PropScreen.cpp:368
+msgid "Rel"
+msgstr "Rel"
+
+#: HingeScreen.cpp:98 HingeScreen.cpp:129 HingeScreen.cpp:171
+#: PropScreen.cpp:260 PropScreen.cpp:291 PropScreen.cpp:339 PropScreen.cpp:367
+msgid "Abs"
+msgstr "Abs"
+
+#: HingeScreen.cpp:126
+msgid "Offset:"
+msgstr "Déplacement:"
+
+#: HingeScreen.cpp:163
+msgid "Reference Vector"
+msgstr "Vecteur référence"
+
+#: HingeScreen.cpp:169
+msgid "Reference Vec"
+msgstr "Vec Référence"
+
+#: HingeScreen.cpp:189
+msgid "Motion"
+msgstr "Mouvement"
+
+#: HingeScreen.cpp:201
+msgid "DOF and Coordinates"
+msgstr "Degrès de Liberté et Coordonnées"
+
+#: HingeScreen.cpp:205 HingeScreen.cpp:226
+msgid "Translate"
+msgstr "Translater"
+
+#: HingeScreen.cpp:212 HingeScreen.cpp:233 HingeScreen.cpp:249
+#: HingeScreen.cpp:270
+msgid "Set"
+msgstr "Assigner"
+
+#: HingeScreen.cpp:215 HingeScreen.cpp:252
+msgid "Min"
+msgstr "Min"
+
+#: HingeScreen.cpp:223 HingeScreen.cpp:260
+msgid "Rng"
+msgstr "Intervalle"
+
+#: HingeScreen.cpp:236 HingeScreen.cpp:273
+msgid "Max"
+msgstr "Max"
+
+#: HingeScreen.cpp:242 HingeScreen.cpp:263 PropScreen.cpp:54
+msgid "Rotate"
+msgstr "Pivoter"
+
+#: ManageGeomScreen.cpp:16
+msgid "Geom Browser"
+msgstr "Navigateur de Géomtries"
+
+#: ManageGeomScreen.cpp:42 VarPresetScreen.cpp:68 VarPresetScreen.cpp:74
+msgid "Add"
+msgstr "Ajouter"
+
+#: ManageGeomScreen.cpp:49
+msgid "Active:"
+msgstr "Actif:"
+
+#: ManageGeomScreen.cpp:76 ManageTextureScreen.cpp:49
+msgid "Delete"
+msgstr "Suppr"
+
+#: ManageGeomScreen.cpp:79
+msgid "Clipboard"
+msgstr "Presse-papiers"
+
+#: ManageGeomScreen.cpp:80 PropScreen.cpp:188
+msgid "Copy"
+msgstr "Copier"
+
+#: ManageGeomScreen.cpp:81 PropScreen.cpp:190
+msgid "Paste"
+msgstr "Coller"
+
+#: ManageGeomScreen.cpp:82 PropScreen.cpp:186
+msgid "Cut"
+msgstr "Couper"
+
+#: ManageGeomScreen.cpp:89
+msgid "Selection"
+msgstr "Sélection"
+
+#: ManageGeomScreen.cpp:90
+msgid "Sel All"
+msgstr "Tout Sélectionner"
+
+#: ManageGeomScreen.cpp:91
+msgid "Pick"
+msgstr "Choisir"
+
+#: ManageGeomScreen.cpp:92 ManageGeomScreen.cpp:117
+msgid "Show Only"
+msgstr "Montrer seulement"
+
+#: ManageGeomScreen.cpp:93 ManageGeomScreen.cpp:118
+msgid "Show"
+msgstr "Montrer"
+
+#: ManageGeomScreen.cpp:94 ManageGeomScreen.cpp:119
+msgid "NoShow"
+msgstr "Cacher"
+
+#: ManageGeomScreen.cpp:97
+msgid "Surface"
+msgstr "Surface"
+
+#: ManageGeomScreen.cpp:102
+msgid "Wire"
+msgstr "Fil"
+
+#: ManageGeomScreen.cpp:103
+msgid "Hidden"
+msgstr "Caché"
+
+#: ManageGeomScreen.cpp:104
+msgid "Shade"
+msgstr "Eclairer"
+
+#: ManageGeomScreen.cpp:105 ManageTextureScreen.cpp:33
+msgid "Texture"
+msgstr "Texture"
+
+#: ManageGeomScreen.cpp:106 PropScreen.cpp:410 PropScreen.cpp:424
+msgid "None"
+msgstr "Aucun"
+
+#: ManageGeomScreen.cpp:109
+msgid "Lines"
+msgstr "Lignes"
+
+#: ManageGeomScreen.cpp:110
+msgid "Sub"
+msgstr "Sous"
+
+#: ManageGeomScreen.cpp:111
+msgid "Feature"
+msgstr "Caractéristique"
+
+#: ManageGeomScreen.cpp:114 PickSetScreen.cpp:37
+msgid "Sets"
+msgstr "Ensembles"
+
+#: ManageGeomScreen.cpp:120
+msgid "Select"
+msgstr "Sélectionner"
+
+#: ManageGeomScreen.cpp:411
+msgid "Normal"
+msgstr "Normal"
+
+#: ManageGeomScreen.cpp:412
+msgid "Surface Degen"
+msgstr "Dégén de Surface"
+
+#: ManageGeomScreen.cpp:413
+msgid "Plate Degen"
+msgstr "Dégén de Plaque"
+
+#: ManageGeomScreen.cpp:414
+msgid "Camber Degen"
+msgstr "Dégén de Courbure"
+
+#: ManageGeomScreen.cpp:423
+msgid "Multiple"
+msgstr "Multiple"
+
+#: ManageTextureScreen.cpp:30
+msgid "Comp:"
+msgstr "Comp:"
+
+#: ManageTextureScreen.cpp:36
+msgid "Add..."
+msgstr "Ajouter..."
+
+#: ManageTextureScreen.cpp:46
+msgid "Edit:"
+msgstr "Editer:"
+
+#: ManageTextureScreen.cpp:53
+msgid "Name:"
+msgstr "Nom:"
+
+#: ManageTextureScreen.cpp:60
+msgid "U Position"
+msgstr "Position U"
+
+#: ManageTextureScreen.cpp:61
+msgid "W Position"
+msgstr "Position W"
+
+#: ManageTextureScreen.cpp:64
+msgid "U Scale"
+msgstr "Echelle U"
+
+#: ManageTextureScreen.cpp:65
+msgid "W Scale"
+msgstr "Echelle W"
+
+#: ManageTextureScreen.cpp:68 ScreenshotScreen.cpp:92
+msgid "Transparency"
+msgstr "Transparence"
+
+#: ManageTextureScreen.cpp:71
+msgid "Texture Coords"
+msgstr "Coords de Texture"
+
+#: ManageTextureScreen.cpp:79
+msgid "Flip U"
+msgstr "Retourner U"
+
+#: ManageTextureScreen.cpp:81
+msgid "Flip W"
+msgstr "Retourner W"
+
+#: ManageTextureScreen.cpp:258
+msgid "Select Image File"
+msgstr "Sélectionner Fichier Image"
+
+#: PickSetScreen.cpp:43
+msgid "OK"
+msgstr "OK"
+
+#: PickSetScreen.cpp:46
+msgid "Cancel"
+msgstr "Annuler"
+
+#: PodScreen.cpp:18 PodScreen.cpp:22 PropScreen.cpp:23 PropScreen.cpp:37
+msgid "Design"
+msgstr "Conception"
+
+#: PodScreen.cpp:25 PropScreen.cpp:243 PropScreen.cpp:321 PropScreen.cpp:417
+#: PropScreen.cpp:431
+msgid "Length"
+msgstr "Longueur"
+
+#: PodScreen.cpp:26
+msgid "Fine Ratio"
+msgstr "Rapport Fin"
+
+#: PropScreen.cpp:29
+msgid "Modeling"
+msgstr "Modelage"
+
+#: PropScreen.cpp:30
+msgid "Blades"
+msgstr "Lames"
+
+#: PropScreen.cpp:31
+msgid "Both"
+msgstr "Les deux"
+
+#: PropScreen.cpp:32
+msgid "Disk"
+msgstr "Disque"
+
+#: PropScreen.cpp:42
+msgid "Diameter"
+msgstr "Diamètre"
+
+#: PropScreen.cpp:44
+msgid "Num Blades"
+msgstr "Nombre de Lames"
+
+#: PropScreen.cpp:46
+msgid "Cylindrical Foils"
+msgstr "Profils Cylindriques"
+
+#: PropScreen.cpp:51
+msgid "Rev"
+msgstr "Rev"
+
+#: PropScreen.cpp:72
+msgid "Feather"
+msgstr "Plume"
+
+#: PropScreen.cpp:78
+msgid "Pre-cone"
+msgstr "Pré-cône"
+
+#: PropScreen.cpp:79
+msgid "Construct X/C"
+msgstr "Construire X/C"
+
+#: PropScreen.cpp:80
+msgid "Feather Axis"
+msgstr "Axe de Plume"
+
+#: PropScreen.cpp:81
+msgid "Feather Offset"
+msgstr "Déplacement de Plume"
+
+#: PropScreen.cpp:89
+msgid "Prop / Rotor Metrics"
+msgstr "Métriques Hélice / Rotor"
+
+#: PropScreen.cpp:92
+msgid "Activity Factor"
+msgstr "Facteur d'Activité"
+
+#: PropScreen.cpp:100 PropScreen.cpp:155
+msgid "CLi"
+msgstr "CLi"
+
+#: PropScreen.cpp:108
+msgid "C/R"
+msgstr "C/R"
+
+#: PropScreen.cpp:109
+msgid "C_T/R"
+msgstr "C_T/R"
+
+#: PropScreen.cpp:110
+msgid "C_P/R"
+msgstr "C_P/R"
+
+#: PropScreen.cpp:147
+msgid "Chord"
+msgstr "Corde"
+
+#: PropScreen.cpp:148
+msgid "Twist"
+msgstr "Torsion"
+
+#: PropScreen.cpp:149
+msgid "Rake"
+msgstr "Râteau"
+
+#: PropScreen.cpp:150
+msgid "Skew"
+msgstr "Obliquer"
+
+#: PropScreen.cpp:151
+msgid "Sweep"
+msgstr "Balayer"
+
+#: PropScreen.cpp:152
+msgid "Axial"
+msgstr "Axial"
+
+#: PropScreen.cpp:153
+msgid "Tangential"
+msgstr "Tangentiel"
+
+#: PropScreen.cpp:154
+msgid "Thick"
+msgstr "Epais"
+
+#: PropScreen.cpp:165
+msgid "Curve"
+msgstr "Courbe"
+
+#: PropScreen.cpp:167
+msgid "Approximate All"
+msgstr "Tout Approximer"
+
+#: PropScreen.cpp:168
+msgid "Reset Thick"
+msgstr "Reset Epais"
+
+#: PropScreen.cpp:184
+msgid "Insert"
+msgstr "Insérer"
+
+#: PropScreen.cpp:200
+msgid "Radius"
+msgstr "Rayon"
+
+#: PropScreen.cpp:210
+msgid "Modify"
+msgstr "Modifier"
+
+#: PropScreen.cpp:216
+msgid "Cross Section"
+msgstr "Coupe Transversale"
+
+#: PropScreen.cpp:223
+msgid "Shift, Rotate, & Scale"
+msgstr "Décaler, Tourner & Mettre à l'échelle"
+
+#: PropScreen.cpp:225
+msgid "Delta X/C"
+msgstr "Delta X/C"
+
+#: PropScreen.cpp:226
+msgid "Delta Y/C"
+msgstr "Delta Y/C"
+
+#: PropScreen.cpp:227
+msgid "Theta"
+msgstr "Theta"
+
+#: PropScreen.cpp:228
+msgid "Scale"
+msgstr "Mise à l'échelle"
+
+#: PropScreen.cpp:229
+msgid "Shift LE"
+msgstr "Décaler LE"
+
+#: PropScreen.cpp:235
+msgid "Leading Edge"
+msgstr "Bord d'Attaque"
+
+#: PropScreen.cpp:236 PropScreen.cpp:314
+msgid "FLAT"
+msgstr "PLAT"
+
+#: PropScreen.cpp:237 PropScreen.cpp:315
+msgid "ROUND"
+msgstr "ROND"
+
+#: PropScreen.cpp:238 PropScreen.cpp:316
+msgid "EDGE"
+msgstr "CÔTé"
+
+#: PropScreen.cpp:239 PropScreen.cpp:317
+msgid "SHARP"
+msgstr "POINTU"
+
+#: PropScreen.cpp:241
+msgid "Cap"
+msgstr "Cap"
+
+#: PropScreen.cpp:244 PropScreen.cpp:322 PropScreen.cpp:418 PropScreen.cpp:432
+msgid "Offset"
+msgstr "Déplacement"
+
+#: PropScreen.cpp:245 PropScreen.cpp:323 PropScreen.cpp:419 PropScreen.cpp:433
+msgid "Strength"
+msgstr "Force"
+
+#: PropScreen.cpp:247 PropScreen.cpp:281 PropScreen.cpp:325 PropScreen.cpp:357
+msgid "NONE"
+msgstr "AUCUN"
+
+#: PropScreen.cpp:248 PropScreen.cpp:326
+msgid "SKEW LOWER"
+msgstr "INCLINER PLUS BAS"
+
+#: PropScreen.cpp:249 PropScreen.cpp:327
+msgid "SKEW UPPER"
+msgstr "INCLINER PLUS HAUT"
+
+#: PropScreen.cpp:250 PropScreen.cpp:328
+msgid "SKEW BOTH"
+msgstr "INCLINER LES DEUX"
+
+#: PropScreen.cpp:257 PropScreen.cpp:336
+msgid "Closure:"
+msgstr "Fermeture:"
+
+#: PropScreen.cpp:282 PropScreen.cpp:308 PropScreen.cpp:358 PropScreen.cpp:381
+msgid "X"
+msgstr "X"
+
+#: PropScreen.cpp:283 PropScreen.cpp:359
+msgid "THICK"
+msgstr "EPAIS"
+
+#: PropScreen.cpp:288 PropScreen.cpp:364
+msgid "Trim:"
+msgstr "Trim:"
+
+#: PropScreen.cpp:309 PropScreen.cpp:353 PropScreen.cpp:382
+msgid "T"
+msgstr "T"
+
+#: PropScreen.cpp:313
+msgid "Trailing Edge"
+msgstr "Bord de fuite"
+
+#: PropScreen.cpp:319
+msgid "Cap:"
+msgstr "Cap:"
+
+#: PropScreen.cpp:329
+msgid "EXTRAPOLATE"
+msgstr "EXTRAPOLER"
+
+#: PropScreen.cpp:384
+msgid "More"
+msgstr "Plus"
+
+#: PropScreen.cpp:392
+msgid "Folding"
+msgstr "Plier"
+
+#: PropScreen.cpp:394
+msgid "Angle"
+msgstr "Angle"
+
+#: PropScreen.cpp:395
+msgid "Radial/R"
+msgstr "Radial/R"
+
+#: PropScreen.cpp:396
+msgid "Axial/R"
+msgstr "Axial/R"
+
+#: PropScreen.cpp:397
+msgid "Offset/R"
+msgstr "Déplacement/R"
+
+#: PropScreen.cpp:398
+msgid "Azimuth"
+msgstr "Azimuth"
+
+#: PropScreen.cpp:399
+msgid "Elevation"
+msgstr "Hauteur"
+
+#: PropScreen.cpp:405
+msgid "Tip Treatment"
+msgstr "Traitement des pointes"
+
+#: PropScreen.cpp:406
+msgid "Cap Tess"
+msgstr "Cap Tess"
+
+#: PropScreen.cpp:411 PropScreen.cpp:425
+msgid "Flat"
+msgstr "Plat"
+
+#: PropScreen.cpp:412 PropScreen.cpp:426
+msgid "Round"
+msgstr "Rond"
+
+#: PropScreen.cpp:413 PropScreen.cpp:427
+msgid "Edge"
+msgstr "Côté"
+
+#: PropScreen.cpp:414 PropScreen.cpp:428
+msgid "Sharp"
+msgstr "Pointu"
+
+#: PropScreen.cpp:415
+msgid "Root Cap Type"
+msgstr "Root Cap Type"
+
+#: PropScreen.cpp:420 PropScreen.cpp:434
+msgid "Sweep Stretch"
+msgstr "Balayage Étirement"
+
+#: PropScreen.cpp:429
+msgid "Tip Cap Type"
+msgstr "Tip Cap Type"
+
+#: PropScreen.cpp:438
+msgid "Tessellation Control"
+msgstr "Contrôle de pavage"
+
+#: PropScreen.cpp:439
+msgid "LE Clustering"
+msgstr "Cluster LE"
+
+#: PropScreen.cpp:440
+msgid "TE Clustering"
+msgstr "Cluster TE"
+
+#: PropScreen.cpp:441
+msgid "Root Clustering"
+msgstr "Cluster Racine"
+
+#: PropScreen.cpp:442
+msgid "Tip Clustering"
+msgstr "Cluster Pointe"
+
+#: PropScreen.cpp:446
+msgid "Minimum LE/TE Panel Width"
+msgstr "Lageur Min de Panneau LE/TE"
+
+#: PropScreen.cpp:447
+msgid "Maximum Growth Ratio"
+msgstr "Rapport de Croissance Max"
+
+#: ScreenshotScreen.cpp:20
+msgid "Screenshot"
+msgstr "Capture d'Ecran"
+
+#: ScreenshotScreen.cpp:39
+msgid "Viewport Size"
+msgstr "Taille de la Vue"
+
+#: ScreenshotScreen.cpp:42 ScreenshotScreen.cpp:69
+msgid "Width"
+msgstr "Lageur"
+
+#: ScreenshotScreen.cpp:43 ScreenshotScreen.cpp:75
+msgid "Height"
+msgstr "Hauteur"
+
+#: ScreenshotScreen.cpp:53
+msgid "Output Size"
+msgstr "Taille de la Sortie"
+
+#: ScreenshotScreen.cpp:63
+msgid "Ratio"
+msgstr "Rapport"
+
+#: ScreenshotScreen.cpp:82
+msgid "Reset to Viewport Size"
+msgstr "Réinit à la Taille de la Vue"
+
+#: ScreenshotScreen.cpp:94
+msgid "Transparent Background"
+msgstr "Fond Transparent"
+
+#: ScreenshotScreen.cpp:95
+msgid "Auto Crop Transparent Background"
+msgstr "Recadrage Automatique de l'Arrière-plan Transparent"
+
+#: ScreenshotScreen.cpp:98
+msgid "Capture PNG"
+msgstr "Capture PNG"
+
+#: ScreenshotScreen.cpp:131
+msgid ""
+"Some features may be disabled due to a lower version of OpenGL.\n"
+"Upgrade to OpenGL 2.1 or higher."
+msgstr ""
+"Certaines fonctionnalités peuvent être inactives dues à une version "
+"antérieure d'OpenGL.\n"
+"Mettre à niveau à OpenGl 2.1 ou supérieur."
+
+#: ScreenshotScreen.cpp:275
+msgid "Create or Select a PNG File"
+msgstr "Créer ou Sélectionner un Fichier PNG"
+
+#: StructScreen.cpp:2747
+msgid "Exporting CAD Files\n"
+msgstr "Exporter les Fichiers CAO\n"
+
+#: VSPAEROScreen.cpp:58
+msgid "Launch Solver"
+msgstr "Lancer le Solveur"
+
+#: VSPAEROScreen.cpp:59
+msgid "Kill Solver"
+msgstr "Tuer le Solveur"
+
+#: VSPAEROScreen.cpp:63
+msgid "Show Results Mgr"
+msgstr "Monter le Gestionnaire de Résultats"
+
+#: VSPAEROScreen.cpp:64
+msgid "Launch Viewer"
+msgstr "Lancer le Visualiseur"
+
+#: VSPAEROScreen.cpp:68
+msgid "Load Previous Results"
+msgstr "Charger les Résultats Précédents"
+
+#: VSPAEROScreen.cpp:69
+msgid "Export to *.csv"
+msgstr "Exporter vers *.csv"
+
+#: VSPAEROScreen.cpp:77
+msgid "Overview"
+msgstr "Aperçu"
+
+#: VSPAEROScreen.cpp:101
+msgid "Case Setup"
+msgstr "Config. du Cas"
+
+#: VSPAEROScreen.cpp:108
+msgid "Vortex Lattice (VLM)"
+msgstr "Réseau Tourbillonnaire (VLM)"
+
+#: VSPAEROScreen.cpp:109
+msgid "Panel Method"
+msgstr "Méthode du Panneau"
+
+#: VSPAEROScreen.cpp:125
+msgid "Geometry Set:"
+msgstr "Jeu de Géométrie:"
+
+#: VSPAEROScreen.cpp:129
+msgid "Preview VLM Geometry"
+msgstr "Aperçu de la géométrie VLM"
+
+#: VSPAEROScreen.cpp:140
+msgid "Reference Area, Lengths"
+msgstr "Zone de référence, Longueurs"
+
+#: VSPAEROScreen.cpp:147
+msgid "Manual"
+msgstr "Manuel"
+
+#: VSPAEROScreen.cpp:148
+msgid "From Model"
+msgstr "Depuis Modèle"
+
+#: VSPAEROScreen.cpp:156
+msgid "Ref. Wing"
+msgstr "Aile Réf."
+
+#: VSPAEROScreen.cpp:158
+msgid "Sref"
+msgstr "Sref"
+
+#: VSPAEROScreen.cpp:159
+msgid "bref"
+msgstr "bref"
+
+#: VSPAEROScreen.cpp:160
+msgid "cref"
+msgstr "cref"
+
+#: VSPAEROScreen.cpp:174
+msgid "Moment Reference Position"
+msgstr "Position du moment de Référence"
+
+#: VSPAEROScreen.cpp:179
+msgid "Mass Set:"
+msgstr "Ensemble de Masse:"
+
+#: VSPAEROScreen.cpp:181
+msgid "Calc CG"
+msgstr "Calc CG"
+
+#: VSPAEROScreen.cpp:189
+msgid "Num Slices"
+msgstr "Nombre de Tranches"
+
+#: VSPAEROScreen.cpp:202
+msgid "Flow Condition"
+msgstr "Condition de Débit"
+
+#: VarPresetScreen.cpp:19
+msgid "Variable Presets"
+msgstr "Préréglage des Variables"
+
+#: VarPresetScreen.cpp:29
+msgid "Create"
+msgstr "Créer"
+
+#: VarPresetScreen.cpp:33
+msgid "Adjust"
+msgstr "Ajuster"
+
+#: VarPresetScreen.cpp:46
+msgid "Select Preset"
+msgstr "Sélectionner le Préréglage"
+
+#: VarPresetScreen.cpp:47 VarPresetScreen.cpp:66
+msgid "Group"
+msgstr "Groupe"
+
+#: VarPresetScreen.cpp:48 VarPresetScreen.cpp:72
+msgid "Setting"
+msgstr "Paramètre"
+
+#: VarPresetScreen.cpp:49
+msgid "Apply"
+msgstr "Appliquer"
+
+#: VarPresetScreen.cpp:52
+msgid "Edit"
+msgstr "Editer"
+
+#: VarPresetScreen.cpp:57 VarPresetScreen.cpp:372
+msgid "Save Changes"
+msgstr "Sauver Modifs"
+
+#: VarPresetScreen.cpp:59
+msgid "Delete Current"
+msgstr "Suppr. l'Actuel"
+
+#: VarPresetScreen.cpp:64
+msgid "Create Preset"
+msgstr "Créer Préréglage"
+
+#: VarPresetScreen.cpp:80
+msgid "Variable"
+msgstr "Variable"
+
+#: VarPresetScreen.cpp:92
+msgid "Add Variable"
+msgstr "Ajouter Variable"
+
+#: VarPresetScreen.cpp:93
+msgid "Delete Variable"
+msgstr "Suppr. Variable"
+
+#: VarPresetScreen.cpp:102
+msgid "Variable List"
+msgstr "Liste des Variables"
+
+#: VarPresetScreen.cpp:222
+#, c-format
+msgid "@b@.COMP:@b@.GROUP:@b@.PARM"
+msgstr "@b@.COMP:@b@.GROUP:@b@.PARM"
+
+#: VarPresetScreen.cpp:294
+msgid "AUTO_UPDATE"
+msgstr "Mise à Jour Auto"
+
+#: VarPresetScreen.cpp:365
+msgid "*SAVE CHANGES*"
+msgstr "Sauver les Modifs"
+
+#: VarPresetScreen.cpp:489
+msgid "Error: At least 1 setting required before switching groups."
+msgstr "Erreur : Au moins 1 paramètre requis avant de changer de groupe."

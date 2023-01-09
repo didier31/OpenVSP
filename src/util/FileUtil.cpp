@@ -24,6 +24,8 @@
 #include <libgen.h>
 #endif
 
+#include <intl.h>
+
 vector< string > ScanFolder( const char* dir_path )
 {
     vector< string > file_vec;
@@ -61,7 +63,7 @@ int ScanFolder()
     tinydir_dir dir;
     if ( tinydir_open( &dir, "." ) == -1 )
     {
-        perror( "Error opening file" );
+        perror( _("Error opening file") );
         goto bail;
     }
 
@@ -70,7 +72,7 @@ int ScanFolder()
         tinydir_file file;
         if ( tinydir_readfile( &dir, &file ) == -1 )
         {
-            perror( "Error getting file" );
+            perror( _("Error getting file") );
             goto bail;
         }
 

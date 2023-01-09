@@ -30,6 +30,8 @@ GuiInterface.h
 VSP_Geom_API.h
 )
 
+TARGET_LINK_LIBRARIES(geom_api ${Intl_LIBRARIES})
+
 ADD_DEPENDENCIES( geom_api
 util
 )

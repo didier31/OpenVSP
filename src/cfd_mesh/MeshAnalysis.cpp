@@ -14,6 +14,8 @@
 #include "StructureMgr.h"
 #include "FeaMeshMgr.h"
 
+#include <intl.h>
+
 
 //======================================================================================//
 //================================= Cfd Mesh Analysis ==================================//
@@ -58,7 +60,7 @@ void CfdMeshAnalysis::SetDefaults()
     }
     else
     {
-        printf( "ERROR - trying to set defaults without a vehicle: void CfdMeshAnalysis::SetDefaults()\n" );
+        printf( _("ERROR - trying to set defaults without a vehicle: void CfdMeshAnalysis::SetDefaults()\n") );
     }
 }
 
@@ -580,7 +582,7 @@ string FeaMeshAnalysis::Execute()
     }
     else
     {
-        printf( " Error - Cannot find FEA Structure. See SetFeaMeshStructIndex API Function \n " );
+        printf( _(" Error - Cannot find FEA Structure. See SetFeaMeshStructIndex API Function \n ") );
     }
 
     return res_id;
@@ -627,7 +629,7 @@ void SurfaceIntersectionAnalysis::SetDefaults()
     }
     else
     {
-        printf( "ERROR - trying to set defaults without a vehicle: void SurfaceIntersectionAnalysis::SetDefaults()\n" );
+        printf( _("ERROR - trying to set defaults without a vehicle: void SurfaceIntersectionAnalysis::SetDefaults()\n") );
     }
 }
 

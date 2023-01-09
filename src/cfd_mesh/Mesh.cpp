@@ -15,6 +15,8 @@
 #include <triangle_api.h>
 #include "SurfaceIntersectionMgr.h"
 
+#include <intl.h>
+
 bool LongEdgePairLengthCompare( const pair< Edge*, double >& a, const pair< Edge*, double >& b )
 {
     return ( b.second < a.second );
@@ -215,7 +217,7 @@ void Mesh::Remesh()
             SwapEdge( *e );
         }
     }
-//printf("Smooth\n");
+//printf(_("Smooth\n"));
     LaplacianSmooth( 2 );
 
     //ColorTris();
@@ -450,7 +452,7 @@ int Mesh::Collapse( int num_iter )
         for ( int i = 0 ; i < num_colapse ; i++ )
         {
             shortEdges[i].first->ComputeLength();
-//          printf("  Collapse %f \n", dist );
+//          printf(_("  Collapse %f \n"), dist );
             if ( ValidCollapse( shortEdges[i].first ) && !shortEdges[i].first->m_DeleteMeFlag )
             {
                 num_short_edges++;
@@ -540,7 +542,7 @@ void Mesh::ColorTris()
         }
     }
 
-//  printf( "Num Faces = %d \n", (int)faceList.size() );
+//  printf( _("Num Faces = %d \n"), (int)faceList.size() );
 }
 
 Node* Mesh::AddNode( vec3d p, vec2d uw_in )
@@ -1709,11 +1711,11 @@ void Mesh::InitMesh( vector< vec2d > & uw_points, vector< MeshSeg > & segs_index
 
     //==== Constrained Delaunay Trianglulation ====//
     tristatus = triangle_context_options( ctx, str );
-    if ( tristatus != TRI_OK ) printf( "triangle_context_options Error\n" );
+    if ( tristatus != TRI_OK ) printf( _("triangle_context_options Error\n") );
 
     // Triangulate the polygon
     tristatus = triangle_mesh_create( ctx, &in );
-    if ( tristatus != TRI_OK ) printf( "triangle_mesh_create Error\n" );
+    if ( tristatus != TRI_OK ) printf( _("triangle_mesh_create Error\n") );
 
 
     //==== Clear All Node, Edge, Tri Data ====//

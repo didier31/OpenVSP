@@ -10,6 +10,8 @@
 #include "PropGeom.h"
 #include "ParmMgr.h"
 
+#include <intl.h>
+
 using namespace vsp;
 
 
@@ -18,38 +20,38 @@ PropScreen::PropScreen( ScreenMgr* mgr ) : XSecScreen( mgr, 400+40, 700, "Propel
 {
     m_CurrDisplayGroup = NULL;
 
-    Fl_Group* design_tab = AddTab( "Design", 3 );
+    Fl_Group* design_tab = AddTab( _("Design"), 3 );
 
     Fl_Group* design_group = AddSubGroup( design_tab, 5 );
 
     m_DesignLayout.SetGroupAndScreen( design_group, this );
 
-    m_DesignLayout.AddDividerBox( "Modeling" );
-    m_PropModeChoice.AddItem( "Blades" );
-    m_PropModeChoice.AddItem( "Both" );
-    m_PropModeChoice.AddItem( "Disk" );
+    m_DesignLayout.AddDividerBox( _("Modeling") );
+    m_PropModeChoice.AddItem( _("Blades") );
+    m_PropModeChoice.AddItem( _("Both") );
+    m_PropModeChoice.AddItem( _("Disk") );
     m_DesignLayout.AddChoice( m_PropModeChoice, "Prop Mode" );
 
     m_DesignLayout.AddYGap();
 
-    m_DesignLayout.AddDividerBox( "Design" );
+    m_DesignLayout.AddDividerBox( _("Design") );
 
     m_DesignLayout.SetButtonWidth( 100 );
     m_DesignLayout.SetChoiceButtonWidth( 100 );
 
-    m_DesignLayout.AddSlider( m_PropDiameterSlider, "Diameter", 10, "%6.5f" );
+    m_DesignLayout.AddSlider( m_PropDiameterSlider, _("Diameter"), 10, "%6.5f" );
 
-    m_DesignLayout.AddSlider( m_NBladeSlider, "Num Blades", 100, "%5.0f" );
+    m_DesignLayout.AddSlider( m_NBladeSlider, _("Num Blades"), 100, "%5.0f" );
 
-    m_DesignLayout.AddButton( m_CylindricalSectionsToggle, "Cylindrical Foils" );
+    m_DesignLayout.AddButton( m_CylindricalSectionsToggle, _("Cylindrical Foils") );
 
     m_DesignLayout.SetFitWidthFlag( false );
     m_DesignLayout.SetSameLineFlag( true );
     m_DesignLayout.SetButtonWidth( 45 );
-    m_DesignLayout.AddButton( m_ReverseToggle, "Rev" );
+    m_DesignLayout.AddButton( m_ReverseToggle, _("Rev") );
     m_DesignLayout.SetFitWidthFlag( true );
     m_DesignLayout.SetButtonWidth( 100 - 45 );
-    m_DesignLayout.AddSlider( m_PropRotateSlider, "Rotate", 100, "%6.5f" );
+    m_DesignLayout.AddSlider( m_PropRotateSlider, _("Rotate"), 100, "%6.5f" );
     m_DesignLayout.ForceNewLine();
 
     m_DesignLayout.SetFitWidthFlag( false );
@@ -67,16 +69,16 @@ PropScreen::PropScreen( ScreenMgr* mgr ) : XSecScreen( mgr, 400+40, 700, "Propel
     m_DesignLayout.AddButton( m_FeatherToggle, "" );
     m_DesignLayout.SetFitWidthFlag( true );
     m_DesignLayout.SetButtonWidth( 100 - 15 );
-    m_DesignLayout.AddSlider( m_FeatherSlider, "Feather", 100, "%6.5f" );
+    m_DesignLayout.AddSlider( m_FeatherSlider, _("Feather"), 100, "%6.5f" );
     m_DesignLayout.ForceNewLine();
 
     m_DesignLayout.SetSameLineFlag( false );
     m_DesignLayout.SetButtonWidth( 100 );
 
-    m_DesignLayout.AddSlider( m_PreconeSlider, "Pre-cone", 10, "%5.3f" );
-    m_DesignLayout.AddSlider( m_ConstructSlider, "Construct X/C", 1, "%5.3f" );
-    m_DesignLayout.AddSlider( m_FeatherAxisSlider, "Feather Axis", 1, "%5.3f" );
-    m_DesignLayout.AddSlider( m_FeatherOffsetSlider, "Feather Offset", 1, "%5.3f" );
+    m_DesignLayout.AddSlider( m_PreconeSlider, _("Pre-cone"), 10, "%5.3f" );
+    m_DesignLayout.AddSlider( m_ConstructSlider, _("Construct X/C"), 1, "%5.3f" );
+    m_DesignLayout.AddSlider( m_FeatherAxisSlider, _("Feather Axis"), 1, "%5.3f" );
+    m_DesignLayout.AddSlider( m_FeatherOffsetSlider, _("Feather Offset"), 1, "%5.3f" );
 
     m_BetaToggle.Init( this );
     m_BetaToggle.AddButton( m_FeatherToggle.GetFlButton() );
@@ -84,10 +86,10 @@ PropScreen::PropScreen( ScreenMgr* mgr ) : XSecScreen( mgr, 400+40, 700, "Propel
 
     m_DesignLayout.AddYGap();
 
-    m_DesignLayout.AddDividerBox( "Prop / Rotor Metrics" );
+    m_DesignLayout.AddDividerBox( _("Prop / Rotor Metrics") );
 
     m_DesignLayout.SetSameLineFlag( true );
-    m_DesignLayout.AddOutput( m_AFOutput, "Activity Factor", "%6.2f", m_DesignLayout.GetW() / 2 );
+    m_DesignLayout.AddOutput( m_AFOutput, _("Activity Factor"), "%6.2f", m_DesignLayout.GetW() / 2 );
     m_DesignLayout.SetButtonWidth( 50 );
     m_DesignLayout.AddSlider( m_AFLimitSlider, "r_0", 1, "%6.5f" );
     m_DesignLayout.SetButtonWidth( 100 );
@@ -95,7 +97,7 @@ PropScreen::PropScreen( ScreenMgr* mgr ) : XSecScreen( mgr, 400+40, 700, "Propel
     m_DesignLayout.ForceNewLine();
     m_DesignLayout.SetSameLineFlag( false );
 
-    m_DesignLayout.AddOutput( m_CLiOutput, "CLi", "%6.2f" );
+    m_DesignLayout.AddOutput( m_CLiOutput, _("CLi"), "%6.2f" );
 
     m_DesignLayout.SetButtonWidth( m_DesignLayout.GetW() / 6 );
     m_DesignLayout.SetInputWidth( m_DesignLayout.GetButtonWidth() );
@@ -103,9 +105,9 @@ PropScreen::PropScreen( ScreenMgr* mgr ) : XSecScreen( mgr, 400+40, 700, "Propel
     m_DesignLayout.SetFitWidthFlag( false );
     m_DesignLayout.SetSameLineFlag( true );
 
-    m_DesignLayout.AddOutput( m_ChordOutput, "C/R", "%7.4f" );
-    m_DesignLayout.AddOutput( m_TChordOutput, "C_T/R", "%7.4f" );
-    m_DesignLayout.AddOutput( m_PChordOutput, "C_P/R", "%7.4f" );
+    m_DesignLayout.AddOutput( m_ChordOutput, _("C/R"), "%7.4f" );
+    m_DesignLayout.AddOutput( m_TChordOutput, _("C_T/R"), "%7.4f" );
+    m_DesignLayout.AddOutput( m_PChordOutput, _("C_P/R"), "%7.4f" );
 
     char buf[16];
     int indx = 0;
@@ -142,15 +144,15 @@ PropScreen::PropScreen( ScreenMgr* mgr ) : XSecScreen( mgr, 400+40, 700, "Propel
 
     m_BladeLayout.AddDividerBox( "Curve Editor" );
 
-    m_CurveChoice.AddItem( "Chord" );
-    m_CurveChoice.AddItem( "Twist" );
-    m_CurveChoice.AddItem( "Rake" );
-    m_CurveChoice.AddItem( "Skew" );
-    m_CurveChoice.AddItem( "Sweep" );
-    m_CurveChoice.AddItem( "Axial" );
-    m_CurveChoice.AddItem( "Tangential" );
-    m_CurveChoice.AddItem( "Thick" );
-    m_CurveChoice.AddItem( "CLi" );
+    m_CurveChoice.AddItem( _("Chord") );
+    m_CurveChoice.AddItem( _("Twist") );
+    m_CurveChoice.AddItem( _("Rake") );
+    m_CurveChoice.AddItem( _("Skew") );
+    m_CurveChoice.AddItem( _("Sweep") );
+    m_CurveChoice.AddItem( _("Axial") );
+    m_CurveChoice.AddItem( _("Tangential") );
+    m_CurveChoice.AddItem( _("Thick") );
+    m_CurveChoice.AddItem( _("CLi") );
 
     m_EditCurve = CHORD;
 
@@ -160,10 +162,10 @@ PropScreen::PropScreen( ScreenMgr* mgr ) : XSecScreen( mgr, 400+40, 700, "Propel
     m_BladeLayout.SetChoiceButtonWidth( m_BladeLayout.GetButtonWidth() );
 
     m_BladeLayout.SetSliderWidth( 0.5 * m_BladeLayout.GetW() - m_BladeLayout.GetButtonWidth() );
-    m_BladeLayout.AddChoice( m_CurveChoice, "Curve" );
+    m_BladeLayout.AddChoice( m_CurveChoice, _("Curve") );
     m_BladeLayout.SetButtonWidth( 0.5 * m_BladeLayout.GetRemainX() );
-    m_BladeLayout.AddButton( m_ApproxAllButton, "Approximate All" );
-    m_BladeLayout.AddButton( m_ResetThickness, "Reset Thick" );
+    m_BladeLayout.AddButton( m_ApproxAllButton, _("Approximate All") );
+    m_BladeLayout.AddButton( m_ResetThickness, _("Reset Thick") );
 
     m_BladeLayout.ForceNewLine();
 
@@ -179,13 +181,13 @@ PropScreen::PropScreen( ScreenMgr* mgr ) : XSecScreen( mgr, 400+40, 700, "Propel
     m_XSecLayout.SetFitWidthFlag( false );
     m_XSecLayout.SetSameLineFlag( true );
     m_XSecLayout.SetButtonWidth( ( m_XFormLayout.GetRemainX() - 30 ) / 4 );
-    m_XSecLayout.AddButton( m_InsertXSec, "Insert" );
+    m_XSecLayout.AddButton( m_InsertXSec, _("Insert") );
     m_XSecLayout.AddX( 10 );
-    m_XSecLayout.AddButton( m_CutXSec, "Cut" );
+    m_XSecLayout.AddButton( m_CutXSec, _("Cut") );
     m_XSecLayout.AddX( 10 );
-    m_XSecLayout.AddButton( m_CopyXSec, "Copy" );
+    m_XSecLayout.AddButton( m_CopyXSec, _("Copy") );
     m_XSecLayout.AddX( 10 );
-    m_XSecLayout.AddButton( m_PasteXSec, "Paste" );
+    m_XSecLayout.AddButton( m_PasteXSec, _("Paste") );
     m_XSecLayout.ForceNewLine();
     m_XSecLayout.AddYGap();
 
@@ -195,7 +197,7 @@ PropScreen::PropScreen( ScreenMgr* mgr ) : XSecScreen( mgr, 400+40, 700, "Propel
     m_XSecLayout.AddYGap();
 
     m_XSecLayout.SetButtonWidth( 50 );
-    m_XSecLayout.AddSlider( m_XSecRadSlider, "Radius", 1.0, "%6.5f" );
+    m_XSecLayout.AddSlider( m_XSecRadSlider, _("Radius"), 1.0, "%6.5f" );
     m_XSecLayout.AddYGap();
 
     m_XSecLayout.InitWidthHeightVals();
@@ -205,58 +207,58 @@ PropScreen::PropScreen( ScreenMgr* mgr ) : XSecScreen( mgr, 400+40, 700, "Propel
 
     //==== Section Modify ====//
 
-    Fl_Group* modify_tab = AddTab( "Modify" );
+    Fl_Group* modify_tab = AddTab( _("Modify") );
     Fl_Group* modify_group = AddSubGroup( modify_tab, 5 );
 
     m_ModifyLayout.SetButtonWidth( 70 );
 
     m_ModifyLayout.SetGroupAndScreen( modify_group, this );
-    m_ModifyLayout.AddDividerBox( "Cross Section" );
+    m_ModifyLayout.AddDividerBox( _("Cross Section") );
 
     m_ModifyLayout.AddIndexSelector( m_XSecModIndexSelector );
 
     m_ModifyLayout.AddYGap();
 
     m_ModifyLayout.InitWidthHeightVals();
-    m_ModifyLayout.AddDividerBox( "Shift, Rotate, & Scale" );
+    m_ModifyLayout.AddDividerBox( _("Shift, Rotate, & Scale") );
 
-    m_ModifyLayout.AddSlider( m_AFDeltaXSlider, "Delta X/C", 1, "%7.3f" );
-    m_ModifyLayout.AddSlider( m_AFDeltaYSlider, "Delta Y/C", 1, "%7.3f" );
-    m_ModifyLayout.AddSlider( m_AFThetaSlider, "Theta", 20, "%7.3f" );
-    m_ModifyLayout.AddSlider( m_AFScaleSlider, "Scale", 1, "%7.3f" );
-    m_ModifyLayout.AddSlider( m_AFShiftLESlider, "Shift LE", 1, "%7.3f" );
+    m_ModifyLayout.AddSlider( m_AFDeltaXSlider, _("Delta X/C"), 1, "%7.3f" );
+    m_ModifyLayout.AddSlider( m_AFDeltaYSlider, _("Delta Y/C"), 1, "%7.3f" );
+    m_ModifyLayout.AddSlider( m_AFThetaSlider, _("Theta"), 20, "%7.3f" );
+    m_ModifyLayout.AddSlider( m_AFScaleSlider, _("Scale"), 1, "%7.3f" );
+    m_ModifyLayout.AddSlider( m_AFShiftLESlider, _("Shift LE"), 1, "%7.3f" );
 
     m_ModifyLayout.SetChoiceButtonWidth( 74 );
 
     m_ModifyLayout.AddYGap();
 
-    m_ModifyLayout.AddDividerBox( "Leading Edge" );
-    m_LECapChoice.AddItem( "FLAT", vsp::FLAT_END_CAP );
-    m_LECapChoice.AddItem( "ROUND", vsp::ROUND_END_CAP );
-    m_LECapChoice.AddItem( "EDGE", vsp::EDGE_END_CAP );
-    m_LECapChoice.AddItem( "SHARP", vsp::SHARP_END_CAP );
+    m_ModifyLayout.AddDividerBox( _("Leading Edge") );
+    m_LECapChoice.AddItem( _("FLAT"), vsp::FLAT_END_CAP );
+    m_LECapChoice.AddItem( _("ROUND"), vsp::ROUND_END_CAP );
+    m_LECapChoice.AddItem( _("EDGE"), vsp::EDGE_END_CAP );
+    m_LECapChoice.AddItem( _("SHARP"), vsp::SHARP_END_CAP );
 
-    m_ModifyLayout.AddChoice( m_LECapChoice, "Cap" );
+    m_ModifyLayout.AddChoice( m_LECapChoice, _("Cap") );
 
-    m_ModifyLayout.AddSlider( m_LECapLengthSlider, "Length", 10.0, "%6.5f" );
-    m_ModifyLayout.AddSlider( m_LECapOffsetSlider, "Offset", 10.0, "%6.5f" );
-    m_ModifyLayout.AddSlider( m_LECapStrengthSlider, "Strength", 10.0, "%6.5f" );
+    m_ModifyLayout.AddSlider( m_LECapLengthSlider, _("Length"), 10.0, "%6.5f" );
+    m_ModifyLayout.AddSlider( m_LECapOffsetSlider, _("Offset"), 10.0, "%6.5f" );
+    m_ModifyLayout.AddSlider( m_LECapStrengthSlider, _("Strength"), 10.0, "%6.5f" );
 
-    m_LECloseChoice.AddItem( "NONE" );
-    m_LECloseChoice.AddItem( "SKEW LOWER" );
-    m_LECloseChoice.AddItem( "SKEW UPPER" );
-    m_LECloseChoice.AddItem( "SKEW BOTH" );
+    m_LECloseChoice.AddItem( _("NONE") );
+    m_LECloseChoice.AddItem( _("SKEW LOWER") );
+    m_LECloseChoice.AddItem( _("SKEW UPPER") );
+    m_LECloseChoice.AddItem( _("SKEW BOTH") );
 
     m_ModifyLayout.SetFitWidthFlag( true );
     m_ModifyLayout.SetSameLineFlag( true );
 
     m_ModifyLayout.AddYGap();
 
-    m_ModifyLayout.AddChoice( m_LECloseChoice, "Closure:", m_ModifyLayout.GetButtonWidth() * 2 );
+    m_ModifyLayout.AddChoice( m_LECloseChoice, _("Closure:"), m_ModifyLayout.GetButtonWidth() * 2 );
 
     m_ModifyLayout.SetFitWidthFlag( false );
-    m_ModifyLayout.AddButton( m_LECloseABSButton, "Abs" );
-    m_ModifyLayout.AddButton( m_LECloseRELButton, "Rel" );
+    m_ModifyLayout.AddButton( m_LECloseABSButton, _("Abs") );
+    m_ModifyLayout.AddButton( m_LECloseRELButton, _("Rel") );
 
     m_LECloseGroup.Init( this );
     m_LECloseGroup.AddButton( m_LECloseABSButton.GetFlButton() );
@@ -276,18 +278,18 @@ PropScreen::PropScreen( ScreenMgr* mgr ) : XSecScreen( mgr, 400+40, 700, "Propel
 
     m_ModifyLayout.AddYGap();
 
-    m_LETrimChoice.AddItem( "NONE" );
-    m_LETrimChoice.AddItem( "X" );
-    m_LETrimChoice.AddItem( "THICK" );
+    m_LETrimChoice.AddItem( _("NONE") );
+    m_LETrimChoice.AddItem( _("X") );
+    m_LETrimChoice.AddItem( _("THICK") );
 
     m_ModifyLayout.SetFitWidthFlag( true );
     m_ModifyLayout.SetSameLineFlag( true );
 
-    m_ModifyLayout.AddChoice( m_LETrimChoice, "Trim:", m_ModifyLayout.GetButtonWidth() * 2 );
+    m_ModifyLayout.AddChoice( m_LETrimChoice, _("Trim:"), m_ModifyLayout.GetButtonWidth() * 2 );
 
     m_ModifyLayout.SetFitWidthFlag( false );
-    m_ModifyLayout.AddButton( m_LETrimABSButton, "Abs" );
-    m_ModifyLayout.AddButton( m_LETrimRELButton, "Rel" );
+    m_ModifyLayout.AddButton( m_LETrimABSButton, _("Abs") );
+    m_ModifyLayout.AddButton( m_LETrimRELButton, _("Rel") );
 
     m_LETrimGroup.Init( this );
     m_LETrimGroup.AddButton( m_LETrimABSButton.GetFlButton() );
@@ -303,39 +305,39 @@ PropScreen::PropScreen( ScreenMgr* mgr ) : XSecScreen( mgr, 400+40, 700, "Propel
     m_ModifyLayout.SetFitWidthFlag( true );
     m_ModifyLayout.SetSameLineFlag( false );
 
-    m_ModifyLayout.AddSlider( m_TrimLEXSlider, "X", 10.0, "%6.5f" );
-    m_ModifyLayout.AddSlider( m_TrimLEThickSlider, "T", 10.0, "%6.5f" );
+    m_ModifyLayout.AddSlider( m_TrimLEXSlider, _("X"), 10.0, "%6.5f" );
+    m_ModifyLayout.AddSlider( m_TrimLEThickSlider, _("T"), 10.0, "%6.5f" );
 
     m_ModifyLayout.AddYGap();
 
-    m_ModifyLayout.AddDividerBox( "Trailing Edge" );
-    m_TECapChoice.AddItem( "FLAT", vsp::FLAT_END_CAP );
-    m_TECapChoice.AddItem( "ROUND", vsp::ROUND_END_CAP );
-    m_TECapChoice.AddItem( "EDGE", vsp::EDGE_END_CAP );
-    m_TECapChoice.AddItem( "SHARP", vsp::SHARP_END_CAP );
+    m_ModifyLayout.AddDividerBox( _("Trailing Edge") );
+    m_TECapChoice.AddItem( _("FLAT"), vsp::FLAT_END_CAP );
+    m_TECapChoice.AddItem( _("ROUND"), vsp::ROUND_END_CAP );
+    m_TECapChoice.AddItem( _("EDGE"), vsp::EDGE_END_CAP );
+    m_TECapChoice.AddItem( _("SHARP"), vsp::SHARP_END_CAP );
 
-    m_ModifyLayout.AddChoice( m_TECapChoice, "Cap:" );
+    m_ModifyLayout.AddChoice( m_TECapChoice, _("Cap:") );
 
-    m_ModifyLayout.AddSlider( m_TECapLengthSlider, "Length", 10.0, "%6.5f" );
-    m_ModifyLayout.AddSlider( m_TECapOffsetSlider, "Offset", 10.0, "%6.5f" );
-    m_ModifyLayout.AddSlider( m_TECapStrengthSlider, "Strength", 10.0, "%6.5f" );
+    m_ModifyLayout.AddSlider( m_TECapLengthSlider, _("Length"), 10.0, "%6.5f" );
+    m_ModifyLayout.AddSlider( m_TECapOffsetSlider, _("Offset"), 10.0, "%6.5f" );
+    m_ModifyLayout.AddSlider( m_TECapStrengthSlider, _("Strength"), 10.0, "%6.5f" );
 
-    m_TECloseChoice.AddItem( "NONE" );
-    m_TECloseChoice.AddItem( "SKEW LOWER" );
-    m_TECloseChoice.AddItem( "SKEW UPPER" );
-    m_TECloseChoice.AddItem( "SKEW BOTH" );
-    m_TECloseChoice.AddItem( "EXTRAPOLATE" );
+    m_TECloseChoice.AddItem( _("NONE") );
+    m_TECloseChoice.AddItem( _("SKEW LOWER") );
+    m_TECloseChoice.AddItem( _("SKEW UPPER") );
+    m_TECloseChoice.AddItem( _("SKEW BOTH") );
+    m_TECloseChoice.AddItem( _("EXTRAPOLATE") );
 
     m_ModifyLayout.SetFitWidthFlag( true );
     m_ModifyLayout.SetSameLineFlag( true );
 
     m_ModifyLayout.AddYGap();
 
-    m_ModifyLayout.AddChoice( m_TECloseChoice, "Closure:", m_ModifyLayout.GetButtonWidth() * 2 );
+    m_ModifyLayout.AddChoice( m_TECloseChoice, _("Closure:"), m_ModifyLayout.GetButtonWidth() * 2 );
 
     m_ModifyLayout.SetFitWidthFlag( false );
-    m_ModifyLayout.AddButton( m_TECloseABSButton, "Abs" );
-    m_ModifyLayout.AddButton( m_TECloseRELButton, "Rel" );
+    m_ModifyLayout.AddButton( m_TECloseABSButton, _("Abs") );
+    m_ModifyLayout.AddButton( m_TECloseRELButton, _("Rel") );
 
     m_TECloseGroup.Init( this );
     m_TECloseGroup.AddButton( m_TECloseABSButton.GetFlButton() );
@@ -348,22 +350,22 @@ PropScreen::PropScreen( ScreenMgr* mgr ) : XSecScreen( mgr, 400+40, 700, "Propel
     m_ModifyLayout.SetFitWidthFlag( true );
     m_ModifyLayout.SetSameLineFlag( false );
 
-    m_ModifyLayout.AddSlider( m_CloseTEThickSlider, "T", 10.0, "%6.5f" );
+    m_ModifyLayout.AddSlider( m_CloseTEThickSlider, _("T"), 10.0, "%6.5f" );
 
     m_ModifyLayout.AddYGap();
 
-    m_TETrimChoice.AddItem( "NONE" );
-    m_TETrimChoice.AddItem( "X" );
-    m_TETrimChoice.AddItem( "THICK" );
+    m_TETrimChoice.AddItem( _("NONE") );
+    m_TETrimChoice.AddItem( _("X") );
+    m_TETrimChoice.AddItem( _("THICK") );
 
     m_ModifyLayout.SetFitWidthFlag( true );
     m_ModifyLayout.SetSameLineFlag( true );
 
-    m_ModifyLayout.AddChoice( m_TETrimChoice, "Trim:", m_ModifyLayout.GetButtonWidth() * 2 );
+    m_ModifyLayout.AddChoice( m_TETrimChoice, _("Trim:"), m_ModifyLayout.GetButtonWidth() * 2 );
 
     m_ModifyLayout.SetFitWidthFlag( false );
-    m_ModifyLayout.AddButton( m_TETrimABSButton, "Abs" );
-    m_ModifyLayout.AddButton( m_TETrimRELButton, "Rel" );
+    m_ModifyLayout.AddButton( m_TETrimABSButton, _("Abs") );
+    m_ModifyLayout.AddButton( m_TETrimRELButton, _("Rel") );
 
     m_TETrimGroup.Init( this );
     m_TETrimGroup.AddButton( m_TETrimABSButton.GetFlButton() );
@@ -376,10 +378,10 @@ PropScreen::PropScreen( ScreenMgr* mgr ) : XSecScreen( mgr, 400+40, 700, "Propel
     m_ModifyLayout.SetFitWidthFlag( true );
     m_ModifyLayout.SetSameLineFlag( false );
 
-    m_ModifyLayout.AddSlider( m_TrimTEXSlider, "X", 10.0, "%6.5f" );
-    m_ModifyLayout.AddSlider( m_TrimTEThickSlider, "T", 10.0, "%6.5f" );
+    m_ModifyLayout.AddSlider( m_TrimTEXSlider, _("X"), 10.0, "%6.5f" );
+    m_ModifyLayout.AddSlider( m_TrimTEThickSlider, _("T"), 10.0, "%6.5f" );
 
-    Fl_Group* more_tab = AddTab("More" );
+    Fl_Group* more_tab = AddTab(_("More") );
     Fl_Group* more_group = AddSubGroup(more_tab, 5 );
 
     m_MoreLayout.SetGroupAndScreen(more_group, this );
@@ -387,62 +389,62 @@ PropScreen::PropScreen( ScreenMgr* mgr ) : XSecScreen( mgr, 400+40, 700, "Propel
     m_MoreLayout.SetButtonWidth(100 );
     m_MoreLayout.SetChoiceButtonWidth(100 );
 
-    m_MoreLayout.AddDividerBox("Folding" );
+    m_MoreLayout.AddDividerBox(_("Folding") );
 
-    m_MoreLayout.AddSlider(m_FoldAngleSlider, "Angle", 100, "%5.3f" );
-    m_MoreLayout.AddSlider(m_RFoldSlider, "Radial/R", 1, "%5.3f" );
-    m_MoreLayout.AddSlider(m_AxFoldSlider, "Axial/R", 1, "%5.3f" );
-    m_MoreLayout.AddSlider(m_OffFoldSlider, "Offset/R", 1, "%5.3f" );
-    m_MoreLayout.AddSlider(m_AzFoldSlider, "Azimuth", 100, "%5.3f" );
-    m_MoreLayout.AddSlider(m_ElFoldSlider, "Elevation", 100, "%5.3f" );
+    m_MoreLayout.AddSlider(m_FoldAngleSlider, _("Angle"), 100, "%5.3f" );
+    m_MoreLayout.AddSlider(m_RFoldSlider, _("Radial/R"), 1, "%5.3f" );
+    m_MoreLayout.AddSlider(m_AxFoldSlider, _("Axial/R"), 1, "%5.3f" );
+    m_MoreLayout.AddSlider(m_OffFoldSlider, _("Offset/R"), 1, "%5.3f" );
+    m_MoreLayout.AddSlider(m_AzFoldSlider, _("Azimuth"), 100, "%5.3f" );
+    m_MoreLayout.AddSlider(m_ElFoldSlider, _("Elevation"), 100, "%5.3f" );
 
     m_MoreLayout.SetButtonWidth(100 );
 
     m_MoreLayout.AddYGap();
 
-    m_MoreLayout.AddDividerBox("Tip Treatment" );
-    m_MoreLayout.AddSlider(m_CapTessSlider, "Cap Tess", 10, "%3.0f" );
+    m_MoreLayout.AddDividerBox(_("Tip Treatment") );
+    m_MoreLayout.AddSlider(m_CapTessSlider, _("Cap Tess"), 10, "%3.0f" );
 
     m_MoreLayout.AddYGap();
 
-    m_RootCapTypeChoice.AddItem("None");
-    m_RootCapTypeChoice.AddItem("Flat");
-    m_RootCapTypeChoice.AddItem("Round");
-    m_RootCapTypeChoice.AddItem("Edge");
-    m_RootCapTypeChoice.AddItem("Sharp");
-    m_MoreLayout.AddChoice(m_RootCapTypeChoice, "Root Cap Type");
+    m_RootCapTypeChoice.AddItem(_("None"));
+    m_RootCapTypeChoice.AddItem(_("Flat"));
+    m_RootCapTypeChoice.AddItem(_("Round"));
+    m_RootCapTypeChoice.AddItem(_("Edge"));
+    m_RootCapTypeChoice.AddItem(_("Sharp"));
+    m_MoreLayout.AddChoice(m_RootCapTypeChoice, _("Root Cap Type"));
 
-    m_MoreLayout.AddSlider(m_RootCapLenSlider, "Length", 1, "%6.5f" );
-    m_MoreLayout.AddSlider(m_RootCapOffsetSlider, "Offset", 1, "%6.5f" );
-    m_MoreLayout.AddSlider(m_RootCapStrengthSlider, "Strength", 1, "%6.5f" );
-    m_MoreLayout.AddButton(m_RootCapSweepFlagButton, "Sweep Stretch" );
-
-    m_MoreLayout.AddYGap();
-
-    m_TipCapTypeChoice.AddItem("None");
-    m_TipCapTypeChoice.AddItem("Flat");
-    m_TipCapTypeChoice.AddItem("Round");
-    m_TipCapTypeChoice.AddItem("Edge");
-    m_TipCapTypeChoice.AddItem("Sharp");
-    m_MoreLayout.AddChoice(m_TipCapTypeChoice, "Tip Cap Type");
-
-    m_MoreLayout.AddSlider(m_TipCapLenSlider, "Length", 1, "%6.5f" );
-    m_MoreLayout.AddSlider(m_TipCapOffsetSlider, "Offset", 1, "%6.5f" );
-    m_MoreLayout.AddSlider(m_TipCapStrengthSlider, "Strength", 1, "%6.5f" );
-    m_MoreLayout.AddButton(m_TipCapSweepFlagButton, "Sweep Stretch" );
+    m_MoreLayout.AddSlider(m_RootCapLenSlider, _("Length"), 1, "%6.5f" );
+    m_MoreLayout.AddSlider(m_RootCapOffsetSlider, _("Offset"), 1, "%6.5f" );
+    m_MoreLayout.AddSlider(m_RootCapStrengthSlider, _("Strength"), 1, "%6.5f" );
+    m_MoreLayout.AddButton(m_RootCapSweepFlagButton, _("Sweep Stretch") );
 
     m_MoreLayout.AddYGap();
 
-    m_MoreLayout.AddDividerBox("Tessellation Control" );
-    m_MoreLayout.AddSlider(m_LEClusterSlider, "LE Clustering", 1, "%6.5f" );
-    m_MoreLayout.AddSlider(m_TEClusterSlider, "TE Clustering", 1, "%6.5f" );
-    m_MoreLayout.AddSlider(m_RootClusterSlider, "Root Clustering", 1, "%6.5f" );
-    m_MoreLayout.AddSlider(m_TipClusterSlider, "Tip Clustering", 1, "%6.5f" );
+    m_TipCapTypeChoice.AddItem(_("None"));
+    m_TipCapTypeChoice.AddItem(_("Flat"));
+    m_TipCapTypeChoice.AddItem(_("Round"));
+    m_TipCapTypeChoice.AddItem(_("Edge"));
+    m_TipCapTypeChoice.AddItem(_("Sharp"));
+    m_MoreLayout.AddChoice(m_TipCapTypeChoice, _("Tip Cap Type"));
+
+    m_MoreLayout.AddSlider(m_TipCapLenSlider, _("Length"), 1, "%6.5f" );
+    m_MoreLayout.AddSlider(m_TipCapOffsetSlider, _("Offset"), 1, "%6.5f" );
+    m_MoreLayout.AddSlider(m_TipCapStrengthSlider, _("Strength"), 1, "%6.5f" );
+    m_MoreLayout.AddButton(m_TipCapSweepFlagButton, _("Sweep Stretch") );
+
+    m_MoreLayout.AddYGap();
+
+    m_MoreLayout.AddDividerBox(_("Tessellation Control") );
+    m_MoreLayout.AddSlider(m_LEClusterSlider, _("LE Clustering"), 1, "%6.5f" );
+    m_MoreLayout.AddSlider(m_TEClusterSlider, _("TE Clustering"), 1, "%6.5f" );
+    m_MoreLayout.AddSlider(m_RootClusterSlider, _("Root Clustering"), 1, "%6.5f" );
+    m_MoreLayout.AddSlider(m_TipClusterSlider, _("Tip Clustering"), 1, "%6.5f" );
 
     m_MoreLayout.AddYGap();
     m_MoreLayout.SetButtonWidth(200 );
-    m_MoreLayout.AddOutput(m_SmallPanelWOutput, "Minimum LE/TE Panel Width", "%6.4g" );
-    m_MoreLayout.AddOutput(m_MaxGrowthOutput, "Maximum Growth Ratio", "%6.3f" );
+    m_MoreLayout.AddOutput(m_SmallPanelWOutput, _("Minimum LE/TE Panel Width"), "%6.4g" );
+    m_MoreLayout.AddOutput(m_MaxGrowthOutput, _("Maximum Growth Ratio"), "%6.3f" );
 }
 
 //==== Show Pod Screen ====//

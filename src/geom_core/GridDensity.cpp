@@ -562,11 +562,11 @@ double LineSimpleSource::GetTargetLen( double base_len, vec3d & pos, const strin
 
     if ( retlen > base_len )
     {
-        printf( "Ret Len\n" );
+        printf( _("Ret Len\n") );
     }
     else if ( retlen < m_Len && retlen < m_Len2 )
     {
-        printf( "Ret Len\n" );
+        printf( _("Ret Len\n") );
     }
 
 

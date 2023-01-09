@@ -184,9 +184,9 @@ class TNode
 public:
     /*
         TNode()         { static int cnt = 0;   cnt++;
-                            printf("TNode Construct Cnt = %d \n", cnt); }
+                            printf(_("TNode Construct Cnt = %d \n"), cnt); }
         ~TNode()        { static int cnt = 0;   cnt++;
-                            printf("TNode Destruct Cnt = %d \n", cnt); }
+                            printf(_("TNode Destruct Cnt = %d \n"), cnt); }
     */
     TNode();
     virtual ~TNode();

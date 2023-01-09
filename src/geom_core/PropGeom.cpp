@@ -12,6 +12,8 @@
 #include "Cluster.h"
 #include "SubSurfaceMgr.h"
 
+#include <intl.h>
+
 using namespace vsp;
 
 // Allow curve control of thickness.
@@ -163,7 +165,7 @@ PropXSec::PropXSec( XSecCurve *xsc ) : XSec( xsc )
     m_Type = XSEC_PROP;
 
     m_RadiusFrac.Init( "RadiusFrac", m_GroupName, this,  0.0, 0.0, 1.0 );
-    m_RadiusFrac.SetDescript( "Radius of cross section as a fraction of prop radius" );
+    m_RadiusFrac.SetDescript( _("Radius of cross section as a fraction of prop radius") );
 
     m_RefLength.Init( "RefLength", m_GroupName, this, 1.0, 1e-8, 1e12 );
     m_RefLenVal = 1.0;
@@ -254,112 +256,112 @@ PropGeom::PropGeom( Vehicle* vehicle_ptr ) : GeomXSec( vehicle_ptr )
     m_TessW.SetMultShift( 8, 1 );
 
     m_Diameter.Init( "Diameter", "Design", this, 30.0, 1.0e-8, 1.0e12 );
-    m_Diameter.SetDescript( "Propeller diameter" );
+    m_Diameter.SetDescript( _("Propeller diameter") );
 
     m_Nblade.Init( "NumBlade", "Design", this, 3, 1, 1000 );
     m_Nblade.SetDescript( "Number of propeller blades" );
 
     m_PropMode.Init( "PropMode", "Design", this, PROP_BLADES, PROP_BLADES, PROP_DISK );
-    m_PropMode.SetDescript( "Propeller model mode." );
+    m_PropMode.SetDescript( _("Propeller model mode.") );
 
     m_Rotate.Init( "Rotate", "Design", this, 0.0, -360.0, 360.0 );
-    m_Rotate.SetDescript( "Rotation of first propeller blade." );
+    m_Rotate.SetDescript( _("Rotation of first propeller blade.") );
 
     m_Construct.Init( "ConstructXoC", "Design", this, 0.5, 0.0, 1.0 );
-    m_Construct.SetDescript( "X/C of construction line." );
+    m_Construct.SetDescript( _("X/C of construction line.") );
 
     m_FeatherAxis.Init( "FeatherAxisXoC", "Design", this, 0.5, -100.0, 100.0 );
-    m_FeatherAxis.SetDescript( "Location of feather axis along chord." );
+    m_FeatherAxis.SetDescript( _("Location of feather axis along chord.") );
 
     m_FeatherOffset.Init( "FeatherOffsetXoC", "Design", this, 0.0, -100.0, 100.0 );
-    m_FeatherOffset.SetDescript( "Offset of feather axis line." );
+    m_FeatherOffset.SetDescript( _("Offset of feather axis line.") );
 
     m_RadFoldAxis.Init( "RFoldAx", "Design", this, 0.2, 0.0, 1.0 );
-    m_RadFoldAxis.SetDescript( "Radial position of fold axis as fraction of radius" );
+    m_RadFoldAxis.SetDescript( _("Radial position of fold axis as fraction of radius") );
 
     m_AxialFoldAxis.Init( "AxFoldAx", "Design", this, 0, -1.0, 1.0 );
-    m_AxialFoldAxis.SetDescript( "Axial position of fold axis as fraction of radius" );
+    m_AxialFoldAxis.SetDescript( _("Axial position of fold axis as fraction of radius") );
 
     m_OffsetFoldAxis.Init( "OffFoldAx", "Design", this, 0, -1.0, 1.0 );
-    m_OffsetFoldAxis.SetDescript( "Offset position of fold axis as fraction of radius" );
+    m_OffsetFoldAxis.SetDescript( _("Offset position of fold axis as fraction of radius") );
 
     m_AzimuthFoldDir.Init( "AzFoldDir", "Design", this, 0.0, -90.0, 90.0 );
-    m_AzimuthFoldDir.SetDescript( "Azimuth angle of fold axis direction vector" );
+    m_AzimuthFoldDir.SetDescript( _("Azimuth angle of fold axis direction vector") );
 
     m_ElevationFoldDir.Init( "ElFoldDir", "Design", this, 0.0, -90.0, 90.0 );
-    m_ElevationFoldDir.SetDescript( "Elevation angle of fold axis direction vector" );
+    m_ElevationFoldDir.SetDescript( _("Elevation angle of fold axis direction vector") );
 
     m_FoldAngle.Init( "FoldAngle", "Design", this, 0.0, -180.0, 180.0 );
-    m_FoldAngle.SetDescript( "Propeller fold angle" );
+    m_FoldAngle.SetDescript( _("Propeller fold angle") );
 
     m_Beta34.Init( "Beta34", "Design", this, 20.0, -400.0, 400.0 );
-    m_Beta34.SetDescript( "Blade pitch at 3/4 of radius" );
+    m_Beta34.SetDescript( _("Blade pitch at 3/4 of radius") );
 
     m_Feather.Init( "Feather", "Design", this, 0.0, -400.0, 400.0 );
-    m_Feather.SetDescript( "Blade feather angle" );
+    m_Feather.SetDescript( _("Blade feather angle") );
 
     m_UseBeta34Flag.Init( "UseBeta34Flag", "Design", this, 1, 0, 1 );
-    m_UseBeta34Flag.SetDescript( "Flag to use Beta34 or Beta0 as driver" );
+    m_UseBeta34Flag.SetDescript( _("Flag to use Beta34 or Beta0 as driver") );
 
     m_Precone.Init( "Precone", "Design", this, 0.0, -90.0, 90.0 );
-    m_Precone.SetDescript( "Blade pre cone angle" );
+    m_Precone.SetDescript( _("Blade pre cone angle") );
 
     m_ReverseFlag.Init( "ReverseFlag", "Design", this, false, 0, 1 );
-    m_ReverseFlag.SetDescript( "Flag to reverse propeller rotation direction" );
+    m_ReverseFlag.SetDescript( _("Flag to reverse propeller rotation direction") );
 
     m_CylindricalSectionsFlag.Init( "CylindricalSectionsFlag", "Design", this, false, 0, 1 );
-    m_CylindricalSectionsFlag.SetDescript( "Flag to project airfoil sections onto cylinder of rotation" );
+    m_CylindricalSectionsFlag.SetDescript( _("Flag to project airfoil sections onto cylinder of rotation") );
 
     m_AFLimit.Init( "AFLimit", "Design", this, 0.2, 0, 1 );
-    m_AFLimit.SetDescript( "Lower limit of activity factor integration" );
+    m_AFLimit.SetDescript( _("Lower limit of activity factor integration") );
 
     m_AF.Init( "AF", "Design", this, 100, 0, 1e12 );
-    m_AF.SetDescript( "Propeller activity factor" );
+    m_AF.SetDescript( _("Propeller activity factor") );
 
     m_CLi.Init( "CLi", "Design", this, 0.5, 0, 1e12 );
-    m_CLi.SetDescript( "Integrated design lift coefficient" );
+    m_CLi.SetDescript( _("Integrated design lift coefficient") );
 
     m_Solidity.Init( "Solidity", "Design", this, 0.5, 0, 1.0 );
-    m_Solidity.SetDescript( "Geometric blade solidity" );
+    m_Solidity.SetDescript( _("Geometric blade solidity") );
 
     m_TSolidity.Init( "TSolidity", "Design", this, 0.5, 0, 1.0 );
-    m_TSolidity.SetDescript( "Thrust weighted blade solidity" );
+    m_TSolidity.SetDescript( _("Thrust weighted blade solidity") );
 
     m_PSolidity.Init( "PSolidity", "Design", this, 0.5, 0, 1.0 );
-    m_PSolidity.SetDescript( "Power weighted blade solidity" );
+    m_PSolidity.SetDescript( _("Power weighted blade solidity") );
 
     m_Chord.Init( "Chord", "Design", this, 0.5, 0, 1.0 );
-    m_Chord.SetDescript( "Geometric blade chord" );
+    m_Chord.SetDescript( _("Geometric blade chord") );
 
     m_TChord.Init( "TChord", "Design", this, 0.5, 0, 1.0 );
-    m_TChord.SetDescript( "Thrust weighted blade chord" );
+    m_TChord.SetDescript( _("Thrust weighted blade chord") );
 
     m_PChord.Init( "PChord", "Design", this, 0.5, 0, 1.0 );
-    m_PChord.SetDescript( "Power weighted blade chord" );
+    m_PChord.SetDescript( _("Power weighted blade chord") );
 
     m_LECluster.Init( "LECluster", "Design", this, 0.25, 1e-4, 10.0 );
-    m_LECluster.SetDescript( "LE Tess Cluster Control" );
+    m_LECluster.SetDescript( _("LE Tess Cluster Control") );
 
     m_TECluster.Init( "TECluster", "Design", this, 0.25, 1e-4, 10.0 );
-    m_TECluster.SetDescript( "TE Tess Cluster Control" );
+    m_TECluster.SetDescript( _("TE Tess Cluster Control") );
 
     m_RootCluster.Init( "InCluster", "Design", this, 1.0, 1e-4, 10.0 );
-    m_RootCluster.SetDescript( "Inboard Tess Cluster Control" );
+    m_RootCluster.SetDescript( _("Inboard Tess Cluster Control") );
 
     m_TipCluster.Init( "OutCluster", "Design", this, 1.0, 1e-4, 10.0 );
-    m_TipCluster.SetDescript( "Outboard Tess Cluster Control" );
+    m_TipCluster.SetDescript( _("Outboard Tess Cluster Control") );
 
     m_SmallPanelW.Init( "SmallPanelW", m_Name, this, 0.0, 0.0, 1e12 );
-    m_SmallPanelW.SetDescript( "Smallest LE/TE panel width");
+    m_SmallPanelW.SetDescript( _("Smallest LE/TE panel width"));
 
     m_MaxGrowth.Init( "MaxGrowth", m_Name, this, 1.0, 1.0, 1e12);
-    m_MaxGrowth.SetDescript( "Maximum chordwise panel growth ratio" );
+    m_MaxGrowth.SetDescript( _("Maximum chordwise panel growth ratio") );
 
     //==== rename capping controls for wing specific terminology ====//
-    m_CapUMinOption.SetDescript( "Type of End Cap on Propeller Root" );
+    m_CapUMinOption.SetDescript( _("Type of End Cap on Propeller Root") );
     m_CapUMinOption.Parm::Set( FLAT_END_CAP );
-    m_CapUMinTess.SetDescript( "Number of tessellated curves on Propeller Root and Tip" );
-    m_CapUMaxOption.SetDescript( "Type of End Cap on Propeller Tip" );
+    m_CapUMinTess.SetDescript( _("Number of tessellated curves on Propeller Root and Tip") );
+    m_CapUMaxOption.SetDescript( _("Type of End Cap on Propeller Tip") );
     m_CapUMaxOption.Parm::Set( ROUND_END_CAP );
 
     m_ActiveXSec = 0;
@@ -773,7 +775,7 @@ void PropGeom::UpdateSurf()
         {
             if ( xs->GetXSecCurve()->GetType() == XS_POINT )
             {
-                printf( "Warning: XS_POINT type not valid for propellers\n" );
+                printf( _("Warning: XS_POINT type not valid for propellers\n") );
                 // Propellers are constructed in two phases.  The first phase stacks
                 // all the XSecs with unit chord.  Intermediate curves are extracted
                 // from that surface and are scaled to match the required chord.

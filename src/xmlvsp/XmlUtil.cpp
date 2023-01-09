@@ -8,6 +8,8 @@
 #include "StringUtil.h"
 #include <cfloat>
 
+#include <intl.h>
+
 //==== Get Number of Same Names ====//
 unsigned int XmlUtil::GetNumNames( xmlNodePtr node, const char * name )
 {
@@ -44,7 +46,7 @@ xmlNodePtr XmlUtil::GetNodeDbg( xmlNodePtr node, const char * name, int id, cons
     static bool once = false;
     if ( !once && id > 100 )
     {
-        printf( "Possible O(n^2) behavior detected with large n in call to XmlUtil::GetNode from %s line %d\n.", file, lineno );
+        printf( _("Possible O(n^2) behavior detected with large n in call to XmlUtil::GetNode from %s line %d\n."), file, lineno );
         once = true;
     }
 

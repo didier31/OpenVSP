@@ -114,7 +114,7 @@ void ErrorMgrSingleton::AddError( ERROR_CODE code, const string & desc )
 
     if ( m_PrintErrors )
     {
-        printf( "Error Code: %d, Desc: %s\n", ( ERROR_CODE ) code, desc.c_str() );
+        printf( _("Error Code: %d, Desc: %s\n"), ( ERROR_CODE ) code, desc.c_str() );
     }
 
     m_ErrorLastCallFlag = true;

@@ -20,6 +20,8 @@
 #include "StringUtil.h"
 #include <cfloat>  //For DBL_EPSILON
 
+#include <intl.h>
+
 // Xlib.h does a horrible '#define Status int' which causes problems for exprparse.
 // This should clean it up locally.
 #if defined (Status)
@@ -1185,7 +1187,7 @@ void CheckButton::SetValAndLimits( Parm* p )
     }
     else
     {
-        printf("Error: Non-BoolParm %s associated with CheckButton %s.\n", p->GetName().c_str(), m_Button->label() );
+        printf(_("Error: Non-BoolParm %s associated with CheckButton %s.\n"), p->GetName().c_str(), m_Button->label() );
     }
 }
 
@@ -1258,7 +1260,7 @@ void CheckButtonBit::SetValAndLimits( Parm* p )
     }
     else
     {
-        printf("Error: Non-IntParm %s associated with CheckButtonBit %s.\n", p->GetName().c_str(), m_Button->label() );
+        printf(_("Error: Non-IntParm %s associated with CheckButtonBit %s.\n"), p->GetName().c_str(), m_Button->label() );
     }
 }
 
@@ -1336,7 +1338,7 @@ void RadioButton::SetValAndLimits( Parm* p )
     }
     else
     {
-        printf("Error: Non-BoolParm %s associated with RadioButton %s.\n", p->GetName().c_str(), m_Button->label() );
+        printf(_("Error: Non-BoolParm %s associated with RadioButton %s.\n"), p->GetName().c_str(), m_Button->label() );
     }
 }
 
@@ -1409,7 +1411,7 @@ void ToggleButton::SetValAndLimits( Parm* p )
     }
     else
     {
-        printf("Error: Non-BoolParm %s associated with ToggleButton %s.\n", p->GetName().c_str(), m_Button->label() );
+        printf(_("Error: Non-BoolParm %s associated with ToggleButton %s.\n"), p->GetName().c_str(), m_Button->label() );
     }
 }
 
@@ -1697,7 +1699,7 @@ void Choice::SetValAndLimits( Parm* p )
     assert( iparm );
     if ( !iparm )
     {
-        printf("Error: Non-IntParm %s associated with Choice %s.\n", p->GetName().c_str(), m_Choice->label() );
+        printf(_("Error: Non-IntParm %s associated with Choice %s.\n"), p->GetName().c_str(), m_Choice->label() );
         return;
     }
 
@@ -1942,7 +1944,7 @@ void FractParmSlider::SetValAndLimits( Parm* parm_ptr )
     }
     else
     {
-        printf("Error: Non-FractionParm %s associated with FractParmSlider.\n", parm_ptr->GetName().c_str() );
+        printf(_("Error: Non-FractionParm %s associated with FractParmSlider.\n"), parm_ptr->GetName().c_str() );
     }
 }
 
@@ -1978,7 +1980,7 @@ void FractParmSlider::DeviceCB( Fl_Widget* w )
             }
             else
             {
-                printf("Error: Non-FractionParm %s associated with FractParmSlider.\n", parm_ptr->GetName().c_str() );
+                printf(_("Error: Non-FractionParm %s associated with FractParmSlider.\n"), parm_ptr->GetName().c_str() );
             }
 #ifndef NOREGEXP
         }
@@ -2975,7 +2977,7 @@ void ParmTreePicker::UpdateParmTree()
 
                         if ( groupids.size() > 1 )
                         {
-                            printf("Error: multiple same-name groups where there shouldn't be any. \n\tFile: %s \tLine:%d\n",__FILE__,__LINE__);
+                            printf(_("Error: multiple same-name groups where there shouldn't be any. \n\tFile: %s \tLine:%d\n"),__FILE__,__LINE__);
                         }
 
                         AddParmEntry( pID, (*cit).second, (*cit).second.m_GroupVec[groupid].m_TreeItemPtr );

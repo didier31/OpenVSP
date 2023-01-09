@@ -43,6 +43,8 @@
 
 #include "ProjectionMgr.h"
 
+#include <intl.h>
+
 using namespace vsp;
 
 //==== Constructor ====//
@@ -800,7 +802,7 @@ string Vehicle::CreateGeom( const GeomType & type )
 
     if ( !new_geom )
     {
-        printf( "Error: Could not create Geom of type: %s\n", type.m_Name.c_str() );
+        printf( _("Error: Could not create Geom of type: %s\n"), type.m_Name.c_str() );
         return "NONE";
     }
 
@@ -2393,7 +2395,7 @@ string Vehicle::WriteTRIFile( const string & file_name, int write_set )
     vector< Geom* > geom_vec = FindGeomVec( GetGeomVec() );
     if ( geom_vec.size()==0 )
     {
-        printf("WARNING: No geometry to write \n\tFile: %s \tLine:%d\n",__FILE__,__LINE__);
+        printf(_("WARNING: No geometry to write \n\tFile: %s \tLine:%d\n"),__FILE__,__LINE__);
         return mesh_id;
     }
 
@@ -2495,7 +2497,7 @@ string Vehicle::WriteOBJFile( const string & file_name, int write_set )
     vector< Geom* > geom_vec = FindGeomVec( GetGeomVec() );
     if ( geom_vec.size()==0 )
     {
-        printf("WARNING: No geometry to write \n\tFile: %s \tLine:%d\n",__FILE__,__LINE__);
+        printf(_("WARNING: No geometry to write \n\tFile: %s \tLine:%d\n"),__FILE__,__LINE__);
         return mesh_id;
     }
 
@@ -3308,7 +3310,7 @@ void Vehicle::WriteStructureSTEPFile( const string & file_name )
     FeaStructure* fea_struct = StructureMgr.GetFeaStruct( m_STEPStructureExportIndex() );
     if ( !fea_struct )
     {
-        printf( "ERROR WriteStructureSTEPFile: No FEA Structure Found\n" );
+        printf( _("ERROR WriteStructureSTEPFile: No FEA Structure Found\n") );
         return;
     }
 
@@ -3494,7 +3496,7 @@ void Vehicle::WriteStructureIGESFile( const string & file_name, int feaMeshStruc
     FeaStructure* fea_struct = StructureMgr.GetFeaStruct( feaMeshStructIndex );
     if ( !fea_struct )
     {
-        printf( "ERROR WriteStructureIGESFile: No FEA Structure Found\n" );
+        printf( _("ERROR WriteStructureIGESFile: No FEA Structure Found\n") );
         return;
     }
 
@@ -5077,11 +5079,11 @@ string Vehicle::ImportV2File( const string & file_name )
                 }
                 else if ( typeStr == "External" )
                 {
-                    printf("Found External component.  Not yet supported.\n");
+                    printf(_("Found External component.  Not yet supported.\n"));
                 }
                 else if ( typeStr == "Havoc")
                 {
-                    printf("Found Havoc component.  Not yet supported.\n");
+                    printf(_("Found Havoc component.  Not yet supported.\n"));
                 }
                 else if ( typeStr == "Fuselage" )
                 {
@@ -5093,7 +5095,7 @@ string Vehicle::ImportV2File( const string & file_name )
                 }
                 else if ( typeStr == "Mwing" )
                 {
-                    printf("Found Mwing component.  Open file in OpenVSP v2 and save to convert to MS_Wing.\n");
+                    printf(_("Found Mwing component.  Open file in OpenVSP v2 and save to convert to MS_Wing.\n"));
                 }
                 else if ( typeStr == "Mswing" )
                 {
@@ -5102,7 +5104,7 @@ string Vehicle::ImportV2File( const string & file_name )
                 else if ( typeStr == "Hwb" )
                 {
                     id = CreateGeom( GeomType( MS_WING_GEOM_TYPE, "Wing", true ) );
-                    printf("Found Hwb component.  Not yet supported, importing as Wing.\n");
+                    printf(_("Found Hwb component.  Not yet supported, importing as Wing.\n"));
                 }
                 else if ( typeStr == "Blank" )
                 {
@@ -5110,23 +5112,23 @@ string Vehicle::ImportV2File( const string & file_name )
                 }
                 else if ( typeStr == "Duct" )
                 {
-                    printf("Found Duct component.  Not yet supported.\n");
+                    printf(_("Found Duct component.  Not yet supported.\n"));
                 }
                 else if ( typeStr == "Prop" )
                 {
-                    printf("Found Prop component.  Not yet supported.\n");
+                    printf(_("Found Prop component.  Not yet supported.\n"));
                 }
                 else if ( typeStr == "Engine" )
                 {
-                    printf("Found Engine component.  Not yet supported.\n");
+                    printf(_("Found Engine component.  Not yet supported.\n"));
                 }
                 else if ( typeStr == "Mesh" )
                 {
-                    printf("Found Mesh component.  Not yet supported.\n");
+                    printf(_("Found Mesh component.  Not yet supported.\n"));
                 }
                 else if ( typeStr == "Cabin_Layout" )
                 {
-                    printf("Found Cabin_Layout component.  Not yet supported.\n");
+                    printf(_("Found Cabin_Layout component.  Not yet supported.\n"));
                 }
                 else if ( typeStr == "User" )
                 {
@@ -5135,7 +5137,7 @@ string Vehicle::ImportV2File( const string & file_name )
                 }
                 else if ( typeStr == "XSecGeom" )
                 {
-                    printf("Found XSecGeom component.  Not yet supported.\n");
+                    printf(_("Found XSecGeom component.  Not yet supported.\n"));
                 }
 
                 // Common code to import and insert into tree.

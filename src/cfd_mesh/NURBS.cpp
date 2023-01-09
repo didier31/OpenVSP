@@ -9,6 +9,8 @@
 
 #include "NURBS.h"
 
+#include <intl.h>
+
 
 //////////////////////////////////////////////////////
 //================= NURBS_Curve ====================//
@@ -144,7 +146,7 @@ DLL_IGES_ENTITY_144 NURBS_Loop::WriteIGESLoop( IGESutil* iges, DLL_IGES_ENTITY_1
 {
     if ( !m_ClosedFlag )
     {
-        printf( "ERROR: Incomplete IGES Loop \n" );
+        printf( _("ERROR: Incomplete IGES Loop \n") );
     }
 
     vector < DLL_IGES_ENTITY_126* > nurbs_vec = GetIGESEdges( iges );
@@ -156,7 +158,7 @@ void NURBS_Loop::WriteIGESCutout( IGESutil* iges, DLL_IGES_ENTITY_128& parent_su
 {
     if ( !m_ClosedFlag )
     {
-        printf( "ERROR: Incomplete IGES Loop \n" );
+        printf( _("ERROR: Incomplete IGES Loop \n") );
         return;
     }
 
@@ -169,7 +171,7 @@ SdaiEdge_loop* NURBS_Loop::WriteSTEPLoop( STEPutil* step, const string& label, b
 {
     if ( !m_ClosedFlag )
     {
-        printf( "ERROR: Incomplete STEP Loop \n" );
+        printf( _("ERROR: Incomplete STEP Loop \n") );
         return NULL;
     }
 

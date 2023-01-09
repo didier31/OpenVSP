@@ -6,6 +6,8 @@
 #include "SurfCore.h"
 #include "BezierCurve.h"
 
+#include <intl.h>
+
 typedef piecewise_surface_type::bounding_box_type surface_bounding_box_type;
 
 SurfCore::SurfCore()
@@ -113,7 +115,7 @@ vec3d SurfCore::CompNorm( double u, double w ) const
     double slop = 1e-3;
     if( u < (umn - slop) || w < (wmn - slop) || u > (umx + slop) || w > (wmx + slop) )
     {
-        printf("BAD parameter in SurfCore::CompNorm! %f %f\n", u, w );
+        printf(_("BAD parameter in SurfCore::CompNorm! %f %f\n"), u, w );
         assert(false);
     }
 
@@ -149,7 +151,7 @@ vec3d SurfCore::CompPnt( double u, double w ) const
     double slop = 1e-3;
     if( u < (umn - slop) || w < (wmn - slop) || u > (umx + slop) || w > (wmx + slop) )
     {
-        printf("BAD parameter in SurfCore::CompPnt! %f %f\n", u, w );
+        printf(_("BAD parameter in SurfCore::CompPnt! %f %f\n"), u, w );
         assert(false);
     }
 
@@ -183,7 +185,7 @@ void SurfCore::CompCurvature( double u, double w, double& k1, double& k2, double
     double slop = 1e-3;
     if( u < (umn - slop) || w < (wmn - slop) || u > (umx + slop) || w > (wmx + slop) )
     {
-        printf("BAD parameter in SurfCore::CompCurvature! %f %f\n", u, w );
+        printf(_("BAD parameter in SurfCore::CompCurvature! %f %f\n"), u, w );
         assert(false);
     }
 
@@ -729,7 +731,7 @@ double SurfCore::FindNearest( double &u, double &w, const vec3d &pt, double u0, 
     double slop = 1e-3;
     if( u0 < (umn - slop) || w0 < (wmn - slop) || u0 > (umx + slop) || w0 > (wmx + slop) )
     {
-        printf("BAD parameter in SurfCore::FindNearest! %f %f\n", u0, w0 );
+        printf(_("BAD parameter in SurfCore::FindNearest! %f %f\n"), u0, w0 );
         assert(false);
     }
 
@@ -759,7 +761,7 @@ double SurfCore::FindNearest( double &u, double &w, const vec3d &pt, double u0, 
     double slop = 1e-3;
     if( u0 < (umn - slop) || w0 < (wmn - slop) || u0 > (umx + slop) || w0 > (wmx + slop) )
     {
-        printf("BAD parameter in SurfCore::FindNearest! %f %f\n", u0, w0 );
+        printf(_("BAD parameter in SurfCore::FindNearest! %f %f\n"), u0, w0 );
         assert(false);
     }
 

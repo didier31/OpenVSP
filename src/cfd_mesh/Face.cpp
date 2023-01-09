@@ -10,6 +10,8 @@
 #include "Face.h"
 #include "Surf.h"
 
+#include <intl.h>
+
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
@@ -313,7 +315,7 @@ bool Edge::SetFace( Face* f )
 {
     if ( f0 && f1 )
     {
-        printf( "Edge: More Than 2 Faces %16.10f %16.10f %16.10f\n",
+        printf( _("Edge: More Than 2 Faces %16.10f %16.10f %16.10f\n"),
 //          f0->ComputeQual(), f1->ComputeQual(), f->ComputeQual() );
                 f0->Area(), f1->Area(), f->Area() );
         Face* badface = f;
@@ -326,24 +328,24 @@ bool Edge::SetFace( Face* f )
             f1 = badface;
         }
 
-        printf( "     vertex %f %f %f\n", f0->n0->pnt.x(), f0->n0->pnt.y(), f0->n0->pnt.z() );
-        printf( "     vertex %f %f %f\n", f0->n1->pnt.x(), f0->n1->pnt.y(), f0->n1->pnt.z() );
-        printf( "     vertex %f %f %f\n", f0->n2->pnt.x(), f0->n2->pnt.y(), f0->n2->pnt.z() );
+        printf( _("     vertex %f %f %f\n"), f0->n0->pnt.x(), f0->n0->pnt.y(), f0->n0->pnt.z() );
+        printf( _("     vertex %f %f %f\n"), f0->n1->pnt.x(), f0->n1->pnt.y(), f0->n1->pnt.z() );
+        printf( _("     vertex %f %f %f\n"), f0->n2->pnt.x(), f0->n2->pnt.y(), f0->n2->pnt.z() );
 
-        printf( "     vertex %f %f %f\n", f1->n0->pnt.x(), f1->n0->pnt.y(), f1->n0->pnt.z() );
-        printf( "     vertex %f %f %f\n", f1->n1->pnt.x(), f1->n1->pnt.y(), f1->n1->pnt.z() );
-        printf( "     vertex %f %f %f\n", f1->n2->pnt.x(), f1->n2->pnt.y(), f1->n2->pnt.z() );
+        printf( _("     vertex %f %f %f\n"), f1->n0->pnt.x(), f1->n0->pnt.y(), f1->n0->pnt.z() );
+        printf( _("     vertex %f %f %f\n"), f1->n1->pnt.x(), f1->n1->pnt.y(), f1->n1->pnt.z() );
+        printf( _("     vertex %f %f %f\n"), f1->n2->pnt.x(), f1->n2->pnt.y(), f1->n2->pnt.z() );
 
-        printf( "     vertex %f %f %f\n", f->n0->pnt.x(), f->n0->pnt.y(), f->n0->pnt.z() );
-        printf( "     vertex %f %f %f\n", f->n1->pnt.x(), f->n1->pnt.y(), f->n1->pnt.z() );
-        printf( "     vertex %f %f %f\n", f->n2->pnt.x(), f->n2->pnt.y(), f->n2->pnt.z() );
+        printf( _("     vertex %f %f %f\n"), f->n0->pnt.x(), f->n0->pnt.y(), f->n0->pnt.z() );
+        printf( _("     vertex %f %f %f\n"), f->n1->pnt.x(), f->n1->pnt.y(), f->n1->pnt.z() );
+        printf( _("     vertex %f %f %f\n"), f->n2->pnt.x(), f->n2->pnt.y(), f->n2->pnt.z() );
 
-        printf( "   Face = %f %f %f\n        %f %f %f\n        %f %f %f \n",
+        printf( _("   Face = %f %f %f\n        %f %f %f\n        %f %f %f \n"),
                 badface->n0->pnt.x(), badface->n0->pnt.y(), badface->n0->pnt.z(),
                 badface->n1->pnt.x(), badface->n1->pnt.y(), badface->n1->pnt.z(),
                 badface->n2->pnt.x(), badface->n2->pnt.y(), badface->n2->pnt.z() );
 
-        printf( "   Border %d %d %d\n", badface->e0->border, badface->e1->border, badface->e2->border );
+        printf( _("   Border %d %d %d\n"), badface->e0->border, badface->e1->border, badface->e2->border );
 
 
         return false;
@@ -683,7 +685,7 @@ double Face::ComputeTriQual()
 {
     if ( n3 )
     {
-        printf( "Attempt Tri quality calculation on Quad.\n" );
+        printf( _("Attempt Tri quality calculation on Quad.\n") );
         // Force error in Address Sanitizer
         int *p = NULL;
         *p = 1;
@@ -814,7 +816,7 @@ Node* Face::OtherNodeTri( Node* a, Node* b )
 {
     if ( n3 )
     {
-        printf( "Attempt OtherNodeTri on Quad.\n" );
+        printf( _("Attempt OtherNodeTri on Quad.\n") );
         // Force error in Address Sanitizer
         int *p = NULL;
         *p = 1;

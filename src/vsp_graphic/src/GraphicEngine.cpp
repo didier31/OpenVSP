@@ -12,6 +12,8 @@
 
 #include <assert.h>
 
+#include <intl.h>
+
 namespace VSPGraphic
 {
 GraphicEngine::GraphicEngine()
@@ -127,7 +129,7 @@ void GraphicEngine::dumpScreenImage( std::string fileName, int width, int height
     }
     else
     {
-        printf( "Image type not supported.\n" );
+        printf( _("Image type not supported.\n") );
     }
 }
 

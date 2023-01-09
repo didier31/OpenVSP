@@ -9,6 +9,8 @@
 #include "ScreenBase.h"
 #include <FL/Fl_Value_Slider.H>
 
+#include <intl.h>
+
 // #define DEBUG_LABEL_SIZE
 
 //==== Constructor ====//
@@ -748,7 +750,7 @@ void AddPointLine( const vector <double> & xdata, const vector <double> & ydata,
     
     if ( n != ydata.size() )
     {
-        printf("ERROR: xdata.size() != ydata.size() \n\tFile: %s \tLine:%d\n",__FILE__,__LINE__);
+        printf(_("ERROR: xdata.size() != ydata.size() \n\tFile: %s \tLine:%d\n"),__FILE__,__LINE__);
         return;
     }
 
@@ -1199,7 +1201,7 @@ void GroupLayout::AddParmPicker( ParmPicker & parm_picker )
     assert( m_Group && m_Screen );
 
     //==== Container Button ====//
-    Fl_Button* button = new Fl_Button( m_X, m_Y, m_ChoiceButtonWidth, m_StdHeight, "Container" );
+    Fl_Button* button = new Fl_Button( m_X, m_Y, m_ChoiceButtonWidth, m_StdHeight, _("Container") );
     button->box( FL_THIN_UP_BOX );
     button->labelfont( FL_HELVETICA_BOLD );
     button->labelsize( 12 );
@@ -1495,7 +1497,7 @@ void GroupLayout::AddSkinHeader( SkinHeader & skin_header, bool addcontchoice )
         cont_choice->AddItem( "C0" );
         cont_choice->AddItem( "C1" );
         cont_choice->AddItem( "C2" );
-        AddChoice( *cont_choice, "Enforce" );
+        AddChoice( *cont_choice, _("Enforce") );
     }
     else
     {
@@ -1541,7 +1543,7 @@ void GroupLayout::AddGeomPicker( GeomPicker & geom_picker, int used_w, string te
     {
         if ( text.length() == 0 )
         {
-            text = string( "Geom" );
+            text = string( _("Geom") );
         }
         Fl_Button* button = new Fl_Button( m_X, m_Y, m_ChoiceButtonWidth, m_StdHeight );
         button->copy_label( text.c_str() );
@@ -1579,23 +1581,23 @@ void GroupLayout::AddPCurveEditor( PCurveEditor& curve_editor )
 
     SetSameLineFlag( true );
 
-    AddOutput( curve_editor.m_CurveType, "Type", GetW() / 2 );
+    AddOutput( curve_editor.m_CurveType, _("Type"), GetW() / 2 );
 
-    Fl_Button* convbutton = new Fl_Button( m_X, m_Y, m_ButtonWidth, m_StdHeight, "Convert" );
+    Fl_Button* convbutton = new Fl_Button( m_X, m_Y, m_ButtonWidth, m_StdHeight, _("Convert") );
     convbutton->labelfont( FL_HELVETICA_BOLD );
     convbutton->labelsize( 12 );
     convbutton->labelcolor( FL_DARK_BLUE );
     convbutton->align( FL_ALIGN_NOWRAP );
-    convbutton->copy_label( "Convert to:" );
+    convbutton->copy_label( _("Convert to:") );
     m_Group->add( convbutton );
     DebugLabelSize( convbutton );
     AddX( m_ButtonWidth );
 
 
-    curve_editor.m_ConvertChoice.AddItem( "Linear" );
-    curve_editor.m_ConvertChoice.AddItem( "Spline (PCHIP)" );
-    curve_editor.m_ConvertChoice.AddItem( "Cubic Bezier" );
-    curve_editor.m_ConvertChoice.AddItem( "Approximate Cubic Bezier" );
+    curve_editor.m_ConvertChoice.AddItem( _("Linear") );
+    curve_editor.m_ConvertChoice.AddItem( _("Spline (PCHIP)") );
+    curve_editor.m_ConvertChoice.AddItem( _("Cubic Bezier") );
+    curve_editor.m_ConvertChoice.AddItem( _("Approximate Cubic Bezier") );
 
     m_ChoiceButtonWidth = 0;
     AddChoice( curve_editor.m_ConvertChoice, "Convert to:", GetW() / 2 + m_ButtonWidth );
@@ -1616,7 +1618,7 @@ void GroupLayout::AddPCurveEditor( PCurveEditor& curve_editor )
 
     canvas = AddCanvas( canvas_w, m_CanvasHeight, 0, 1, 0, 1, "", "X", "Y" );
 
-    split_label = "r/R Split";
+    split_label = _("r/R Split");
 
     AddY( 25 );
 
@@ -1625,12 +1627,12 @@ void GroupLayout::AddPCurveEditor( PCurveEditor& curve_editor )
 
     //==== Add Split Button ====//
     int bw = FitWidth( 0, m_ButtonWidth );
-    Fl_Button* spbutton = new Fl_Button( m_X, m_Y, bw, m_StdHeight, "Split" );
+    Fl_Button* spbutton = new Fl_Button( m_X, m_Y, bw, m_StdHeight, _("Split") );
     spbutton->labelfont( FL_HELVETICA_BOLD );
     spbutton->labelsize( 12 );
     spbutton->labelcolor( FL_DARK_BLUE );
     spbutton->align( FL_ALIGN_NOWRAP );
-    spbutton->copy_label( "Split" );
+    spbutton->copy_label( _("Split") );
     m_Group->add( spbutton );
     DebugLabelSize( spbutton );
     AddX( bw );
@@ -1638,11 +1640,11 @@ void GroupLayout::AddPCurveEditor( PCurveEditor& curve_editor )
     SetFitWidthFlag( true );
     AddSlider( curve_editor.m_SplitPtSlider, split_label.c_str(), 1, "%3.2f", m_ButtonWidth );
 
-    Fl_Light_Button* splitpickbutton = new Fl_Light_Button( m_X, m_Y, m_ButtonWidth, m_StdHeight, "Split Pick" );
+    Fl_Light_Button* splitpickbutton = new Fl_Light_Button( m_X, m_Y, m_ButtonWidth, m_StdHeight, _("Split Pick") );
     splitpickbutton->labelfont( FL_HELVETICA_BOLD );
     splitpickbutton->labelsize( 12 );
     splitpickbutton->align( Fl_Align( FL_ALIGN_LEFT | FL_ALIGN_INSIDE | FL_ALIGN_WRAP ) );
-    splitpickbutton->copy_label( "Split Pick" );
+    splitpickbutton->copy_label( _("Split Pick") );
     splitpickbutton->labelcolor( FL_DARK_BLUE );
     splitpickbutton->align( FL_ALIGN_NOWRAP );
     m_Group->add( splitpickbutton );
@@ -1673,11 +1675,11 @@ void GroupLayout::AddPCurveEditor( PCurveEditor& curve_editor )
 
     m_ButtonWidth += 15;
 
-    Fl_Light_Button* deletetoggle = new Fl_Light_Button( m_X, m_Y, bw, m_StdHeight, "Del Pick" );
+    Fl_Light_Button* deletetoggle = new Fl_Light_Button( m_X, m_Y, bw, m_StdHeight, _("Del Pick") );
     deletetoggle->labelfont( FL_HELVETICA_BOLD );
     deletetoggle->labelsize( 12 );
     deletetoggle->align( Fl_Align( FL_ALIGN_LEFT | FL_ALIGN_INSIDE | FL_ALIGN_WRAP ) );
-    deletetoggle->copy_label( "Del Pick" );
+    deletetoggle->copy_label( _("Del Pick") );
     deletetoggle->labelcolor( FL_DARK_BLUE );
     deletetoggle->align( FL_ALIGN_NOWRAP );
     m_Group->add( deletetoggle );
@@ -1689,7 +1691,7 @@ void GroupLayout::AddPCurveEditor( PCurveEditor& curve_editor )
     SetSameLineFlag( false );
 
     AddYGap();
-    AddDividerBox( "Control Points" );
+    AddDividerBox( _("Control Points") );
 
     Fl_Scroll* ptscroll = AddFlScroll( GetRemainY() );
     ptscroll->type( Fl_Scroll::VERTICAL_ALWAYS );
@@ -1723,7 +1725,7 @@ ColResizeBrowser* GroupLayout::AddColResizeBrowser( int* width_array_ptr, size_t
 
     if ( width_array_ptr[num_col] != 0 )
     {
-        printf( "Error:  Column width array not zero terminated or column length mismatch: ");
+        printf( _("Error:  Column width array not zero terminated or column length mismatch: "));
 
         BasicScreen *bs = dynamic_cast< BasicScreen* >( m_Screen );
         if ( bs )
@@ -1885,11 +1887,11 @@ void DebugLabelSize( Fl_Widget *widget )
 
     if ( wo - ww <= 0 )
     {
-        printf( "'%s' insufficient width.\n", widget->label() );
+        printf( _("'%s' insufficient width.\n"), widget->label() );
     }
     if ( ho - hh <= -2 )
     {
-        printf( "'%s' insufficient height.\n", widget->label() );
+        printf( _("'%s' insufficient height.\n"), widget->label() );
     }
 #endif
 }

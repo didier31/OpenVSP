@@ -1209,7 +1209,7 @@ void VSPAERODegenGeomAnalysis::SetDefaults()
     else
     {
         // TODO Throw an error here
-        printf("ERROR: trying to set defaults without a vehicle \n\tFile: %s \tLine:%d\n",__FILE__,__LINE__);
+        printf(_("ERROR: trying to set defaults without a vehicle \n\tFile: %s \tLine:%d\n"),__FILE__,__LINE__);
     }
 }
 
@@ -1256,7 +1256,7 @@ void VSPAEROComputeGeometryAnalysis::SetDefaults()
     else
     {
         // TODO Throw an error here
-        printf("ERROR - trying to set defaults without a vehicle: void VSPAERODegenGeomAnalysis::SetDefaults()\n");
+        printf(_("ERROR - trying to set defaults without a vehicle: void VSPAERODegenGeomAnalysis::SetDefaults()\n"));
     }
 }
 
@@ -1315,10 +1315,10 @@ string VSPAEROSinglePointAnalysis::Execute()
     string resId;
 
     MessageData errMsgData;
-    errMsgData.m_String = "Error";
+    errMsgData.m_String = _("Error");
     errMsgData.m_IntVec.push_back( vsp::VSP_DEPRECATED );
     char buf[255];
-    sprintf( buf, "Error:  VSPAEROSinglePoint Analysis is deprecated.  Use VSPAEROSweep with flow condition Npts = 1 instead." );
+    sprintf( buf, _("Error:  VSPAEROSinglePoint Analysis is deprecated.  Use VSPAEROSweep with flow condition Npts = 1 instead.") );
     errMsgData.m_StringVec.emplace_back( string( buf ) );
     MessageMgr::getInstance().SendAll( errMsgData );
 
@@ -1408,7 +1408,7 @@ void VSPAEROSweepAnalysis::SetDefaults()
     else
     {
         // TODO Throw an error here
-        printf("ERROR: trying to set defaults without a vehicle \n\tFile: %s \tLine:%d\n",__FILE__,__LINE__);
+        printf(_("ERROR: trying to set defaults without a vehicle \n\tFile: %s \tLine:%d\n"),__FILE__,__LINE__);
     }
 }
 
@@ -1473,7 +1473,7 @@ string VSPAEROSweepAnalysis::Execute()
         else if ( VSPAEROMgr.m_RefFlag.Get() == vsp::COMPONENT_REF )
         {
             VSPAEROMgr.Update(); // TODO: Check if Update() in VSPAEROMgr.CreateSetupFile() can allow this call to be removed
-            printf( "Wing Reference Parms: \n" );
+            printf( _("Wing Reference Parms: \n") );
 
             nvd = m_Inputs.FindPtr( "Sref", 0 );
             if ( nvd )
@@ -1953,7 +1953,7 @@ void ParasiteDragFullAnalysis::SetDefaults()
     else
     {
         // TODO Throw an error here
-        printf("ERROR - trying to set defaults without a vehicle: void ParasiteDragFullAnalysis::SetDefaults()\n");
+        printf(_("ERROR - trying to set defaults without a vehicle: void ParasiteDragFullAnalysis::SetDefaults()\n"));
     }
 }
 
@@ -2190,7 +2190,7 @@ void CpSlicerAnalysis::SetDefaults()
     else
     {
         // TODO Throw an error here
-        printf( "ERROR - trying to set defaults without a vehicle: void CpSlicerAnalysis::SetDefaults()\n" );
+        printf( _("ERROR - trying to set defaults without a vehicle: void CpSlicerAnalysis::SetDefaults()\n") );
     }
 }
 

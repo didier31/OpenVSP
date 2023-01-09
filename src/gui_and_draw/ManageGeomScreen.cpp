@@ -13,7 +13,7 @@ using namespace vsp;
 
 
 //==== Constructor ====//
-ManageGeomScreen::ManageGeomScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 235, 645, "Geom Browser" )
+ManageGeomScreen::ManageGeomScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 235, 645, _("Geom Browser") )
 {
     m_VehiclePtr = m_ScreenMgr->GetVehiclePtr();
 
@@ -39,14 +39,14 @@ ManageGeomScreen::ManageGeomScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 235, 64
     m_HeadLayout.SetChoiceButtonWidth( 0 );
     m_HeadLayout.AddChoice( m_GeomTypeChoice, "", m_HeadLayout.GetButtonWidth() );
     m_HeadLayout.SetFitWidthFlag( false );
-    m_HeadLayout.AddButton( m_AddGeomButton, "Add" );
+    m_HeadLayout.AddButton( m_AddGeomButton, _("Add") );
     m_HeadLayout.SetSameLineFlag( false );
     m_HeadLayout.ForceNewLine();
     m_HeadLayout.SetFitWidthFlag( true );
 
     m_HeadLayout.SetButtonWidth( 0 );
     m_HeadLayout.AddYGap();
-    m_HeadLayout.AddDividerBox( "Active:" );
+    m_HeadLayout.AddDividerBox( _("Active:") );
     m_HeadLayout.AddInput( m_ActiveGeomInput, "" );
 
     m_BodyLayout.SetSameLineFlag( true );
@@ -73,51 +73,51 @@ ManageGeomScreen::ManageGeomScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 235, 64
     m_GeomBrowser->type( FL_MULTI_BROWSER );
 
 
-    m_RightLayout.AddButton( m_DeleteButton, "Delete" );
+    m_RightLayout.AddButton( m_DeleteButton, _("Delete") );
 
     m_RightLayout.AddYGap();
-    m_RightLayout.AddDividerBox( "Clipboard" );
-    m_RightLayout.AddButton( m_CopyButton, "Copy" );
-    m_RightLayout.AddButton( m_PasteButton, "Paste" );
-    m_RightLayout.AddButton( m_CutButton, "Cut" );
+    m_RightLayout.AddDividerBox( _("Clipboard") );
+    m_RightLayout.AddButton( m_CopyButton, _("Copy") );
+    m_RightLayout.AddButton( m_PasteButton, _("Paste") );
+    m_RightLayout.AddButton( m_CutButton, _("Cut") );
 
     m_CopyButton.GetFlButton()->shortcut( FL_CTRL + 'c' );
     m_PasteButton.GetFlButton()->shortcut( FL_CTRL + 'v' );
     m_CutButton.GetFlButton()->shortcut( FL_CTRL + 'x' );
 
     m_RightLayout.AddYGap();
-    m_RightLayout.AddDividerBox( "Selection" );
-    m_RightLayout.AddButton( m_SelectAllButton, "Sel All" );
-    m_RightLayout.AddButton( m_PickButton, "Pick" );
-    m_RightLayout.AddButton( m_ShowOnlyButton, "Show Only" );
-    m_RightLayout.AddButton( m_ShowButton, "Show" );
-    m_RightLayout.AddButton( m_NoShowButton, "NoShow" );
+    m_RightLayout.AddDividerBox( _("Selection") );
+    m_RightLayout.AddButton( m_SelectAllButton, _("Sel All") );
+    m_RightLayout.AddButton( m_PickButton, _("Pick") );
+    m_RightLayout.AddButton( m_ShowOnlyButton, _("Show Only") );
+    m_RightLayout.AddButton( m_ShowButton, _("Show") );
+    m_RightLayout.AddButton( m_NoShowButton, _("NoShow") );
 
     m_RightLayout.AddYGap();
-    m_RightLayout.AddDividerBox( "Surface" );
+    m_RightLayout.AddDividerBox( _("Surface") );
 
     m_RightLayout.SetChoiceButtonWidth( 0 );
     m_RightLayout.AddChoice( m_DisplayChoice, "" );
 
-    m_RightLayout.AddButton( m_WireGeomButton, "Wire" );
-    m_RightLayout.AddButton( m_HiddenGeomButton, "Hidden" );
-    m_RightLayout.AddButton( m_ShadeGeomButton, "Shade" );
-    m_RightLayout.AddButton( m_TextureGeomButton, "Texture" );
-    m_RightLayout.AddButton( m_NoneGeomButton, "None" );
+    m_RightLayout.AddButton( m_WireGeomButton, _("Wire") );
+    m_RightLayout.AddButton( m_HiddenGeomButton, _("Hidden") );
+    m_RightLayout.AddButton( m_ShadeGeomButton, _("Shade") );
+    m_RightLayout.AddButton( m_TextureGeomButton, _("Texture") );
+    m_RightLayout.AddButton( m_NoneGeomButton, _("None") );
 
     m_RightLayout.AddYGap();
-    m_RightLayout.AddDividerBox( "Lines" );
-    m_RightLayout.AddButton( m_ShowSubToggle, "Sub" );
-    m_RightLayout.AddButton( m_ShowFeatureToggle, "Feature" );
+    m_RightLayout.AddDividerBox( _("Lines") );
+    m_RightLayout.AddButton( m_ShowSubToggle, _("Sub") );
+    m_RightLayout.AddButton( m_ShowFeatureToggle, _("Feature") );
 
     m_RightLayout.AddYGap();
-    m_RightLayout.AddDividerBox( "Sets" );
+    m_RightLayout.AddDividerBox( _("Sets") );
     m_RightLayout.SetChoiceButtonWidth( 0 );
     m_RightLayout.AddChoice( m_SetChoice, "" );
-    m_RightLayout.AddButton( m_ShowOnlySetButton, "Show Only" );
-    m_RightLayout.AddButton( m_ShowSetButton, "Show" );
-    m_RightLayout.AddButton( m_NoShowSetButton, "NoShow" );
-    m_RightLayout.AddButton( m_SelectSetButton, "Select" );
+    m_RightLayout.AddButton( m_ShowOnlySetButton, _("Show Only") );
+    m_RightLayout.AddButton( m_ShowSetButton, _("Show") );
+    m_RightLayout.AddButton( m_NoShowSetButton, _("NoShow") );
+    m_RightLayout.AddButton( m_SelectSetButton, _("Select") );
 
     m_RightLayout.AddResizeBox();
 
@@ -408,10 +408,10 @@ void ManageGeomScreen::LoadDisplayChoice()
     vector<string> geom_id_vec = GetActiveGeoms();
     vector< Geom* > geom_vec = m_VehiclePtr->FindGeomVec( geom_id_vec );
 
-    m_DisplayChoice.AddItem( "Normal" );
-    m_DisplayChoice.AddItem( "Surface Degen" );
-    m_DisplayChoice.AddItem( "Plate Degen" );
-    m_DisplayChoice.AddItem( "Camber Degen" );
+    m_DisplayChoice.AddItem( _("Normal") );
+    m_DisplayChoice.AddItem( _("Surface Degen") );
+    m_DisplayChoice.AddItem( _("Plate Degen") );
+    m_DisplayChoice.AddItem( _("Camber Degen") );
 
     bool mult_display_types = false;
 
@@ -420,7 +420,7 @@ void ManageGeomScreen::LoadDisplayChoice()
     {
         if ( geom_vec[i]->m_GuiDraw.GetDisplayType() != geom_vec[0]->m_GuiDraw.GetDisplayType() )
         {
-            m_DisplayChoice.AddItem( "Multiple" );
+            m_DisplayChoice.AddItem( _("Multiple") );
             mult_display_types = true;
             break;
         }
@@ -658,7 +658,7 @@ void ManageGeomScreen::EditName( string name )
 //      aircraftPtr->triggerDraw();
 //      geomUI->geomBrowser->value(1);
 //  }
-//  if (src == ScriptMgr::GUI) scriptMgr->addLine("select none");
+//  if (src == ScriptMgr::GUI) scriptMgr->addLine(_("select none"));
 //}
 
 //==== Create Screens ====//

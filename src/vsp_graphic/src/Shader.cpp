@@ -5,6 +5,8 @@
 
 #include "OpenGLHeaders.h"
 
+#include <intl.h>
+
 namespace VSPGraphic
 {
 static bool _checkGLSLSupport();
@@ -169,7 +171,7 @@ void Shader::_create( const char * vShaderSrc, const char * fShaderSrc )
         glGetShaderiv( this->_vShaderId, GL_INFO_LOG_LENGTH, &logLength );
         errorMsg = ( char * )malloc( logLength );
         glGetShaderInfoLog( this->_vShaderId, logLength, &tempHolder, errorMsg );
-        std::printf( "\nVertex Shader Compile Error: \n %s", errorMsg );
+        std::printf(_("\nVertex Shader Compile Error: \n %s"), errorMsg );
         free( errorMsg );
     }
 
@@ -183,7 +185,7 @@ void Shader::_create( const char * vShaderSrc, const char * fShaderSrc )
         glGetShaderiv(  this->_fShaderId, GL_INFO_LOG_LENGTH, &logLength );
         errorMsg = ( char * )malloc( logLength );
         glGetShaderInfoLog(  this->_fShaderId, logLength, &tempHolder, errorMsg );
-        std::printf( "\nFragment Shader Compile Error: \n %s", errorMsg );
+        std::printf( _("\nFragment Shader Compile Error: \n %s"), errorMsg );
         free( errorMsg );
     }
 
@@ -199,7 +201,7 @@ void Shader::_create( const char * vShaderSrc, const char * fShaderSrc )
         glGetProgramiv( _id, GL_INFO_LOG_LENGTH, &logLength );
         errorMsg = ( char * )malloc( logLength );
         glGetProgramInfoLog( _id, 100, &tempHolder, errorMsg );
-        std::printf( "\nShader Linking Error: \n %s", errorMsg );
+        std::printf( _("\nShader Linking Error: \n %s"), errorMsg );
         free( errorMsg );
     }
 }

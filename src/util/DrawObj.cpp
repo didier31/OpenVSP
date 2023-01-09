@@ -12,6 +12,8 @@
 #include "DrawObj.h"
 #include "Matrix4d.h"
 
+#include <intl.h>
+
 void MakeArrowhead( const vec3d &ptip, const vec3d &uref, double len, vector < vec3d > &pts )
 {
     double fr = 0.2;
@@ -21,7 +23,7 @@ void MakeArrowhead( const vec3d &ptip, const vec3d &uref, double len, vector < v
 
     if ( u.mag() < 1e-6 )
     {
-        printf("Zero direction vector in MakeArrowhead!\n");
+        printf(_("Zero direction vector in MakeArrowhead!\n"));
         return;
     }
 

@@ -796,7 +796,7 @@ void ProjectionMgrSingleton::Union( ClipperLib::Paths & pths, ClipperLib::Paths 
 
     if ( !clpr.Execute( ClipperLib::ctUnion, sol, ClipperLib::pftPositive, ClipperLib::pftPositive ) )
     {
-        printf( "Clipper error\n" );
+        printf( _("Clipper error\n") );
     }
 
     CleanPolygons( sol );
@@ -857,7 +857,7 @@ void ProjectionMgrSingleton::Intersect( ClipperLib::Paths & pthA, ClipperLib::Pa
 
     if ( !clpr.Execute( ClipperLib::ctIntersection, sol, ClipperLib::pftPositive, ClipperLib::pftPositive ) )
     {
-        printf( "Clipper error\n" );
+        printf( _("Clipper error\n") );
     }
 
     CleanPolygons( sol );
@@ -961,11 +961,11 @@ void ProjectionMgrSingleton::Triangulate()
 
     //==== Constrained Delaunay Trianglulation ====//
     tristatus = triangle_context_options( ctx, cmdline );
-    if ( tristatus != TRI_OK ) printf( "triangle_context_options Error\n" );
+    if ( tristatus != TRI_OK ) printf( _("triangle_context_options Error\n") );
 
     // Triangulate the polygon
     tristatus = triangle_mesh_create( ctx, &in );
-    if ( tristatus != TRI_OK ) printf( "triangle_mesh_create Error\n" );
+    if ( tristatus != TRI_OK ) printf( _("triangle_mesh_create Error\n") );
 
     if ( tristatus == TRI_OK )
     {
@@ -1080,7 +1080,7 @@ bool ProjectionMgrSingleton::PtInHole( const vec2d &p )
 
     if ( incount > 1 || incount < 0 )
     {
-        printf( "Ambiguous triangle location.\n" );
+        printf( _("Ambiguous triangle location.\n") );
     }
 
     return false;

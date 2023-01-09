@@ -89,7 +89,7 @@ ADBSLICER::ADBSLICER(void)
     
     OptFact_ = 1.;
     
-    sprintf(ElementLabel_,"NONE");
+    sprintf(ElementLabel_,_("NONE"));
 
     AddLabel_ = 0;
 

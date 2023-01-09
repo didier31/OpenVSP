@@ -925,15 +925,15 @@ void HumanGeom::UpdateDrawObj()
             vec3d v0 (0, 0, 0);
             if ( dist (p0, v0) == 0 )
             {
-                printf("Found zero vert %d\n", m_half_tris[t][0] );
+                printf(_("Found zero vert %d\n"), m_half_tris[t][0] );
             }
             if ( dist (p1, v0) == 0 )
             {
-                printf("Found zero vert %d\n", m_half_tris[t][i2] );
+                printf(_("Found zero vert %d\n"), m_half_tris[t][i2] );
             }
             if ( dist (p2, v0) == 0 )
             {
-                printf("Found zero vert %d\n", m_half_tris[t][i3] );
+                printf(_("Found zero vert %d\n"), m_half_tris[t][i3] );
             }
 
             //==== Compute Normal ====//
@@ -970,15 +970,15 @@ void HumanGeom::UpdateDrawObj()
             vec3d v0 (0, 0, 0);
             if ( dist (p0, v0) == 0 )
             {
-                printf("Found zero vert %d\n", m_half_tris[t][0] );
+                printf(_("Found zero vert %d\n"), m_half_tris[t][0] );
             }
             if ( dist (p1, v0) == 0 )
             {
-                printf("Found zero vert %d\n", m_half_tris[t][i2] );
+                printf(_("Found zero vert %d\n"), m_half_tris[t][i2] );
             }
             if ( dist (p2, v0) == 0 )
             {
-                printf("Found zero vert %d\n", m_half_tris[t][i3] );
+                printf(_("Found zero vert %d\n"), m_half_tris[t][i3] );
             }
 
             //==== Compute Normal ====//

@@ -329,7 +329,7 @@ void ScreenMgr::UpdateAllScreens()
 //static int last_tics = timeGetTime();
 //int del_tics = timeGetTime() - last_tics;
 //last_tics = timeGetTime();
-//printf("Update Screens %d\n",  del_tics );
+//printf(_("Update Screens %d\n"),  del_tics );
     for ( int i = 0 ; i < ( int )m_ScreenVec.size() ; i++ )
     {
         //===== Force Update Of ManageGeomScreen ====//

@@ -13,6 +13,8 @@
 #include "PropGeom.h"
 #include "StlHelper.h"
 
+#include <intl.h>
+
 using namespace vsp;
 
 
@@ -475,7 +477,7 @@ void XSecSurf::GetBasicTransformation( double w, Matrix4d &mat )
     }
     else
     {
-        printf( "Must call XSecSurf::SetBasicOrientation before use.\n" );
+        printf( _("Must call XSecSurf::SetBasicOrientation before use.\n") );
         assert( false );
     }
 }

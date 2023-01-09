@@ -23,6 +23,8 @@
 #include "StringUtil.h"
 #include "FileUtil.h"
 
+#include <intl.h>
+
 // Make sure int32_t is defined.
 #ifdef _MSC_VER
     #if _MSC_VER >= 1600
@@ -332,7 +334,7 @@ int ScriptMgrSingleton::ExecuteScript( const char* module_name, const char* func
 
     if ( !mod )
     {
-        printf( "Error ExecuteScript GetModule %s\n", module_name );
+        printf( _("Error ExecuteScript GetModule %s\n"), module_name );
         return 1;
     }
 
@@ -365,7 +367,7 @@ int ScriptMgrSingleton::ExecuteScript( const char* module_name, const char* func
         if( r == asEXECUTION_EXCEPTION )
         {
             // An exception occurred, let the script writer know what happened so it can be corrected.
-            printf( "An exception '%s' occurred \n", ctx->GetExceptionString() );
+            printf( _("An exception '%s' occurred \n"), ctx->GetExceptionString() );
         }
         return 1;
     }

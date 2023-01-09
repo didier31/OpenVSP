@@ -3,6 +3,8 @@
 
 #include "VBO.h"
 
+#include <intl.h>
+
 #define BUFFER_INITIAL      (1024)        // initial buffer size
 #define BUFFER_INCREMENT    (1024)        // buffer increment size
 
@@ -16,8 +18,8 @@ VBO::VBO( GLenum type )
     {
         _support = false;
         const GLubyte* str = glGetString( GL_VERSION );
-        std::printf("Current driver does not support Vertex Buffer Object.\n");
-        std::printf("OpenGL version reports: %s\n", str );
+        std::printf(_("Current driver does not support Vertex Buffer Object.\n"));
+        std::printf(_("OpenGL version reports: %s\n"), str );
         assert( false ); // Current driver does not support Vertex Buffer Object.
         return;
     }
@@ -25,8 +27,8 @@ VBO::VBO( GLenum type )
     if ( !glGenBuffers )
     {
         const GLubyte* str = glGetString( GL_VERSION );
-        std::printf("Current driver does not support Vertex Buffer Object.\n");
-        std::printf("OpenGL version reports: %s\n", str );
+        std::printf(_("Current driver does not support Vertex Buffer Object.\n"));
+        std::printf(_("OpenGL version reports: %s\n"), str );
         assert( false ); // Current driver does not support Vertex Buffer Object.
         return;
     }

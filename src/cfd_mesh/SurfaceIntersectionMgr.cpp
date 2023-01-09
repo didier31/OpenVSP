@@ -23,6 +23,8 @@
 #include <sys/types.h>
 #endif
 
+#include <intl.h>
+
 #ifdef DEBUG_CFD_MESH
 #define DEBUG_TIME_OUTPUT
 #endif
@@ -374,67 +376,67 @@ void SurfaceIntersectionSingleton::IntersectSurfaces()
     m_MeshInProgress = true;
 
 #ifdef DEBUG_TIME_OUTPUT
-    addOutputText( "Init Timer\n" );
+    addOutputText( _("Init Timer\n") );
 #endif
 
-    addOutputText( "Transfer Mesh Settings\n" );
+    addOutputText( _("Transfer Mesh Settings\n") );
     TransferMeshSettings();
 
-    addOutputText( "Fetching Bezier Surfaces\n" );
+    addOutputText( _("Fetching Bezier Surfaces\n") );
 
     vector< XferSurf > xfersurfs;
     FetchSurfs( xfersurfs );
 
     // UpdateWakes must be before m_Vehicle->HideAll() to prevent components 
     // being being added to or removed from the Surface Intersection set
-    addOutputText( "Update Wakes\n" );
+    addOutputText( _("Update Wakes\n") );
     UpdateWakes();
     WakeMgr.SetStretchMeshFlag( false );
 
     // Hide all geoms after fetching their surfaces
     m_Vehicle->HideAll();
 
-    addOutputText( "Cleanup\n" );
+    addOutputText( _("Cleanup\n") );
     CleanUp();
 
-    addOutputText( "Loading Bezier Surfaces\n" );
+    addOutputText( _("Loading Bezier Surfaces\n") );
     LoadSurfs( xfersurfs );
 
     if ( GetSettingsPtr()->m_IntersectSubSurfs )
     {
-        addOutputText( "Transfer Subsurf Data\n" );
+        addOutputText( _("Transfer Subsurf Data\n") );
         TransferSubSurfData();
     }
 
-    addOutputText( "Clean Merge Surfs\n" );
+    addOutputText( _("Clean Merge Surfs\n") );
     CleanMergeSurfs();
 
-    addOutputText( "Identify CompID Names\n" );
+    addOutputText( _("Identify CompID Names\n") );
     IdentifyCompIDNames();
 
     if ( m_SurfVec.size() == 0 )
     {
-        addOutputText( "No Surfaces To Mesh\n" );
+        addOutputText( _("No Surfaces To Mesh\n") );
         m_MeshInProgress = false;
         MessageMgr::getInstance().Send( "ScreenMgr", "UpdateAllScreens" );
         return;
     }
 
-    addOutputText( "Build Grid\n" );
+    addOutputText( _("Build Grid\n") );
     BuildGrid();
 
     // addOutputText( "Intersect\n" ); // Output in intersect() itself.
     Intersect();
 
-    addOutputText( "Binary Adaptation Curve Approximation\n" );
+    addOutputText( _("Binary Adaptation Curve Approximation\n") );
     BinaryAdaptIntCurves();
 
-    addOutputText( "Exporting Files\n" );
+    addOutputText( _("Exporting Files\n") );
     ExportFiles();
 
     UpdateDrawObjs();
 
-    addOutputText( "Done\n" );
+    addOutputText( _("Done\n") );
 
     m_MeshInProgress = false;
     MessageMgr::getInstance().Send( "ScreenMgr", "UpdateAllScreens" );
@@ -1242,7 +1244,7 @@ void SurfaceIntersectionSingleton::WriteIGESFile( const string& filename, int le
 
     if ( m_NURBSSurfVec.size() == 0 )
     {
-        addOutputText( "Error: Can't Export IGES - No Valid Surfaces\n" );
+        addOutputText( _("Error: Can't Export IGES - No Valid Surfaces\n") );
         return;
     }
 
@@ -1325,7 +1327,7 @@ void SurfaceIntersectionSingleton::WriteSTEPFile( const string& filename, int le
 
     if ( m_NURBSSurfVec.size() == 0 )
     {
-        addOutputText( "Error: Can't Export STEP - No Valid Surfaces\n" );
+        addOutputText( _("Error: Can't Export STEP - No Valid Surfaces\n") );
         return;
     }
 
@@ -1702,7 +1704,7 @@ void SurfaceIntersectionSingleton::Intersect()
     //==== Quad Tree Intersection - Intersection Segments Get Loaded at AddIntersectionSeg ===//
     for ( int i = 0 ; i < ( int )m_SurfVec.size(); i++ )
     {
-        sprintf( str, "Intersect %d/%d\n", i + 1, m_SurfVec.size() );
+        sprintf( str, _("Intersect %d/%d\n"), i + 1, m_SurfVec.size() );
         addOutputText( str );
 
         for ( int j = i + 1; j < (int) m_SurfVec.size(); j++ )
@@ -1713,32 +1715,32 @@ void SurfaceIntersectionSingleton::Intersect()
 
     // WriteISegs();
 
-    addOutputText( "BuildChains\n" );
+    addOutputText( _("BuildChains\n") );
     BuildChains();
     // DebugWriteChains( "BuildChains", false );
 
     MergeFeaPartSSEdgeOverlap(); // Only applicable to FEA Mesh
 
-    addOutputText( "LoadBorderCurves\n" );
+    addOutputText( _("LoadBorderCurves\n") );
     LoadBorderCurves();
     // DebugWriteChains( "LoadBorderCurves", false );
 
-    addOutputText( "MergeInteriorChainIPnts\n" );
+    addOutputText( _("MergeInteriorChainIPnts\n") );
     MergeInteriorChainIPnts();
     // DebugWriteChains( "MergeInteriorChainIPnts", false );
 
     SetFixPointBorderNodes(); // Only applicable to FEA Mesh
     CheckFixPointIntersects(); // Only applicable to FEA Mesh
 
-    addOutputText( "SplitBorderCurves\n" );
+    addOutputText( _("SplitBorderCurves\n") );
     SplitBorderCurves();
     // DebugWriteChains( "SplitBorderCurves", false );
 
-    addOutputText( "IntersectSplitChains\n" );
+    addOutputText( _("IntersectSplitChains\n") );
     IntersectSplitChains();
     // DebugWriteChains( "IntersectSplitChains", false );
 
-    addOutputText( "BuildCurves\n" );
+    addOutputText( _("BuildCurves\n") );
     BuildCurves();
     // DebugWriteChains( "BuildCurves", false );
 }
@@ -2134,7 +2136,7 @@ void SurfaceIntersectionSingleton::RefineISegChainSeg( ISegChain* c, IPnt* ipnt 
             }
             else
             {
-                printf( "Error, impossible condition\n" );
+                printf( _("Error, impossible condition\n") );
             }
         }
 
@@ -2147,7 +2149,7 @@ void SurfaceIntersectionSingleton::RefineISegChainSeg( ISegChain* c, IPnt* ipnt 
         bool keepnew = true;
         if ( dist2 > dist1 )
         {
-            // printf( "1st Refine ISegChain point failed d1 %f d %f d2 %f d3 %f A: %d B: %d\n", dist1, dist, dist2, dist3, borderA, borderB );
+            // printf( _("1st Refine ISegChain point failed d1 %f d %f d2 %f d3 %f A: %d B: %d\n"), dist1, dist, dist2, dist3, borderA, borderB );
             // printf( "  au %f aw %f bu %f bw %f\n", auw->m_UW[0], auw->m_UW[1], buw->m_UW[0], buw->m_UW[1] );
             // printf( "  %f %f %f\n\n", pmid.x(), pmid.y(), pmid.z() );
             keepnew = false;
@@ -2156,7 +2158,7 @@ void SurfaceIntersectionSingleton::RefineISegChainSeg( ISegChain* c, IPnt* ipnt 
         // Check if point has moved a significant distance.
         // if ( dist3 > 1e-3 )
         {
-            // printf( "2nd Refine ISegChain point failed d1 %f d %f d2 %f d3 %f A: %d B: %d\n", dist1, dist, dist2, dist3, borderA, borderB );
+            // printf( _("2nd Refine ISegChain point failed d1 %f d %f d2 %f d3 %f A: %d B: %d\n"), dist1, dist, dist2, dist3, borderA, borderB );
             // printf( "  au %f aw %f bu %f bw %f\n", auw->m_UW[0], auw->m_UW[1], buw->m_UW[0], buw->m_UW[1] );
             // printf( "  %f %f %f\n\n", pmid.x(), pmid.y(), pmid.z() );
             // keepnew = false;
