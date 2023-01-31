@@ -10,11 +10,13 @@
 #include "ParmDebugScreen.h"
 #include "ParmMgr.h"
 
+#include <intl.h>
+
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-ParmDebugScreen::ParmDebugScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 300, 500, "Parameter Debug" )
+ParmDebugScreen::ParmDebugScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 300, 500, _("Parameter Debug") )
 {
     m_GenLayout.SetGroupAndScreen( m_FLTK_Window, this );
     m_GenLayout.AddY( 25 );
@@ -27,19 +29,19 @@ ParmDebugScreen::ParmDebugScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 300, 500,
 
     m_GenLayout.SetButtonWidth( 100 );
 
-    m_GenLayout.AddOutput( m_ContainerOutput, "Container" );
-    m_GenLayout.AddOutput( m_GroupOutput, "Group" );
-    m_GenLayout.AddOutput( m_ParmOutput, "Parm" );
-    m_GenLayout.AddOutput( m_DescOutput, "Description" );
-    m_GenLayout.AddOutput( m_MinOutput, "Minimum" );
-    m_GenLayout.AddOutput( m_MaxOutput, "Maximum" );
-    m_GenLayout.AddOutput( m_ValOutput, "Value" );
+    m_GenLayout.AddOutput( m_ContainerOutput, _("Container") );
+    m_GenLayout.AddOutput( m_GroupOutput, _("Group") );
+    m_GenLayout.AddOutput( m_ParmOutput, _("Parm") );
+    m_GenLayout.AddOutput( m_DescOutput, _("Description") );
+    m_GenLayout.AddOutput( m_MinOutput, _("Minimum") );
+    m_GenLayout.AddOutput( m_MaxOutput, _("Maximum") );
+    m_GenLayout.AddOutput( m_ValOutput, _("Value") );
 
     m_GenLayout.AddYGap();
 
     m_GenLayout.SetButtonWidth( 74 );
 
-    m_GenLayout.AddSlider( m_ParmSlider, "AUTO_UPDATE", 10, "%7.3f" );
+    m_GenLayout.AddSlider( m_ParmSlider, _("AUTO_UPDATE"), 10, "%7.3f" );
 }
 
 ParmDebugScreen::~ParmDebugScreen()

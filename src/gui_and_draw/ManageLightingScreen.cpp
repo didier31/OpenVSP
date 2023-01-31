@@ -1,29 +1,31 @@
 #include "ManageLightingScreen.h"
 #include "ScreenMgr.h"
 
-ManageLightingScreen::ManageLightingScreen( ScreenMgr * mgr ) : BasicScreen( mgr, 250, 325, "Manage Lighting" )
+#include <intl.h>
+
+ManageLightingScreen::ManageLightingScreen( ScreenMgr * mgr ) : BasicScreen( mgr, 250, 325, _("Manage Lighting") )
 {
     m_GenLayout.SetGroupAndScreen( m_FLTK_Window, this );
     m_GenLayout.AddY( 25 );
 
-    m_GenLayout.AddDividerBox( "Activate Lights" );
+    m_GenLayout.AddDividerBox( _("Activate Lights") );
 
     m_GenLayout.SetButtonWidth( m_GenLayout.GetW() / 2 );
 
     m_GenLayout.SetFitWidthFlag( false );
     m_GenLayout.SetSameLineFlag( true );
 
-    m_GenLayout.AddButton( m_LightButton0, "Light 0" );
-    m_GenLayout.AddButton( m_LightButton1, "Light 1" );
+    m_GenLayout.AddButton( m_LightButton0, _("Light 0") );
+    m_GenLayout.AddButton( m_LightButton1, _("Light 1") );
     m_GenLayout.ForceNewLine();
-    m_GenLayout.AddButton( m_LightButton2, "Light 2" );
-    m_GenLayout.AddButton( m_LightButton3, "Light 3" );
+    m_GenLayout.AddButton( m_LightButton2, _("Light 2") );
+    m_GenLayout.AddButton( m_LightButton3, _("Light 3") );
     m_GenLayout.ForceNewLine();
-    m_GenLayout.AddButton( m_LightButton4, "Light 4" );
-    m_GenLayout.AddButton( m_LightButton5, "Light 5" );
+    m_GenLayout.AddButton( m_LightButton4, _("Light 4") );
+    m_GenLayout.AddButton( m_LightButton5, _("Light 5") );
     m_GenLayout.ForceNewLine();
-    m_GenLayout.AddButton( m_LightButton6, "Light 6" );
-    m_GenLayout.AddButton( m_LightButton7, "Light 7" );
+    m_GenLayout.AddButton( m_LightButton6, _("Light 6") );
+    m_GenLayout.AddButton( m_LightButton7, _("Light 7") );
     m_GenLayout.ForceNewLine();
 
     m_GenLayout.InitWidthHeightVals();
@@ -33,27 +35,27 @@ ManageLightingScreen::ManageLightingScreen( ScreenMgr * mgr ) : BasicScreen( mgr
 
     m_GenLayout.AddYGap();
 
-    m_GenLayout.AddDividerBox( "Edit Lights" );
+    m_GenLayout.AddDividerBox( _("Edit Lights") );
 
     char name[256];
     for( int i = 0; i < NUMOFLIGHTS; i++ )
     {
-        sprintf( name, "Light %d", i );
+        sprintf( name, _("Light %d"), i );
         m_LightChoice.AddItem( name );
     }
-    m_GenLayout.AddChoice( m_LightChoice, "Light:" );
+    m_GenLayout.AddChoice( m_LightChoice, _("Light:") );
 
     m_GenLayout.AddYGap();
-    m_GenLayout.AddDividerBox( "Location" );
-    m_GenLayout.AddSlider( m_XPosSlider, "X Loc", 100, "%4.2f" );
-    m_GenLayout.AddSlider( m_YPosSlider, "Y Loc", 100, "%4.2f" );
-    m_GenLayout.AddSlider( m_ZPosSlider, "Z Loc", 100, "%4.2f" );
+    m_GenLayout.AddDividerBox( _("Location") );
+    m_GenLayout.AddSlider( m_XPosSlider, _("X Loc"), 100, "%4.2f" );
+    m_GenLayout.AddSlider( m_YPosSlider,_("Y Loc"), 100, "%4.2f" );
+    m_GenLayout.AddSlider( m_ZPosSlider, _("Z Loc"), 100, "%4.2f" );
 
     m_GenLayout.AddYGap();
-    m_GenLayout.AddDividerBox( "Light Quality" );
-    m_GenLayout.AddSlider( m_AmbSlider, "Ambient", 1.0, "%3.2f" );
-    m_GenLayout.AddSlider( m_DiffSlider, "Diffuse", 1.0, "%3.2f" );
-    m_GenLayout.AddSlider( m_SpecSlider, "Specular", 1.0, "%3.2f" );
+    m_GenLayout.AddDividerBox( _("Light Quality") );
+    m_GenLayout.AddSlider( m_AmbSlider, _("Ambient"), 1.0, "%3.2f" );
+    m_GenLayout.AddSlider( m_DiffSlider, _("Diffuse"), 1.0, "%3.2f" );
+    m_GenLayout.AddSlider( m_SpecSlider, _("Specular"), 1.0, "%3.2f" );
 
     m_CurrentSelected = 0;
 }

@@ -14,33 +14,35 @@
 
 #include <FL/Fl_File_Chooser.H>
 
+#include <intl.h>
+
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-ParmScreen::ParmScreen( ScreenMgr* mgr )  : TabScreen( mgr, 380, 250, "Parm" )
+ParmScreen::ParmScreen( ScreenMgr* mgr )  : TabScreen( mgr, 380, 250, _("Parm") )
 {
     //==== Tabs And Groups ====//
-    Fl_Group* info_tab = AddTab( "Info" );
+    Fl_Group* info_tab = AddTab( _("Info") );
     Fl_Group* info_group = AddSubGroup( info_tab, 5 );
-    Fl_Group* link_tab = AddTab( "Links" );
+    Fl_Group* link_tab = AddTab( _("Links") );
     Fl_Group* link_group = AddSubGroup( link_tab, 5 );
-    Fl_Group* adv_link_tab = AddTab( "Adv Links" );
+    Fl_Group* adv_link_tab = AddTab( _("Adv Links") );
     Fl_Group* adv_link_group = AddSubGroup( adv_link_tab, 5 );
 
     //===== Info ====//
     m_InfoLayout.SetGroupAndScreen( info_group, this );
-    m_InfoLayout.AddDividerBox( "Parm Info" );
+    m_InfoLayout.AddDividerBox( _("Parm Info") );
 
-    m_InfoLayout.AddOutput( m_NameString, "Name:" );
-    m_InfoLayout.AddOutput( m_GroupString, "Group:" );
-    m_InfoLayout.AddOutput( m_DescString, "Desc:" );
+    m_InfoLayout.AddOutput( m_NameString, _("Name:") );
+    m_InfoLayout.AddOutput( m_GroupString, _("Group:") );
+    m_InfoLayout.AddOutput( m_DescString, _("Desc:") );
 
     m_InfoLayout.AddYGap();
 
-    m_InfoLayout.AddOutput( m_MinValString, "Min Val:" );
-    m_InfoLayout.AddOutput( m_CurrValString, "Curr Val:" );
-    m_InfoLayout.AddOutput( m_MaxValString, "Max Val:" );
+    m_InfoLayout.AddOutput( m_MinValString, _("Min Val:") );
+    m_InfoLayout.AddOutput( m_CurrValString, _("Curr Val:") );
+    m_InfoLayout.AddOutput( m_MaxValString, _("Max Val:") );
 
     //===== Link ====//
     m_LinkLayout.SetGroupAndScreen( link_group, this );

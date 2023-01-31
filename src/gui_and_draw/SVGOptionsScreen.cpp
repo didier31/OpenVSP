@@ -15,7 +15,7 @@
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-SVGOptionsScreen::SVGOptionsScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 250, 340, "SVG Options" )
+SVGOptionsScreen::SVGOptionsScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 250, 340, _("SVG Options") )
 {
     m_FLTK_Window->callback( staticCloseCB, this );
 
@@ -25,14 +25,14 @@ SVGOptionsScreen::SVGOptionsScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 250, 34
     m_GenLayout.AddY( 30 );
 
     m_GenLayout.SetChoiceButtonWidth( m_GenLayout.GetW() / 2 );
-    m_LenUnitChoice.AddItem( "MM" );
-    m_LenUnitChoice.AddItem( "CM" );
-    m_LenUnitChoice.AddItem( "M" );
-    m_LenUnitChoice.AddItem( "IN" );
-    m_LenUnitChoice.AddItem( "FT" );
-    m_LenUnitChoice.AddItem( "YD" );
-    m_LenUnitChoice.AddItem( "Dimensionless" );
-    m_GenLayout.AddChoice( m_LenUnitChoice, "Length Unit" );
+    m_LenUnitChoice.AddItem( _("MM") );
+    m_LenUnitChoice.AddItem( _("CM") );
+    m_LenUnitChoice.AddItem( _("M") );
+    m_LenUnitChoice.AddItem( _("IN") );
+    m_LenUnitChoice.AddItem( _("FT") );
+    m_LenUnitChoice.AddItem( _("YD") );
+    m_LenUnitChoice.AddItem( _("Dimensionless") );
+    m_GenLayout.AddChoice( m_LenUnitChoice, _("Length Unit") );
 
     m_GenLayout.AddYGap();
 
@@ -40,27 +40,27 @@ SVGOptionsScreen::SVGOptionsScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 250, 34
 
     int boxdim = m_GenLayout.GetW() / 2 - 20;
 
-    m_GenLayout.AddButton( m_XSecToggle, "Force XSecs" );
+    m_GenLayout.AddButton( m_XSecToggle, _("Force XSecs") );
 
     m_GenLayout.AddYGap();
 
     m_GenLayout.SetSameLineFlag( false );
     m_GenLayout.SetFitWidthFlag( true );
 
-    m_GenLayout.AddButton( m_ProjectionLineToggle, "Outline" );
+    m_GenLayout.AddButton( m_ProjectionLineToggle, _("Outline") );
 
     m_GenLayout.InitWidthHeightVals();
 
-    m_GenLayout.AddSlider( m_TessSlider, "Refinement", 8, "%5.0f" );
+    m_GenLayout.AddSlider( m_TessSlider, _("Refinement"), 8, "%5.0f" );
 
     m_GenLayout.AddYGap();
 
     m_GenLayout.SetChoiceButtonWidth( m_GenLayout.GetW() / 2 );
-    m_2DViewType.AddItem( "One" );
-    m_2DViewType.AddItem( "Two Horizontal" );
-    m_2DViewType.AddItem( "Two Vertical" );
-    m_2DViewType.AddItem( "Four" );
-    m_GenLayout.AddChoice( m_2DViewType, "2D View Type" );
+    m_2DViewType.AddItem( _("One") );
+    m_2DViewType.AddItem( _("Two Horizontal") );
+    m_2DViewType.AddItem( _("Two Vertical") );
+    m_2DViewType.AddItem( _("Four") );
+    m_GenLayout.AddChoice( m_2DViewType, _("2D View Type") );
 
     m_GenLayout.AddYGap();
     m_GenLayout.AddX( 20 );
@@ -110,13 +110,13 @@ SVGOptionsScreen::SVGOptionsScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 250, 34
 
     m_GenLayout.AddY( boxdim - 40 );
 
-    m_4ViewChoice1.AddItem( "Left" );
-    m_4ViewChoice1.AddItem( "Right" );
-    m_4ViewChoice1.AddItem( "Top" );
-    m_4ViewChoice1.AddItem( "Bottom" );
-    m_4ViewChoice1.AddItem( "Front" );
-    m_4ViewChoice1.AddItem( "Rear" );
-    m_4ViewChoice1.AddItem( "None" );
+    m_4ViewChoice1.AddItem( _("Left") );
+    m_4ViewChoice1.AddItem( _("Right") );
+    m_4ViewChoice1.AddItem( _("Top") );
+    m_4ViewChoice1.AddItem( _("Bottom") );
+    m_4ViewChoice1.AddItem( _("Front") );
+    m_4ViewChoice1.AddItem( _("Rear") );
+    m_4ViewChoice1.AddItem( _("None") );
     m_4LayoutTL.AddChoice( m_4ViewChoice1, "" );
     m_4LayoutTL.AddX( 10 );
     m_4RotChoice1.AddItem( "0" );
@@ -125,13 +125,13 @@ SVGOptionsScreen::SVGOptionsScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 250, 34
     m_4RotChoice1.AddItem( "270" );
     m_4LayoutTL.AddChoice( m_4RotChoice1, "" );
 
-    m_4ViewChoice2.AddItem( "Left" );
-    m_4ViewChoice2.AddItem( "Right" );
-    m_4ViewChoice2.AddItem( "Top" );
-    m_4ViewChoice2.AddItem( "Bottom" );
-    m_4ViewChoice2.AddItem( "Front" );
-    m_4ViewChoice2.AddItem( "Rear" );
-    m_4ViewChoice2.AddItem( "None" );
+    m_4ViewChoice2.AddItem( _("Left") );
+    m_4ViewChoice2.AddItem( _("Right") );
+    m_4ViewChoice2.AddItem( _("Top") );
+    m_4ViewChoice2.AddItem( _("Bottom") );
+    m_4ViewChoice2.AddItem( _("Front") );
+    m_4ViewChoice2.AddItem( _("Rear") );
+    m_4ViewChoice2.AddItem( _("None") );
     m_4LayoutTR.AddChoice( m_4ViewChoice2, "" );
     m_4LayoutTR.AddX( 10 );
     m_4RotChoice2.AddItem( "0" );
@@ -140,13 +140,13 @@ SVGOptionsScreen::SVGOptionsScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 250, 34
     m_4RotChoice2.AddItem( "270" );
     m_4LayoutTR.AddChoice( m_4RotChoice2, "" );
 
-    m_4ViewChoice3.AddItem( "Left" );
-    m_4ViewChoice3.AddItem( "Right" );
-    m_4ViewChoice3.AddItem( "Top" );
-    m_4ViewChoice3.AddItem( "Bottom" );
-    m_4ViewChoice3.AddItem( "Front" );
-    m_4ViewChoice3.AddItem( "Rear" );
-    m_4ViewChoice3.AddItem( "None" );
+    m_4ViewChoice3.AddItem( _("Left") );
+    m_4ViewChoice3.AddItem( _("Right") );
+    m_4ViewChoice3.AddItem( _("Top") );
+    m_4ViewChoice3.AddItem( _("Bottom") );
+    m_4ViewChoice3.AddItem( _("Front") );
+    m_4ViewChoice3.AddItem( _("Rear") );
+    m_4ViewChoice3.AddItem( _("None") );
     m_4LayoutBL.AddChoice( m_4ViewChoice3, "" );
     m_4LayoutBL.AddX( 10 );
     m_4RotChoice3.AddItem( "0" );
@@ -155,13 +155,13 @@ SVGOptionsScreen::SVGOptionsScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 250, 34
     m_4RotChoice3.AddItem( "270" );
     m_4LayoutBL.AddChoice( m_4RotChoice3, "" );
 
-    m_4ViewChoice4.AddItem( "Left" );
-    m_4ViewChoice4.AddItem( "Right" );
-    m_4ViewChoice4.AddItem( "Top" );
-    m_4ViewChoice4.AddItem( "Bottom" );
-    m_4ViewChoice4.AddItem( "Front" );
-    m_4ViewChoice4.AddItem( "Rear" );
-    m_4ViewChoice4.AddItem( "None" );
+    m_4ViewChoice4.AddItem( _("Left") );
+    m_4ViewChoice4.AddItem( _("Right") );
+    m_4ViewChoice4.AddItem( _("Top") );
+    m_4ViewChoice4.AddItem( _("Bottom") );
+    m_4ViewChoice4.AddItem( _("Front") );
+    m_4ViewChoice4.AddItem( _("Rear") );
+    m_4ViewChoice4.AddItem( _("None") );
     m_4LayoutBR.AddChoice( m_4ViewChoice4, "" );
     m_4LayoutBR.AddX( 10 );
     m_4RotChoice4.AddItem( "0" );
@@ -179,9 +179,9 @@ SVGOptionsScreen::SVGOptionsScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 250, 34
     m_GenLayout.SetButtonWidth( 100 );
 
     m_GenLayout.AddX( 20 );
-    m_GenLayout.AddButton( m_OkButton, "OK" );
+    m_GenLayout.AddButton( m_OkButton, _("OK") );
     m_GenLayout.AddX( 10 );
-    m_GenLayout.AddButton( m_CancelButton, "Cancel" );
+    m_GenLayout.AddButton( m_CancelButton, _("Cancel") );
     m_GenLayout.ForceNewLine();
 }
 

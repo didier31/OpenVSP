@@ -10,28 +10,30 @@
 #include "FitModelScreen.h"
 #include "ParmMgr.h"
 
+#include <intl.h>
+
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-FitModelScreen::FitModelScreen( ScreenMgr* mgr ) : TabScreen( mgr, 400, 469 + 107, "Fit Model", 107 )
+FitModelScreen::FitModelScreen( ScreenMgr* mgr ) : TabScreen( mgr, 400, 469 + 107, _("Fit Model"), 107 )
 {
     m_NVarLast = 0;
 
     m_FLTK_Window->callback( staticCloseCB, this );
 
-    Fl_Group* pts_tab = AddTab( "Pick Points" );
-    Fl_Group* var_tab = AddTab( "Pick Vars" );
+    Fl_Group* pts_tab = AddTab( _("Pick Points") );
+    Fl_Group* var_tab = AddTab( _("Pick Vars") );
     ( (Vsp_Group*) var_tab )->SetAllowDrop( true );
     var_tab->callback( staticScreenCB, this );
 
-    Fl_Group* tree_tab = AddTab( "Var Tree" );
+    Fl_Group* tree_tab = AddTab( _("Var Tree") );
     ( (Vsp_Group*) tree_tab )->SetAllowDrop( true );
     tree_tab->callback( staticScreenCB, this );
 
-    Fl_Group* fit_tab = AddTab( "Fit Model" );
+    Fl_Group* fit_tab = AddTab( _("Fit Model") );
 
-    Fl_Group* saveLoad_tab = AddTab( "Save/Import" );
+    Fl_Group* saveLoad_tab = AddTab( _("Save/Import") );
 
     pts_tab->show();
 
@@ -40,37 +42,37 @@ FitModelScreen::FitModelScreen( ScreenMgr* mgr ) : TabScreen( mgr, 400, 469 + 10
     Fl_Group* pts_group = AddSubGroup( pts_tab, 5 );
     m_PickPtsLayout.SetGroupAndScreen( pts_group, this );
 
-    m_PickPtsLayout.AddDividerBox( "Point Selection" );
+    m_PickPtsLayout.AddDividerBox( _("Point Selection") );
 
     m_PickPtsLayout.SetButtonWidth( 100 );
-    m_PickPtsLayout.AddOutput( m_NSelOutput, "Num Selected" );
+    m_PickPtsLayout.AddOutput( m_NSelOutput, _("Num Selected") );
 
     m_PickPtsLayout.SetFitWidthFlag( false );
     m_PickPtsLayout.SetSameLineFlag( true );
 
     m_PickPtsLayout.SetButtonWidth( ( m_PickPtsLayout.GetRemainX() ) / 2 );
-    m_PickPtsLayout.AddButton( m_SelOneButton, "Select One" );
-    m_PickPtsLayout.AddButton( m_HideSelButton, "Hide Selection" );
+    m_PickPtsLayout.AddButton( m_SelOneButton, _("Select One") );
+    m_PickPtsLayout.AddButton( m_HideSelButton, _("Hide Selection") );
 
     m_PickPtsLayout.ForceNewLine();
 
-    m_PickPtsLayout.AddButton( m_SelBoxButton, "Select Region" );
-    m_PickPtsLayout.AddButton( m_HideUnselButton, "Hide Unselected" );
+    m_PickPtsLayout.AddButton( m_SelBoxButton, _("Select Region") );
+    m_PickPtsLayout.AddButton( m_HideUnselButton, _("Hide Unselected") );
 
     m_PickPtsLayout.ForceNewLine();
 
-    m_PickPtsLayout.AddButton( m_SelAllButton, "Select All" );
-    m_PickPtsLayout.AddButton( m_HideAllButton, "Hide All" );
+    m_PickPtsLayout.AddButton( m_SelAllButton, _("Select All") );
+    m_PickPtsLayout.AddButton( m_HideAllButton, _("Hide All") );
 
     m_PickPtsLayout.ForceNewLine();
 
-    m_PickPtsLayout.AddButton( m_SelNoneButton, "Select None" );
-    m_PickPtsLayout.AddButton( m_HideNoneButton, "Show All" );
+    m_PickPtsLayout.AddButton( m_SelNoneButton, _("Select None") );
+    m_PickPtsLayout.AddButton( m_HideNoneButton, _("Show All") );
 
     m_PickPtsLayout.ForceNewLine();
 
-    m_PickPtsLayout.AddButton( m_SelInvButton, "Invert Selection" );
-    m_PickPtsLayout.AddButton( m_HideInvButton, "Invert Hidden" );
+    m_PickPtsLayout.AddButton( m_SelInvButton, _("Invert Selection") );
+    m_PickPtsLayout.AddButton( m_HideInvButton, _("Invert Hidden") );
 
     m_PickPtsLayout.SetFitWidthFlag( true );
     m_PickPtsLayout.SetSameLineFlag( false );
@@ -79,7 +81,7 @@ FitModelScreen::FitModelScreen( ScreenMgr* mgr ) : TabScreen( mgr, 400, 469 + 10
 
     m_PickPtsLayout.AddYGap();
 
-    m_PickPtsLayout.AddDividerBox( "Target Points" );
+    m_PickPtsLayout.AddDividerBox( _("Target Points") );
 
     // Pointer for the widths of each column in the browser to support resizing
     // Last column width must be 0
@@ -102,10 +104,10 @@ FitModelScreen::FitModelScreen( ScreenMgr* mgr ) : TabScreen( mgr, 400, 469 + 10
 
     m_PickPtsLayout.SetButtonWidth( 50 );
 
-    m_PickPtsLayout.AddButton( m_UFreeButton, "Free" );
-    m_PickPtsLayout.AddButton( m_UFixButton, "Fix" );
+    m_PickPtsLayout.AddButton( m_UFreeButton, _("Free") );
+    m_PickPtsLayout.AddButton( m_UFixButton, _("Fix") );
     m_PickPtsLayout.SetFitWidthFlag( true );
-    m_PickPtsLayout.AddSlider( m_USlider, "U", 1.0, "%7.3f" );
+    m_PickPtsLayout.AddSlider( m_USlider, _("U"), 1.0, "%7.3f" );
     m_PickPtsLayout.ForceNewLine();
 
     m_UToggleGroup.Init( this );
@@ -114,11 +116,11 @@ FitModelScreen::FitModelScreen( ScreenMgr* mgr ) : TabScreen( mgr, 400, 469 + 10
 
     m_PickPtsLayout.SetFitWidthFlag( false );
 
-    m_PickPtsLayout.AddButton( m_WFreeButton, "Free" );
-    m_PickPtsLayout.AddButton( m_WFixButton, "Fix" );
+    m_PickPtsLayout.AddButton( m_WFreeButton, _("Free") );
+    m_PickPtsLayout.AddButton( m_WFixButton, _("Fix") );
     m_PickPtsLayout.SetFitWidthFlag( true );
 
-    m_PickPtsLayout.AddSlider( m_WSlider, "W", 1.0, "%7.3f" );
+    m_PickPtsLayout.AddSlider( m_WSlider, _("W"), 1.0, "%7.3f" );
     m_PickPtsLayout.ForceNewLine();
 
     m_WToggleGroup.Init( this );
@@ -128,23 +130,23 @@ FitModelScreen::FitModelScreen( ScreenMgr* mgr ) : TabScreen( mgr, 400, 469 + 10
     m_PickPtsLayout.SetFitWidthFlag( false );
 
     m_PickPtsLayout.SetButtonWidth( ( m_PickPtsLayout.GetRemainX() ) / 3 );
-    m_PickPtsLayout.AddButton( m_AddTargetPtButton, "Add Target" );
-    m_PickPtsLayout.AddButton( m_DelTargetPtButton, "Delete Target" );
-    m_PickPtsLayout.AddButton( m_ClearTargetPtButton, "Clear Target" );
+    m_PickPtsLayout.AddButton( m_AddTargetPtButton, _("Add Target") );
+    m_PickPtsLayout.AddButton( m_DelTargetPtButton, _("Delete Target") );
+    m_PickPtsLayout.AddButton( m_ClearTargetPtButton, _("Clear Target") );
 
     m_PickPtsLayout.ForceNewLine();
     m_PickPtsLayout.SetFitWidthFlag( true );
     m_PickPtsLayout.SetSameLineFlag( false );
 
     m_PickPtsLayout.SetButtonWidth( 100 );
-    m_PickPtsLayout.AddOutput( m_NTgtOutput, "Num Target Pts." );
+    m_PickPtsLayout.AddOutput( m_NTgtOutput, _("Num Target Pts.") );
 
     // Set up vars tab
 
     Fl_Group* var_group = AddSubGroup( var_tab, 5 );
     m_PickVarLayout.SetGroupAndScreen( var_group, this );
 
-    m_PickVarLayout.AddDividerBox( "Variable" );
+    m_PickVarLayout.AddDividerBox( _("Variable") );
 
     m_PickVarLayout.AddParmPicker( m_ParmPicker );
 
@@ -154,9 +156,9 @@ FitModelScreen::FitModelScreen( ScreenMgr* mgr ) : TabScreen( mgr, 400, 469 + 10
     m_PickVarLayout.SetSameLineFlag( true );
 
     m_PickVarLayout.SetButtonWidth( ( m_PickVarLayout.GetRemainX() ) / 3 );
-    m_PickVarLayout.AddButton( m_AddVarButton, "Add Variable" );
-    m_PickVarLayout.AddButton( m_DelVarButton, "Delete Variable" );
-    m_PickVarLayout.AddButton( m_ClearVarButton, "Clear Variables" );
+    m_PickVarLayout.AddButton( m_AddVarButton, _("Add Variable") );
+    m_PickVarLayout.AddButton( m_DelVarButton, _("Delete Variable") );
+    m_PickVarLayout.AddButton( m_ClearVarButton, _("Clear Variables") );
 
     m_PickVarLayout.ForceNewLine();
 
@@ -164,11 +166,11 @@ FitModelScreen::FitModelScreen( ScreenMgr* mgr ) : TabScreen( mgr, 400, 469 + 10
     m_PickVarLayout.SetSameLineFlag( false );
 
     m_PickVarLayout.SetButtonWidth( 100 );
-    m_PickVarLayout.AddOutput( m_NVarOutput, "Num Variables" );
+    m_PickVarLayout.AddOutput( m_NVarOutput, _("Num Variables") );
 
     m_PickVarLayout.AddYGap();
 
-    m_PickVarLayout.AddDividerBox( "Variable List" );
+    m_PickVarLayout.AddDividerBox( _("Variable List") );
 
     // Pointer for the widths of each column in the browser to support resizing
     // Last column width must be 0
@@ -183,10 +185,10 @@ FitModelScreen::FitModelScreen( ScreenMgr* mgr ) : TabScreen( mgr, 400, 469 + 10
     Fl_Group* tree_group = AddSubGroup( tree_tab, 5 );
     m_PickTreeLayout.SetGroupAndScreen( tree_group, this );
 
-    m_PickTreeLayout.AddDividerBox( "Variable Tree" );
+    m_PickTreeLayout.AddDividerBox( _("Variable Tree") );
 
     m_PickTreeLayout.AddParmTreePicker( m_ParmTreePicker, m_PickTreeLayout.GetW(), 370 );
-    m_PickTreeLayout.AddButton( m_ClearVarButton2, "Clear Variables" );
+    m_PickTreeLayout.AddButton( m_ClearVarButton2, _("Clear Variables") );
 
 
     // Set up fit tab
@@ -209,7 +211,7 @@ FitModelScreen::FitModelScreen( ScreenMgr* mgr ) : TabScreen( mgr, 400, 469 + 10
             - m_OptimLayout.GetGapHeight()
             - m_OptimLayout.GetDividerHeight() );
 
-    m_OptimLayout.AddDividerBox( "Optimizer Control" );
+    m_OptimLayout.AddDividerBox( _("Optimizer Control") );
 
 
     m_OptimLayout.SetFitWidthFlag( false );
@@ -218,21 +220,21 @@ FitModelScreen::FitModelScreen( ScreenMgr* mgr ) : TabScreen( mgr, 400, 469 + 10
     m_OptimLayout.SetButtonWidth( ( m_OptimLayout.GetRemainX() ) / 4 );
     m_OptimLayout.SetInputWidth( ( m_OptimLayout.GetRemainX() ) / 4 );
 
-    m_OptimLayout.AddOutput( m_DOFOutput, "DOF" );
-    m_OptimLayout.AddOutput( m_CondOutput, "Conditions" );
+    m_OptimLayout.AddOutput( m_DOFOutput, _("DOF") );
+    m_OptimLayout.AddOutput( m_CondOutput, _("Conditions") );
     m_OptimLayout.ForceNewLine();
 
 
 
     m_OptimLayout.SetButtonWidth( ( m_OptimLayout.GetRemainX() ) / 2 );
 
-    m_OptimLayout.AddButton( m_SearchUWButton, "Search UW" );
-    m_OptimLayout.AddButton( m_RefineUWButton, "Refine UW" );
+    m_OptimLayout.AddButton( m_SearchUWButton, _("Search UW") );
+    m_OptimLayout.AddButton( m_RefineUWButton, _("Refine UW") );
 
     m_OptimLayout.ForceNewLine();
 
-    m_OptimLayout.AddButton( m_UpdateDistButton, "Update Distance" );
-    m_OptimLayout.AddButton( m_OptimizeButton, "Fit" );
+    m_OptimLayout.AddButton( m_UpdateDistButton, _("Update Distance") );
+    m_OptimLayout.AddButton( m_OptimizeButton, _("Fit") );
 
     m_OptimLayout.ForceNewLine();
 
@@ -240,13 +242,13 @@ FitModelScreen::FitModelScreen( ScreenMgr* mgr ) : TabScreen( mgr, 400, 469 + 10
     m_OptimLayout.SetSameLineFlag( false );
 
     m_OptimLayout.SetButtonWidth( 100 );
-    m_OptimLayout.AddOutput( m_DistOutput, "Distance Metric" );
+    m_OptimLayout.AddOutput( m_DistOutput, _("Distance Metric") );
 
     //===== Save/Load Tab =====//
     Fl_Group* saveLoad_group = AddSubGroup( saveLoad_tab, 5 );
     m_FitModelLayout.SetGroupAndScreen( saveLoad_group, this );
 
-    m_FitModelLayout.AddDividerBox("Save Targets & Variables");
+    m_FitModelLayout.AddDividerBox(_("Save Targets & Variables"));
     m_FitModelLayout.AddYGap();
 
     m_FitModelLayout.SetFitWidthFlag( false );
@@ -254,7 +256,7 @@ FitModelScreen::FitModelScreen( ScreenMgr* mgr ) : TabScreen( mgr, 400, 469 + 10
 
     m_FitModelLayout.SetButtonWidth( 75 );
     m_FitModelLayout.SetInputWidth( m_FitModelLayout.GetRemainX() - m_FitModelLayout.GetButtonWidth() - 50 );
-    m_FitModelLayout.AddOutput(m_SaveOutput, "File Name:");
+    m_FitModelLayout.AddOutput(m_SaveOutput, _("File Name:"));
     m_FitModelLayout.SetButtonWidth( 50 );
     m_FitModelLayout.AddButton(m_SaveSelect, "...");
     m_FitModelLayout.ForceNewLine();
@@ -263,17 +265,17 @@ FitModelScreen::FitModelScreen( ScreenMgr* mgr ) : TabScreen( mgr, 400, 469 + 10
     m_FitModelLayout.SetFitWidthFlag( true );
     m_FitModelLayout.SetSameLineFlag( false );
 
-    m_FitModelLayout.AddButton(m_Save, "Save");
+    m_FitModelLayout.AddButton(m_Save, _("Save"));
     m_FitModelLayout.AddYGap();
 
-    m_FitModelLayout.AddDividerBox("Import Targets & Variables");
+    m_FitModelLayout.AddDividerBox(_("Import Targets & Variables"));
     m_FitModelLayout.AddYGap();
 
     m_FitModelLayout.SetFitWidthFlag( false );
     m_FitModelLayout.SetSameLineFlag( true );
 
     m_FitModelLayout.SetButtonWidth( 75 );
-    m_FitModelLayout.AddOutput(m_LoadOutput, "File Name:");
+    m_FitModelLayout.AddOutput(m_LoadOutput, _("File Name:"));
     m_FitModelLayout.SetButtonWidth( 50 );
     m_FitModelLayout.AddButton(m_LoadSelect, "...");
     m_FitModelLayout.ForceNewLine();
@@ -282,7 +284,7 @@ FitModelScreen::FitModelScreen( ScreenMgr* mgr ) : TabScreen( mgr, 400, 469 + 10
     m_FitModelLayout.SetFitWidthFlag( true );
     m_FitModelLayout.SetSameLineFlag( false );
 
-    m_FitModelLayout.AddButton(m_Load, "Import");
+    m_FitModelLayout.AddButton(m_Load, _("Import"));
 }
 
 FitModelScreen::~FitModelScreen()
@@ -491,7 +493,7 @@ void FitModelScreen::RebuildAdjustTab()
             m_FitVarScrollLayout.AddDividerBox( ParmMgr.FindParmContainer( contID )->GetName() );
         }
 
-        m_FitVarScrollLayout.AddSlider( m_ParmSliderVec[i], "AUTO_UPDATE", 10, "%7.3f" );
+        m_FitVarScrollLayout.AddSlider( m_ParmSliderVec[i], _("AUTO_UPDATE"), 10, "%7.3f" );
         m_ParmSliderVec[i].Update( pID );
     }
 
@@ -665,8 +667,8 @@ void FitModelScreen::GuiDeviceCallBack( GuiDevice* device )
 
         if( info == 0 )
         {
-            m_ScreenMgr->Alert( "Invalid inputs to least squares optimizer.\n"
-                "Variables may not be independent, or may not change metric.");
+            m_ScreenMgr->Alert( _("Invalid inputs to least squares optimizer.\n"
+                "Variables may not be independent, or may not change metric."));
         }
         FitModelMgr.UpdateDist();
     }
@@ -686,7 +688,7 @@ void FitModelScreen::GuiDeviceCallBack( GuiDevice* device )
     }
     else if ( device == &m_SaveSelect )
     {
-        string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Create or Select .fit file.", "*.fit" );
+        string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Create or Select .fit file."), "*.fit" );
         if ( newfile.compare( "" ) != 0 )
         {
             FitModelMgr.SetSaveFitFileName( newfile );
@@ -694,7 +696,7 @@ void FitModelScreen::GuiDeviceCallBack( GuiDevice* device )
     }
     else if ( device == &m_LoadSelect )
     {
-        string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Select .fit file.", "*.fit" );
+        string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Select .fit file."), "*.fit" );
         if ( newfile.compare( "" ) != 0 )
         {
             FitModelMgr.SetLoadFitFileName( newfile );

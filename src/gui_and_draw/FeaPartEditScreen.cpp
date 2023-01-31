@@ -13,7 +13,9 @@
 #include "FeaMeshMgr.h"
 #include "StlHelper.h"
 
-FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 475, "FEA Part Edit" )
+#include <intl.h>
+
+FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 475, _("FEA Part Edit") )
 {
     m_FLTK_Window->callback( staticCloseCB, this );
 
@@ -28,15 +30,15 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
 
     m_GenLayout.AddYGap();
 
-    m_GenLayout.AddDividerBox( "Elements" );
+    m_GenLayout.AddDividerBox( _("Elements") );
 
     m_GenLayout.SetSameLineFlag( true );
     m_GenLayout.SetFitWidthFlag( false );
 
     m_GenLayout.SetButtonWidth( m_GenLayout.GetRemainX() / 3 );
-    m_GenLayout.AddButton( m_ShellToggle, "Shell" );
-    m_GenLayout.AddButton( m_CapToggle, "Cap" );
-    m_GenLayout.AddButton( m_ShellCapToggle, "Shell and Cap" );
+    m_GenLayout.AddButton( m_ShellToggle, _("Shell") );
+    m_GenLayout.AddButton( m_CapToggle, _("Cap") );
+    m_GenLayout.AddButton( m_ShellCapToggle, _("Shell and Cap") );
 
     m_ShellCapToggleGroup.Init( this );
     m_ShellCapToggleGroup.AddButton( m_ShellToggle.GetFlButton() );
@@ -50,23 +52,23 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
 
     m_GenLayout.AddChoice( m_ShellPropertyChoice, "Shell Property" );
 
-    m_OrientationChoice.AddItem( "Global X", vsp::FEA_ORIENT_GLOBAL_X );
-    m_OrientationChoice.AddItem( "Global Y", vsp::FEA_ORIENT_GLOBAL_Y );
-    m_OrientationChoice.AddItem( "Global Z", vsp::FEA_ORIENT_GLOBAL_Z );
-    m_OrientationChoice.AddItem( "Comp X", vsp::FEA_ORIENT_COMP_X );
-    m_OrientationChoice.AddItem( "Comp Y", vsp::FEA_ORIENT_COMP_Y );
-    m_OrientationChoice.AddItem( "Comp Z", vsp::FEA_ORIENT_COMP_Z );
-    m_OrientationChoice.AddItem( "Part U", vsp::FEA_ORIENT_PART_U );
-    m_OrientationChoice.AddItem( "Part V", vsp::FEA_ORIENT_PART_V );
-    m_OrientationChoice.AddItem( "OML U", vsp::FEA_ORIENT_OML_U );
-    m_OrientationChoice.AddItem( "OML V", vsp::FEA_ORIENT_OML_V );
-    m_OrientationChoice.AddItem( "OML R", vsp::FEA_ORIENT_OML_R );
-    m_OrientationChoice.AddItem( "OML S", vsp::FEA_ORIENT_OML_S );
-    m_OrientationChoice.AddItem( "OML T", vsp::FEA_ORIENT_OML_T );
+    m_OrientationChoice.AddItem( _("Global X"), vsp::FEA_ORIENT_GLOBAL_X );
+    m_OrientationChoice.AddItem( _("Global Y"), vsp::FEA_ORIENT_GLOBAL_Y );
+    m_OrientationChoice.AddItem( _("Global Z"), vsp::FEA_ORIENT_GLOBAL_Z );
+    m_OrientationChoice.AddItem( _("Comp X"), vsp::FEA_ORIENT_COMP_X );
+    m_OrientationChoice.AddItem( _("Comp Y"), vsp::FEA_ORIENT_COMP_Y );
+    m_OrientationChoice.AddItem( _("Comp Z"), vsp::FEA_ORIENT_COMP_Z );
+    m_OrientationChoice.AddItem( _("Part U"), vsp::FEA_ORIENT_PART_U );
+    m_OrientationChoice.AddItem( _("Part V"), vsp::FEA_ORIENT_PART_V );
+    m_OrientationChoice.AddItem( _("OML U"), vsp::FEA_ORIENT_OML_U );
+    m_OrientationChoice.AddItem( _("OML V"), vsp::FEA_ORIENT_OML_V );
+    m_OrientationChoice.AddItem( _("OML R"), vsp::FEA_ORIENT_OML_R );
+    m_OrientationChoice.AddItem( _("OML S"), vsp::FEA_ORIENT_OML_S );
+    m_OrientationChoice.AddItem( _("OML T"), vsp::FEA_ORIENT_OML_T );
     m_OrientationChoice.UpdateItems();
 
-    m_GenLayout.AddChoice( m_OrientationChoice, "Orientation" );
-    m_GenLayout.AddChoice( m_CapPropertyChoice, "Cap Property" );
+    m_GenLayout.AddChoice( m_OrientationChoice, _("Orientation") );
+    m_GenLayout.AddChoice( m_CapPropertyChoice, _("Cap Property") );
 
     m_GenLayout.AddYGap();
 
@@ -77,27 +79,27 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
     m_GenLayout.AddSubGroupLayout( m_SkinEditLayout, m_GenLayout.GetRemainX(), m_GenLayout.GetRemainY() );
     m_SkinEditLayout.SetY( start_y );
 
-    m_SkinEditLayout.AddDividerBox( "Skin" );
+    m_SkinEditLayout.AddDividerBox( _("Skin") );
 
-    m_SkinEditLayout.AddButton( m_RemoveSkinToggle, "Remove Skin" );
+    m_SkinEditLayout.AddButton( m_RemoveSkinToggle, _("Remove Skin") );
 
     //==== FeaSlice ====//
     m_GenLayout.AddSubGroupLayout( m_SliceEditLayout, m_GenLayout.GetRemainX(), m_GenLayout.GetRemainY() );
     m_SliceEditLayout.SetY( start_y );
 
-    m_SliceEditLayout.AddDividerBox( "Slice" );
+    m_SliceEditLayout.AddDividerBox( _("Slice") );
 
     m_SliceEditLayout.SetButtonWidth( m_SliceEditLayout.GetRemainX() / 3 );
     m_SliceEditLayout.SetChoiceButtonWidth( m_SliceEditLayout.GetRemainX() / 3 );
 
-    m_SliceOrientationChoice.AddItem( "XY_Body" );
-    m_SliceOrientationChoice.AddItem( "YZ_Body" );
-    m_SliceOrientationChoice.AddItem( "XZ_Body" );
-    m_SliceOrientationChoice.AddItem( "XY_Abs" );
-    m_SliceOrientationChoice.AddItem( "YZ_Abs" );
-    m_SliceOrientationChoice.AddItem( "XZ_Abs" );
-    m_SliceOrientationChoice.AddItem( "Spine_Normal" );
-    m_SliceEditLayout.AddChoice( m_SliceOrientationChoice, "Orientation" );
+    m_SliceOrientationChoice.AddItem( _("XY_Body") );
+    m_SliceOrientationChoice.AddItem( _("YZ_Body") );
+    m_SliceOrientationChoice.AddItem( _("XZ_Body") );
+    m_SliceOrientationChoice.AddItem( _("XY_Abs") );
+    m_SliceOrientationChoice.AddItem( _("YZ_Abs") );
+    m_SliceOrientationChoice.AddItem( _("XZ_Abs") );
+    m_SliceOrientationChoice.AddItem( _("Spine_Normal") );
+    m_SliceEditLayout.AddChoice( m_SliceOrientationChoice, _("Orientation") );
 
     m_SliceEditLayout.SetSameLineFlag( true );
     m_SliceEditLayout.SetFitWidthFlag( false );
@@ -117,7 +119,7 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
 
     m_SliceEditLayout.SetSliderWidth( m_SliceEditLayout.GetRemainX() / 5 );
 
-    m_SliceEditLayout.AddSlider( m_SliceCenterLocSlider, "Location", 0.5, "%5.3f" );
+    m_SliceEditLayout.AddSlider( m_SliceCenterLocSlider, _("Location"), 0.5, "%5.3f" );
 
     m_SliceEditLayout.SetButtonWidth( m_SliceEditLayout.GetRemainX() );
     m_SliceEditLayout.AddButton( m_SlicePosUnit, " " );
@@ -129,13 +131,13 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
 
     m_SliceEditLayout.InitWidthHeightVals();
 
-    m_SliceEditLayout.AddLabel( "Rotation Axis", m_SliceEditLayout.GetRemainX() / 3 );
+    m_SliceEditLayout.AddLabel( _("Rotation Axis"), m_SliceEditLayout.GetRemainX() / 3 );
 
     m_SliceEditLayout.SetButtonWidth( m_SliceEditLayout.GetRemainX() / 3 );
 
-    m_SliceEditLayout.AddButton( m_SliceXAxisToggle, "X Axis" );
-    m_SliceEditLayout.AddButton( m_SliceYAxisToggle, "Y Axis" );
-    m_SliceEditLayout.AddButton( m_SliceZAxisToggle, "Z Axis" );
+    m_SliceEditLayout.AddButton( m_SliceXAxisToggle, _("X Axis") );
+    m_SliceEditLayout.AddButton( m_SliceYAxisToggle, _("Y Axis") );
+    m_SliceEditLayout.AddButton( m_SliceZAxisToggle, _("Z Axis") );
 
     m_SliceRotAxisToggleGroup.Init( this );
     m_SliceRotAxisToggleGroup.AddButton( m_SliceXAxisToggle.GetFlButton() );
@@ -148,9 +150,9 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
 
     m_SliceEditLayout.SetButtonWidth( button_width );
 
-    m_SliceEditLayout.AddSlider( m_SliceXRotSlider, "XRot", 25, "%5.3f" );
-    m_SliceEditLayout.AddSlider( m_SliceYRotSlider, "YRot", 25, "%5.3f" );
-    m_SliceEditLayout.AddSlider( m_SliceZRotSlider, "ZRot", 25, "%5.3f" );
+    m_SliceEditLayout.AddSlider( m_SliceXRotSlider, _("XRot"), 25, "%5.3f" );
+    m_SliceEditLayout.AddSlider( m_SliceYRotSlider, _("YRot"), 25, "%5.3f" );
+    m_SliceEditLayout.AddSlider( m_SliceZRotSlider, _("ZRot"), 25, "%5.3f" );
 
     //==== FeaRib ====//
     m_GenLayout.AddSubGroupLayout( m_RibEditLayout, m_GenLayout.GetRemainX(), m_GenLayout.GetRemainY() );
@@ -163,11 +165,11 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
     int label_width = 115;
     m_RibEditLayout.SetButtonWidth( ( m_RibEditLayout.GetRemainX() - label_width ) / 4 );
 
-    m_RibEditLayout.AddLabel( "Normal Type:", label_width );
-    m_RibEditLayout.AddButton( m_RibNoNormalToggle, "None" );
-    m_RibEditLayout.AddButton( m_RibLENormalToggle, "LE" );
-    m_RibEditLayout.AddButton( m_RibTENormalToggle, "TE" );
-    m_RibEditLayout.AddButton( m_RibSparNormalToggle, "Spar" );
+    m_RibEditLayout.AddLabel( _("Normal Type:"), label_width );
+    m_RibEditLayout.AddButton( m_RibNoNormalToggle, _("None") );
+    m_RibEditLayout.AddButton( m_RibLENormalToggle, _("LE") );
+    m_RibEditLayout.AddButton( m_RibTENormalToggle, _("TE") );
+    m_RibEditLayout.AddButton( m_RibSparNormalToggle, _("Spar") );
 
     m_RibNormalTypeGroup.Init( this );
     m_RibNormalTypeGroup.AddButton( m_RibNoNormalToggle.GetFlButton() );
@@ -181,11 +183,11 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
     m_RibEditLayout.SetButtonWidth( m_RibEditLayout.GetRemainX() / 2 );
     m_RibEditLayout.SetChoiceButtonWidth( m_RibEditLayout.GetRemainX() / 2 );
 
-    m_RibEditLayout.AddChoice( m_RibPerpendicularSparChoice, "Perpendicular Spar" );
+    m_RibEditLayout.AddChoice( m_RibPerpendicularSparChoice, _("Perpendicular Spar") );
 
     m_RibEditLayout.AddYGap();
 
-    m_RibEditLayout.AddButton( m_RibSectionLimitToggle, "Limit Rib to Section" );
+    m_RibEditLayout.AddButton( m_RibSectionLimitToggle, _("Limit Rib to Section") );
 
     m_RibEditLayout.SetSameLineFlag( true );
     m_RibEditLayout.SetFitWidthFlag( false );
@@ -199,19 +201,19 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
     int labelwidth = m_RibEditLayout.GetRemainX() / 9;
     int gap = m_RibEditLayout.GetRemainX() / 34;
 
-    m_RibEditLayout.AddLabel( "Start:", labelwidth );
+    m_RibEditLayout.AddLabel( _("Start:"), labelwidth );
     m_RibEditLayout.AddIndexSelector( m_RibStartSectIndexSelector );
     m_RibEditLayout.AddX( gap );
-    m_RibEditLayout.AddLabel( "End:", labelwidth );
+    m_RibEditLayout.AddLabel( _("End:"), labelwidth );
     m_RibEditLayout.AddIndexSelector( m_RibEndSectIndexSelector );
 
     m_RibEditLayout.ForceNewLine();
     m_RibEditLayout.AddYGap();
 
-    m_RibEditLayout.AddLabel( "Distance:", m_RibEditLayout.GetRemainX() / 3 );
+    m_RibEditLayout.AddLabel( _("Distance:"), m_RibEditLayout.GetRemainX() / 3 );
     m_RibEditLayout.SetButtonWidth( m_RibEditLayout.GetRemainX() / 2 );
-    m_RibEditLayout.AddButton( m_RibPosRelToggle, "Relative" );
-    m_RibEditLayout.AddButton( m_RibPosAbsToggle, "Absolute" );
+    m_RibEditLayout.AddButton( m_RibPosRelToggle, _("Relative") );
+    m_RibEditLayout.AddButton( m_RibPosAbsToggle, _("Absolute") );
 
     m_RibPosTypeToggleGroup.Init( this );
     m_RibPosTypeToggleGroup.AddButton( m_RibPosAbsToggle.GetFlButton() );
@@ -222,7 +224,7 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
     m_RibEditLayout.SetSliderWidth( m_RibEditLayout.GetRemainX() / 5 );
     m_RibEditLayout.SetInputWidth( input_width );
 
-    m_RibEditLayout.AddSlider( m_RibPosSlider, "Location", 0.5, "%5.3f" );
+    m_RibEditLayout.AddSlider( m_RibPosSlider, _("Location"), 0.5, "%5.3f" );
 
     m_RibEditLayout.SetButtonWidth( m_RibEditLayout.GetRemainX() );
     m_RibEditLayout.AddButton( m_RibPosUnit, " " );
@@ -238,15 +240,15 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
 
     m_RibEditLayout.SetButtonWidth( button_width );
 
-    m_RibEditLayout.AddSlider( m_RibThetaSlider, "Rotation", 25, "%5.3f" );
+    m_RibEditLayout.AddSlider( m_RibThetaSlider, _("Rotation"), 25, "%5.3f" );
 
     m_RibEditLayout.AddYGap();
     m_RibEditLayout.SetSameLineFlag( true );
     m_RibEditLayout.SetFitWidthFlag( false );
     m_RibEditLayout.SetButtonWidth( m_RibEditLayout.GetRemainX() / 2.0 );
 
-    m_RibEditLayout.AddButton( m_RibTrimToBBoxToggle, "Trim to Bounding Box" );
-    m_RibEditLayout.AddButton( m_RibRotateDihedralToggle, "Rotate to Match Dihedral" );
+    m_RibEditLayout.AddButton( m_RibTrimToBBoxToggle, _("Trim to Bounding Box") );
+    m_RibEditLayout.AddButton( m_RibRotateDihedralToggle, _("Rotate to Match Dihedral") );
 
     m_RibEditLayout.ForceNewLine();
     m_RibEditLayout.SetSameLineFlag( false );
@@ -257,13 +259,13 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
     m_GenLayout.AddSubGroupLayout( m_SparEditLayout, m_GenLayout.GetRemainX(), m_GenLayout.GetRemainY() );
     m_SparEditLayout.SetY( start_y );
 
-    m_SparEditLayout.AddDividerBox( "Spar" );
+    m_SparEditLayout.AddDividerBox( _("Spar") );
 
     m_SparEditLayout.SetButtonWidth( m_SparEditLayout.GetRemainX() / 2 );
 
     input_width = m_SparEditLayout.GetInputWidth();
 
-    m_SparEditLayout.AddButton( m_SparSectionLimitToggle, "Limit Spar to Section" );
+    m_SparEditLayout.AddButton( m_SparSectionLimitToggle, _("Limit Spar to Section") );
 
     m_SparEditLayout.SetSameLineFlag( true );
     m_SparEditLayout.SetFitWidthFlag( false );
@@ -274,16 +276,16 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
     labelwidth = m_SparEditLayout.GetRemainX() / 9;
     gap = m_SparEditLayout.GetRemainX() / 34;
 
-    m_SparEditLayout.AddLabel( "Start:", labelwidth );
+    m_SparEditLayout.AddLabel( _("Start:"), labelwidth );
     m_SparEditLayout.AddIndexSelector( m_SparStartSectIndexSelector );
     m_SparEditLayout.AddX( gap );
-    m_SparEditLayout.AddLabel( "End:", labelwidth );
+    m_SparEditLayout.AddLabel( _("End:"), labelwidth );
     m_SparEditLayout.AddIndexSelector( m_SparEndSectIndexSelector );
 
     m_SparEditLayout.ForceNewLine();
     m_SparEditLayout.AddYGap();
 
-    m_SparEditLayout.AddLabel( "Distance:", m_SparEditLayout.GetRemainX() / 3 );
+    m_SparEditLayout.AddLabel( _("Distance:"), m_SparEditLayout.GetRemainX() / 3 );
     m_SparEditLayout.SetButtonWidth( m_SparEditLayout.GetRemainX() / 2 );
     m_SparEditLayout.AddButton( m_SparPosRelToggle, "Relative" );
     m_SparEditLayout.AddButton( m_SparPosAbsToggle, "Absolute" );
@@ -296,7 +298,7 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
     m_SparEditLayout.SetSameLineFlag( false );
     m_SparEditLayout.SetFitWidthFlag( true );
 
-    m_SparEditLayout.AddButton( m_SparSetPerChordToggle, "Parameterize by Chord" );
+    m_SparEditLayout.AddButton( m_SparSetPerChordToggle, _("Parameterize by Chord") );
 
     m_SparEditLayout.AddYGap();
     m_SparEditLayout.SetSameLineFlag( true );
@@ -305,7 +307,7 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
     m_SparEditLayout.SetSliderWidth( m_SparEditLayout.GetRemainX() / 5 );
     m_SparEditLayout.SetInputWidth( input_width );
 
-    m_SparEditLayout.AddSlider( m_SparPosSlider, "Location", 0.5, "%5.3f" );
+    m_SparEditLayout.AddSlider( m_SparPosSlider, _("Location"), 0.5, "%5.3f" );
 
     m_SparEditLayout.SetButtonWidth( m_SparEditLayout.GetRemainX() );
     m_SparEditLayout.AddButton( m_SparPosUnit, "" );
@@ -318,33 +320,33 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
 
     m_SparEditLayout.SetButtonWidth( m_SparEditLayout.GetRemainX() / 3 );
 
-    m_SparEditLayout.AddSlider( m_SparThetaSlider, "Rotation", 25, "%5.3f" );
+    m_SparEditLayout.AddSlider( m_SparThetaSlider, _("Rotation"), 25, "%5.3f" );
 
     m_SparEditLayout.AddYGap();
 
-    m_SparEditLayout.AddSlider( m_SparRootChordSlider, "Root X/C", 0.5, "%5.3f" );
-    m_SparEditLayout.AddSlider( m_SparTipChordSlider, "Tip X/C", 0.5, "%5.3f" );
+    m_SparEditLayout.AddSlider( m_SparRootChordSlider, _("Root X/C"), 0.5, "%5.3f" );
+    m_SparEditLayout.AddSlider( m_SparTipChordSlider, _("Tip X/C"), 0.5, "%5.3f" );
 
     m_SparEditLayout.AddYGap();
 
-    m_SparEditLayout.AddButton( m_SparTrimToBBoxToggle, "Trim to Bounding Box" );
+    m_SparEditLayout.AddButton( m_SparTrimToBBoxToggle, _("Trim to Bounding Box") );
 
     //==== FeaFixPoint ====//
     m_GenLayout.AddSubGroupLayout( m_FixPointEditLayout, m_GenLayout.GetRemainX(), m_GenLayout.GetRemainY() );
     m_FixPointEditLayout.SetY( start_y );
 
-    m_FixPointEditLayout.AddDividerBox( "Fixed Point" );
+    m_FixPointEditLayout.AddDividerBox( _("Fixed Point") );
 
     m_FixPointEditLayout.SetChoiceButtonWidth( m_FixPointEditLayout.GetRemainX() / 3 );
     m_FixPointEditLayout.SetButtonWidth( m_FixPointEditLayout.GetRemainX() / 3 );
 
     m_FixPointEditLayout.AddChoice( m_FixPointParentSurfChoice, "Parent Surface" );
 
-    m_FixPointEditLayout.AddSlider( m_FixPointULocSlider, "U Location", 1, "%5.3f" );
-    m_FixPointEditLayout.AddSlider( m_FixPointWLocSlider, "W Location", 1, "%5.3f" );
+    m_FixPointEditLayout.AddSlider( m_FixPointULocSlider, _("U Location"), 1, "%5.3f" );
+    m_FixPointEditLayout.AddSlider( m_FixPointWLocSlider, _("W Location"), 1, "%5.3f" );
 
     m_FixPointEditLayout.AddYGap();
-    m_FixPointEditLayout.AddDividerBox( "Element" );
+    m_FixPointEditLayout.AddDividerBox( _("Element") );
 
     m_FixPointEditLayout.SetSameLineFlag( true );
     m_FixPointEditLayout.SetFitWidthFlag( false );
@@ -357,7 +359,7 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
     m_FixPointEditLayout.SetSliderWidth( m_FixPointEditLayout.GetW() / 4 );
     m_FixPointEditLayout.SetInputWidth(  m_FixPointEditLayout.GetRemainX() / 6 );
 
-    m_FixPointEditLayout.AddSlider( m_FixPointMassSlider, "Mass", 100.0, "%5.3g" );
+    m_FixPointEditLayout.AddSlider( m_FixPointMassSlider, _("Mass"), 100.0, "%5.3g" );
 
     m_FixPointEditLayout.AddButton( m_FixPointMassUnit, "" );
     m_FixPointMassUnit.GetFlButton()->box( FL_THIN_UP_BOX );
@@ -368,24 +370,24 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
     m_GenLayout.AddSubGroupLayout( m_DomeEditLayout, m_GenLayout.GetRemainX(), m_GenLayout.GetRemainY() );
     m_DomeEditLayout.SetY( start_y );
 
-    m_DomeEditLayout.AddDividerBox( "Dome" );
+    m_DomeEditLayout.AddDividerBox( _("Dome") );
 
-    m_DomeEditLayout.AddButton( m_DomeFlipDirButton, "Flip Direction" );
+    m_DomeEditLayout.AddButton( m_DomeFlipDirButton, _("Flip Direction") );
 
     m_DomeEditLayout.AddYGap();
 
-    m_DomeEditLayout.AddButton( m_DomeSpineAttachButton, "Attach to Spine" );
+    m_DomeEditLayout.AddButton( m_DomeSpineAttachButton, _("Attach to Spine") );
 
     m_DomeEditLayout.SetButtonWidth( m_DomeEditLayout.GetRemainX() / 3 );
 
-    m_DomeEditLayout.AddSlider( m_DomeUSpineSlider, "Spine U Loc", 1, "%5.3f" );
+    m_DomeEditLayout.AddSlider( m_DomeUSpineSlider, _("Spine U Loc"), 1, "%5.3f" );
 
     m_DomeEditLayout.AddYGap();
 
     m_DomeEditLayout.SetSameLineFlag( true );
     m_DomeEditLayout.SetFitWidthFlag( false );
 
-    m_DomeEditLayout.AddSlider( m_DomeARadSlider, "A Radius", 10, "%5.3f" );
+    m_DomeEditLayout.AddSlider( m_DomeARadSlider, _("A Radius"), 10, "%5.3f" );
 
     m_DomeEditLayout.SetButtonWidth( m_DomeEditLayout.GetRemainX() );
     m_DomeEditLayout.AddButton( m_DomeARadUnit, " " );
@@ -395,7 +397,7 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
     m_DomeEditLayout.ForceNewLine();
     m_DomeEditLayout.SetButtonWidth( m_DomeEditLayout.GetRemainX() / 3 );
 
-    m_DomeEditLayout.AddSlider( m_DomeBRadSlider, "B Radius", 10, "%5.3f" );
+    m_DomeEditLayout.AddSlider( m_DomeBRadSlider, _("B Radius"), 10, "%5.3f" );
 
     m_DomeEditLayout.SetButtonWidth( m_DomeEditLayout.GetRemainX() );
     m_DomeEditLayout.AddButton( m_DomeBRadUnit, " " );
@@ -405,7 +407,7 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
     m_DomeEditLayout.ForceNewLine();
     m_DomeEditLayout.SetButtonWidth( m_DomeEditLayout.GetRemainX() / 3 );
 
-    m_DomeEditLayout.AddSlider( m_DomeCRadSlider, "C Radius", 10, "%5.3f" );
+    m_DomeEditLayout.AddSlider( m_DomeCRadSlider, _("C Radius"), 10, "%5.3f" );
 
     m_DomeEditLayout.SetButtonWidth( m_DomeEditLayout.GetRemainX() );
     m_DomeEditLayout.AddButton( m_DomeCRadUnit, " " );
@@ -416,7 +418,7 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
     m_DomeEditLayout.AddYGap();
     m_DomeEditLayout.SetButtonWidth( m_DomeEditLayout.GetRemainX() / 3 );
 
-    m_DomeEditLayout.AddSlider( m_DomeXSlider, "XLoc", 10, "%5.3f" );
+    m_DomeEditLayout.AddSlider( m_DomeXSlider, _("XLoc"), 10, "%5.3f" );
 
     m_DomeEditLayout.SetButtonWidth( m_DomeEditLayout.GetRemainX() );
     m_DomeEditLayout.AddButton( m_DomeXUnit, " " );
@@ -426,7 +428,7 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
     m_DomeEditLayout.ForceNewLine();
     m_DomeEditLayout.SetButtonWidth( m_DomeEditLayout.GetRemainX() / 3 );
 
-    m_DomeEditLayout.AddSlider( m_DomeYSlider, "YLoc", 10, "%5.3f" );
+    m_DomeEditLayout.AddSlider( m_DomeYSlider, _("YLoc"), 10, "%5.3f" );
 
     m_DomeEditLayout.SetButtonWidth( m_DomeEditLayout.GetRemainX() );
     m_DomeEditLayout.AddButton( m_DomeYUnit, " " );
@@ -458,17 +460,17 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
     m_GenLayout.AddSubGroupLayout( m_RibArrayEditLayout, m_GenLayout.GetRemainX(), m_GenLayout.GetRemainY() );
     m_RibArrayEditLayout.SetY( start_y );
 
-    m_RibArrayEditLayout.AddDividerBox( "RibArray" );
+    m_RibArrayEditLayout.AddDividerBox( _("RibArray") );
 
     m_RibArrayEditLayout.SetSameLineFlag( true );
     m_RibArrayEditLayout.SetFitWidthFlag( false );
     m_RibArrayEditLayout.SetButtonWidth( ( m_RibArrayEditLayout.GetRemainX() - label_width ) / 4 );
 
     m_RibArrayEditLayout.AddLabel( "Normal Type:", label_width );
-    m_RibArrayEditLayout.AddButton( m_RibArrayNoNormalToggle, "None" );
-    m_RibArrayEditLayout.AddButton( m_RibArrayLENormalToggle, "LE" );
-    m_RibArrayEditLayout.AddButton( m_RibArrayTENormalToggle, "TE" );
-    m_RibArrayEditLayout.AddButton( m_RibArraySparNormalToggle, "Spar" );
+    m_RibArrayEditLayout.AddButton( m_RibArrayNoNormalToggle, _("None") );
+    m_RibArrayEditLayout.AddButton( m_RibArrayLENormalToggle, _("LE") );
+    m_RibArrayEditLayout.AddButton( m_RibArrayTENormalToggle, _("TE") );
+    m_RibArrayEditLayout.AddButton( m_RibArraySparNormalToggle, _("Spar") );
 
     m_RibArrayNormalTypeGroup.Init( this );
     m_RibArrayNormalTypeGroup.AddButton( m_RibArrayNoNormalToggle.GetFlButton() );
@@ -486,7 +488,7 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
 
     m_RibArrayEditLayout.AddYGap();
 
-    m_RibArrayEditLayout.AddButton( m_RibArraySectionLimitToggle, "Limit Rib Array to Section" );
+    m_RibArrayEditLayout.AddButton( m_RibArraySectionLimitToggle, _("Limit Rib Array to Section") );
 
     m_RibArrayEditLayout.SetSameLineFlag( true );
     m_RibArrayEditLayout.SetFitWidthFlag( false );
@@ -509,7 +511,7 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
     m_RibArrayEditLayout.AddYGap();
     m_RibArrayEditLayout.ForceNewLine();
 
-    m_RibArrayEditLayout.AddLabel( "Distance:", m_RibArrayEditLayout.GetRemainX() / 3 );
+    m_RibArrayEditLayout.AddLabel( _("Distance:"), m_RibArrayEditLayout.GetRemainX() / 3 );
     m_RibArrayEditLayout.SetButtonWidth( m_RibArrayEditLayout.GetRemainX() / 2 );
     m_RibArrayEditLayout.AddButton( m_RibArrayPosRelToggle, "Relative" );
     m_RibArrayEditLayout.AddButton( m_RibArrayPosAbsToggle, "Absolute" );
@@ -525,9 +527,9 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
     m_RibArrayEditLayout.SetSameLineFlag( true );
     m_RibArrayEditLayout.SetFitWidthFlag( false );
 
-    m_RibArrayEditLayout.AddLabel( "Direction", m_RibArrayEditLayout.GetRemainX() / 3 );
-    m_RibArrayEditLayout.AddButton( m_RibArrayPosDirToggle, "Positive" );
-    m_RibArrayEditLayout.AddButton( m_RibArrayNegDirToggle, "Negative" );
+    m_RibArrayEditLayout.AddLabel( _("Direction"), m_RibArrayEditLayout.GetRemainX() / 3 );
+    m_RibArrayEditLayout.AddButton( m_RibArrayPosDirToggle, _("Positive") );
+    m_RibArrayEditLayout.AddButton( m_RibArrayNegDirToggle, _("Negative") );
 
     m_RibArrayPosNegDirToggleGroup.Init( this );
     m_RibArrayPosNegDirToggleGroup.AddButton( m_RibArrayNegDirToggle.GetFlButton() );
@@ -540,7 +542,7 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
     m_RibArrayEditLayout.SetSliderWidth( m_RibArrayEditLayout.GetRemainX() / 5 );
     m_RibArrayEditLayout.SetInputWidth( input_width );
 
-    m_RibArrayEditLayout.AddSlider( m_RibArrayStartLocSlider, "Start Location", 0.5, "%5.3f" );
+    m_RibArrayEditLayout.AddSlider( m_RibArrayStartLocSlider, _("Start Location"), 0.5, "%5.3f" );
 
     m_RibArrayEditLayout.SetButtonWidth( m_RibArrayEditLayout.GetRemainX() );
     m_RibArrayEditLayout.AddButton( m_RibArrayStartLocUnit, " " );
@@ -550,7 +552,7 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
     m_RibArrayEditLayout.ForceNewLine();
     m_RibArrayEditLayout.SetButtonWidth( m_RibArrayEditLayout.GetRemainX() / 3 );
 
-    m_RibArrayEditLayout.AddSlider( m_RibArrayEndLocSlider, "End Location", 0.5, "%5.3f" );
+    m_RibArrayEditLayout.AddSlider( m_RibArrayEndLocSlider, _("End Location"), 0.5, "%5.3f" );
 
     m_RibArrayEditLayout.SetButtonWidth( m_RibArrayEditLayout.GetRemainX() );
     m_RibArrayEditLayout.AddButton( m_RibArrayEndLocUnit, " " );
@@ -560,7 +562,7 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
     m_RibArrayEditLayout.ForceNewLine();
     m_RibArrayEditLayout.SetButtonWidth( m_RibArrayEditLayout.GetRemainX() / 3 );
 
-    m_RibArrayEditLayout.AddSlider( m_RibArraySpacingSlider, "Spacing", 0.5, "%5.3f" );
+    m_RibArrayEditLayout.AddSlider( m_RibArraySpacingSlider, _("Spacing"), 0.5, "%5.3f" );
 
     m_RibArrayEditLayout.SetButtonWidth( m_RibArrayEditLayout.GetRemainX() );
     m_RibArrayEditLayout.AddButton( m_RibArrayPosUnit, " " );
@@ -576,48 +578,48 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
 
     m_RibArrayEditLayout.SetButtonWidth( button_width );
 
-    m_RibArrayEditLayout.AddSlider( m_RibArrayThetaSlider, "Rotation", 25, "%5.3f" );
+    m_RibArrayEditLayout.AddSlider( m_RibArrayThetaSlider, _("Rotation"), 25, "%5.3f" );
 
     m_RibArrayEditLayout.AddYGap();
     m_RibArrayEditLayout.SetSameLineFlag( true );
     m_RibArrayEditLayout.SetFitWidthFlag( false );
     m_RibArrayEditLayout.SetButtonWidth( m_RibArrayEditLayout.GetRemainX() / 2.0 );
 
-    m_RibArrayEditLayout.AddButton( m_RibArrayTrimToBBoxToggle, "Trim to Bounding Box" );
-    m_RibArrayEditLayout.AddButton( m_RibArrayRotateDihedralToggle, "Rotate to Match Dihedral" );
+    m_RibArrayEditLayout.AddButton( m_RibArrayTrimToBBoxToggle, _("Trim to Bounding Box") );
+    m_RibArrayEditLayout.AddButton( m_RibArrayRotateDihedralToggle, _("Rotate to Match Dihedral") );
 
     m_RibArrayEditLayout.ForceNewLine();
     m_RibArrayEditLayout.SetSameLineFlag( false );
     m_RibArrayEditLayout.SetFitWidthFlag( true );
     m_RibArrayEditLayout.AddYGap();
 
-    m_RibArrayEditLayout.AddButton( m_IndividualizeRibArrayButton, "Individualize Rib Array" );
+    m_RibArrayEditLayout.AddButton( m_IndividualizeRibArrayButton, _("Individualize Rib Array") );
 
     //==== FeaSliceArray ====//
     m_GenLayout.AddSubGroupLayout( m_SliceArrayEditLayout, m_GenLayout.GetRemainX(), m_GenLayout.GetRemainY() );
     m_SliceArrayEditLayout.SetY( start_y );
 
-    m_SliceArrayEditLayout.AddDividerBox( "SliceArray" );
+    m_SliceArrayEditLayout.AddDividerBox( _("SliceArray") );
 
     m_SliceArrayEditLayout.SetButtonWidth( m_SliceArrayEditLayout.GetRemainX() / 3 );
     m_SliceArrayEditLayout.SetChoiceButtonWidth( m_SliceArrayEditLayout.GetRemainX() / 3 );
 
-    m_SliceArrayOrientationChoice.AddItem( "XY_Body" );
-    m_SliceArrayOrientationChoice.AddItem( "YZ_Body" );
-    m_SliceArrayOrientationChoice.AddItem( "XZ_Body" );
-    m_SliceArrayOrientationChoice.AddItem( "XY_Abs" );
-    m_SliceArrayOrientationChoice.AddItem( "YZ_Abs" );
-    m_SliceArrayOrientationChoice.AddItem( "XZ_Abs" );
-    m_SliceArrayOrientationChoice.AddItem( "Spine_Normal" );
-    m_SliceArrayEditLayout.AddChoice( m_SliceArrayOrientationChoice, "Orientation" );
+    m_SliceArrayOrientationChoice.AddItem( _("XY_Body") );
+    m_SliceArrayOrientationChoice.AddItem( _("YZ_Body") );
+    m_SliceArrayOrientationChoice.AddItem( _("XZ_Body") );
+    m_SliceArrayOrientationChoice.AddItem( _("XY_Abs") );
+    m_SliceArrayOrientationChoice.AddItem( _("YZ_Abs") );
+    m_SliceArrayOrientationChoice.AddItem( _("XZ_Abs") );
+    m_SliceArrayOrientationChoice.AddItem( _("Spine_Normal") );
+    m_SliceArrayEditLayout.AddChoice( m_SliceArrayOrientationChoice, _("Orientation") );
 
     m_SliceArrayEditLayout.SetSameLineFlag( true );
     m_SliceArrayEditLayout.SetFitWidthFlag( false );
 
     m_SliceArrayEditLayout.AddLabel( "Distance:", m_SliceArrayEditLayout.GetRemainX() / 3 );
     m_SliceArrayEditLayout.SetButtonWidth( m_SliceArrayEditLayout.GetRemainX() / 2 );
-    m_SliceArrayEditLayout.AddButton( m_SliceArrayPosRelToggle, "Relative" );
-    m_SliceArrayEditLayout.AddButton( m_SliceArrayPosAbsToggle, "Absolute" );
+    m_SliceArrayEditLayout.AddButton( m_SliceArrayPosRelToggle, _("Relative") );
+    m_SliceArrayEditLayout.AddButton( m_SliceArrayPosAbsToggle, _("Absolute") );
 
     m_SliceArrayPosTypeToggleGroup.Init( this );
     m_SliceArrayPosTypeToggleGroup.AddButton( m_SliceArrayPosAbsToggle.GetFlButton() );
@@ -628,8 +630,8 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
     m_SliceArrayEditLayout.SetButtonWidth( m_SliceArrayEditLayout.GetRemainX() / 3 );
 
     m_SliceArrayEditLayout.AddLabel( "Direction", m_SliceArrayEditLayout.GetRemainX() / 3 );
-    m_SliceArrayEditLayout.AddButton( m_SliceArrayPosDirToggle, "Positive" );
-    m_SliceArrayEditLayout.AddButton( m_SliceArrayNegDirToggle, "Negative" );
+    m_SliceArrayEditLayout.AddButton( m_SliceArrayPosDirToggle, _("Positive") );
+    m_SliceArrayEditLayout.AddButton( m_SliceArrayNegDirToggle, _("Negative") );
 
     m_SliceArrayPosNegDirToggleGroup.Init( this );
     m_SliceArrayPosNegDirToggleGroup.AddButton( m_SliceArrayNegDirToggle.GetFlButton() );
@@ -641,7 +643,7 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
 
     m_SliceArrayEditLayout.SetSliderWidth( m_SliceArrayEditLayout.GetRemainX() / 5 );
 
-    m_SliceArrayEditLayout.AddSlider( m_SliceArrayStartLocSlider, "Start Location", 0.5, "%5.3f" );
+    m_SliceArrayEditLayout.AddSlider( m_SliceArrayStartLocSlider, _("Start Location"), 0.5, "%5.3f" );
 
     m_SliceArrayEditLayout.SetButtonWidth( m_SliceArrayEditLayout.GetRemainX() );
     m_SliceArrayEditLayout.AddButton( m_SliceArrayStartLocUnit, " " );
@@ -651,7 +653,7 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
     m_SliceArrayEditLayout.ForceNewLine();
     m_SliceArrayEditLayout.SetButtonWidth( m_SliceArrayEditLayout.GetRemainX() / 3 );
 
-    m_SliceArrayEditLayout.AddSlider( m_SliceArrayEndLocSlider, "End Location", 0.5, "%5.3f" );
+    m_SliceArrayEditLayout.AddSlider( m_SliceArrayEndLocSlider, _("End Location"), 0.5, "%5.3f" );
 
     m_SliceArrayEditLayout.SetButtonWidth( m_SliceArrayEditLayout.GetRemainX() );
     m_SliceArrayEditLayout.AddButton( m_SliceArrayEndLocUnit, " " );
@@ -661,7 +663,7 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
     m_SliceArrayEditLayout.ForceNewLine();
     m_SliceArrayEditLayout.SetButtonWidth( m_SliceArrayEditLayout.GetRemainX() / 3 );
 
-    m_SliceArrayEditLayout.AddSlider( m_SliceArraySpacingSlider, "Spacing", 0.5, "%5.3f" );
+    m_SliceArrayEditLayout.AddSlider( m_SliceArraySpacingSlider, _("Spacing"), 0.5, "%5.3f" );
 
     m_SliceArrayEditLayout.SetButtonWidth( m_SliceArrayEditLayout.GetRemainX() );
     m_SliceArrayEditLayout.AddButton( m_SliceArrayPosUnit, " " );
@@ -681,9 +683,9 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
 
     m_SliceArrayEditLayout.SetButtonWidth( m_SliceArrayEditLayout.GetRemainX() / 3 );
 
-    m_SliceArrayEditLayout.AddButton( m_SliceArrayXAxisToggle, "X Axis" );
-    m_SliceArrayEditLayout.AddButton( m_SliceArrayYAxisToggle, "Y Axis" );
-    m_SliceArrayEditLayout.AddButton( m_SliceArrayZAxisToggle, "Z Axis" );
+    m_SliceArrayEditLayout.AddButton( m_SliceArrayXAxisToggle, _("X Axis") );
+    m_SliceArrayEditLayout.AddButton( m_SliceArrayYAxisToggle, _("Y Axis") );
+    m_SliceArrayEditLayout.AddButton( m_SliceArrayZAxisToggle, _("Z Axis") );
 
     m_SliceArrayRotAxisToggleGroup.Init( this );
     m_SliceArrayRotAxisToggleGroup.AddButton( m_SliceArrayXAxisToggle.GetFlButton() );
@@ -696,13 +698,13 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
 
     m_SliceArrayEditLayout.SetButtonWidth( button_width );
 
-    m_SliceArrayEditLayout.AddSlider( m_SliceArrayXRotSlider, "XRot", 25, "%5.3f" );
-    m_SliceArrayEditLayout.AddSlider( m_SliceArrayYRotSlider, "YRot", 25, "%5.3f" );
-    m_SliceArrayEditLayout.AddSlider( m_SliceArrayZRotSlider, "ZRot", 25, "%5.3f" );
+    m_SliceArrayEditLayout.AddSlider( m_SliceArrayXRotSlider, _("XRot"), 25, "%5.3f" );
+    m_SliceArrayEditLayout.AddSlider( m_SliceArrayYRotSlider, _("YRot"), 25, "%5.3f" );
+    m_SliceArrayEditLayout.AddSlider( m_SliceArrayZRotSlider, _("ZRot"), 25, "%5.3f" );
 
     m_SliceArrayEditLayout.AddYGap();
 
-    m_SliceArrayEditLayout.AddButton( m_IndividualizeSliceArrayButton, "Individualize Slice Array" );
+    m_SliceArrayEditLayout.AddButton( m_IndividualizeSliceArrayButton, _("Individualize Slice Array") );
 
     //==== FeaTrimPart ====//
     m_GenLayout.AddSubGroupLayout( m_TrimEditLayout, m_GenLayout.GetRemainX(), m_GenLayout.GetRemainY() );
@@ -726,16 +728,16 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
 
     m_TrimEditLayout.SetChoiceButtonWidth( 75 );
 
-    m_TrimEditLayout.AddChoice( m_TrimPartChoice, "Trim Part", 75 );
+    m_TrimEditLayout.AddChoice( m_TrimPartChoice, _("Trim Part"), 75 );
 
     m_TrimEditLayout.SetFitWidthFlag( false );
-    m_TrimEditLayout.AddButton( m_FlipTrimDirButton, "Flip Dir" );
+    m_TrimEditLayout.AddButton( m_FlipTrimDirButton, _("Flip Dir") );
 
     m_TrimEditLayout.ForceNewLine();
 
     m_TrimEditLayout.SetButtonWidth( m_TrimEditLayout.GetW() * 0.5 );
-    m_TrimEditLayout.AddButton( m_AddTrimPartButton, "Add" );
-    m_TrimEditLayout.AddButton( m_DeleteTrimPartButton, "Delete" );
+    m_TrimEditLayout.AddButton( m_AddTrimPartButton, _("Add") );
+    m_TrimEditLayout.AddButton( m_DeleteTrimPartButton, _("Delete") );
 
     //=== SubSurfaces ===//
 
@@ -743,15 +745,15 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
     m_GenLayout.AddSubGroupLayout( m_FeaSSLineGroup, m_GenLayout.GetRemainX(), m_GenLayout.GetRemainY() );
     m_FeaSSLineGroup.SetY( start_y );
 
-    m_FeaSSLineGroup.AddDividerBox( "Line Sub-Surface" );
+    m_FeaSSLineGroup.AddDividerBox( _("Line Sub-Surface") );
 
     m_FeaSSLineGroup.SetFitWidthFlag( false );
     m_FeaSSLineGroup.SetSameLineFlag( true );
     m_FeaSSLineGroup.AddLabel( "Tag", m_FeaSSLineGroup.GetRemainX() / 3 );
     m_FeaSSLineGroup.SetButtonWidth( m_FeaSSLineGroup.GetRemainX() / 3 );
-    m_FeaSSLineGroup.AddButton( m_FeaSSLineGreaterToggle, "Greater" );
-    m_FeaSSLineGroup.AddButton( m_FeaSSLineLessToggle, "Less" );
-    m_FeaSSLineGroup.AddButton( m_FeaSSLineNoneToggle, "None" );
+    m_FeaSSLineGroup.AddButton( m_FeaSSLineGreaterToggle, _("Greater") );
+    m_FeaSSLineGroup.AddButton( m_FeaSSLineLessToggle, _("Less") );
+    m_FeaSSLineGroup.AddButton( m_FeaSSLineNoneToggle, _("None") );
 
     m_FeaSSLineTestToggleGroup.Init( this );
     m_FeaSSLineTestToggleGroup.AddButton( m_FeaSSLineGreaterToggle.GetFlButton() );
@@ -760,7 +762,7 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
 
     m_FeaSSLineGroup.ForceNewLine();
 
-    m_FeaSSLineGroup.AddLabel( "Line Type", m_FeaSSLineGroup.GetRemainX() / 3 );
+    m_FeaSSLineGroup.AddLabel( _("Line Type"), m_FeaSSLineGroup.GetRemainX() / 3 );
     m_FeaSSLineGroup.SetButtonWidth( m_FeaSSLineGroup.GetRemainX() / 2 );
     m_FeaSSLineGroup.AddButton( m_FeaSSLineConstUButton, "U" );
     m_FeaSSLineGroup.AddButton( m_FeaSSLineConstWButton, "W" );
@@ -777,21 +779,21 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
     m_FeaSSLineGroup.SetChoiceButtonWidth( m_FeaSSLineGroup.GetRemainX() / 3 );
 
     m_FeaSSLineGroup.SetButtonWidth( m_FeaSSLineGroup.GetRemainX() / 3 );
-    m_FeaSSLineGroup.AddSlider( m_FeaSSLineConstSlider, "Value", 1, "%5.4f" );
+    m_FeaSSLineGroup.AddSlider( m_FeaSSLineConstSlider, _("Value"), 1, "%5.4f" );
 
     //==== SSRectangle ====//
     m_GenLayout.AddSubGroupLayout( m_FeaSSRecGroup, m_GenLayout.GetRemainX(), m_GenLayout.GetRemainY() );
     m_FeaSSRecGroup.SetY( start_y );
 
-    m_FeaSSRecGroup.AddDividerBox( "Rectangle Sub-Surface" );
+    m_FeaSSRecGroup.AddDividerBox( _("Rectangle Sub-Surface") );
 
     m_FeaSSRecGroup.SetFitWidthFlag( false );
     m_FeaSSRecGroup.SetSameLineFlag( true );
     m_FeaSSRecGroup.AddLabel( "Tag", m_FeaSSRecGroup.GetRemainX() / 3 );
     m_FeaSSRecGroup.SetButtonWidth( m_FeaSSRecGroup.GetRemainX() / 3 );
-    m_FeaSSRecGroup.AddButton( m_FeaSSRecInsideButton, "Inside" );
-    m_FeaSSRecGroup.AddButton( m_FeaSSRecOutsideButton, "Outside" );
-    m_FeaSSRecGroup.AddButton( m_FeaSSRecNoneButton, "None" );
+    m_FeaSSRecGroup.AddButton( m_FeaSSRecInsideButton, _("Inside") );
+    m_FeaSSRecGroup.AddButton( m_FeaSSRecOutsideButton, _("Outside") );
+    m_FeaSSRecGroup.AddButton( m_FeaSSRecNoneButton, _("None") );
 
     m_FeaSSRecTestToggleGroup.Init( this );
     m_FeaSSRecTestToggleGroup.AddButton( m_FeaSSRecInsideButton.GetFlButton() );
@@ -837,12 +839,12 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
     m_FeaSSEllGroup.SetButtonWidth( m_FeaSSEllGroup.GetRemainX() / 3 );
     m_FeaSSEllGroup.SetChoiceButtonWidth( m_FeaSSEllGroup.GetRemainX() / 3 );
 
-    m_FeaSSEllGroup.AddSlider( m_FeaSSEllTessSlider, "Num Points", 100, "%5.0f" );
-    m_FeaSSEllGroup.AddSlider( m_FeaSSEllCentUSlider, "Center U", 1, "%5.4f" );
-    m_FeaSSEllGroup.AddSlider( m_FeaSSEllCentWSlider, "Center W", 1, "%5.4f" );
-    m_FeaSSEllGroup.AddSlider( m_FeaSSEllULenSlider, "U Length", 1, "%5.4f" );
-    m_FeaSSEllGroup.AddSlider( m_FeaSSEllWLenSlider, "W Length", 1, "%5.4f" );
-    m_FeaSSEllGroup.AddSlider( m_FeaSSEllThetaSlider, "Theta", 25, "%5.4f" );
+    m_FeaSSEllGroup.AddSlider( m_FeaSSEllTessSlider, _("Num Points"), 100, "%5.0f" );
+    m_FeaSSEllGroup.AddSlider( m_FeaSSEllCentUSlider, _("Center U"), 1, "%5.4f" );
+    m_FeaSSEllGroup.AddSlider( m_FeaSSEllCentWSlider, _("Center W"), 1, "%5.4f" );
+    m_FeaSSEllGroup.AddSlider( m_FeaSSEllULenSlider, _("U Length"), 1, "%5.4f" );
+    m_FeaSSEllGroup.AddSlider( m_FeaSSEllWLenSlider, _("W Length"), 1, "%5.4f" );
+    m_FeaSSEllGroup.AddSlider( m_FeaSSEllThetaSlider, _("Theta"), 25, "%5.4f" );
 
     //===== SSControl ====//
     m_GenLayout.AddSubGroupLayout( m_FeaSSConGroup, m_GenLayout.GetRemainX(), m_GenLayout.GetRemainY() );
@@ -854,9 +856,9 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
     m_FeaSSConGroup.SetSameLineFlag( true );
     m_FeaSSConGroup.AddLabel( "Tag", m_FeaSSConGroup.GetRemainX() / 3 );
     m_FeaSSConGroup.SetButtonWidth( m_FeaSSConGroup.GetRemainX() / 3 );
-    m_FeaSSConGroup.AddButton( m_FeaSSConInsideButton, "Inside" );
-    m_FeaSSConGroup.AddButton( m_FeaSSConOutsideButton, "Outside" );
-    m_FeaSSConGroup.AddButton( m_FeaSSConNoneButton, "None" );
+    m_FeaSSConGroup.AddButton( m_FeaSSConInsideButton, _("Inside") );
+    m_FeaSSConGroup.AddButton( m_FeaSSConOutsideButton, _("Outside") );
+    m_FeaSSConGroup.AddButton( m_FeaSSConNoneButton, _("None") );
 
     m_FeaSSConTestToggleGroup.Init( this );
     m_FeaSSConTestToggleGroup.AddButton( m_FeaSSConInsideButton.GetFlButton() );
@@ -867,38 +869,38 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
 
     m_FeaSSConGroup.SetChoiceButtonWidth( m_FeaSSConGroup.GetRemainX() / 3 );
 
-    m_FeaSSConSurfTypeChoice.AddItem( "Upper" );
-    m_FeaSSConSurfTypeChoice.AddItem( "Lower" );
-    m_FeaSSConSurfTypeChoice.AddItem( "Both" );
+    m_FeaSSConSurfTypeChoice.AddItem( _("Upper") );
+    m_FeaSSConSurfTypeChoice.AddItem( _("Lower") );
+    m_FeaSSConSurfTypeChoice.AddItem( _("Both") );
     m_FeaSSConGroup.AddChoice( m_FeaSSConSurfTypeChoice, "Upper/Lower", m_FeaSSConGroup.GetRemainX() / 3 );
 
     m_FeaSSConGroup.SetButtonWidth( m_FeaSSConGroup.GetRemainX() );
 
-    m_FeaSSConGroup.AddButton( m_FeaSSConLEFlagButton, "Leading Edge" );
+    m_FeaSSConGroup.AddButton( m_FeaSSConLEFlagButton, _("Leading Edge") );
 
     m_FeaSSConGroup.SetFitWidthFlag( true );
     m_FeaSSConGroup.SetSameLineFlag( false );
     m_FeaSSConGroup.ForceNewLine();
 
     m_FeaSSConGroup.AddYGap();
-    m_FeaSSConGroup.AddDividerBox( "Spanwise" );
+    m_FeaSSConGroup.AddDividerBox( _("Spanwise") );
 
     m_FeaSSConGroup.SetButtonWidth( m_FeaSSConGroup.GetRemainX() / 3 );
 
-    m_FeaSSConGroup.AddSlider( m_FeaSSConUSSlider, "Start U", 1, "%5.4f" );
-    m_FeaSSConGroup.AddSlider( m_FeaSSConUESlider, "End U", 1, "%5.4f" );
+    m_FeaSSConGroup.AddSlider( m_FeaSSConUSSlider, _("Start U"), 1, "%5.4f" );
+    m_FeaSSConGroup.AddSlider( m_FeaSSConUESlider, _("End U"), 1, "%5.4f" );
 
     m_FeaSSConGroup.AddYGap();
-    m_FeaSSConGroup.AddDividerBox( "Chordwise" );
+    m_FeaSSConGroup.AddDividerBox( _("Chordwise") );
 
     m_FeaSSConGroup.SetFitWidthFlag( false );
     m_FeaSSConGroup.SetSameLineFlag( true );
 
     m_FeaSSConGroup.SetButtonWidth( m_FeaSSConGroup.GetW() / 3 );
 
-    m_FeaSSConGroup.AddButton( m_FeaSSConSAbsButton, "Length" );
-    m_FeaSSConGroup.AddButton( m_FeaSSConSRelButton, "Length/C" );
-    m_FeaSSConGroup.AddButton( m_FeaSSConSEConstButton, "Constant" );
+    m_FeaSSConGroup.AddButton( m_FeaSSConSAbsButton, _("Length") );
+    m_FeaSSConGroup.AddButton( m_FeaSSConSRelButton, _("Length/C") );
+    m_FeaSSConGroup.AddButton( m_FeaSSConSEConstButton, _("Constant") );
 
     m_FeaSSConGroup.SetFitWidthFlag( true );
     m_FeaSSConGroup.SetSameLineFlag( false );
@@ -910,43 +912,43 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
 
     m_FeaSSConGroup.SetButtonWidth( m_FeaSSConGroup.GetRemainX() / 3 );
 
-    m_FeaSSConGroup.AddSlider( m_FeaSSConSLenSlider, "Start Length", 10.0, "%5.4f" );
-    m_FeaSSConGroup.AddSlider( m_FeaSSConSFracSlider, "Start Length/C", 1.0, "%5.4f" );
-    m_FeaSSConGroup.AddSlider( m_FeaSSConELenSlider, "End Length", 10.0, "%5.4f" );
-    m_FeaSSConGroup.AddSlider( m_FeaSSConEFracSlider, "End Length/C", 1.0, "%5.4f" );
+    m_FeaSSConGroup.AddSlider( m_FeaSSConSLenSlider, _("Start Length"), 10.0, "%5.4f" );
+    m_FeaSSConGroup.AddSlider( m_FeaSSConSFracSlider, _("Start Length/C"), 1.0, "%5.4f" );
+    m_FeaSSConGroup.AddSlider( m_FeaSSConELenSlider, _("End Length"), 10.0, "%5.4f" );
+    m_FeaSSConGroup.AddSlider( m_FeaSSConEFracSlider, _("End Length/C"), 1.0, "%5.4f" );
 
     m_FeaSSConGroup.AddYGap();
-    m_FeaSSConGroup.AddDividerBox( "Surface End Angle" );
+    m_FeaSSConGroup.AddDividerBox( _("Surface End Angle") );
 
     m_FeaSSConGroup.SetSameLineFlag( true );
     m_FeaSSConGroup.SetFitWidthFlag( false );
 
-    m_FeaSSConGroup.AddButton( m_FeaSSConSAngleButton, "Start" );
-    m_FeaSSConGroup.AddButton( m_FeaSSConEAngleButton, "End" );
-    m_FeaSSConGroup.AddButton( m_FeaSSConSameAngleButton, "Same Angle" );
+    m_FeaSSConGroup.AddButton( m_FeaSSConSAngleButton, _("Start") );
+    m_FeaSSConGroup.AddButton( m_FeaSSConEAngleButton, _("End") );
+    m_FeaSSConGroup.AddButton( m_FeaSSConSameAngleButton, _("Same Angle") );
 
     m_FeaSSConGroup.SetSameLineFlag( false );
     m_FeaSSConGroup.SetFitWidthFlag( true );
     m_FeaSSConGroup.ForceNewLine();
 
-    m_FeaSSConGroup.AddSlider( m_FeaSSConSAngleSlider, "Start Angle", 10.0, "%5.4f" );
-    m_FeaSSConGroup.AddSlider( m_FeaSSConEAngleSlider, "End Angle", 10.0, "%5.4f" );
+    m_FeaSSConGroup.AddSlider( m_FeaSSConSAngleSlider, _("Start Angle"), 10.0, "%5.4f" );
+    m_FeaSSConGroup.AddSlider( m_FeaSSConEAngleSlider, _("End Angle"), 10.0, "%5.4f" );
 
-    m_FeaSSConGroup.AddSlider( m_FeaSSConTessSlider, "Num Points", 100, "%5.0f" );
+    m_FeaSSConGroup.AddSlider( m_FeaSSConTessSlider, _("Num Points"), 100, "%5.0f" );
 
     //==== SSLineArray ====//
     m_GenLayout.AddSubGroupLayout( m_FeaSSLineArrayGroup, m_GenLayout.GetRemainX(), m_GenLayout.GetRemainY() );
     m_FeaSSLineArrayGroup.SetY( start_y );
 
-    m_FeaSSLineArrayGroup.AddDividerBox( "Line Array Sub-Surface" );
+    m_FeaSSLineArrayGroup.AddDividerBox( _("Line Array Sub-Surface") );
 
     m_FeaSSLineArrayGroup.SetSameLineFlag( true );
     m_FeaSSLineArrayGroup.SetFitWidthFlag( false );
 
-    m_FeaSSLineArrayGroup.AddLabel( "Line Type", m_FeaSSLineArrayGroup.GetRemainX() / 3 );
+    m_FeaSSLineArrayGroup.AddLabel( _("Line Type"), m_FeaSSLineArrayGroup.GetRemainX() / 3 );
     m_FeaSSLineArrayGroup.SetButtonWidth( m_FeaSSLineArrayGroup.GetRemainX() / 2 );
-    m_FeaSSLineArrayGroup.AddButton( m_FeaSSLineArrayConstUButton, "U" );
-    m_FeaSSLineArrayGroup.AddButton( m_FeaSSLineArrayConstWButton, "W" );
+    m_FeaSSLineArrayGroup.AddButton( m_FeaSSLineArrayConstUButton, _("U") );
+    m_FeaSSLineArrayGroup.AddButton( m_FeaSSLineArrayConstWButton, _("W") );
 
     m_FeaSSLineArrayConstToggleGroup.Init( this );
     m_FeaSSLineArrayConstToggleGroup.AddButton( m_FeaSSLineArrayConstUButton.GetFlButton() );
@@ -957,8 +959,8 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
     m_FeaSSLineArrayGroup.SetButtonWidth( m_FeaSSLineArrayGroup.GetRemainX() / 3 );
 
     m_FeaSSLineArrayGroup.AddLabel( "Direction", m_FeaSSLineArrayGroup.GetRemainX() / 3 );
-    m_FeaSSLineArrayGroup.AddButton( m_FeaSSLineArrayPosDirToggle, "Positive" );
-    m_FeaSSLineArrayGroup.AddButton( m_FeaSSLineArrayNegDirToggle, "Negative" );
+    m_FeaSSLineArrayGroup.AddButton( m_FeaSSLineArrayPosDirToggle, _("Positive") );
+    m_FeaSSLineArrayGroup.AddButton( m_FeaSSLineArrayNegDirToggle, _("Negative") );
 
     m_FeaSSLineArrayPosNegDirToggleGroup.Init( this );
     m_FeaSSLineArrayPosNegDirToggleGroup.AddButton( m_FeaSSLineArrayNegDirToggle.GetFlButton() );
@@ -968,19 +970,19 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
     m_FeaSSLineArrayGroup.SetSameLineFlag( false );
     m_FeaSSLineArrayGroup.SetFitWidthFlag( true );
 
-    m_FeaSSLineArrayGroup.AddSlider( m_FeaSSLineArrayStartLocSlider, "Start Location", 0.5, "%5.4f" );
-    m_FeaSSLineArrayGroup.AddSlider( m_FeaSSLineArrayEndLocSlider, "End Location", 0.5, "%5.4f" );
-    m_FeaSSLineArrayGroup.AddSlider( m_FeaSSLineArraySpacingSlider, "Spacing", 0.5, "%5.4f" );
+    m_FeaSSLineArrayGroup.AddSlider( m_FeaSSLineArrayStartLocSlider, _("Start Location"), 0.5, "%5.4f" );
+    m_FeaSSLineArrayGroup.AddSlider( m_FeaSSLineArrayEndLocSlider, _("End Location"), 0.5, "%5.4f" );
+    m_FeaSSLineArrayGroup.AddSlider( m_FeaSSLineArraySpacingSlider, _("Spacing"), 0.5, "%5.4f" );
 
     m_FeaSSLineArrayGroup.AddYGap();
 
-    m_FeaSSLineArrayGroup.AddButton( m_IndividualizeSSLineArrayButton, "Individualize SSLine Array" );
+    m_FeaSSLineArrayGroup.AddButton( m_IndividualizeSSLineArrayButton, _("Individualize SSLine Array") );
 
     //==== SSFiniteLine ====//
     m_GenLayout.AddSubGroupLayout( m_FeaSSFLineGroup, m_GenLayout.GetRemainX(), m_GenLayout.GetRemainY() );
     m_FeaSSFLineGroup.SetY( start_y );
 
-    m_FeaSSFLineGroup.AddDividerBox( "Finite Line Sub-Surface" );
+    m_FeaSSFLineGroup.AddDividerBox( _("Finite Line Sub-Surface") );
 
     m_FeaSSFLineGroup.ForceNewLine();
     m_FeaSSFLineGroup.SetFitWidthFlag( true );
@@ -989,10 +991,10 @@ FeaPartEditScreen::FeaPartEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 340, 
     m_FeaSSFLineGroup.SetButtonWidth( m_FeaSSLineGroup.GetRemainX() / 3 );
     m_FeaSSFLineGroup.SetChoiceButtonWidth( m_FeaSSLineGroup.GetRemainX() / 3 );
 
-    m_FeaSSFLineGroup.AddSlider( m_FeaSSFLineUStartSlider, "U Start", 1, "%5.4f" );
-    m_FeaSSFLineGroup.AddSlider( m_FeaSSFLineUEndSlider, "U End", 1, "%5.4f" );
-    m_FeaSSFLineGroup.AddSlider( m_FeaSSFLineWStartSlider, "W Start", 1, "%5.4f" );
-    m_FeaSSFLineGroup.AddSlider( m_FeaSSFLineWEndSlider, "W End", 1, "%5.4f" );
+    m_FeaSSFLineGroup.AddSlider( m_FeaSSFLineUStartSlider, _("U Start"), 1, "%5.4f" );
+    m_FeaSSFLineGroup.AddSlider( m_FeaSSFLineUEndSlider, _("U End"), 1, "%5.4f" );
+    m_FeaSSFLineGroup.AddSlider( m_FeaSSFLineWStartSlider, _("W Start"), 1, "%5.4f" );
+    m_FeaSSFLineGroup.AddSlider( m_FeaSSFLineWEndSlider, _("W End"), 1, "%5.4f" );
 
 }
 

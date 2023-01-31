@@ -14,7 +14,7 @@
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-SurfaceIntersectionScreen::SurfaceIntersectionScreen( ScreenMgr* mgr ) : TabScreen( mgr, 375, 545, "Trimmed Surfaces", 150 )
+SurfaceIntersectionScreen::SurfaceIntersectionScreen( ScreenMgr* mgr ) : TabScreen( mgr, 375, 545, _("Trimmed Surfaces"), 150 )
 {
     m_Vehicle = m_ScreenMgr->GetVehiclePtr();
 
@@ -46,7 +46,7 @@ SurfaceIntersectionScreen::SurfaceIntersectionScreen( ScreenMgr* mgr ) : TabScre
 
     m_BorderConsoleLayout.AddYGap();
 
-    m_BorderConsoleLayout.AddButton( m_IntersectAndExport, "Intersect and Export" );
+    m_BorderConsoleLayout.AddButton( m_IntersectAndExport, _("Intersect and Export") );
 }
 
 SurfaceIntersectionScreen::~SurfaceIntersectionScreen()
@@ -57,7 +57,7 @@ SurfaceIntersectionScreen::~SurfaceIntersectionScreen()
 
 void SurfaceIntersectionScreen::CreateGlobalTab()
 {
-    Fl_Group* globalTab = AddTab( "Global" );
+    Fl_Group* globalTab = AddTab( _("Global") );
     Fl_Group* globalTabGroup = AddSubGroup( globalTab, 5 );
 
     m_GlobalTabLayout.SetGroupAndScreen( globalTabGroup, this );
@@ -69,28 +69,28 @@ void SurfaceIntersectionScreen::CreateGlobalTab()
     m_GlobalTabLayout.SetFitWidthFlag( true );
     m_GlobalTabLayout.SetSameLineFlag( false );
 
-    m_GlobalTabLayout.AddDividerBox( "Geometry Control" );
+    m_GlobalTabLayout.AddDividerBox( _("Geometry Control") );
     m_GlobalTabLayout.AddYGap();
 
-    m_GlobalTabLayout.AddSlider( m_RelCurveTolSlider, "Curve Adaptation Tolerance", 0.01, "%7.5f" );
+    m_GlobalTabLayout.AddSlider( m_RelCurveTolSlider, _("Curve Adaptation Tolerance"), 0.01, "%7.5f" );
     m_GlobalTabLayout.AddYGap();
 
-    m_GlobalTabLayout.AddButton( m_IntersectSubsurfaces, "Intersect Subsurfaces" );
+    m_GlobalTabLayout.AddButton( m_IntersectSubsurfaces, _("Intersect Subsurfaces") );
     m_GlobalTabLayout.AddYGap();
 
     m_GlobalTabLayout.SetChoiceButtonWidth( m_GlobalTabLayout.GetRemainX() / 2 );
-    m_GlobalTabLayout.AddChoice( m_UseSet, "Use Set" );
+    m_GlobalTabLayout.AddChoice( m_UseSet, _("Use Set") );
 
     m_GlobalTabLayout.AddYGap();
-    m_GlobalTabLayout.AddButton( m_ToCubicToggle, "Demote Surfs to Cubic" );
-    m_GlobalTabLayout.AddSlider( m_ToCubicTolSlider, "Cubic Tolerance", 10, "%5.4g", 0, true );
+    m_GlobalTabLayout.AddButton( m_ToCubicToggle, _("Demote Surfs to Cubic") );
+    m_GlobalTabLayout.AddSlider( m_ToCubicTolSlider, _("Cubic Tolerance"), 10, "%5.4g", 0, true );
 
     globalTab->show();
 }
 
 void SurfaceIntersectionScreen::CreateDisplayTab()
 {
-    Fl_Group* displayTab = AddTab( "Display" );
+    Fl_Group* displayTab = AddTab( _("Display") );
     Fl_Group* displayTabGroup = AddSubGroup( displayTab, 5 );
 
     m_DisplayTabLayout.SetGroupAndScreen( displayTabGroup, this );
@@ -98,37 +98,37 @@ void SurfaceIntersectionScreen::CreateDisplayTab()
     m_DisplayTabLayout.SetButtonWidth( 175 );
 
     m_DisplayTabLayout.AddYGap();
-    m_DisplayTabLayout.AddButton( m_ShowWakePreview, "Show Wake Preview" );
+    m_DisplayTabLayout.AddButton( m_ShowWakePreview, _("Show Wake Preview") );
     m_DisplayTabLayout.AddYGap();
-    m_DisplayTabLayout.AddButton( m_DrawIsect, "Show Intersection Curves");
-    m_DisplayTabLayout.AddButton( m_DrawBorder, "Show Border Curves");
+    m_DisplayTabLayout.AddButton( m_DrawIsect, _("Show Intersection Curves"));
+    m_DisplayTabLayout.AddButton( m_DrawBorder, _("Show Border Curves"));
     m_DisplayTabLayout.AddYGap();
-    m_DisplayTabLayout.AddButton( m_ShowCurve, "Show Curves");
-    m_DisplayTabLayout.AddButton( m_ShowPts, "Show Points");
+    m_DisplayTabLayout.AddButton( m_ShowCurve, _("Show Curves"));
+    m_DisplayTabLayout.AddButton( m_ShowPts, _("Show Points"));
     m_DisplayTabLayout.AddYGap();
-    m_DisplayTabLayout.AddButton( m_ShowRaw, "Show Raw Curve");
-    m_DisplayTabLayout.AddButton( m_ShowBinAdapt, "Show Binary Adapted");
+    m_DisplayTabLayout.AddButton( m_ShowRaw, _("Show Raw Curve"));
+    m_DisplayTabLayout.AddButton( m_ShowBinAdapt, _("Show Binary Adapted"));
 
     displayTab->show();
 }
 
 void SurfaceIntersectionScreen::CreateOutputTab()
 {
-    Fl_Group* outputTab = AddTab( "Output" );
+    Fl_Group* outputTab = AddTab( _("Output") );
     Fl_Group* outputTabGroup = AddSubGroup( outputTab, 5 );
 
     m_OutputTabLayout.SetGroupAndScreen( outputTabGroup, this );
 
-    m_OutputTabLayout.AddDividerBox("Export Options");
+    m_OutputTabLayout.AddDividerBox(_("Export Options"));
     m_OutputTabLayout.AddYGap();
 
     m_OutputTabLayout.SetButtonWidth( 175 );
 
-    m_OutputTabLayout.AddButton( m_ExportRaw, "Export Raw Points" );
+    m_OutputTabLayout.AddButton( m_ExportRaw, _("Export Raw Points") );
 
     m_OutputTabLayout.AddYGap();
 
-    m_OutputTabLayout.AddDividerBox("Export File Names");
+    m_OutputTabLayout.AddDividerBox(_("Export File Names"));
     m_OutputTabLayout.AddYGap();
 
     m_OutputTabLayout.SetFitWidthFlag( false );
@@ -155,7 +155,7 @@ void SurfaceIntersectionScreen::CreateOutputTab()
 
     m_OutputTabLayout.ForceNewLine();
     m_OutputTabLayout.SetFitWidthFlag( true );
-    m_OutputTabLayout.AddDividerBox("Surfaces and Intersection Curves");
+    m_OutputTabLayout.AddDividerBox(_("Surfaces and Intersection Curves"));
     m_OutputTabLayout.ForceNewLine();
     m_OutputTabLayout.SetFitWidthFlag( false );
 
@@ -167,41 +167,41 @@ void SurfaceIntersectionScreen::CreateOutputTab()
     m_OutputTabLayout.ForceNewLine();
 
     m_OutputTabLayout.SetFitWidthFlag( true );
-    m_OutputTabLayout.AddButton( m_XYZIntCurves, "Include X,Y,Z Intersection Curves");
+    m_OutputTabLayout.AddButton( m_XYZIntCurves, _("Include X,Y,Z Intersection Curves"));
     m_OutputTabLayout.SetFitWidthFlag( false );
     m_OutputTabLayout.ForceNewLine();
 
     m_OutputTabLayout.AddYGap();
     m_OutputTabLayout.SetFitWidthFlag( true );
-    m_OutputTabLayout.AddDividerBox( "Trimmed CAD Options" );
+    m_OutputTabLayout.AddDividerBox( _("Trimmed CAD Options") );
     m_OutputTabLayout.ForceNewLine();
     m_OutputTabLayout.SetFitWidthFlag( false );
     m_OutputTabLayout.InitWidthHeightVals();
 
     m_OutputTabLayout.SetButtonWidth( m_OutputTabLayout.GetRemainX() / 4 );
 
-    m_OutputTabLayout.AddButton( m_LabelIDToggle, "Geom ID" );
-    m_OutputTabLayout.AddButton( m_LabelNameToggle, "Geom Name" );
-    m_OutputTabLayout.AddButton( m_LabelSurfNoToggle, "Surf Number" );
-    m_OutputTabLayout.AddButton( m_LabelSplitNoToggle, "Split Number" );
+    m_OutputTabLayout.AddButton( m_LabelIDToggle, _("Geom ID") );
+    m_OutputTabLayout.AddButton( m_LabelNameToggle, _("Geom Name") );
+    m_OutputTabLayout.AddButton( m_LabelSurfNoToggle, _("Surf Number") );
+    m_OutputTabLayout.AddButton( m_LabelSplitNoToggle, _("Split Number") );
 
     m_OutputTabLayout.ForceNewLine();
     m_OutputTabLayout.SetSliderWidth( m_OutputTabLayout.GetRemainX() / 4 );
     m_OutputTabLayout.SetChoiceButtonWidth( m_OutputTabLayout.GetRemainX() / 4 );
 
-    m_LabelDelimChoice.AddItem( "Comma" );
-    m_LabelDelimChoice.AddItem( "Underscore" );
-    m_LabelDelimChoice.AddItem( "Space" );
-    m_LabelDelimChoice.AddItem( "None" );
-    m_OutputTabLayout.AddChoice( m_LabelDelimChoice, "Delimiter" );
+    m_LabelDelimChoice.AddItem( _("Comma") );
+    m_LabelDelimChoice.AddItem( _("Underscore") );
+    m_LabelDelimChoice.AddItem( _("Space") );
+    m_LabelDelimChoice.AddItem( _("None") );
+    m_OutputTabLayout.AddChoice( m_LabelDelimChoice, _("Delimiter") );
 
-    m_LenUnitChoice.AddItem( "MM" );
-    m_LenUnitChoice.AddItem( "CM" );
-    m_LenUnitChoice.AddItem( "M" );
-    m_LenUnitChoice.AddItem( "IN" );
-    m_LenUnitChoice.AddItem( "FT" );
-    //m_LenUnitChoice.AddItem( "YD" ); // FIXME: YD is not supported by both STEP and IGES
-    m_OutputTabLayout.AddChoice( m_LenUnitChoice, "Length Unit" );
+    m_LenUnitChoice.AddItem( _("MM") );
+    m_LenUnitChoice.AddItem( _("CM") );
+    m_LenUnitChoice.AddItem( _("M") );
+    m_LenUnitChoice.AddItem( _("IN") );
+    m_LenUnitChoice.AddItem( _("FT") );
+    //m_LenUnitChoice.AddItem( _("YD") ); // FIXME: YD is not supported by both STEP and IGES
+    m_OutputTabLayout.AddChoice( m_LenUnitChoice, _("Length Unit") );
     m_OutputTabLayout.ForceNewLine();
 
     m_OutputTabLayout.AddYGap();
@@ -230,9 +230,9 @@ void SurfaceIntersectionScreen::CreateOutputTab()
     m_OutputTabLayout.SetButtonWidth( 175 );
 
     //m_OutputTabLayout.SetButtonWidth( m_OutputTabLayout.GetRemainX() / 3 );
-    //m_OutputTabLayout.AddButton( m_STEPMergePointsToggle, "Merge Points" );
+    //m_OutputTabLayout.AddButton( m_STEPMergePointsToggle, _("Merge Points") );
     //m_OutputTabLayout.SetFitWidthFlag( true );
-    m_OutputTabLayout.AddSlider( m_STEPTolSlider, "STEP Tolerance", 10, "%5.4g", 0, true );
+    m_OutputTabLayout.AddSlider( m_STEPTolSlider, _("STEP Tolerance"), 10, "%5.4g", 0, true );
     //m_OutputTabLayout.SetFitWidthFlag( false );
     //m_OutputTabLayout.ForceNewLine();
 
@@ -240,8 +240,8 @@ void SurfaceIntersectionScreen::CreateOutputTab()
     m_OutputTabLayout.SetSameLineFlag( true );
 
     m_OutputTabLayout.SetButtonWidth( m_OutputTabLayout.GetRemainX() / 2 );
-    m_OutputTabLayout.AddButton( m_STEPShell, "Shell Representation" );
-    m_OutputTabLayout.AddButton( m_STEPBREP, "BREP Solid Representation" );
+    m_OutputTabLayout.AddButton( m_STEPShell, _("Shell Representation") );
+    m_OutputTabLayout.AddButton( m_STEPBREP, _("BREP Solid Representation") );
     m_OutputTabLayout.ForceNewLine();
 
     m_STEPRepGroup.Init( this );
@@ -253,7 +253,7 @@ void SurfaceIntersectionScreen::CreateOutputTab()
 
 void SurfaceIntersectionScreen::CreateWakesTab()
 {
-    m_WakesTab = AddTab( "Wakes" );
+    m_WakesTab = AddTab( _("Wakes") );
     Fl_Group* wakesTabGroup = AddSubGroup( m_WakesTab, 5 );
 
     m_WakesTabLayout.SetGroupAndScreen( wakesTabGroup, this );
@@ -261,9 +261,9 @@ void SurfaceIntersectionScreen::CreateWakesTab()
     m_WakesTabLayout.AddYGap();
 
     m_WakesTabLayout.SetButtonWidth( 175.0 );
-    m_WakesTabLayout.AddSlider( m_ScaleWake, "Scale Wake", 10.0, "%7.5f" );
+    m_WakesTabLayout.AddSlider( m_ScaleWake, _("Scale Wake"), 10.0, "%7.5f" );
     m_WakesTabLayout.AddYGap();
-    m_WakesTabLayout.AddSlider( m_WakeAngle, "Wake Angle", 10.0, "%7.5f" );
+    m_WakesTabLayout.AddSlider( m_WakeAngle, _("Wake Angle"), 10.0, "%7.5f" );
 
     m_WakesTabLayout.ForceNewLine();
 
@@ -271,11 +271,11 @@ void SurfaceIntersectionScreen::CreateWakesTab()
     m_WakesTabLayout.SetSameLineFlag( true );
 
     m_WakesTabLayout.SetChoiceButtonWidth( 100 );
-    m_WakesTabLayout.AddChoice( m_Comp, "Comp", 100 );
+    m_WakesTabLayout.AddChoice( m_Comp, _("Comp"), 100 );
 
     m_WakesTabLayout.SetFitWidthFlag( false );
     m_WakesTabLayout.SetButtonWidth( 100 );
-    m_WakesTabLayout.AddButton( m_AddWake, "Add Wake" );
+    m_WakesTabLayout.AddButton( m_AddWake, _("Add Wake") );
 
     m_WakesTab->show();
 }
@@ -583,7 +583,7 @@ void SurfaceIntersectionScreen::GuiDeviceOutputTabCallback( GuiDevice* device )
 {
     if ( device == &m_SelectSrfFile )
     {
-        string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Select .srf file.", "*.srf" );
+        string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Select .srf file."), "*.srf" );
         if ( newfile.compare( "" ) != 0 )
         {
             m_Vehicle->GetISectSettingsPtr()->SetExportFileName( newfile, vsp::INTERSECT_SRF_FILE_NAME );
@@ -591,7 +591,7 @@ void SurfaceIntersectionScreen::GuiDeviceOutputTabCallback( GuiDevice* device )
     }
     else if ( device == &m_SelectCurvFile )
     {
-        string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Select GridTool .curv file.", "*.curv" );
+        string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Select GridTool .curv file."), "*.curv" );
         if ( newfile.compare( "" ) != 0 )
         {
             m_Vehicle->GetISectSettingsPtr()->SetExportFileName( newfile, vsp::INTERSECT_CURV_FILE_NAME );
@@ -599,7 +599,7 @@ void SurfaceIntersectionScreen::GuiDeviceOutputTabCallback( GuiDevice* device )
     }
     else if ( device == &m_SelectPlot3DFile )
     {
-        string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Select Plot3D .p3d file.", "*.p3d" );
+        string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Select Plot3D .p3d file."), "*.p3d" );
         if ( newfile.compare( "" ) != 0 )
         {
             m_Vehicle->GetISectSettingsPtr()->SetExportFileName( newfile, vsp::INTERSECT_PLOT3D_FILE_NAME );
@@ -607,7 +607,7 @@ void SurfaceIntersectionScreen::GuiDeviceOutputTabCallback( GuiDevice* device )
     }
     else if ( device == &m_SelectIGESFile )
     {
-        string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Select IGES .igs file.", "*.igs" );
+        string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Select IGES .igs file."), "*.igs" );
         if ( newfile.compare( "" ) != 0 )
         {
             m_Vehicle->GetISectSettingsPtr()->SetExportFileName( newfile, vsp::INTERSECT_IGES_FILE_NAME );
@@ -615,7 +615,7 @@ void SurfaceIntersectionScreen::GuiDeviceOutputTabCallback( GuiDevice* device )
     }
     else if ( device == &m_SelectSTEPFile )
     {
-        string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Select STEP .stp file.", "*.stp" );
+        string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Select STEP .stp file."), "*.stp" );
         if ( newfile.compare( "" ) != 0 )
         {
             m_Vehicle->GetISectSettingsPtr()->SetExportFileName( newfile, vsp::INTERSECT_STEP_FILE_NAME );

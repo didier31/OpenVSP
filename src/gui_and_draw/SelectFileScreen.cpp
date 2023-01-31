@@ -22,7 +22,7 @@
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-SelectFileScreen::SelectFileScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 440, 345, "Open VSP File (*.vsp3)")
+SelectFileScreen::SelectFileScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 440, 345, _("Open VSP File (*.vsp3)"))
 {
 
     char cCurrentPath[FILENAME_MAX];
@@ -48,7 +48,7 @@ SelectFileScreen::SelectFileScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 440, 34
     //Create GUI
     m_FL_TitleBox->resize( 2, 2, 355 , 20 );
 
-    m_FavsMenuButton = new Fl_Menu_Button(370, 2, 65, 20, "Favs");
+    m_FavsMenuButton = new Fl_Menu_Button(370, 2, 65, 20, _("Favs"));
     m_FavsMenuButton->labelfont(1);
 
     m_DirInput = new Fl_File_Input(5, 30, 430, 30);
@@ -69,7 +69,7 @@ SelectFileScreen::SelectFileScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 440, 34
     m_BorderLayout.AddY( 260 );
     m_BorderLayout.AddYGap();
 
-    m_BorderLayout.AddInput( m_FileSelectInput, "File:" );
+    m_BorderLayout.AddInput( m_FileSelectInput, _("File:") );
     m_BorderLayout.AddYGap();
     m_FileSelectInput.SetTextFont( FL_HELVETICA_BOLD );
 
@@ -77,10 +77,10 @@ SelectFileScreen::SelectFileScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 440, 34
     m_BorderLayout.SetSameLineFlag( true );
 
     m_BorderLayout.SetButtonWidth(( m_BorderLayout.GetW() / 3) );
-    m_BorderLayout.AddButton( m_AcceptButton , "Accept");
+    m_BorderLayout.AddButton( m_AcceptButton , _("Accept"));
 
     m_BorderLayout.AddX( m_BorderLayout.GetW() / 3);
-    m_BorderLayout.AddButton( m_CancelButton , "Cancel");
+    m_BorderLayout.AddButton( m_CancelButton , _("Cancel"));
 
     //Need to give it a type or browser does not work as intended
     m_FileBrowser->type( FL_SELECT_BROWSER );
@@ -310,10 +310,10 @@ void SelectFileScreen::EnforceFilter( string &in ) const
 void SelectFileScreen::LoadFavsMenu()
 {
     m_FavDirVec.clear();
-    m_FavsMenuButton->add( "Add to Favorites" );
-    m_FavsMenuButton->add( "Delete All Favorites", 0, NULL, ( void* )0, FL_MENU_DIVIDER );
-    m_FavsMenuButton->add( "Home" );
-    m_FavsMenuButton->add( "VSP Path", 0, NULL, ( void* )0, FL_MENU_DIVIDER );
+    m_FavsMenuButton->add( _("Add to Favorites") );
+    m_FavsMenuButton->add( _("Delete All Favorites"), 0, NULL, ( void* )0, FL_MENU_DIVIDER );
+    m_FavsMenuButton->add( _("Home") );
+    m_FavsMenuButton->add( _("VSP Path"), 0, NULL, ( void* )0, FL_MENU_DIVIDER );
 
     //==== Preferences ====//
     Fl_Preferences prefs( Fl_Preferences::USER, "openvsp.org", "VSP" );

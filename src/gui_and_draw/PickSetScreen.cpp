@@ -12,7 +12,7 @@
 #include "ScreenMgr.h"
 
 //==== Constructor ====//
-PickSetScreen::PickSetScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 150, 120, "Pick Set" )
+PickSetScreen::PickSetScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 150, 120, _("Pick Set") )
 {
     // Init member variables
     m_SelectedSetIndex = DEFAULT_SET;

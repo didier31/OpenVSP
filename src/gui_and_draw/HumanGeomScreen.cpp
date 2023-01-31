@@ -9,16 +9,17 @@
 #include "ScreenMgr.h"
 #include "HumanGeom.h"
 
+#include <intl.h>
 
 //==== Constructor ====//
-HumanGeomScreen::HumanGeomScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 350, 615, "Human" )
+HumanGeomScreen::HumanGeomScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 350, 615, _("Human") )
 {
-    Fl_Group* design_tab = AddTab( "Anthropometric" );
+    Fl_Group* design_tab = AddTab( _("Anthropometric") );
     Fl_Group* design_group = AddSubGroup( design_tab, 5 );
 
     m_AnthropoLayout.SetGroupAndScreen( design_group, this );
 
-    m_AnthropoLayout.AddDividerBox( "Units" );
+    m_AnthropoLayout.AddDividerBox( _("Units") );
 
     m_LenUnitChoice.AddItem( "MM" );
     m_LenUnitChoice.AddItem( "CM" );
@@ -26,7 +27,7 @@ HumanGeomScreen::HumanGeomScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 350, 615, 
     m_LenUnitChoice.AddItem( "IN" );
     m_LenUnitChoice.AddItem( "FT" );
     m_LenUnitChoice.AddItem( "YD" );
-    m_AnthropoLayout.AddChoice( m_LenUnitChoice, "Length Unit" );
+    m_AnthropoLayout.AddChoice( m_LenUnitChoice, _("Length Unit") );
 
     m_MassUnitChoice.AddItem( "G" );
     m_MassUnitChoice.AddItem( "KG" );
@@ -34,29 +35,29 @@ HumanGeomScreen::HumanGeomScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 350, 615, 
     m_MassUnitChoice.AddItem( "LBM" );
     m_MassUnitChoice.AddItem( "SLUG" );
     m_MassUnitChoice.AddItem( "LBFSEC2IN" );
-    m_AnthropoLayout.AddChoice( m_MassUnitChoice, "Mass Unit" );
+    m_AnthropoLayout.AddChoice( m_MassUnitChoice, _("Mass Unit") );
 
     m_AnthropoLayout.AddYGap();
-    m_AnthropoLayout.AddDividerBox( "Anthropometric" );
+    m_AnthropoLayout.AddDividerBox( _("Anthropometric") );
 
-    m_GenderChoice.AddItem( "MALE" );
-    m_GenderChoice.AddItem( "FEMALE" );
-    m_AnthropoLayout.AddChoice( m_GenderChoice, "Gender" );
+    m_GenderChoice.AddItem( _("MALE") );
+    m_GenderChoice.AddItem( _("FEMALE") );
+    m_AnthropoLayout.AddChoice( m_GenderChoice, _("Gender") );
     m_AnthropoLayout.AddYGap();
 
-    m_AnthropoLayout.AddSlider( m_StatureSlider, "Stature", 100, "%7.3f" );
-    m_AnthropoLayout.AddSlider( m_StaturePctSlider, "% Stature", 1, "%7.3f" );
+    m_AnthropoLayout.AddSlider( m_StatureSlider, _("Stature"), 100, "%7.3f" );
+    m_AnthropoLayout.AddSlider( m_StaturePctSlider, _("% Stature"), 1, "%7.3f" );
     m_AnthropoLayout.AddYGap();
 
-    m_AnthropoLayout.AddSlider( m_BMISlider, "BMI", 10, "%7.3f" );
-    m_AnthropoLayout.AddSlider( m_BMIPctSlider, "% BMI", 1, "%7.3f" );
-    m_AnthropoLayout.AddSlider( m_MassSlider, "Mass", 100, "%7.3f" );
+    m_AnthropoLayout.AddSlider( m_BMISlider, _("BMI"), 10, "%7.3f" );
+    m_AnthropoLayout.AddSlider( m_BMIPctSlider, _("% BMI"), 1, "%7.3f" );
+    m_AnthropoLayout.AddSlider( m_MassSlider, _("Mass"), 100, "%7.3f" );
 
     m_AnthropoLayout.SetSameLineFlag( true );
-    m_AnthropoLayout.AddOutput( m_VolumeOutput, "Volume", "%6.2f", 100 );
+    m_AnthropoLayout.AddOutput( m_VolumeOutput, _("Volume"), "%6.2f", 100 );
     m_AnthropoLayout.SetFitWidthFlag( false );
     m_AnthropoLayout.SetButtonWidth( 100 );
-    m_AnthropoLayout.AddButton( m_AutoDensityToggle, "Auto Density" );
+    m_AnthropoLayout.AddButton( m_AutoDensityToggle, _("Auto Density") );
     m_AnthropoLayout.InitWidthHeightVals();
     m_AnthropoLayout.ForceNewLine();
     m_AnthropoLayout.SetSameLineFlag( false );
@@ -64,82 +65,82 @@ HumanGeomScreen::HumanGeomScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 350, 615, 
 
     m_AnthropoLayout.AddYGap();
 
-    m_AnthropoLayout.AddSlider( m_AgeSlider, "Age", 10, "%7.3f" );
+    m_AnthropoLayout.AddSlider( m_AgeSlider, _("Age"), 10, "%7.3f" );
     m_AnthropoLayout.AddYGap();
 
-    m_AnthropoLayout.AddSlider( m_SitFracSlider, "Sitting H / H", 1.0, "%7.3f" );
+    m_AnthropoLayout.AddSlider( m_SitFracSlider, _("Sitting H / H"), 1.0, "%7.3f" );
 
     m_AnthropoLayout.AddYGap();
 
 #ifdef SHOW_SHOW_SKEL_BUTTON
-    m_AnthropoLayout.AddButton( m_ShowSkelButton, "Show Skeleton" );
+    m_AnthropoLayout.AddButton( m_ShowSkelButton, _("Show Skeleton") );
 #endif
 
-    Fl_Group* pose_tab = AddTab( "Pose" );
+    Fl_Group* pose_tab = AddTab( _("Pose") );
     Fl_Group* pose_group = AddSubGroup( pose_tab, 5 );
 
     m_PoseLayout.SetGroupAndScreen( pose_group, this );
-    m_PoseLayout.AddDividerBox( "Pose" );
+    m_PoseLayout.AddDividerBox( _("Pose") );
 
     m_PoseLayout.SetButtonWidth( m_PoseLayout.GetButtonWidth() + 25 );
 
-    m_PresetPoseChoice.AddItem( "STANDING" );
-    m_PresetPoseChoice.AddItem( "SITTING" );
+    m_PresetPoseChoice.AddItem( _("STANDING") );
+    m_PresetPoseChoice.AddItem( _("SITTING") );
 
     m_PoseLayout.SetChoiceButtonWidth( m_PoseLayout.GetButtonWidth() );
 
     m_PoseLayout.SetSameLineFlag( true );
 
-    m_PoseLayout.AddChoice( m_PresetPoseChoice, "Preset", m_PoseLayout.GetButtonWidth() );
+    m_PoseLayout.AddChoice( m_PresetPoseChoice, _("Preset"), m_PoseLayout.GetButtonWidth() );
 
     m_PoseLayout.SetFitWidthFlag( false );
-    m_PoseLayout.AddButton( m_SetPose, "Set" );
+    m_PoseLayout.AddButton( m_SetPose, _("Set") );
 
     m_PoseLayout.ForceNewLine();
     m_PoseLayout.SetSameLineFlag( false );
     m_PoseLayout.SetFitWidthFlag( true );
 
     m_PoseLayout.AddYGap();
-    m_PoseLayout.AddDividerBox( "Body" );
+    m_PoseLayout.AddDividerBox( _("Body") );
 
-    m_PoseLayout.AddSlider( m_BackSlider, "Back", 100, "%7.3f" );
-    m_PoseLayout.AddSlider( m_WaistSlider, "Waist", 100, "%7.3f" );
+    m_PoseLayout.AddSlider( m_BackSlider, _("Back"), 100, "%7.3f" );
+    m_PoseLayout.AddSlider( m_WaistSlider, _("Waist"), 100, "%7.3f" );
 
     int oldDH = m_PoseLayout.GetDividerHeight();
     m_PoseLayout.SetDividerHeight( m_PoseLayout.GetStdHeight() );
 
     m_PoseLayout.AddYGap();
-    m_PoseLayout.AddDividerBox( "Right Side" );
+    m_PoseLayout.AddDividerBox( _("Right Side") );
 
     m_PoseLayout.SetDividerHeight( oldDH );
 
     m_PoseLayout.AddYGap();
-    m_PoseLayout.AddDividerBox( "Arm" );
+    m_PoseLayout.AddDividerBox( _("Arm") );
 
 
 
 
-    m_PoseLayout.AddSlider( m_ShoulderABADRtSlider, "Shoulder AB/AD", 100, "%7.3f" );
-    m_PoseLayout.AddSlider( m_ShoulderFERtSlider, "Shoulder FE", 100, "%7.3f" );
-    m_PoseLayout.AddSlider( m_ShoulderIERtSlider, "Shoulder IE", 100, "%7.3f" );
-    m_PoseLayout.AddSlider( m_ElbowRtSlider, "Elbow", 100, "%7.3f" );
+    m_PoseLayout.AddSlider( m_ShoulderABADRtSlider, _("Shoulder AB/AD"), 100, "%7.3f" );
+    m_PoseLayout.AddSlider( m_ShoulderFERtSlider, _("Shoulder FE"), 100, "%7.3f" );
+    m_PoseLayout.AddSlider( m_ShoulderIERtSlider, _("Shoulder IE"), 100, "%7.3f" );
+    m_PoseLayout.AddSlider( m_ElbowRtSlider, _("Elbow"), 100, "%7.3f" );
 
     m_PoseLayout.AddYGap();
-    m_PoseLayout.AddDividerBox( "Leg" );
+    m_PoseLayout.AddDividerBox( _("Leg") );
 
-    m_PoseLayout.AddSlider( m_HipABADRtSlider, "Hip AB/AD", 100, "%7.3f" );
-    m_PoseLayout.AddSlider( m_HipFERtSlider, "Hip FE", 100, "%7.3f" );
-    m_PoseLayout.AddSlider( m_KneeRtSlider, "Knee", 100, "%7.3f" );
-    m_PoseLayout.AddSlider( m_AnkleRtSlider, "Ankle", 100, "%7.3f" );
+    m_PoseLayout.AddSlider( m_HipABADRtSlider, _("Hip AB/AD"), 100, "%7.3f" );
+    m_PoseLayout.AddSlider( m_HipFERtSlider, _("Hip FE"), 100, "%7.3f" );
+    m_PoseLayout.AddSlider( m_KneeRtSlider, _("Knee"), 100, "%7.3f" );
+    m_PoseLayout.AddSlider( m_AnkleRtSlider, _("Ankle"), 100, "%7.3f" );
 
 
     m_PoseLayout.SetDividerHeight( m_PoseLayout.GetStdHeight() );
 
     m_PoseLayout.AddYGap();
     m_PoseLayout.SetSameLineFlag( true );
-    m_PoseLayout.AddDividerBox( "Left Side", m_PoseLayout.GetButtonWidth() );
+    m_PoseLayout.AddDividerBox( _("Left Side"), m_PoseLayout.GetButtonWidth() );
     m_PoseLayout.SetFitWidthFlag( false );
-    m_PoseLayout.AddButton( m_RLSymButton, "R/L Sym" );
+    m_PoseLayout.AddButton( m_RLSymButton, _("R/L Sym") );
     m_PoseLayout.ForceNewLine();
     m_PoseLayout.SetFitWidthFlag( true );
     m_PoseLayout.SetSameLineFlag( false );
@@ -149,18 +150,18 @@ HumanGeomScreen::HumanGeomScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 350, 615, 
     m_PoseLayout.AddYGap();
     m_PoseLayout.AddDividerBox( "Arm" );
 
-    m_PoseLayout.AddSlider( m_ShoulderABADLtSlider, "Shoulder AB/AD", 100, "%7.3f" );
-    m_PoseLayout.AddSlider( m_ShoulderFELtSlider, "Shoulder FE", 100, "%7.3f" );
-    m_PoseLayout.AddSlider( m_ShoulderIELtSlider, "Shoulder IE", 100, "%7.3f" );
-    m_PoseLayout.AddSlider( m_ElbowLtSlider, "Elbow", 100, "%7.3f" );
+    m_PoseLayout.AddSlider( m_ShoulderABADLtSlider, _("Shoulder AB/AD"), 100, "%7.3f" );
+    m_PoseLayout.AddSlider( m_ShoulderFELtSlider, _("Shoulder FE"), 100, "%7.3f" );
+    m_PoseLayout.AddSlider( m_ShoulderIELtSlider, _("Shoulder IE"), 100, "%7.3f" );
+    m_PoseLayout.AddSlider( m_ElbowLtSlider, _("Elbow"), 100, "%7.3f" );
 
     m_PoseLayout.AddYGap();
     m_PoseLayout.AddDividerBox( "Leg" );
 
-    m_PoseLayout.AddSlider( m_HipABADLtSlider, "Hip AB/AD", 100, "%7.3f" );
-    m_PoseLayout.AddSlider( m_HipFELtSlider, "Hip FE", 100, "%7.3f" );
-    m_PoseLayout.AddSlider( m_KneeLtSlider, "Knee ", 100, "%7.3f" );
-    m_PoseLayout.AddSlider( m_AnkleLtSlider, "Ankle", 100, "%7.3f" );
+    m_PoseLayout.AddSlider( m_HipABADLtSlider, _("Hip AB/AD"), 100, "%7.3f" );
+    m_PoseLayout.AddSlider( m_HipFELtSlider, _("Hip FE"), 100, "%7.3f" );
+    m_PoseLayout.AddSlider( m_KneeLtSlider, _("Knee "), 100, "%7.3f" );
+    m_PoseLayout.AddSlider( m_AnkleLtSlider, _("Ankle"), 100, "%7.3f" );
 
 }
 

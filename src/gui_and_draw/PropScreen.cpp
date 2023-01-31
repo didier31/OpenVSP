@@ -16,7 +16,7 @@ using namespace vsp;
 
 
 //==== Constructor ====//
-PropScreen::PropScreen( ScreenMgr* mgr ) : XSecScreen( mgr, 400+40, 700, "Propeller" )
+PropScreen::PropScreen( ScreenMgr* mgr ) : XSecScreen( mgr, 400+40, 700, _("Propeller") )
 {
     m_CurrDisplayGroup = NULL;
 
@@ -30,7 +30,7 @@ PropScreen::PropScreen( ScreenMgr* mgr ) : XSecScreen( mgr, 400+40, 700, "Propel
     m_PropModeChoice.AddItem( _("Blades") );
     m_PropModeChoice.AddItem( _("Both") );
     m_PropModeChoice.AddItem( _("Disk") );
-    m_DesignLayout.AddChoice( m_PropModeChoice, "Prop Mode" );
+    m_DesignLayout.AddChoice( m_PropModeChoice, _("Prop Mode") );
 
     m_DesignLayout.AddYGap();
 

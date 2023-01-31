@@ -12,6 +12,9 @@
 #include "StlHelper.h"
 
 #include <numeric>
+
+#include <intl.h>
+
 using namespace std;
 
 //////////////////////////////////////////////////////////////////////
@@ -46,9 +49,9 @@ ParasiteDragScreen::ParasiteDragScreen( ScreenMgr* mgr ) : TabScreen( mgr,
     int layoutHeight = 600;
 
     // Add Tabs
-    Fl_Group* overview_tab = AddTab( "Overview" );
-    Fl_Group* excrescence_tab = AddTab( "Excrescence" );
-    Fl_Group* documentation_tab = AddTab( "Documentation" );
+    Fl_Group* overview_tab = AddTab( _("Overview") );
+    Fl_Group* excrescence_tab = AddTab( _("Excrescence") );
+    Fl_Group* documentation_tab = AddTab( _("Documentation") );
 
     overview_tab->show();
 
@@ -149,13 +152,13 @@ ParasiteDragScreen::ParasiteDragScreen( ScreenMgr* mgr ) : TabScreen( mgr,
     //---- Execute ----//
     m_ExecuteLayout.SetSameLineFlag( false );
     m_ExecuteLayout.SetFitWidthFlag( true );
-    m_ExecuteLayout.AddDividerBox( "Execute" );
-    m_ExecuteLayout.AddButton( m_calc, "Calculate CD0" );
+    m_ExecuteLayout.AddDividerBox( _("Execute") );
+    m_ExecuteLayout.AddButton( m_calc, _("Calculate CD0") );
     m_ExecuteLayout.SetSameLineFlag( true );
     m_ExecuteLayout.SetFitWidthFlag( false );
     m_ExecuteLayout.SetButtonWidth( m_ExecuteLayout.GetW() / 2 );
-    m_ExecuteLayout.AddButton( m_SubCompExportToggle, "Export Sub-Components" );
-    m_ExecuteLayout.AddButton( m_export, "Export to *.csv" );
+    m_ExecuteLayout.AddButton( m_SubCompExportToggle, _("Export Sub-Components") );
+    m_ExecuteLayout.AddButton( m_export, _("Export to *.csv") );
     m_ExecuteLayout.ForceNewLine();
 
     // Add Final Outputs
@@ -165,22 +168,22 @@ ParasiteDragScreen::ParasiteDragScreen( ScreenMgr* mgr ) : TabScreen( mgr,
     m_ConstantViewLayout.AddButton( m_fTotalLabel, "" );
     m_fTotalLabel.GetFlButton()->box( FL_THIN_UP_BOX );
     m_fTotalLabel.GetFlButton()->labelcolor( FL_BLACK );
-    m_ConstantViewLayout.AddLabel( "C_D", TYPICAL_INPUT_WIDTH - 10 );
-    m_ConstantViewLayout.AddLabel( "% Total", TYPICAL_INPUT_WIDTH - 10 );
+    m_ConstantViewLayout.AddLabel( _("C_D"), TYPICAL_INPUT_WIDTH - 10 );
+    m_ConstantViewLayout.AddLabel( _("% Total"), TYPICAL_INPUT_WIDTH - 10 );
     m_ConstantViewLayout.SetSameLineFlag( true );
     m_ConstantViewLayout.SetFitWidthFlag( false );
     m_ConstantViewLayout.ForceNewLine();
     m_ConstantViewLayout.SetButtonWidth( 0 );
     m_ConstantViewLayout.SetInputWidth( TYPICAL_INPUT_WIDTH - 10 );
     m_ConstantViewLayout.AddX( -TYPICAL_INPUT_WIDTH );
-    m_ConstantViewLayout.AddLabel( "Geom:", TYPICAL_INPUT_WIDTH );
+    m_ConstantViewLayout.AddLabel( _("Geom:"), TYPICAL_INPUT_WIDTH );
     m_ConstantViewLayout.AddOutput( m_GeomfTotal, "" );
     m_ConstantViewLayout.AddOutput( m_GeomCdTotal, "" );
     m_ConstantViewLayout.AddOutput( m_GeomPercTotal, "" );
     m_ConstantViewLayout.ForceNewLine();
 
     m_ConstantViewLayout.AddX( -TYPICAL_INPUT_WIDTH );
-    m_ConstantViewLayout.AddLabel( "Excres:", TYPICAL_INPUT_WIDTH );
+    m_ConstantViewLayout.AddLabel( _("Excres:"), TYPICAL_INPUT_WIDTH );
     m_ConstantViewLayout.AddOutput( m_ExcresfTotal, "" );
     m_ConstantViewLayout.AddOutput( m_ExcresCdTotal, "" );
     m_ConstantViewLayout.AddOutput( m_ExcresPercTotal, "" );
@@ -188,50 +191,50 @@ ParasiteDragScreen::ParasiteDragScreen( ScreenMgr* mgr ) : TabScreen( mgr,
     m_ConstantViewLayout.AddYGap();
 
     m_ConstantViewLayout.AddX( -TYPICAL_INPUT_WIDTH );
-    m_ConstantViewLayout.AddLabel( "Total:", TYPICAL_INPUT_WIDTH );
+    m_ConstantViewLayout.AddLabel( _("Total:"), TYPICAL_INPUT_WIDTH );
     m_ConstantViewLayout.AddOutput( m_fTotal, "" );
     m_ConstantViewLayout.AddOutput( m_CDTotal, "" );
     m_ConstantViewLayout.AddOutput( m_PercTotal, "" );
 
     // Add GUI Elements to Options Layout
     //---- Geometry ----//
-    m_OptionsLayout.AddDividerBox( "Geometry" );
-    m_OptionsLayout.AddChoice( m_SetChoice, "Geometry Set: " );
-    m_OptionsLayout.AddChoice( m_ModelLengthUnitChoice, "Model Length Unit" );
-    m_ModelLengthUnitChoice.AddItem( "mm" );
-    m_ModelLengthUnitChoice.AddItem( "cm" );
-    m_ModelLengthUnitChoice.AddItem( "m" );
-    m_ModelLengthUnitChoice.AddItem( "in" );
-    m_ModelLengthUnitChoice.AddItem( "ft" );
-    m_ModelLengthUnitChoice.AddItem( "yd" );
-    m_ModelLengthUnitChoice.AddItem( "Unitless" );
+    m_OptionsLayout.AddDividerBox( _("Geometry") );
+    m_OptionsLayout.AddChoice( m_SetChoice, _("Geometry Set: ") );
+    m_OptionsLayout.AddChoice( m_ModelLengthUnitChoice, _("Model Length Unit") );
+    m_ModelLengthUnitChoice.AddItem( _("mm") );
+    m_ModelLengthUnitChoice.AddItem( _("cm") );
+    m_ModelLengthUnitChoice.AddItem( _("m") );
+    m_ModelLengthUnitChoice.AddItem( _("in") );
+    m_ModelLengthUnitChoice.AddItem( _("ft") );
+    m_ModelLengthUnitChoice.AddItem( _("yd") );
+    m_ModelLengthUnitChoice.AddItem( _("Unitless") );
     m_ModelLengthUnitChoice.UpdateItems();
     m_OptionsLayout.AddYGap();
 
     //---- Table Options ----//
     m_OptionsLayout.AddDividerBox( "Equation Selection" );
-    m_OptionsLayout.AddChoice( m_LamCfEqnChoice, "Lam. Cf Eqn:" );
-    m_LamCfEqnChoice.AddItem( "Blasius" );
+    m_OptionsLayout.AddChoice( m_LamCfEqnChoice, _("Lam. Cf Eqn:") );
+    m_LamCfEqnChoice.AddItem( _("Blasius") );
     m_LamCfEqnChoice.UpdateItems();
 
-    m_OptionsLayout.AddChoice( m_TurbCfEqnChoice, "Turb. Cf Eqn:" );
-    m_TurbCfEqnChoice.AddItem( "Explicit Fit of Spalding" );
-    m_TurbCfEqnChoice.AddItem( "Explicit Fit of Spalding-Chi" );
-    m_TurbCfEqnChoice.AddItem( "Explicit Fit of Schoenherr" );
-    m_TurbCfEqnChoice.AddItem( "Implicit Schoenherr" );
-    m_TurbCfEqnChoice.AddItem( "Implicit Karman-Schoenherr" );
-    m_TurbCfEqnChoice.AddItem( "Power Law Blasius" );
-    m_TurbCfEqnChoice.AddItem( "Power Law Prandtl Low Re" );
-    m_TurbCfEqnChoice.AddItem( "Power Law Prandtl Medium Re" );
-    m_TurbCfEqnChoice.AddItem( "Power Law Prandtl High Re" );
-    m_TurbCfEqnChoice.AddItem( "Schlichting Compressible" );
-    m_TurbCfEqnChoice.AddItem( "_Schultz-Grunow Estimate of Schoenherr" );
+    m_OptionsLayout.AddChoice( m_TurbCfEqnChoice, _("Turb. Cf Eqn:") );
+    m_TurbCfEqnChoice.AddItem( _("Explicit Fit of Spalding") );
+    m_TurbCfEqnChoice.AddItem( _("Explicit Fit of Spalding-Chi") );
+    m_TurbCfEqnChoice.AddItem( _("Explicit Fit of Schoenherr") );
+    m_TurbCfEqnChoice.AddItem( _("Implicit Schoenherr") );
+    m_TurbCfEqnChoice.AddItem( _("Implicit Karman-Schoenherr") );
+    m_TurbCfEqnChoice.AddItem( _("Power Law Blasius") );
+    m_TurbCfEqnChoice.AddItem( _("Power Law Prandtl Low Re") );
+    m_TurbCfEqnChoice.AddItem( _("Power Law Prandtl Medium Re") );
+    m_TurbCfEqnChoice.AddItem( _("Power Law Prandtl High Re") );
+    m_TurbCfEqnChoice.AddItem( _("Schlichting Compressible") );
+    m_TurbCfEqnChoice.AddItem( _("_Schultz-Grunow Estimate of Schoenherr") );
 
-    m_TurbCfEqnChoice.AddItem( "_Roughness Schlichting Avg" );
+    m_TurbCfEqnChoice.AddItem( _("_Roughness Schlichting Avg") );
 
-    m_TurbCfEqnChoice.AddItem( "_Roughness Schlichting Avg Compressible" );
+    m_TurbCfEqnChoice.AddItem( _("_Roughness Schlichting Avg Compressible") );
 
-    m_TurbCfEqnChoice.AddItem( "Heat Transfer White-Christoph" );
+    m_TurbCfEqnChoice.AddItem( _("Heat Transfer White-Christoph") );
     m_TurbCfEqnChoice.UpdateItems();
 
     int tmp[] = { vsp::CF_TURB_EXPLICIT_FIT_SPALDING,
@@ -258,25 +261,25 @@ ParasiteDragScreen::ParasiteDragScreen( ScreenMgr* mgr ) : TabScreen( mgr,
     int input_width = 70;
     int choice_button_width = 50;
     int choice_list_width = button_width + 10;
-    m_OptionsLayout.AddDividerBox( "Reference Area" );
+    m_OptionsLayout.AddDividerBox( _("Reference Area") );
     m_OptionsLayout.SetSameLineFlag( true );
     m_OptionsLayout.SetFitWidthFlag( false );
     m_OptionsLayout.SetChoiceButtonWidth( choice_button_width );
     m_OptionsLayout.SetButtonWidth( m_OptionsLayout.GetW() / 2 );
-    m_OptionsLayout.AddButton( m_RefManualToggle, "Manual" );
-    m_OptionsLayout.AddButton( m_RefChoiceToggle, "From Model" );
+    m_OptionsLayout.AddButton( m_RefManualToggle, _("Manual") );
+    m_OptionsLayout.AddButton( m_RefChoiceToggle, _("From Model") );
     m_OptionsLayout.ForceNewLine();
     m_OptionsLayout.InitWidthHeightVals();
     m_OptionsLayout.SetSameLineFlag( false );
     m_OptionsLayout.SetFitWidthFlag( true );
-    m_OptionsLayout.AddChoice( m_RefWingChoice, "Ref. Wing" );
+    m_OptionsLayout.AddChoice( m_RefWingChoice, _("Ref. Wing") );
     m_OptionsLayout.SetFitWidthFlag( false );
     m_OptionsLayout.SetSameLineFlag( true );
     m_OptionsLayout.SetButtonWidth( button_width );
     m_OptionsLayout.SetSliderWidth( slider_width );
     m_OptionsLayout.SetInputWidth( input_width );
-    m_OptionsLayout.AddSlider( m_SrefSlider, "Sref", 1000.0, "%7.2f" );
-    temp = "ft" + squared;
+    m_OptionsLayout.AddSlider( m_SrefSlider, _("Sref"), 1000.0, "%7.2f" );
+    temp = _("ft") + squared;
     m_OptionsLayout.AddButton( m_SrefUnitLabel, temp.c_str() );
     m_SrefUnitLabel.SetWidth( choice_list_width );
     m_SrefUnitLabel.GetFlButton()->labelcolor( FL_BLACK );
@@ -291,14 +294,14 @@ ParasiteDragScreen::ParasiteDragScreen( ScreenMgr* mgr ) : TabScreen( mgr,
     //---- Flow Condition ----//
     choice_button_width = 80;
     m_OptionsLayout.SetChoiceButtonWidth( choice_button_width );
-    m_OptionsLayout.AddDividerBox( "Flow Condition" );
-    m_OptionsLayout.AddChoice( m_FreestreamTypeChoice, "Atmosphere" );
-    m_FreestreamTypeChoice.AddItem( "US Standard Atmosphere 1976" );
-    m_FreestreamTypeChoice.AddItem( "USAF 1966" );
-    m_FreestreamTypeChoice.AddItem( "Pres + Density Control" );
-    m_FreestreamTypeChoice.AddItem( "Pres + Temp Control" );
-    m_FreestreamTypeChoice.AddItem( "Density + Temp Control" );
-    m_FreestreamTypeChoice.AddItem( "Re\\/L + Mach Control" );
+    m_OptionsLayout.AddDividerBox( _("Flow Condition") );
+    m_OptionsLayout.AddChoice( m_FreestreamTypeChoice, _("Atmosphere") );
+    m_FreestreamTypeChoice.AddItem( _("US Standard Atmosphere 1976") );
+    m_FreestreamTypeChoice.AddItem( _("USAF 1966") );
+    m_FreestreamTypeChoice.AddItem( _("Pres + Density Control") );
+    m_FreestreamTypeChoice.AddItem( _("Pres + Temp Control") );
+    m_FreestreamTypeChoice.AddItem( _("Density + Temp Control") );
+    m_FreestreamTypeChoice.AddItem( _("Re\\/L + Mach Control") );
     // TODO: Add Total Control of All Parameters
     m_FreestreamTypeChoice.UpdateItems();
     m_OptionsLayout.AddYGap();
@@ -313,43 +316,43 @@ ParasiteDragScreen::ParasiteDragScreen( ScreenMgr* mgr ) : TabScreen( mgr,
     m_OptionsLayout.SetChoiceButtonWidth( choice_button_width );
 
     // Velocity Input and Units
-    m_OptionsLayout.AddSlider( m_FlowParmVinfSlider, "Vinf", 200.0, "%7.2f" );
+    m_OptionsLayout.AddSlider( m_FlowParmVinfSlider, _("Vinf"), 200.0, "%7.2f" );
     m_OptionsLayout.AddChoice( m_VinfUnitChoice, "" );
-    m_VinfUnitChoice.AddItem( "ft\\/s" );
-    m_VinfUnitChoice.AddItem( "m\\/s" );
-    m_VinfUnitChoice.AddItem( "mph" );
-    m_VinfUnitChoice.AddItem( "km\\/hr" );
-    m_VinfUnitChoice.AddItem( "KEAS" );
-    m_VinfUnitChoice.AddItem( "KTAS" );
-    m_VinfUnitChoice.AddItem( "Mach" );
+    m_VinfUnitChoice.AddItem( _("ft\\/s") );
+    m_VinfUnitChoice.AddItem( _("m\\/s") );
+    m_VinfUnitChoice.AddItem( _("mph") );
+    m_VinfUnitChoice.AddItem( _("km\\/hr") );
+    m_VinfUnitChoice.AddItem( _("KEAS") );
+    m_VinfUnitChoice.AddItem( _("KTAS") );
+    m_VinfUnitChoice.AddItem( _("Mach") );
     m_VinfUnitChoice.UpdateItems();
     m_VinfUnitChoice.SetWidth( choice_list_width );
     m_OptionsLayout.ForceNewLine();
 
     // Altitude Input and Units
-    m_OptionsLayout.AddSlider( m_FlowParmHinfSlider, "Alt", 10000.0, "%7.1f" );
+    m_OptionsLayout.AddSlider( m_FlowParmHinfSlider, _("Alt"), 10000.0, "%7.1f" );
     m_OptionsLayout.AddChoice( m_AltUnitChoice, "" );
-    m_AltUnitChoice.AddItem( "ft" );
-    m_AltUnitChoice.AddItem( "m" );
+    m_AltUnitChoice.AddItem( _("ft") );
+    m_AltUnitChoice.AddItem( _("m") );
     m_AltUnitChoice.UpdateItems();
     m_AltUnitChoice.SetWidth( choice_list_width );
     m_OptionsLayout.ForceNewLine();
 
     // Temperature Input and Units
-    m_OptionsLayout.AddSlider( m_FlowParmTempSlider, "Temp", 100.0, "%7.1f" );
+    m_OptionsLayout.AddSlider( m_FlowParmTempSlider, _("Temp"), 100.0, "%7.1f" );
     m_OptionsLayout.AddChoice( m_TempUnitChoice, "" );
-    m_TempUnitChoice.AddItem( "K" );
-    temp = deg + "C";
+    m_TempUnitChoice.AddItem( _("K") );
+    temp = deg + _("C");
     m_TempUnitChoice.AddItem( temp );
-    temp = deg + "F";
+    temp = deg + _("F");
     m_TempUnitChoice.AddItem( temp );
-    temp = deg + "R";
+    temp = deg + _("R");
     m_TempUnitChoice.AddItem( temp );
     m_TempUnitChoice.UpdateItems();
     m_TempUnitChoice.SetWidth( choice_list_width );
     m_OptionsLayout.ForceNewLine();
-    m_OptionsLayout.AddSlider( m_FlowParmDeltaTempSlider, "dTemp", 100.0, "%7.2f" );
-    temp = deg + "F";
+    m_OptionsLayout.AddSlider( m_FlowParmDeltaTempSlider, _("dTemp"), 100.0, "%7.2f" );
+    temp = deg + _("F");
     m_OptionsLayout.AddButton( m_DeltaTempUnitLabel, temp.c_str() );
     m_DeltaTempUnitLabel.GetFlButton()->box( FL_THIN_UP_BOX );
     m_DeltaTempUnitLabel.SetWidth( choice_list_width );
@@ -357,26 +360,26 @@ ParasiteDragScreen::ParasiteDragScreen( ScreenMgr* mgr ) : TabScreen( mgr,
     m_OptionsLayout.ForceNewLine();
 
     // Pressure Input and Units
-    m_OptionsLayout.AddSlider( m_FlowParmPresSlider, "Pres", 100.0, "%7.3f" );
+    m_OptionsLayout.AddSlider( m_FlowParmPresSlider, _("Pres"), 100.0, "%7.3f" );
     m_OptionsLayout.AddChoice( m_PresUnitChoice, "" );
-    temp = "lbf\\/ft" + squared;
+    temp = _("lbf\\/ft") + squared;
     m_PresUnitChoice.AddItem( temp );
-    temp = "lbf\\/in" + squared;
+    temp = _("lbf\\/in") + squared;
     m_PresUnitChoice.AddItem( temp );
-    m_PresUnitChoice.AddItem( "Ba" );
-    m_PresUnitChoice.AddItem( "Pa" );
-    m_PresUnitChoice.AddItem( "kPa" );
-    m_PresUnitChoice.AddItem( "MPa" );
-    m_PresUnitChoice.AddItem( "inchHg" );
-    m_PresUnitChoice.AddItem( "mmHg" );
-    m_PresUnitChoice.AddItem( "mmH20" );
-    m_PresUnitChoice.AddItem( "mB" );
+    m_PresUnitChoice.AddItem( _("Ba") );
+    m_PresUnitChoice.AddItem( _("Pa") );
+    m_PresUnitChoice.AddItem( _("kPa") );
+    m_PresUnitChoice.AddItem( _("MPa") );
+    m_PresUnitChoice.AddItem( _("inchHg") );
+    m_PresUnitChoice.AddItem( _("mmHg") );
+    m_PresUnitChoice.AddItem( _("mmH20") );
+    m_PresUnitChoice.AddItem( _("mB") );
     m_PresUnitChoice.UpdateItems();
     m_PresUnitChoice.SetWidth( choice_list_width );
     m_OptionsLayout.ForceNewLine();
 
     // Density Input and Units
-    m_OptionsLayout.AddSlider( m_FlowParmRhoSlider, "Density", 0.001, "%1.3e" );
+    m_OptionsLayout.AddSlider( m_FlowParmRhoSlider, _("Density"), 0.001, "%1.3e" );
     m_OptionsLayout.AddButton( m_RhoUnitLabel, "" );
     m_RhoUnitLabel.GetFlButton()->box( FL_THIN_UP_BOX );
     m_RhoUnitLabel.GetFlButton()->labelcolor( FL_BLACK );
@@ -384,11 +387,11 @@ ParasiteDragScreen::ParasiteDragScreen( ScreenMgr* mgr ) : TabScreen( mgr,
     m_OptionsLayout.ForceNewLine();
 
     // Specific Heat Ratio Input and Units
-    m_OptionsLayout.AddSlider( m_FlowParmSpecificHeatRatioSlider, "Gamma", 1, "%1.3f" );
+    m_OptionsLayout.AddSlider( m_FlowParmSpecificHeatRatioSlider, _("Gamma"), 1, "%1.3f" );
     m_OptionsLayout.ForceNewLine();
 
     // Dynamic Viscosity Input and Units
-    m_OptionsLayout.AddSlider( m_FlowParmDynaViscSlider, "Dyn Visc", 0.01, "%1.3e" );
+    m_OptionsLayout.AddSlider( m_FlowParmDynaViscSlider, _("Dyn Visc"), 0.01, "%1.3e" );
     m_OptionsLayout.AddButton( m_DynViscUnitLabel, "" );
     m_DynViscUnitLabel.GetFlButton()->box( FL_THIN_UP_BOX );
     m_DynViscUnitLabel.GetFlButton()->labelcolor( FL_BLACK );
@@ -400,8 +403,8 @@ ParasiteDragScreen::ParasiteDragScreen( ScreenMgr* mgr ) : TabScreen( mgr,
     //m_OptionsLayout.SetSameLineFlag(false);
     //m_OptionsLayout.SetChoiceButtonWidth(flowcond_choice_button_width);
     //m_OptionsLayout.AddChoice(m_flowParmMedium, "Medium");
-    //m_flowParmMedium.AddItem("Std. Atmo. Air");
-    //m_flowParmMedium.AddItem("Water");
+    //m_flowParmMedium.AddItem(_("Std. Atmo. Air"));
+    //m_flowParmMedium.AddItem(_("Water"));
     //m_flowParmMedium.UpdateItems();
     //m_OptionsLayout.SetChoiceButtonWidth(choice_button_width);
     //m_OptionsLayout.SetFitWidthFlag(false);
@@ -412,15 +415,15 @@ ParasiteDragScreen::ParasiteDragScreen( ScreenMgr* mgr ) : TabScreen( mgr,
     m_OptionsLayout.SetSliderWidth( slider_width );
     m_OptionsLayout.SetInputWidth( input_width );
     m_OptionsLayout.AddYGap();
-    m_OptionsLayout.AddSlider( m_FlowParmReqLSlider, "Re/L", 100000.0, "%1.3e" );
-    m_OptionsLayout.AddButton( m_ReyqLUnitLabel, "1/ft" );
+    m_OptionsLayout.AddSlider( m_FlowParmReqLSlider, _("Re/L"), 100000.0, "%1.3e" );
+    m_OptionsLayout.AddButton( m_ReyqLUnitLabel, _("1/ft") );
     m_ReyqLUnitLabel.GetFlButton()->box( FL_THIN_UP_BOX );
     m_ReyqLUnitLabel.SetWidth( choice_list_width );
     m_ReyqLUnitLabel.GetFlButton()->labelcolor( FL_BLACK );
     m_OptionsLayout.ForceNewLine();
 
     // Mach Input
-    m_OptionsLayout.AddSlider( m_FlowParmMachSlider, "Mach", 1.0, "%7.3f" );
+    m_OptionsLayout.AddSlider( m_FlowParmMachSlider, _("Mach"), 1.0, "%7.3f" );
     m_OptionsLayout.ForceNewLine();
     m_OptionsLayout.SetFitWidthFlag( true );
     m_OptionsLayout.SetSameLineFlag( false );
@@ -445,24 +448,24 @@ ParasiteDragScreen::ParasiteDragScreen( ScreenMgr* mgr ) : TabScreen( mgr,
 
     m_ExcrescenceListLayout.AddYGap();
 
-    m_ExcrescenceListLayout.AddButton( m_excresDelete, "Delete Excrescence" );
+    m_ExcrescenceListLayout.AddButton( m_excresDelete, _("Delete Excrescence") );
     m_ExcrescenceListLayout.AddYGap();
 
     m_ExcrescenceListLayout.SetChoiceButtonWidth( TYPICAL_INPUT_WIDTH );
-    m_ExcrescenceListLayout.AddChoice( m_excresTypeChoice, "Type", 0 );
-    m_excresTypeChoice.AddItem( "Drag Counts", vsp::EXCRESCENCE_COUNT );
-    m_excresTypeChoice.AddItem( "CD", vsp::EXCRESCENCE_CD );
-    m_excresTypeChoice.AddItem( "% of CD_Geom", vsp::EXCRESCENCE_PERCENT_GEOM );
-    m_excresTypeChoice.AddItem( "% Margin", vsp::EXCRESCENCE_MARGIN );
-    m_excresTypeChoice.AddItem( "Drag Area, D\\/q", vsp::EXCRESCENCE_DRAGAREA );
+    m_ExcrescenceListLayout.AddChoice( m_excresTypeChoice, _("Type"), 0 );
+    m_excresTypeChoice.AddItem( _("Drag Counts"), vsp::EXCRESCENCE_COUNT );
+    m_excresTypeChoice.AddItem( _("CD"), vsp::EXCRESCENCE_CD );
+    m_excresTypeChoice.AddItem( _("% of CD_Geom"), vsp::EXCRESCENCE_PERCENT_GEOM );
+    m_excresTypeChoice.AddItem( _("% Margin"), vsp::EXCRESCENCE_MARGIN );
+    m_excresTypeChoice.AddItem( _("Drag Area, D\\/q"), vsp::EXCRESCENCE_DRAGAREA );
     m_excresTypeChoice.UpdateItems();
-    m_ExcrescenceListLayout.AddButton( m_excresAdd, " Add Excrescence " );
+    m_ExcrescenceListLayout.AddButton( m_excresAdd, _(" Add Excrescence ") );
 
     m_ExcrescenceLayout.AddY( m_ExcrescenceListLayout.GetH() - m_ExcrescenceListLayout.GetGapHeight() );
     m_ExcrescenceLayout.AddSubGroupLayout( m_ExcrescenceItemLayout, DRAG_TAB_WIDTH - 10, 3 * m_ExcrescenceLayout.GetStdHeight() );
-    m_ExcrescenceItemLayout.AddDividerBox( "Excrescence Parameters" );
-    m_ExcrescenceItemLayout.AddInput( m_excresNameInput, "Name" );
-    m_ExcrescenceItemLayout.AddSlider( m_excresInput, "Value", 1e6, "%7.3f" );
+    m_ExcrescenceItemLayout.AddDividerBox( _("Excrescence Parameters") );
+    m_ExcrescenceItemLayout.AddInput( m_excresNameInput, _("Name") );
+    m_ExcrescenceItemLayout.AddSlider( m_excresInput, _("Value"), 1e6, "%7.3f" );
     m_ExcrescenceItemLayout.ForceNewLine();
 
     //==== Eqn Based Excrescence Layout ====//
@@ -480,50 +483,50 @@ ParasiteDragScreen::ParasiteDragScreen( ScreenMgr* mgr ) : TabScreen( mgr,
     m_TextDisplay->textfont( 4 );
     m_TextDisplay->textsize( 12 );
     m_TextBuffer = new Fl_Text_Buffer;
-    m_TextBuffer->append( "-- Component Table Quantities -- \n" );
-    m_TextBuffer->append( "S_wet \t\t : \t Wetted Area of Geometry, Calculated through DegenGeom \n" );
-    m_TextBuffer->append( "L_ref \t\t : \t Reference Length of Geometry, Calculated through Length of Bounding Box in X direction or Chord on a Wing\n" );
-    m_TextBuffer->append( "t/c or l/d \t : \t Thickness to Chord Ratio or Fineness Ratio, respectively \n" );
-    m_TextBuffer->append( "FF Equation \t : \t Chosen Form Factor Equation for Internal Calculations \n" );
-    m_TextBuffer->append( "FF \t\t : \t Form Factor of Specific Geometry \n" );
-    m_TextBuffer->append( "Re \t\t : \t Reynolds Number for the component \n" );
-    m_TextBuffer->append( "% Lam \t\t : \t % Laminar of Flow over Specific Geometry \n" );
-    m_TextBuffer->append( "C_f \t\t : \t Friction Coefficient Calculated Using Specified Laminar and Turbulent Equation Choices \n" );
-    m_TextBuffer->append( "Q \t\t : \t Interference Factor for Specific Geometry \n" );
-    m_TextBuffer->append( "f \t\t : \t Flat Plat Drag \n" );
-    m_TextBuffer->append( "C_D \t\t : \t Drag Coefficient for Specific Geometry \n" );
-    m_TextBuffer->append( "% Total \t : \t Total Percentage of the Drag Contribution of Specific Geometry \n" );
+    m_TextBuffer->append( _("-- Component Table Quantities -- \n") );
+    m_TextBuffer->append( _("S_wet \t\t : \t Wetted Area of Geometry, Calculated through DegenGeom \n") );
+    m_TextBuffer->append( _("L_ref \t\t : \t Reference Length of Geometry, Calculated through Length of Bounding Box in X direction or Chord on a Wing\n") );
+    m_TextBuffer->append( _("t/c or l/d \t : \t Thickness to Chord Ratio or Fineness Ratio, respectively \n") );
+    m_TextBuffer->append( _("FF Equation \t : \t Chosen Form Factor Equation for Internal Calculations \n") );
+    m_TextBuffer->append( _("FF \t\t : \t Form Factor of Specific Geometry \n") );
+    m_TextBuffer->append( _("Re \t\t : \t Reynolds Number for the component \n") );
+    m_TextBuffer->append( _("% Lam \t\t : \t % Laminar of Flow over Specific Geometry \n") );
+    m_TextBuffer->append( _("C_f \t\t : \t Friction Coefficient Calculated Using Specified Laminar and Turbulent Equation Choices \n") );
+    m_TextBuffer->append( _("Q \t\t : \t Interference Factor for Specific Geometry \n") );
+    m_TextBuffer->append( _("f \t\t : \t Flat Plat Drag \n") );
+    m_TextBuffer->append( _("C_D \t\t : \t Drag Coefficient for Specific Geometry \n") );
+    m_TextBuffer->append( _("% Total \t : \t Total Percentage of the Drag Contribution of Specific Geometry \n") );
     m_TextBuffer->append( "\n" );
-    m_TextBuffer->append( "-- Excrescence Table Quantities -- \n" );
-    m_TextBuffer->append( "Excres. Type \t : \t Chosen type of excrescence (Drag Counts, CD, % of C_D Geom, Drag Area ) \n" );
-    m_TextBuffer->append( "Excres. Input \t : \t User Input Value for Excrescence of Described Type \n" );
+    m_TextBuffer->append( _("-- Excrescence Table Quantities -- \n") );
+    m_TextBuffer->append( _("Excres. Type \t : \t Chosen type of excrescence (Drag Counts, CD, % of C_D Geom, Drag Area ) \n") );
+    m_TextBuffer->append( _("Excres. Input \t : \t User Input Value for Excrescence of Described Type \n") );
     m_TextBuffer->append( "\n" );
-    m_TextBuffer->append( "-- User Input Options -- \n" );
-    m_TextBuffer->append( "Lam. Cf Eqn \t : \t Chosen Laminar Equation from Documented List at Link Below \n" );
-    m_TextBuffer->append( "Turb. Cf Eqn \t : \t Chosen Turbulent Equation from Documented List at Link Below \n" );
-    m_TextBuffer->append( "Spec. Method \t : \t Which Inputs Are to be Used to Determine Re/L and Mach \n" );
-    sprintf( str, "Vinf \t\t : \t %s \n", ParasiteDragMgr.m_Vinf.GetDescript().c_str() );
+    m_TextBuffer->append( _("-- User Input Options -- \n") );
+    m_TextBuffer->append( _("Lam. Cf Eqn \t : \t Chosen Laminar Equation from Documented List at Link Below \n") );
+    m_TextBuffer->append( _("Turb. Cf Eqn \t : \t Chosen Turbulent Equation from Documented List at Link Below \n") );
+    m_TextBuffer->append( _("Spec. Method \t : \t Which Inputs Are to be Used to Determine Re/L and Mach \n") );
+    sprintf( str, _("Vinf \t\t : \t %s \n"), ParasiteDragMgr.m_Vinf.GetDescript().c_str() );
     m_TextBuffer->append( str );
-    sprintf( str, "Altitude \t : \t %s \n", ParasiteDragMgr.m_Hinf.GetDescript().c_str() );
+    sprintf( str, _("Altitude \t : \t %s \n"), ParasiteDragMgr.m_Hinf.GetDescript().c_str() );
     m_TextBuffer->append( str );
-    sprintf( str, "Temperature \t : \t %s \n", ParasiteDragMgr.m_Temp.GetDescript().c_str() );
+    sprintf( str, _("Temperature \t : \t %s \n"), ParasiteDragMgr.m_Temp.GetDescript().c_str() );
     m_TextBuffer->append( str );
-    sprintf( str, "Delta Temp. \t : \t %s \n", ParasiteDragMgr.m_DeltaT.GetDescript().c_str() );
+    sprintf( str, _("Delta Temp. \t : \t %s \n"), ParasiteDragMgr.m_DeltaT.GetDescript().c_str() );
     m_TextBuffer->append( str );
-    sprintf( str, "Pressure \t : \t %s \n", ParasiteDragMgr.m_Pres.GetDescript().c_str() );
+    sprintf( str, _("Pressure \t : \t %s \n"), ParasiteDragMgr.m_Pres.GetDescript().c_str() );
     m_TextBuffer->append( str );
-    sprintf( str, "Density \t : \t %s \n", ParasiteDragMgr.m_Rho.GetDescript().c_str() );
+    sprintf( str, _("Density \t : \t %s \n"), ParasiteDragMgr.m_Rho.GetDescript().c_str() );
     m_TextBuffer->append( str );
-    sprintf( str, "Dynamic Visc. \t : \t %s \n", ParasiteDragMgr.m_DynaVisc.GetDescript().c_str() );
+    sprintf( str, _("Dynamic Visc. \t : \t %s \n"), ParasiteDragMgr.m_DynaVisc.GetDescript().c_str() );
     m_TextBuffer->append( str );
-    //sprintf(str, "Medium \t\t : \t %s \n", ParasiteDragMgr.m_MediumType.GetDescript().c_str());
+    //sprintf(str, _("Medium \t\t : \t %s \n"), ParasiteDragMgr.m_MediumType.GetDescript().c_str());
     //m_TextBuffer->append(str);
-    sprintf( str, "Re/L \t\t : \t %s \n", ParasiteDragMgr.m_ReqL.GetDescript().c_str() );
+    sprintf( str, _("Re/L \t\t : \t %s \n"), ParasiteDragMgr.m_ReqL.GetDescript().c_str() );
     m_TextBuffer->append( str );
-    sprintf( str, "Mach \t\t : \t %s \n", ParasiteDragMgr.m_Mach.GetDescript().c_str() );
+    sprintf( str, _("Mach \t\t : \t %s \n"), ParasiteDragMgr.m_Mach.GetDescript().c_str() );
     m_TextBuffer->append( str );
     m_TextBuffer->append( "\n" );
-    m_TextBuffer->append( "-- Input Unit Types -- \n" );
+    m_TextBuffer->append( _("-- Input Unit Types -- \n") );
 
     temp = "";
     for ( size_t i = 0; i < m_AltUnitChoice.GetItems().size(); i++ )
@@ -552,7 +555,7 @@ ParasiteDragScreen::ParasiteDragScreen( ScreenMgr* mgr ) : TabScreen( mgr,
             temp.append( m_ModelLengthUnitChoice.GetItems()[i] );
         }
     }
-    sprintf( str, "Length Units \t : \t %s \n", temp.c_str() );
+    sprintf( str, _("Length Units \t : \t %s \n"), temp.c_str() );
     m_TextBuffer->append( str );
 
     temp.clear();
@@ -567,7 +570,7 @@ ParasiteDragScreen::ParasiteDragScreen( ScreenMgr* mgr ) : TabScreen( mgr,
             temp.append( m_VinfUnitChoice.GetItems()[i] );
         }
     }
-    sprintf( str, "Vinf Units \t : \t %s \n", temp.c_str() );
+    sprintf( str, _("Vinf Units \t : \t %s \n"), temp.c_str() );
     m_TextBuffer->append( str );
 
     m_TextDisplay->buffer( m_TextBuffer );
@@ -585,7 +588,7 @@ ParasiteDragScreen::ParasiteDragScreen( ScreenMgr* mgr ) : TabScreen( mgr,
             temp.append( m_TempUnitChoice.GetItems()[i] );
         }
     }
-    sprintf( str, "Temp Units \t : \t %s \n", temp.c_str() );
+    sprintf( str, _("Temp Units \t : \t %s \n"), temp.c_str() );
     m_TextBuffer->append( str );
 
     temp.clear();
@@ -600,23 +603,23 @@ ParasiteDragScreen::ParasiteDragScreen( ScreenMgr* mgr ) : TabScreen( mgr,
             temp.append( m_PresUnitChoice.GetItems()[i] );
         }
     }
-    sprintf( str, "Pres Units \t : \t %s \n", temp.c_str() );
+    sprintf( str, _("Pres Units \t : \t %s \n"), temp.c_str() );
     m_TextBuffer->append( str );
     m_TextBuffer->append( "\n" );
 
-    m_TextBuffer->append( "-- Component Labels Legend --\n" );
-    m_TextBuffer->append( "(+) \t : \t Indicates there are additional components contributing to wetted area\n" );
-    m_TextBuffer->append( "v \t : \t Indicates the geometry list has been expanded to show all surfaces associated with this geometry\n" );
-    m_TextBuffer->append( "[ss] \t : \t Indicates a subsurface on the parented geometry\n" );
-    m_TextBuffer->append( "[B] \t : \t Indicates the body components of a custom geometry\n" );
-    m_TextBuffer->append( "[W] \t : \t Indicates the wing components of a custom geometry\n" );
+    m_TextBuffer->append( _("-- Component Labels Legend --\n") );
+    m_TextBuffer->append( _("(+) \t : \t Indicates there are additional components contributing to wetted area\n") );
+    m_TextBuffer->append( _("v \t : \t Indicates the geometry list has been expanded to show all surfaces associated with this geometry\n") );
+    m_TextBuffer->append( _("[ss] \t : \t Indicates a subsurface on the parented geometry\n") );
+    m_TextBuffer->append( _("[B] \t : \t Indicates the body components of a custom geometry\n") );
+    m_TextBuffer->append( _("[W] \t : \t Indicates the wing components of a custom geometry\n") );
     m_TextBuffer->append( "\n" );
 
     m_TextDisplay->buffer( m_TextBuffer );
 
     m_DocumentationLayout.AddYGap();
 
-    m_DocumentationLayout.AddButton( m_EqnDocumentation, "Link to Complete Wiki Parasite Drag Documentation" );
+    m_DocumentationLayout.AddButton( m_EqnDocumentation, _("Link to Complete Wiki Parasite Drag Documentation") );
 }
 
 ParasiteDragScreen::~ParasiteDragScreen()
@@ -1477,65 +1480,65 @@ void ParasiteDragScreen::RebuildBuildUpTableLabels()
     m_ConstantTableLabelsLayout.SetButtonWidth( TYPICAL_INPUT_WIDTH );
 
     m_ComponentLabelLayout.SetButtonWidth( TYPICAL_INPUT_WIDTH * 2 + 20 );
-    m_ComponentLabelLayout.AddButton( m_CompLabel, "Component" );
+    m_ComponentLabelLayout.AddButton( m_CompLabel, _("Component") );
     m_CompLabel.GetFlButton()->labelcolor( FL_BLACK );
-    m_CompLabel.GetFlButton()->copy_tooltip( "Geometry Name" );
+    m_CompLabel.GetFlButton()->copy_tooltip( _("Geometry Name") );
 
     //  Changing Units - therefore isButton
     m_MainTableLabelsLayout.SetButtonWidth( TYPICAL_INPUT_WIDTH + 20 );
-    m_MainTableLabelsLayout.AddButton( m_SwetUnitLabel, "S_wet (ft2)" );
+    m_MainTableLabelsLayout.AddButton( m_SwetUnitLabel, _("S_wet (ft2)") );
     m_SwetUnitLabel.GetFlButton()->labelcolor( FL_BLACK );
-    m_SwetUnitLabel.GetFlButton()->copy_tooltip( "Wetted Area of Geometry" );
+    m_SwetUnitLabel.GetFlButton()->copy_tooltip( _("Wetted Area of Geometry") );
 
     m_MainTableLabelsLayout.SetButtonWidth( TYPICAL_INPUT_WIDTH );
-    m_MainTableLabelsLayout.AddButton( m_GroupedGeomLabel, "Group" );
+    m_MainTableLabelsLayout.AddButton( m_GroupedGeomLabel, _("Group") );
     m_GroupedGeomLabel.GetFlButton()->box( FL_THIN_UP_BOX );
     m_GroupedGeomLabel.GetFlButton()->labelcolor( FL_BLACK );
-    m_GroupedGeomLabel.GetFlButton()->copy_tooltip( "Option to blend individual component with ancestor" );
+    m_GroupedGeomLabel.GetFlButton()->copy_tooltip( _("Option to blend individual component with ancestor") );
 
     m_MainTableLabelsLayout.SetButtonWidth( TYPICAL_INPUT_WIDTH + 30 );
-    m_MainTableLabelsLayout.AddButton( m_FFEqnChoiceLabel, "FF Equation" );
+    m_MainTableLabelsLayout.AddButton( m_FFEqnChoiceLabel, _("FF Equation") );
     m_FFEqnChoiceLabel.GetFlButton()->box( FL_THIN_UP_BOX );
     m_FFEqnChoiceLabel.GetFlButton()->labelcolor( FL_BLACK );
-    m_FFEqnChoiceLabel.GetFlButton()->copy_tooltip( "Form Factor Equation Choice \n One per Geometry" );
+    m_FFEqnChoiceLabel.GetFlButton()->copy_tooltip( _("Form Factor Equation Choice \n One per Geometry") );
 
     m_MainTableLabelsLayout.SetButtonWidth( TYPICAL_INPUT_WIDTH - 20 );
-    m_MainTableLabelsLayout.AddButton( m_FFLabel, "FF" );
+    m_MainTableLabelsLayout.AddButton( m_FFLabel, _("FF") );
     m_FFLabel.GetFlButton()->box( FL_THIN_UP_BOX );
     m_FFLabel.GetFlButton()->labelcolor( FL_BLACK );
-    m_FFLabel.GetFlButton()->copy_tooltip( "Manual or Calculated Form Factor" );
+    m_FFLabel.GetFlButton()->copy_tooltip( _("Manual or Calculated Form Factor") );
 
     m_MainTableLabelsLayout.SetButtonWidth( TYPICAL_INPUT_WIDTH + 5 );
-    m_MainTableLabelsLayout.AddButton( m_LrefUnitLabel, "L_ref (ft)" );
+    m_MainTableLabelsLayout.AddButton( m_LrefUnitLabel, _("L_ref (ft)") );
     m_LrefUnitLabel.GetFlButton()->box( FL_THIN_UP_BOX );
     m_LrefUnitLabel.GetFlButton()->labelcolor( FL_BLACK );
-    m_LrefUnitLabel.GetFlButton()->copy_tooltip( "Reference Length of Geometry" );
+    m_LrefUnitLabel.GetFlButton()->copy_tooltip( _("Reference Length of Geometry") );
 
     m_MainTableLabelsLayout.SetButtonWidth( TYPICAL_INPUT_WIDTH - 10 );
-    m_MainTableLabelsLayout.AddButton( m_FineRatorToCLabel, "t/c or l/d" );
+    m_MainTableLabelsLayout.AddButton( m_FineRatorToCLabel, _("t/c or l/d") );
     m_FineRatorToCLabel.GetFlButton()->box( FL_THIN_UP_BOX );
     m_FineRatorToCLabel.GetFlButton()->labelcolor( FL_BLACK );
-    m_FineRatorToCLabel.GetFlButton()->copy_tooltip( "Thickness over Chord \n \t or \n Fineness Ratio" );
+    m_FineRatorToCLabel.GetFlButton()->copy_tooltip( _("Thickness over Chord \n \t or \n Fineness Ratio") );
 
     m_MainTableLabelsLayout.SetButtonWidth( TYPICAL_INPUT_WIDTH );
-    m_MainTableLabelsLayout.AddButton( m_ReLabel, "Re (1e6)" );
+    m_MainTableLabelsLayout.AddButton( m_ReLabel, _("Re (1e6)") );
     m_ReLabel.GetFlButton()->box( FL_THIN_UP_BOX );
     m_ReLabel.GetFlButton()->labelcolor( FL_BLACK );
-    m_ReLabel.GetFlButton()->copy_tooltip( "Unitless Reynolds Number" );
+    m_ReLabel.GetFlButton()->copy_tooltip( _("Unitless Reynolds Number") );
 
     if ( ParasiteDragMgr.m_TurbCfEqnType() == vsp::CF_TURB_HEATTRANSFER_WHITE_CHRISTOPH )
     {
         m_MainTableLabelsLayout.SetButtonWidth( TYPICAL_INPUT_WIDTH - 20 );
-        m_MainTableLabelsLayout.AddButton( m_TeTwLabel, "Te/Tw" );
+        m_MainTableLabelsLayout.AddButton( m_TeTwLabel, _("Te/Tw") );
         m_TeTwLabel.GetFlButton()->box( FL_THIN_UP_BOX );
         m_TeTwLabel.GetFlButton()->labelcolor( FL_BLACK );
-        m_TeTwLabel.GetFlButton()->copy_tooltip( "Freestream Temperature over Wall Temperature" );
+        m_TeTwLabel.GetFlButton()->copy_tooltip( _("Freestream Temperature over Wall Temperature") );
 
         m_MainTableLabelsLayout.SetButtonWidth( TYPICAL_INPUT_WIDTH - 10 );
-        m_MainTableLabelsLayout.AddButton( m_TawTwLabel, "Taw/Tw" );
+        m_MainTableLabelsLayout.AddButton( m_TawTwLabel, _("Taw/Tw") );
         m_TawTwLabel.GetFlButton()->box( FL_THIN_UP_BOX );
         m_TawTwLabel.GetFlButton()->labelcolor( FL_BLACK );
-        m_TawTwLabel.GetFlButton()->copy_tooltip( "Adiabatic Wall Temperature over Wall Temperature" );
+        m_TawTwLabel.GetFlButton()->copy_tooltip( _("Adiabatic Wall Temperature over Wall Temperature") );
     }
     else if ( ParasiteDragMgr.m_TurbCfEqnType() >= vsp::CF_TURB_ROUGHNESS_SCHLICHTING_AVG &&
               ParasiteDragMgr.m_TurbCfEqnType() <= vsp::CF_TURB_ROUGHNESS_SCHLICHTING_AVG_FLOW_CORRECTION )
@@ -1544,37 +1547,37 @@ void ParasiteDragScreen::RebuildBuildUpTableLabels()
     }
 
     m_MainTableLabelsLayout.SetButtonWidth( TYPICAL_INPUT_WIDTH - 20 );
-    m_MainTableLabelsLayout.AddButton( m_PercLamLabel, "% Lam" );
+    m_MainTableLabelsLayout.AddButton( m_PercLamLabel, _("% Lam") );
     m_PercLamLabel.GetFlButton()->box( FL_THIN_UP_BOX );
     m_PercLamLabel.GetFlButton()->labelcolor( FL_BLACK );
-    m_PercLamLabel.GetFlButton()->copy_tooltip( "Percentage of Flow that is Turbulent \n Values should be input from 0 - 100" );
+    m_PercLamLabel.GetFlButton()->copy_tooltip( _("Percentage of Flow that is Turbulent \n Values should be input from 0 - 100") );
 
     m_MainTableLabelsLayout.SetButtonWidth( TYPICAL_INPUT_WIDTH );
-    m_MainTableLabelsLayout.AddButton( m_CfLabel, "C_f (1e-3)" );
+    m_MainTableLabelsLayout.AddButton( m_CfLabel, _("C_f (1e-3)") );
     m_CfLabel.GetFlButton()->box( FL_THIN_UP_BOX );
     m_CfLabel.GetFlButton()->labelcolor( FL_BLACK );
-    m_CfLabel.GetFlButton()->copy_tooltip( "Friction Coefficient Calculated from Selected Equations" );
+    m_CfLabel.GetFlButton()->copy_tooltip( _("Friction Coefficient Calculated from Selected Equations") );
 
     m_MainTableLabelsLayout.SetButtonWidth( TYPICAL_INPUT_WIDTH - 20 );
-    m_MainTableLabelsLayout.AddButton( m_QLabel, "Q" );
+    m_MainTableLabelsLayout.AddButton( m_QLabel, _("Q") );
     m_QLabel.GetFlButton()->box( FL_THIN_UP_BOX );
     m_QLabel.GetFlButton()->labelcolor( FL_BLACK );
-    m_QLabel.GetFlButton()->copy_tooltip( "Interference Factor" );
+    m_QLabel.GetFlButton()->copy_tooltip( _("Interference Factor") );
 
     m_ConstantTableLabelsLayout.SetButtonWidth( TYPICAL_INPUT_WIDTH - 10 );
-    m_ConstantTableLabelsLayout.AddButton( m_fLabel, "f" );
+    m_ConstantTableLabelsLayout.AddButton( m_fLabel, _("f") );
     m_fLabel.GetFlButton()->box( FL_THIN_UP_BOX );
     m_fLabel.GetFlButton()->labelcolor( FL_BLACK );
-    m_fLabel.GetFlButton()->copy_tooltip( "Flat Plate Friction Drag" );
+    m_fLabel.GetFlButton()->copy_tooltip( _("Flat Plate Friction Drag") );
 
-    m_ConstantTableLabelsLayout.AddButton( m_CdLabel, "C_D" );
+    m_ConstantTableLabelsLayout.AddButton( m_CdLabel, _("C_D") );
     m_CdLabel.GetFlButton()->box( FL_THIN_UP_BOX );
     m_CdLabel.GetFlButton()->labelcolor( FL_BLACK );
-    m_CdLabel.GetFlButton()->copy_tooltip( "Coefficient of Parasite Drag Per Component" );
+    m_CdLabel.GetFlButton()->copy_tooltip( _("Coefficient of Parasite Drag Per Component") );
 
-    m_ConstantTableLabelsLayout.AddButton( m_PercTotalLabel, "% Total" );
+    m_ConstantTableLabelsLayout.AddButton( m_PercTotalLabel, _("% Total") );
     m_PercTotalLabel.GetFlButton()->labelcolor( FL_BLACK );
-    m_PercTotalLabel.GetFlButton()->copy_tooltip( "Percentage Total Contributed to Final Cd0" );
+    m_PercTotalLabel.GetFlButton()->copy_tooltip( _("Percentage Total Contributed to Final Cd0") );
 
     InitSortToggleGroup();
 }
@@ -2423,34 +2426,34 @@ void ParasiteDragScreen::AddRoughnessLabel()
     m_MainTableLabelsLayout.SetButtonWidth( TYPICAL_INPUT_WIDTH + 30 );
     if ( ParasiteDragMgr.m_LengthUnit() == vsp::LEN_MM )
     {
-        m_MainTableLabelsLayout.AddButton( m_RoughnessLabel, "Rough. Ht. (mm)" );
+        m_MainTableLabelsLayout.AddButton( m_RoughnessLabel, _("Rough. Ht. (mm)") );
     }
     else if ( ParasiteDragMgr.m_LengthUnit() == vsp::LEN_CM )
     {
-        m_MainTableLabelsLayout.AddButton( m_RoughnessLabel, "Rough. Ht. (cm)" );
+        m_MainTableLabelsLayout.AddButton( m_RoughnessLabel, _("Rough. Ht. (cm)") );
     }
     else if ( ParasiteDragMgr.m_LengthUnit() == vsp::LEN_M )
     {
-        m_MainTableLabelsLayout.AddButton( m_RoughnessLabel, "Rough. Ht. (m)" );
+        m_MainTableLabelsLayout.AddButton( m_RoughnessLabel, _("Rough. Ht. (m)") );
     }
     else if ( ParasiteDragMgr.m_LengthUnit() == vsp::LEN_IN )
     {
-        m_MainTableLabelsLayout.AddButton( m_RoughnessLabel, "Rough. Ht. (in)" );
+        m_MainTableLabelsLayout.AddButton( m_RoughnessLabel, _("Rough. Ht. (in)") );
     }
     else if ( ParasiteDragMgr.m_LengthUnit() == vsp::LEN_FT )
     {
-        m_MainTableLabelsLayout.AddButton( m_RoughnessLabel, "Rough. Ht. (ft)" );
+        m_MainTableLabelsLayout.AddButton( m_RoughnessLabel, _("Rough. Ht. (ft)") );
     }
     else if ( ParasiteDragMgr.m_LengthUnit() == vsp::LEN_YD )
     {
-        m_MainTableLabelsLayout.AddButton( m_RoughnessLabel, "Rough. Ht. (yd)" );
+        m_MainTableLabelsLayout.AddButton( m_RoughnessLabel, _("Rough. Ht. (yd)") );
     }
     else if ( ParasiteDragMgr.m_LengthUnit() == vsp::LEN_UNITLESS )
     {
-        m_MainTableLabelsLayout.AddButton( m_RoughnessLabel, "Rough. Ht." );
+        m_MainTableLabelsLayout.AddButton( m_RoughnessLabel, _("Rough. Ht.") );
     }
     m_RoughnessLabel.GetFlButton()->labelcolor( FL_BLACK );
-    m_RoughnessLabel.GetFlButton()->copy_tooltip( "Roughness Height" );
+    m_RoughnessLabel.GetFlButton()->copy_tooltip( _("Roughness Height") );
 }
 
 void ParasiteDragScreen::UpdateReynoldsLabel()
@@ -2463,7 +2466,7 @@ void ParasiteDragScreen::UpdateReynoldsLabel()
     }
     else
     {
-        m_ReLabel.GetFlButton()->label( "Re (1e6)" );
+        m_ReLabel.GetFlButton()->label( _("Re (1e6)") );
     }
 }
 

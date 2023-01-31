@@ -13,7 +13,7 @@
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-STLOptionsScreen::STLOptionsScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 250, 170, "STL Options" )
+STLOptionsScreen::STLOptionsScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 250, 170, _("STL Options") )
 {
     m_FLTK_Window->callback( staticCloseCB, this );
 
@@ -26,8 +26,8 @@ STLOptionsScreen::STLOptionsScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 250, 17
 
     m_GenLayout.AddYGap();
 
-    m_GenLayout.AddButton( m_MultiSolidToggle, "Tagged Multi Solid File (Non-Standard)" );
-    m_GenLayout.AddButton( m_PropExportOriginToggle, "Export Unintersected Props At Origin" );
+    m_GenLayout.AddButton( m_MultiSolidToggle, _("Tagged Multi Solid File (Non-Standard)") );
+    m_GenLayout.AddButton( m_PropExportOriginToggle, _("Export Unintersected Props At Origin") );
 
     m_GenLayout.AddY( 75 );
     m_GenLayout.SetFitWidthFlag( false );
@@ -35,9 +35,9 @@ STLOptionsScreen::STLOptionsScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 250, 17
     m_GenLayout.SetButtonWidth( 100 );
 
     m_GenLayout.AddX( 20 );
-    m_GenLayout.AddButton( m_OkButton, "OK" );
+    m_GenLayout.AddButton( m_OkButton, _("OK") );
     m_GenLayout.AddX( 10 );
-    m_GenLayout.AddButton( m_CancelButton, "Cancel" );
+    m_GenLayout.AddButton( m_CancelButton, _("Cancel") );
     m_GenLayout.ForceNewLine();
 }
 

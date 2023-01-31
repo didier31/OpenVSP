@@ -10,7 +10,9 @@
 #include "StringUtil.h"
 #include "MeshGeom.h"
 
-DegenGeomScreen::DegenGeomScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 375, 365, "Degen Geom - Compute Models, File IO" )
+#include <intl.h>
+
+DegenGeomScreen::DegenGeomScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 375, 365, _("Degen Geom - Compute Models, File IO") )
 {
     m_FLTK_Window->callback( staticCloseCB, this );
     m_MainLayout.SetGroupAndScreen( m_FLTK_Window, this );
@@ -22,7 +24,7 @@ DegenGeomScreen::DegenGeomScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 375, 365,
     m_MainLayout.AddSubGroupLayout( m_BorderLayout, m_MainLayout.GetRemainX() - 5.0,
                                     m_MainLayout.GetRemainY() - 5.0);
 
-    m_BorderLayout.AddDividerBox("File Export");
+    m_BorderLayout.AddDividerBox(_("File Export"));
     m_BorderLayout.AddYGap();
 
     m_BorderLayout.SetFitWidthFlag( false );
@@ -64,7 +66,7 @@ DegenGeomScreen::DegenGeomScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 375, 365,
     m_BorderLayout.AddX(5);
     m_BorderLayout.SetFitWidthFlag( false );
     m_BorderLayout.AddButton(m_Execute, "Execute");
-    m_BorderLayout.AddButton(m_MakeDegenMeshGeom, "Make MeshGeom");
+    m_BorderLayout.AddButton(m_MakeDegenMeshGeom, _("Make MeshGeom"));
 
     m_SelectedSetIndex = DEFAULT_SET;
 }
@@ -171,7 +173,7 @@ void DegenGeomScreen::GuiDeviceCallBack( GuiDevice* device )
         if ( vehiclePtr->getExportDegenGeomCsvFile() || vehiclePtr->getExportDegenGeomMFile() )
         {
             m_TextDisplay->buffer()->append("--------------------------------\n");
-            m_TextDisplay->buffer()->append("\nWriting output...\n");
+            m_TextDisplay->buffer()->append(_("\nWriting output...\n"));
             Fl::flush();
 
             m_TextDisplay->buffer()->append( vehiclePtr->WriteDegenGeomFile().c_str() );

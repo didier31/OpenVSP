@@ -9,18 +9,19 @@
 #include "PtCloudGeom.h"
 #include "ScreenMgr.h"
 
+#include <intl.h>
 
 //==== Constructor ====//
-PtCloudScreen::PtCloudScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 525, "Point Cloud" )
+PtCloudScreen::PtCloudScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 525, _("Point Cloud") )
 {
 
     RemoveTab( GetTab( m_SubSurfTab_ind ) );
 
-    Fl_Group* project_tab = AddTab( "Project" );
+    Fl_Group* project_tab = AddTab( _("Project") );
     Fl_Group* project_group = AddSubGroup( project_tab, 5 );
 
     m_ProjectLayout.SetGroupAndScreen( project_group, this );
-    m_ProjectLayout.AddDividerBox( "Project Points to Geom" );
+    m_ProjectLayout.AddDividerBox( _("Project Points to Geom") );
     m_ProjectLayout.AddYGap();
 
     m_GeomPicker.AddExcludeType( MESH_GEOM_TYPE );
@@ -31,9 +32,9 @@ PtCloudScreen::PtCloudScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 525, "Poi
     m_GeomPicker.AddExcludeType( HINGE_GEOM_TYPE );
     m_ProjectLayout.AddGeomPicker( m_GeomPicker );
 
-    m_ProjectLayout.AddChoice( m_SurfChoice, "Surface" );
+    m_ProjectLayout.AddChoice( m_SurfChoice, _("Surface") );
 
-    m_ProjectLayout.AddChoice( m_DirChoice, "Direction" );
+    m_ProjectLayout.AddChoice( m_DirChoice, _("Direction") );
 
     m_DirChoice.AddItem( "X" );
     m_DirChoice.AddItem( "Y" );
@@ -41,7 +42,7 @@ PtCloudScreen::PtCloudScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 525, "Poi
     m_DirChoice.UpdateItems();
 
     m_ProjectLayout.AddYGap();
-    m_ProjectLayout.AddButton( m_ProjectButton, "Project" );
+    m_ProjectLayout.AddButton( m_ProjectButton, _("Project") );
 
 }
 
@@ -86,7 +87,7 @@ bool PtCloudScreen::Update()
         char str[256];
         for ( int i = 0; i < nsurf; ++i )
         {
-            sprintf( str, "Surf_%d", i );
+            sprintf( str, _("Surf_%d"), i );
             m_SurfChoice.AddItem( str );
         }
         m_SurfChoice.UpdateItems();

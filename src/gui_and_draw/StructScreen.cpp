@@ -27,27 +27,27 @@ using namespace vsp;
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA Structure", 196 )
+StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, _("FEA Structure"), 196 )
 {
     m_FLTK_Window->callback( staticCloseCB, this );
 
     int border = 5;
 
-    Fl_Group* structTab = AddTab( "Structure" );
+    Fl_Group* structTab = AddTab( _("Structure") );
     Fl_Group* structTabGroup = AddSubGroup( structTab, border );
-    Fl_Group* partTab = AddTab( "Part" );
+    Fl_Group* partTab = AddTab( _("Part") );
     Fl_Group* partTabGroup = AddSubGroup( partTab, border );
-    Fl_Group* matTab = AddTab( "Material" );
+    Fl_Group* matTab = AddTab( _("Material") );
     Fl_Group* matTabGroup = AddSubGroup( matTab, border );
-    Fl_Group* propTab = AddTab( "Property" );
+    Fl_Group* propTab = AddTab( _("Property") );
     Fl_Group* propTabGroup = AddSubGroup( propTab, border );
-    Fl_Group* bcTab = AddTab( "BCs" );
+    Fl_Group* bcTab = AddTab( _("BCs") );
     Fl_Group* bcTabGroup = AddSubGroup( bcTab, border );
-    Fl_Group* meshTab = AddTab( "Mesh" );
+    Fl_Group* meshTab = AddTab( _("Mesh") );
     Fl_Group* meshTabGroup = AddSubGroup( meshTab, border );
-    Fl_Group* femTab = AddTab( "FEM" );
+    Fl_Group* femTab = AddTab( _("FEM") );
     Fl_Group* femTabGroup = AddSubGroup( femTab, border );
-    Fl_Group* cadTab = AddTab( "CAD" );
+    Fl_Group* cadTab = AddTab( _("CAD") );
     Fl_Group* cadTabGroup = AddSubGroup( cadTab, border );
 
     //=== Create Console Area ===//
@@ -79,7 +79,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
 
     m_BorderConsoleLayout.SetFitWidthFlag( true );
     m_BorderConsoleLayout.SetSameLineFlag( false );
-    m_BorderConsoleLayout.AddChoice( m_CurrFeaMeshChoice, "Structure" );
+    m_BorderConsoleLayout.AddChoice( m_CurrFeaMeshChoice, _("Structure") );
 
     m_BorderConsoleLayout.SetSameLineFlag( true );
     m_BorderConsoleLayout.SetFitWidthFlag( false );
@@ -87,25 +87,25 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_BorderConsoleLayout.SetButtonWidth( m_BorderConsoleLayout.GetW() / 2 );
     m_BorderConsoleLayout.SetInputWidth( m_BorderConsoleLayout.GetW() / 2 );
 
-    m_BorderConsoleLayout.AddButton( m_ResetPartDisplayButton, "Reset Part Display" );
-    m_BorderConsoleLayout.AddButton( m_ResetMeshDisplayButton, "Reset Mesh Display" );
+    m_BorderConsoleLayout.AddButton( m_ResetPartDisplayButton, _("Reset Part Display") );
+    m_BorderConsoleLayout.AddButton( m_ResetMeshDisplayButton, _("Reset Mesh Display") );
     m_BorderConsoleLayout.ForceNewLine();
 
-    m_BorderConsoleLayout.AddButton( m_IntersectOnlyButton, "Intersect Only" );
-    m_BorderConsoleLayout.AddButton( m_ExportCADButton, "Export CAD" );
+    m_BorderConsoleLayout.AddButton( m_IntersectOnlyButton, _("Intersect Only") );
+    m_BorderConsoleLayout.AddButton( m_ExportCADButton, _("Export CAD") );
     m_BorderConsoleLayout.ForceNewLine();
 
-    m_BorderConsoleLayout.AddButton( m_FeaIntersectMeshButton, "Intersect and Mesh" );
-    m_BorderConsoleLayout.AddButton( m_FeaExportFEMButton, "Export FEM" );
+    m_BorderConsoleLayout.AddButton( m_FeaIntersectMeshButton, _("Intersect and Mesh") );
+    m_BorderConsoleLayout.AddButton( m_FeaExportFEMButton, _("Export FEM") );
 
     //=== Structures Tab ===//
     structTab->show();
 
     m_StructureTabLayout.SetGroupAndScreen( structTabGroup, this );
 
-    m_StructureTabLayout.AddDividerBox( "General" );
+    m_StructureTabLayout.AddDividerBox( _("General") );
 
-    m_StructureTabLayout.AddButton( m_WikiLinkButton, "Link to FEA Mesh Wiki Documentation" );
+    m_StructureTabLayout.AddButton( m_WikiLinkButton, _("Link to FEA Mesh Wiki Documentation") );
 
     m_StructureTabLayout.AddYGap();
 
@@ -114,14 +114,14 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_StructureTabLayout.SetChoiceButtonWidth( m_StructureTabLayout.GetRemainX() / 2 );
     m_StructureTabLayout.SetSliderWidth( m_StructureTabLayout.GetRemainX() / 2 );
 
-    m_StructUnitChoice.AddItem( "SI (kg, m)" );
-    m_StructUnitChoice.AddItem( "CGS (g, cm)" );
-    m_StructUnitChoice.AddItem( "MPA (tonne, mm)" );
-    m_StructUnitChoice.AddItem( "BFT (slug, ft)" );
+    m_StructUnitChoice.AddItem( _("SI (kg, m)") );
+    m_StructUnitChoice.AddItem( _("CGS (g, cm)") );
+    m_StructUnitChoice.AddItem( _("MPA (tonne, mm)") );
+    m_StructUnitChoice.AddItem( _("BFT (slug, ft)") );
     string squared( 1, (char) 178 );
     string bin_name = "BIN (lbf*sec" + squared + "\\/in, in)";
     m_StructUnitChoice.AddItem( bin_name );
-    m_StructureTabLayout.AddChoice( m_StructUnitChoice, "Unit System (Mass, Length)" );
+    m_StructureTabLayout.AddChoice( m_StructUnitChoice, _("Unit System (Mass, Length)") );
 
     m_StructureTabLayout.SetSameLineFlag( false );
     m_StructureTabLayout.SetFitWidthFlag( true );
@@ -129,7 +129,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_StructureTabLayout.ForceNewLine();
     m_StructureTabLayout.AddYGap();
 
-    m_StructureTabLayout.AddDividerBox( "Structure Selection" );
+    m_StructureTabLayout.AddDividerBox( _("Structure Selection") );
 
     // Pointer for the widths of each column in the browser to support resizing
     // Last column width must be 0
@@ -147,8 +147,8 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_StructureTabLayout.SetSameLineFlag( true );
     m_StructureTabLayout.SetFitWidthFlag( false );
 
-    m_StructureTabLayout.AddChoice( m_GeomChoice, "Geom" );
-    m_StructureTabLayout.AddChoice( m_SurfSel, "Surface" );
+    m_StructureTabLayout.AddChoice( m_GeomChoice, _("Geom") );
+    m_StructureTabLayout.AddChoice( m_SurfSel, _("Surface") );
 
     m_StructureTabLayout.ForceNewLine();
 
@@ -171,22 +171,22 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_StructGroup.SetButtonWidth( buttonwidth );
     m_StructGroup.SetChoiceButtonWidth( buttonwidth );
 
-    m_StructGroup.AddInput( m_FeaStructNameInput, "Struct Name" );
+    m_StructGroup.AddInput( m_FeaStructNameInput, _("Struct Name") );
 
     m_StructGroup.AddYGap();
 
     m_StructureTabLayout.AddSubGroupLayout( m_StructGeneralGroup, m_StructureTabLayout.GetW(), m_StructureTabLayout.GetRemainY() );
 
-    m_StructGeneralGroup.AddDividerBox( "Orientation" );
+    m_StructGeneralGroup.AddDividerBox( _("Orientation") );
 
     m_StructGeneralGroup.SetSameLineFlag( true );
     m_StructGeneralGroup.SetFitWidthFlag( false );
 
     m_StructGeneralGroup.SetButtonWidth( m_StructGeneralGroup.GetRemainX() / 3 );
 
-    m_StructGeneralGroup.AddButton( m_OrientFrontButton, "Front" );
-    m_StructGeneralGroup.AddButton( m_OrientTopButton, "Top" );
-    m_StructGeneralGroup.AddButton( m_OrientSideButton, "Side" );
+    m_StructGeneralGroup.AddButton( m_OrientFrontButton, _("Front") );
+    m_StructGeneralGroup.AddButton( m_OrientTopButton, _("Top") );
+    m_StructGeneralGroup.AddButton( m_OrientSideButton, _("Side") );
 
     m_StructGeneralGroup.ForceNewLine();
 
@@ -194,14 +194,14 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
 
     m_StructWingGroup.AddDividerBox( "Orientation" );
 
-    m_StructWingGroup.AddButton( m_OrientWingButton, "Orient Wing" );
+    m_StructWingGroup.AddButton( m_OrientWingButton, _("Orient Wing") );
 
     m_StructWingGroup.ForceNewLine();
 
     //=== Parts Tab ===//
     m_PartTabLayout.SetGroupAndScreen( partTabGroup, this );
 
-    m_PartTabLayout.AddDividerBox( "FEA Part Selection" );
+    m_PartTabLayout.AddDividerBox( _("FEA Part Selection") );
 
     int start_x = m_PartTabLayout.GetX();
     int start_y = m_PartTabLayout.GetY();
@@ -261,8 +261,8 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_PartGroup.SetButtonWidth( m_PartGroup.GetRemainX() / 3 );
     m_PartGroup.SetInputWidth( m_PartGroup.GetRemainX() / 3 );
 
-    m_PartGroup.AddInput( m_FeaPartNameInput, "Part Name" );
-    m_PartGroup.AddButton( m_EditFeaPartButton, "Edit Part" );
+    m_PartGroup.AddInput( m_FeaPartNameInput, _("Part Name") );
+    m_PartGroup.AddButton( m_EditFeaPartButton, _("Edit Part") );
 
     m_PartGroup.ForceNewLine();
     m_PartGroup.AddYGap();
@@ -277,8 +277,8 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
 
     m_PartGroup.SetButtonWidth( m_PartGroup.GetRemainX() / 2 );
 
-    m_PartGroup.AddButton( m_ShowFeaPartButton, "Show" );
-    m_PartGroup.AddButton( m_HideFeaPartButton, "Hide" );
+    m_PartGroup.AddButton( m_ShowFeaPartButton, _("Show") );
+    m_PartGroup.AddButton( m_HideFeaPartButton, _("Hide") );
 
     m_DispFeaPartGroup.Init( this );
     m_DispFeaPartGroup.AddButton( m_HideFeaPartButton.GetFlButton() );
@@ -287,7 +287,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     //=== Material Tab ===//
     m_MaterialTabLayout.SetGroupAndScreen( matTabGroup, this );
 
-    m_MaterialTabLayout.AddDividerBox( "Material Selection" );
+    m_MaterialTabLayout.AddDividerBox( _("Material Selection") );
 
     m_MaterialTabLayout.AddSubGroupLayout( m_MaterialEditGroup, m_MaterialTabLayout.GetW(), m_MaterialTabLayout.GetRemainY() );
 
@@ -301,8 +301,8 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
 
     m_MaterialEditGroup.SetButtonWidth( m_MaterialEditGroup.GetRemainX() / 2 );
 
-    m_MaterialEditGroup.AddButton( m_AddFeaMaterialButton, "Add Material" );
-    m_MaterialEditGroup.AddButton( m_DelFeaMaterialButton, "Delete Material" );
+    m_MaterialEditGroup.AddButton( m_AddFeaMaterialButton, _("Add Material") );
+    m_MaterialEditGroup.AddButton( m_DelFeaMaterialButton, _("Delete Material") );
     m_MaterialEditGroup.ForceNewLine();
 
     m_MaterialEditGroup.AddSubGroupLayout( m_MaterialEditSubGroup, m_MaterialEditGroup.GetRemainX(), m_MaterialEditGroup.GetRemainY() );
@@ -311,18 +311,18 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
 
     m_MaterialEditSubGroup.AddYGap();
 
-    m_MaterialEditSubGroup.AddInput( m_FeaMaterialNameInput, "Material Name" );
+    m_MaterialEditSubGroup.AddInput( m_FeaMaterialNameInput, _("Material Name") );
 
     m_MaterialEditSubGroup.AddYGap();
 
-    m_MaterialEditSubGroup.AddChoice( m_FeaMaterialTypeChoice, "Type" );
-    m_FeaMaterialTypeChoice.AddItem( "Isotropic", vsp::FEA_ISOTROPIC );
-    m_FeaMaterialTypeChoice.AddItem( "Orthotropic", vsp::FEA_ENG_ORTHO );
+    m_MaterialEditSubGroup.AddChoice( m_FeaMaterialTypeChoice, _("Type") );
+    m_FeaMaterialTypeChoice.AddItem( _("Isotropic"), vsp::FEA_ISOTROPIC );
+    m_FeaMaterialTypeChoice.AddItem( _("Orthotropic"), vsp::FEA_ENG_ORTHO );
     m_FeaMaterialTypeChoice.UpdateItems();
 
     m_MaterialEditSubGroup.AddYGap();
 
-    m_MaterialEditSubGroup.AddDividerBox( "Material Properties" );
+    m_MaterialEditSubGroup.AddDividerBox( _("Material Properties") );
 
     m_MaterialEditSubGroup.SetInputWidth( m_MaterialEditSubGroup.GetW() / 6.0 );
     int button3_w = m_MaterialEditSubGroup.GetW() / 3.0 - m_MaterialEditSubGroup.GetInputWidth();
@@ -431,15 +431,15 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_FeaPropertyType.AddItem( "Shell Property" );
     m_FeaPropertyType.AddItem( "Beam Property" );
 
-    m_PropertyEditGroup.AddChoice( m_FeaPropertyType, "Type" );
+    m_PropertyEditGroup.AddChoice( m_FeaPropertyType, _("Type") );
 
     m_PropertyEditGroup.SetSameLineFlag( true );
     m_PropertyEditGroup.SetFitWidthFlag( false );
 
     m_PropertyEditGroup.SetButtonWidth( m_PropertyEditGroup.GetRemainX() / 2 );
 
-    m_PropertyEditGroup.AddButton( m_AddFeaPropertyButton, "Add Property" );
-    m_PropertyEditGroup.AddButton( m_DelFeaPropertyButton, "Delete Property" );
+    m_PropertyEditGroup.AddButton( m_AddFeaPropertyButton, _("Add Property") );
+    m_PropertyEditGroup.AddButton( m_DelFeaPropertyButton, _("Delete Property") );
     m_PropertyEditGroup.ForceNewLine();
 
     m_PropertyEditGroup.AddSubGroupLayout( m_FeaPropertyCommonGroup, m_PropertyEditGroup.GetRemainX(), m_PropertyEditGroup.GetRemainY() );
@@ -448,18 +448,18 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
 
     m_FeaPropertyCommonGroup.AddYGap();
 
-    m_FeaPropertyCommonGroup.AddInput( m_FeaPropertyNameInput, "Property Name" );
+    m_FeaPropertyCommonGroup.AddInput( m_FeaPropertyNameInput, _("Property Name") );
 
     m_FeaPropertyCommonGroup.AddYGap();
 
     m_FeaPropertyCommonGroup.AddSubGroupLayout( m_FeaPropertyShellGroup, m_FeaPropertyCommonGroup.GetRemainX(), m_FeaPropertyCommonGroup.GetRemainY() );
 
-    m_FeaPropertyShellGroup.AddDividerBox( "Shell Properties" );
+    m_FeaPropertyShellGroup.AddDividerBox( _("Shell Properties") );
 
     m_FeaPropertyShellGroup.SetButtonWidth( m_FeaPropertyShellGroup.GetRemainX() / 3 );
     m_FeaPropertyShellGroup.SetChoiceButtonWidth( m_FeaPropertyShellGroup.GetRemainX() / 3 );
 
-    m_FeaPropertyShellGroup.AddChoice( m_FeaShellMaterialChoice, "Material" );
+    m_FeaPropertyShellGroup.AddChoice( m_FeaShellMaterialChoice, _("Material") );
 
     m_FeaPropertyShellGroup.SetSameLineFlag( true );
     m_FeaPropertyShellGroup.SetFitWidthFlag( false );
@@ -467,7 +467,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_FeaPropertyShellGroup.SetSliderWidth( m_FeaPropertyShellGroup.GetW() / 3 );
     m_FeaPropertyShellGroup.SetInputWidth( m_FeaPropertyShellGroup.GetW() / 6 );
 
-    m_FeaPropertyShellGroup.AddSlider( m_PropThickSlider, "Thickness", 100.0, "%5.3g" );
+    m_FeaPropertyShellGroup.AddSlider( m_PropThickSlider, _("Thickness"), 100.0, "%5.3g" );
     m_FeaPropertyShellGroup.SetButtonWidth( m_FeaPropertyShellGroup.GetRemainX() );
     m_FeaPropertyShellGroup.AddButton( m_PropThickUnit, "" );
     m_PropThickUnit.GetFlButton()->box( FL_THIN_UP_BOX );
@@ -477,27 +477,27 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
 
     m_FeaPropertyCommonGroup.AddSubGroupLayout( m_FeaPropertyBeamGroup, m_FeaPropertyCommonGroup.GetRemainX(), m_FeaPropertyCommonGroup.GetRemainY() );
 
-    m_FeaPropertyBeamGroup.AddDividerBox( "Beam Properties" );
+    m_FeaPropertyBeamGroup.AddDividerBox( _("Beam Properties") );
 
     m_FeaPropertyBeamGroup.SetButtonWidth( m_FeaPropertyBeamGroup.GetRemainX() / 3 );
     m_FeaPropertyBeamGroup.SetChoiceButtonWidth( m_FeaPropertyBeamGroup.GetRemainX() / 3 );
 
-    m_FeaPropertyBeamGroup.AddChoice( m_FeaBeamMaterialChoice, "Material" );
+    m_FeaPropertyBeamGroup.AddChoice( m_FeaBeamMaterialChoice, _("Material") );
 
     m_FeaPropertyBeamGroup.SetSameLineFlag( true );
     m_FeaPropertyBeamGroup.SetFitWidthFlag( false );
 
     m_FeaPropertyBeamGroup.SetSliderWidth( m_FeaPropertyBeamGroup.GetRemainX() / 3 );
 
-    m_FeaBeamXSecChoice.AddItem( "General" );
-    m_FeaBeamXSecChoice.AddItem( "Circle" );
-    m_FeaBeamXSecChoice.AddItem( "Pipe" );
-    m_FeaBeamXSecChoice.AddItem( "I" );
-    m_FeaBeamXSecChoice.AddItem( "Rectangle" );
-    m_FeaBeamXSecChoice.AddItem( "Box" );
-    m_FeaPropertyBeamGroup.AddChoice( m_FeaBeamXSecChoice, "Cross Section Type" );
+    m_FeaBeamXSecChoice.AddItem( _("General") );
+    m_FeaBeamXSecChoice.AddItem( _("Circle") );
+    m_FeaBeamXSecChoice.AddItem( _("Pipe") );
+    m_FeaBeamXSecChoice.AddItem( _("I") );
+    m_FeaBeamXSecChoice.AddItem( _("Rectangle") );
+    m_FeaBeamXSecChoice.AddItem( _("Box") );
+    m_FeaPropertyBeamGroup.AddChoice( m_FeaBeamXSecChoice, _("Cross Section Type") );
 
-    m_FeaPropertyBeamGroup.AddButton( m_ShowFeaBeamXSecButton, "Show XSec" );
+    m_FeaPropertyBeamGroup.AddButton( m_ShowFeaBeamXSecButton, _("Show XSec") );
 
     m_FeaPropertyBeamGroup.ForceNewLine();
 
@@ -506,7 +506,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     // General XSec
     m_FeaPropertyBeamGroup.AddSubGroupLayout( m_GenXSecGroup, m_FeaPropertyBeamGroup.GetRemainX(), m_FeaPropertyBeamGroup.GetRemainY() );
 
-    m_GenXSecGroup.AddDividerBox( "General XSec" );
+    m_GenXSecGroup.AddDividerBox( _("General XSec") );
 
     m_GenXSecGroup.SetSameLineFlag( true );
     m_GenXSecGroup.SetFitWidthFlag( false );
@@ -515,7 +515,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_GenXSecGroup.SetSliderWidth( m_GenXSecGroup.GetRemainX() / 3 );
     m_GenXSecGroup.SetInputWidth( m_GenXSecGroup.GetRemainX() / 6 );
 
-    m_GenXSecGroup.AddSlider( m_PropAreaSlider, "Cross-Sect Area", 100.0, "%5.3g" );
+    m_GenXSecGroup.AddSlider( m_PropAreaSlider, _("Cross-Sect Area"), 100.0, "%5.3g" );
     m_GenXSecGroup.SetButtonWidth( m_GenXSecGroup.GetRemainX() );
     m_GenXSecGroup.AddButton( m_PropAreaUnit, "" );
     m_PropAreaUnit.GetFlButton()->box( FL_THIN_UP_BOX );
@@ -524,7 +524,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_GenXSecGroup.ForceNewLine();
     m_GenXSecGroup.SetButtonWidth( m_GenXSecGroup.GetRemainX() / 3 );
 
-    m_GenXSecGroup.AddSlider( m_PropIzzSlider, "Izz", 100.0, "%5.3g" );
+    m_GenXSecGroup.AddSlider( m_PropIzzSlider, _("Izz"), 100.0, "%5.3g" );
     m_GenXSecGroup.SetButtonWidth( m_GenXSecGroup.GetRemainX() );
     m_GenXSecGroup.AddButton( m_PropIzzUnit, "" );
     m_PropIzzUnit.GetFlButton()->box( FL_THIN_UP_BOX );
@@ -533,7 +533,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_GenXSecGroup.ForceNewLine();
     m_GenXSecGroup.SetButtonWidth( m_GenXSecGroup.GetRemainX() / 3 );
 
-    m_GenXSecGroup.AddSlider( m_PropIyySlider, "Iyy", 100.0, "%5.3g" );
+    m_GenXSecGroup.AddSlider( m_PropIyySlider, _("Iyy"), 100.0, "%5.3g" );
     m_GenXSecGroup.SetButtonWidth( m_GenXSecGroup.GetRemainX() );
     m_GenXSecGroup.AddButton( m_PropIyyUnit, "" );
     m_PropIyyUnit.GetFlButton()->box( FL_THIN_UP_BOX );
@@ -542,7 +542,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_GenXSecGroup.ForceNewLine();
     m_GenXSecGroup.SetButtonWidth( m_GenXSecGroup.GetRemainX() / 3 );
 
-    m_GenXSecGroup.AddSlider( m_PropIzySlider, "Izy", 100.0, "%5.3g" );
+    m_GenXSecGroup.AddSlider( m_PropIzySlider, _("Izy"), 100.0, "%5.3g" );
     m_GenXSecGroup.SetButtonWidth( m_GenXSecGroup.GetRemainX() );
     m_GenXSecGroup.AddButton( m_PropIzyUnit, "" );
     m_PropIzyUnit.GetFlButton()->box( FL_THIN_UP_BOX );
@@ -551,7 +551,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_GenXSecGroup.ForceNewLine();
     m_GenXSecGroup.SetButtonWidth( m_GenXSecGroup.GetRemainX() / 3 );
 
-    m_GenXSecGroup.AddSlider( m_PropIxxSlider, "Ixx", 100.0, "%5.3g" );
+    m_GenXSecGroup.AddSlider( m_PropIxxSlider, _("Ixx"), 100.0, "%5.3g" );
     m_GenXSecGroup.SetButtonWidth( m_GenXSecGroup.GetRemainX() );
     m_GenXSecGroup.AddButton( m_PropIxxUnit, "" );
     m_PropIxxUnit.GetFlButton()->box( FL_THIN_UP_BOX );
@@ -562,7 +562,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     // Circle XSec
     m_FeaPropertyBeamGroup.AddSubGroupLayout( m_CircXSecGroup, m_FeaPropertyBeamGroup.GetRemainX(), m_FeaPropertyBeamGroup.GetRemainY() );
 
-    m_CircXSecGroup.AddDividerBox( "Circle XSec" );
+    m_CircXSecGroup.AddDividerBox( _("Circle XSec") );
 
     m_CircXSecGroup.SetSameLineFlag( true );
     m_CircXSecGroup.SetFitWidthFlag( false );
@@ -571,7 +571,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_CircXSecGroup.SetSliderWidth( m_CircXSecGroup.GetRemainX() / 3 );
     m_CircXSecGroup.SetInputWidth( m_CircXSecGroup.GetRemainX() / 6 );
 
-    m_CircXSecGroup.AddSlider( m_CircDim1Slider, "Radius", 100.0, "%5.3f" );
+    m_CircXSecGroup.AddSlider( m_CircDim1Slider, _("Radius"), 100.0, "%5.3f" );
     m_CircXSecGroup.SetButtonWidth( m_CircXSecGroup.GetRemainX() );
     m_CircXSecGroup.AddButton( m_CircDim1Unit, "" );
     m_CircDim1Unit.GetFlButton()->box( FL_THIN_UP_BOX );
@@ -580,7 +580,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     // Pipe/Tube XSec
     m_FeaPropertyBeamGroup.AddSubGroupLayout( m_PipeXSecGroup, m_FeaPropertyBeamGroup.GetRemainX(), m_FeaPropertyBeamGroup.GetRemainY() );
 
-    m_PipeXSecGroup.AddDividerBox( "Pipe XSec" );
+    m_PipeXSecGroup.AddDividerBox( _("Pipe XSec") );
 
     m_PipeXSecGroup.SetSameLineFlag( true );
     m_PipeXSecGroup.SetFitWidthFlag( false );
@@ -589,7 +589,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_PipeXSecGroup.SetSliderWidth( m_PipeXSecGroup.GetRemainX() / 3 );
     m_PipeXSecGroup.SetInputWidth( m_PipeXSecGroup.GetRemainX() / 6 );
 
-    m_PipeXSecGroup.AddSlider( m_PipeDim1Slider, "R_outer", 100.0, "%5.3f" );
+    m_PipeXSecGroup.AddSlider( m_PipeDim1Slider, _("R_outer"), 100.0, "%5.3f" );
     m_PipeXSecGroup.SetButtonWidth( m_PipeXSecGroup.GetRemainX() );
     m_PipeXSecGroup.AddButton( m_PipeDim1Unit, "" );
     m_PipeDim1Unit.GetFlButton()->box( FL_THIN_UP_BOX );
@@ -598,7 +598,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_PipeXSecGroup.ForceNewLine();
     m_PipeXSecGroup.SetButtonWidth( m_PipeXSecGroup.GetW() / 3 );
 
-    m_PipeXSecGroup.AddSlider( m_PipeDim2Slider, "R_inner", 100.0, "%5.3f" );
+    m_PipeXSecGroup.AddSlider( m_PipeDim2Slider, _("R_inner"), 100.0, "%5.3f" );
     m_PipeXSecGroup.SetButtonWidth( m_PipeXSecGroup.GetRemainX() );
     m_PipeXSecGroup.AddButton( m_PipeDim2Unit, "" );
     m_PipeDim2Unit.GetFlButton()->box( FL_THIN_UP_BOX );
@@ -607,7 +607,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     // I XSec
     m_FeaPropertyBeamGroup.AddSubGroupLayout( m_IXSecGroup, m_FeaPropertyBeamGroup.GetRemainX(), m_FeaPropertyBeamGroup.GetRemainY() );
 
-    m_IXSecGroup.AddDividerBox( "I XSec" );
+    m_IXSecGroup.AddDividerBox( _("I XSec") );
 
     m_IXSecGroup.SetSameLineFlag( true );
     m_IXSecGroup.SetFitWidthFlag( false );
@@ -616,7 +616,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_IXSecGroup.SetSliderWidth( m_IXSecGroup.GetRemainX() / 3 );
     m_IXSecGroup.SetInputWidth( m_IXSecGroup.GetRemainX() / 6 );
 
-    m_IXSecGroup.AddSlider( m_IDim1Slider, "Dim1", 100.0, "%5.3f" );
+    m_IXSecGroup.AddSlider( m_IDim1Slider, _("Dim1"), 100.0, "%5.3f" );
     m_IXSecGroup.SetButtonWidth( m_IXSecGroup.GetRemainX() );
     m_IXSecGroup.AddButton( m_IDim1Unit, "" );
     m_IDim1Unit.GetFlButton()->box( FL_THIN_UP_BOX );
@@ -625,7 +625,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_IXSecGroup.ForceNewLine();
     m_IXSecGroup.SetButtonWidth( m_IXSecGroup.GetW() / 3 );
 
-    m_IXSecGroup.AddSlider( m_IDim2Slider, "Dim2", 100.0, "%5.3f" );
+    m_IXSecGroup.AddSlider( m_IDim2Slider, _("Dim2"), 100.0, "%5.3f" );
     m_IXSecGroup.SetButtonWidth( m_IXSecGroup.GetRemainX() );
     m_IXSecGroup.AddButton( m_IDim2Unit, "" );
     m_IDim2Unit.GetFlButton()->box( FL_THIN_UP_BOX );
@@ -634,7 +634,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_IXSecGroup.ForceNewLine();
     m_IXSecGroup.SetButtonWidth( m_IXSecGroup.GetRemainX() / 3 );
 
-    m_IXSecGroup.AddSlider( m_IDim3Slider, "Dim3", 100.0, "%5.3f" );
+    m_IXSecGroup.AddSlider( m_IDim3Slider, _("Dim3"), 100.0, "%5.3f" );
     m_IXSecGroup.SetButtonWidth( m_IXSecGroup.GetRemainX() );
     m_IXSecGroup.AddButton( m_IDim3Unit, "" );
     m_IDim3Unit.GetFlButton()->box( FL_THIN_UP_BOX );
@@ -643,7 +643,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_IXSecGroup.ForceNewLine();
     m_IXSecGroup.SetButtonWidth( m_IXSecGroup.GetRemainX() / 3 );
 
-    m_IXSecGroup.AddSlider( m_IDim4Slider, "Dim4", 100.0, "%5.3f" );
+    m_IXSecGroup.AddSlider( m_IDim4Slider, _("Dim4"), 100.0, "%5.3f" );
     m_IXSecGroup.SetButtonWidth( m_IXSecGroup.GetRemainX() );
     m_IXSecGroup.AddButton( m_IDim4Unit, "" );
     m_IDim4Unit.GetFlButton()->box( FL_THIN_UP_BOX );
@@ -652,7 +652,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_IXSecGroup.ForceNewLine();
     m_IXSecGroup.SetButtonWidth( m_IXSecGroup.GetRemainX() / 3 );
 
-    m_IXSecGroup.AddSlider( m_IDim5Slider, "Dim5", 100.0, "%5.3f" );
+    m_IXSecGroup.AddSlider( m_IDim5Slider, _("Dim5"), 100.0, "%5.3f" );
     m_IXSecGroup.SetButtonWidth( m_IXSecGroup.GetRemainX() );
     m_IXSecGroup.AddButton( m_IDim5Unit, "" );
     m_IDim5Unit.GetFlButton()->box( FL_THIN_UP_BOX );
@@ -661,7 +661,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_IXSecGroup.ForceNewLine();
     m_IXSecGroup.SetButtonWidth( m_IXSecGroup.GetRemainX() / 3 );
 
-    m_IXSecGroup.AddSlider( m_IDim6Slider, "Dim6", 100.0, "%5.3f" );
+    m_IXSecGroup.AddSlider( m_IDim6Slider, _("Dim6"), 100.0, "%5.3f" );
     m_IXSecGroup.SetButtonWidth( m_IXSecGroup.GetRemainX() );
     m_IXSecGroup.AddButton( m_IDim6Unit, "" );
     m_IDim6Unit.GetFlButton()->box( FL_THIN_UP_BOX );
@@ -670,7 +670,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     // Rectangle XSec
     m_FeaPropertyBeamGroup.AddSubGroupLayout( m_RectXSecGroup, m_FeaPropertyBeamGroup.GetRemainX(), m_FeaPropertyBeamGroup.GetRemainY() );
 
-    m_RectXSecGroup.AddDividerBox( "Rectangle XSec" );
+    m_RectXSecGroup.AddDividerBox( _("Rectangle XSec") );
 
     m_RectXSecGroup.SetSameLineFlag( true );
     m_RectXSecGroup.SetFitWidthFlag( false );
@@ -679,7 +679,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_RectXSecGroup.SetSliderWidth( m_RectXSecGroup.GetRemainX() / 3 );
     m_RectXSecGroup.SetInputWidth( m_RectXSecGroup.GetRemainX() / 6 );
 
-    m_RectXSecGroup.AddSlider( m_RectDim1Slider, "Width", 100.0, "%5.3f" );
+    m_RectXSecGroup.AddSlider( m_RectDim1Slider, _("Width"), 100.0, "%5.3f" );
     m_RectXSecGroup.SetButtonWidth( m_RectXSecGroup.GetRemainX() );
     m_RectXSecGroup.AddButton( m_RectDim1Unit, "" );
     m_RectDim1Unit.GetFlButton()->box( FL_THIN_UP_BOX );
@@ -688,7 +688,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_RectXSecGroup.ForceNewLine();
     m_RectXSecGroup.SetButtonWidth( m_RectXSecGroup.GetRemainX() / 3 );
 
-    m_RectXSecGroup.AddSlider( m_RectDim2Slider, "Height", 100.0, "%5.3f" );
+    m_RectXSecGroup.AddSlider( m_RectDim2Slider, _("Height"), 100.0, "%5.3f" );
     m_RectXSecGroup.SetButtonWidth( m_RectXSecGroup.GetRemainX() );
     m_RectXSecGroup.AddButton( m_RectDim2Unit, "" );
     m_RectDim2Unit.GetFlButton()->box( FL_THIN_UP_BOX );
@@ -697,7 +697,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     // Box XSec
     m_FeaPropertyBeamGroup.AddSubGroupLayout( m_BoxXSecGroup, m_FeaPropertyBeamGroup.GetRemainX(), m_FeaPropertyBeamGroup.GetRemainY() );
 
-    m_BoxXSecGroup.AddDividerBox( "Box XSec" );
+    m_BoxXSecGroup.AddDividerBox( _("Box XSec") );
 
     m_BoxXSecGroup.SetSameLineFlag( true );
     m_BoxXSecGroup.SetFitWidthFlag( false );
@@ -706,7 +706,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_BoxXSecGroup.SetSliderWidth( m_BoxXSecGroup.GetRemainX() / 3 );
     m_BoxXSecGroup.SetInputWidth( m_BoxXSecGroup.GetRemainX() / 6 );
 
-    m_BoxXSecGroup.AddSlider( m_BoxDim1Slider, "Dim1", 100.0, "%5.3f" );
+    m_BoxXSecGroup.AddSlider( m_BoxDim1Slider, _("Dim1"), 100.0, "%5.3f" );
     m_BoxXSecGroup.SetButtonWidth( m_BoxXSecGroup.GetRemainX() );
     m_BoxXSecGroup.AddButton( m_BoxDim1Unit, "" );
     m_BoxDim1Unit.GetFlButton()->box( FL_THIN_UP_BOX );
@@ -715,7 +715,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_BoxXSecGroup.ForceNewLine();
     m_BoxXSecGroup.SetButtonWidth( m_BoxXSecGroup.GetRemainX() / 3 );
 
-    m_BoxXSecGroup.AddSlider( m_BoxDim2Slider, "Dim2", 100.0, "%5.3f" );
+    m_BoxXSecGroup.AddSlider( m_BoxDim2Slider, _("Dim2"), 100.0, "%5.3f" );
     m_BoxXSecGroup.SetButtonWidth( m_BoxXSecGroup.GetRemainX() );
     m_BoxXSecGroup.AddButton( m_BoxDim2Unit, "" );
     m_BoxDim2Unit.GetFlButton()->box( FL_THIN_UP_BOX );
@@ -724,7 +724,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_BoxXSecGroup.ForceNewLine();
     m_BoxXSecGroup.SetButtonWidth( m_BoxXSecGroup.GetRemainX() / 3 );
 
-    m_BoxXSecGroup.AddSlider( m_BoxDim3Slider, "Dim3", 100.0, "%5.3f" );
+    m_BoxXSecGroup.AddSlider( m_BoxDim3Slider, _("Dim3"), 100.0, "%5.3f" );
     m_BoxXSecGroup.SetButtonWidth( m_BoxXSecGroup.GetRemainX() );
     m_BoxXSecGroup.AddButton( m_BoxDim3Unit, "" );
     m_BoxDim3Unit.GetFlButton()->box( FL_THIN_UP_BOX );
@@ -733,7 +733,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_BoxXSecGroup.ForceNewLine();
     m_BoxXSecGroup.SetButtonWidth( m_BoxXSecGroup.GetRemainX() / 3 );
 
-    m_BoxXSecGroup.AddSlider( m_BoxDim4Slider, "Dim4", 100.0, "%5.3f" );
+    m_BoxXSecGroup.AddSlider( m_BoxDim4Slider, _("Dim4"), 100.0, "%5.3f" );
     m_BoxXSecGroup.SetButtonWidth( m_BoxXSecGroup.GetRemainX() );
     m_BoxXSecGroup.AddButton( m_BoxDim4Unit, "" );
     m_BoxDim4Unit.GetFlButton()->box( FL_THIN_UP_BOX );
@@ -742,7 +742,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     //=== Boundary Condition Tab ===//
     m_BCTabLayout.SetGroupAndScreen( bcTabGroup, this );
 
-    m_BCTabLayout.AddDividerBox( "Boundary Condition Selection" );
+    m_BCTabLayout.AddDividerBox( _("Boundary Condition Selection") );
 
     m_BCTabLayout.AddSubGroupLayout( m_BCEditGroup, m_BCTabLayout.GetW(), m_BCTabLayout.GetRemainY() );
 
@@ -767,9 +767,9 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
 
     m_FeaBCCommonGroup.AddYGap();
 
-    m_FeaBCCommonGroup.AddDividerBox( "BC Properties" );
+    m_FeaBCCommonGroup.AddDividerBox( _("BC Properties") );
 
-    m_FeaBCCommonGroup.AddChoice( m_FeaBCTypeChoice, "Type" );
+    m_FeaBCCommonGroup.AddChoice( m_FeaBCTypeChoice, _("Type") );
     m_FeaBCTypeChoice.AddItem( "Structure", vsp::FEA_BC_STRUCTURE );
     m_FeaBCTypeChoice.AddItem( "Part", vsp::FEA_BC_PART );
     m_FeaBCTypeChoice.AddItem( "Sub Surface", vsp::FEA_BC_SUBSURF );
@@ -777,14 +777,14 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
 
     m_FeaBCCommonGroup.AddYGap();
 
-    m_FeaBCCommonGroup.AddChoice( m_FeaBCPartChoice, "Part" );
-    m_FeaBCCommonGroup.AddChoice( m_FeaBCSubSurfChoice, "Sub Surface" );
+    m_FeaBCCommonGroup.AddChoice( m_FeaBCPartChoice, _("Part") );
+    m_FeaBCCommonGroup.AddChoice( m_FeaBCSubSurfChoice, _("Sub Surface") );
 
     m_FeaBCCommonGroup.AddYGap();
 
-    m_FeaBCCommonGroup.AddDividerBox( "Degrees of Freedom" );
+    m_FeaBCCommonGroup.AddDividerBox( _("Degrees of Freedom") );
 
-    m_FeaBCCommonGroup.AddChoice( m_FeaBCModeChoice, "Mode" );
+    m_FeaBCCommonGroup.AddChoice( m_FeaBCModeChoice, _("Mode") );
     m_FeaBCModeChoice.AddItem( "User", vsp::FEA_BCM_USER );
     m_FeaBCModeChoice.AddItem( "All", vsp::FEA_BCM_ALL );
     m_FeaBCModeChoice.AddItem( "Pin", vsp::FEA_BCM_PIN );
@@ -816,7 +816,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_FeaBCCommonGroup.SetFitWidthFlag( true );
 
     m_FeaBCCommonGroup.AddYGap();
-    m_FeaBCCommonGroup.AddDividerBox( "Region" );
+    m_FeaBCCommonGroup.AddDividerBox( _("Region") );
 
     int bw = 50; // [X <=]  Slider button width
     int tw = 15; // Toggle button width
@@ -873,49 +873,49 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     //=== MESH TAB ===//
     m_MeshTabLayout.SetGroupAndScreen( meshTabGroup, this );
 
-    m_MeshTabLayout.AddDividerBox( "Mesh Control" );
+    m_MeshTabLayout.AddDividerBox( _("Mesh Control") );
 
     m_MeshTabLayout.AddYGap();
 
     m_MeshTabLayout.SetButtonWidth( 175 );
-    m_MeshTabLayout.AddSlider( m_MaxEdgeLen, "Max Edge Len", 1.0, "%7.5f" );
-    m_MeshTabLayout.AddSlider( m_MinEdgeLen, "Min Edge Len", 1.0, "%7.5f" );
-    m_MeshTabLayout.AddSlider( m_MaxGap, "Max Gap", 1.0, "%7.5f" );
-    m_MeshTabLayout.AddSlider( m_NumCircleSegments, "Num Circle Segments", 100.0, "%7.5f" );
-    m_MeshTabLayout.AddSlider( m_GrowthRatio, "Growth Ratio", 2.0, "%7.5f" );
+    m_MeshTabLayout.AddSlider( m_MaxEdgeLen, _("Max Edge Len"), 1.0, "%7.5f" );
+    m_MeshTabLayout.AddSlider( m_MinEdgeLen, _("Min Edge Len"), 1.0, "%7.5f" );
+    m_MeshTabLayout.AddSlider( m_MaxGap, _("Max Gap"), 1.0, "%7.5f" );
+    m_MeshTabLayout.AddSlider( m_NumCircleSegments, _("Num Circle Segments"), 100.0, "%7.5f" );
+    m_MeshTabLayout.AddSlider( m_GrowthRatio, _("Growth Ratio"), 2.0, "%7.5f" );
 
     m_MeshTabLayout.AddYGap();
-    m_MeshTabLayout.AddDividerBox( "Geometry Control" );
+    m_MeshTabLayout.AddDividerBox( _("Geometry Control") );
     m_MeshTabLayout.AddYGap();
 
-    m_MeshTabLayout.AddButton( m_Rig3dGrowthLimit, "Rigorous 3D Growth Limiting" );
+    m_MeshTabLayout.AddButton( m_Rig3dGrowthLimit, _("Rigorous 3D Growth Limiting") );
     m_MeshTabLayout.AddYGap();
-    m_MeshTabLayout.AddSlider( m_RelCurveTolSlider, "Curve Adaptation Tolerance", 0.01, "%7.5f" );
+    m_MeshTabLayout.AddSlider( m_RelCurveTolSlider, _("Curve Adaptation Tolerance"), 0.01, "%7.5f" );
     m_MeshTabLayout.AddYGap();
-    m_MeshTabLayout.AddButton( m_HalfMeshButton, "Generate Half Mesh" );
+    m_MeshTabLayout.AddButton( m_HalfMeshButton, _("Generate Half Mesh") );
     m_MeshTabLayout.AddYGap();
-    m_MeshTabLayout.AddButton( m_ToCubicToggle, "Demote Surfs to Cubic" );
-    m_MeshTabLayout.AddSlider( m_ToCubicTolSlider, "Cubic Tolerance", 10, "%5.4g", 0, true );
+    m_MeshTabLayout.AddButton( m_ToCubicToggle, _("Demote Surfs to Cubic") );
+    m_MeshTabLayout.AddSlider( m_ToCubicTolSlider, _("Cubic Tolerance"), 10, "%5.4g", 0, true );
 
     m_MeshTabLayout.AddYGap();
-    m_MeshTabLayout.AddDividerBox( "Element Type" );
+    m_MeshTabLayout.AddDividerBox( _("Element Type") );
     m_MeshTabLayout.AddYGap();
 
-    m_MeshTabLayout.AddButton( m_ConvertToQuadsToggle, "Convert to Quads" );
-    m_MeshTabLayout.AddButton( m_HighOrderElementToggle, "High order Elements" );
-    m_MeshTabLayout.AddButton( m_BeamPerElementNormalToggle, "Beam Per-Element Normal Vectors" );
+    m_MeshTabLayout.AddButton( m_ConvertToQuadsToggle, _("Convert to Quads") );
+    m_MeshTabLayout.AddButton( m_HighOrderElementToggle, _("High order Elements") );
+    m_MeshTabLayout.AddButton( m_BeamPerElementNormalToggle, _("Beam Per-Element Normal Vectors") );
 
     m_MeshTabLayout.AddYGap();
-    m_MeshTabLayout.AddDividerBox( "FEA Index Offsets" );
+    m_MeshTabLayout.AddDividerBox( _("FEA Index Offsets") );
     m_MeshTabLayout.AddYGap();
 
-    m_MeshTabLayout.AddSlider( m_NodeOffset, "Node Offset", 1e5, " %5.0f" );
-    m_MeshTabLayout.AddSlider( m_ElementOffset, "Element Offset", 1e5, " %5.0f" );
+    m_MeshTabLayout.AddSlider( m_NodeOffset, _("Node Offset"), 1e5, " %5.0f" );
+    m_MeshTabLayout.AddSlider( m_ElementOffset, _("Element Offset"), 1e5, " %5.0f" );
 
     //=== FEM Tab ===//
     m_FemTabLayout.SetGroupAndScreen( femTabGroup, this );
 
-    m_FemTabLayout.AddDividerBox( "FEM Export" );
+    m_FemTabLayout.AddDividerBox( _("FEM Export") );
 
     m_FemTabLayout.SetFitWidthFlag( false );
     m_FemTabLayout.SetSameLineFlag( true );
@@ -939,7 +939,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_FemTabLayout.AddYGap();
 
     m_FemTabLayout.SetButtonWidth( 75 );
-    m_FemTabLayout.AddButton( m_MassFile, "Mass" );
+    m_FemTabLayout.AddButton( m_MassFile, _("Mass") );
     m_FemTabLayout.AddOutput( m_MassOutput );
     m_FemTabLayout.SetButtonWidth( m_FemTabLayout.GetRemainX() );
     m_FemTabLayout.AddButton( m_SelectMassFile, "..." );
@@ -948,14 +948,14 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_FemTabLayout.AddYGap();
 
     m_FemTabLayout.SetButtonWidth( 75 );
-    m_FemTabLayout.AddButton( m_NastFile, "Nastran" );
+    m_FemTabLayout.AddButton( m_NastFile, _("Nastran") );
     m_FemTabLayout.AddOutput( m_NastOutput );
     m_FemTabLayout.SetButtonWidth( m_FemTabLayout.GetRemainX() );
     m_FemTabLayout.AddButton( m_SelectNastFile, "..." );
     m_FemTabLayout.ForceNewLine();
 
     m_FemTabLayout.SetButtonWidth( 75 );
-    m_FemTabLayout.AddButton( m_NkeyFile, "Nkey" );
+    m_FemTabLayout.AddButton( m_NkeyFile, _("Nkey") );
     m_FemTabLayout.AddOutput( m_NkeyOutput );
     m_FemTabLayout.SetButtonWidth( m_FemTabLayout.GetRemainX() );
     m_FemTabLayout.AddButton( m_SelectNkeyFile, "..." );
@@ -964,7 +964,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_FemTabLayout.AddYGap();
 
     m_FemTabLayout.SetButtonWidth( 75 );
-    m_FemTabLayout.AddButton( m_CalcFile, "Calculix" );
+    m_FemTabLayout.AddButton( m_CalcFile, _("Calculix") );
     m_FemTabLayout.AddOutput( m_CalcOutput );
     m_FemTabLayout.SetButtonWidth( m_FemTabLayout.GetRemainX() );
     m_FemTabLayout.AddButton( m_SelectCalcFile, "..." );
@@ -975,29 +975,29 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_FemTabLayout.SetFitWidthFlag( true );
     m_FemTabLayout.SetSameLineFlag( false );
 
-    m_FemTabLayout.AddDividerBox( "FEM Display" );
+    m_FemTabLayout.AddDividerBox( _("FEM Display") );
 
     m_FemTabLayout.SetButtonWidth( m_FemTabLayout.GetW() / 2 );
 
     m_FemTabLayout.SetFitWidthFlag( false );
     m_FemTabLayout.SetSameLineFlag( true );
 
-    m_FemTabLayout.AddButton( m_DrawMeshButton, "Draw Mesh" );
-    m_FemTabLayout.AddButton( m_ColorElementsButton, "Color Elements" );
+    m_FemTabLayout.AddButton( m_DrawMeshButton, _("Draw Mesh") );
+    m_FemTabLayout.AddButton( m_ColorElementsButton, _("Color Elements") );
     m_FemTabLayout.ForceNewLine();
 
-    m_FemTabLayout.AddButton( m_DrawNodesToggle, "Draw Nodes" );
-    m_FemTabLayout.AddButton( m_DrawElementOrientVecToggle, "Draw Element Orientation" );
+    m_FemTabLayout.AddButton( m_DrawNodesToggle, _("Draw Nodes") );
+    m_FemTabLayout.AddButton( m_DrawElementOrientVecToggle, _("Draw Element Orientation") );
     m_FemTabLayout.ForceNewLine();
 
-    m_FemTabLayout.AddButton( m_DrawBCNodesToggle, "Draw BCs" );
+    m_FemTabLayout.AddButton( m_DrawBCNodesToggle, _("Draw BCs") );
     m_FemTabLayout.ForceNewLine();
 
     m_FemTabLayout.SetFitWidthFlag( true );
     m_FemTabLayout.SetSameLineFlag( false );
     m_FemTabLayout.AddYGap();
 
-    m_FemTabLayout.AddDividerBox( "Element Sets" );
+    m_FemTabLayout.AddDividerBox( _("Element Sets") );
 
     m_DrawPartSelectBrowser = m_FemTabLayout.AddCheckBrowser( browser_h );
     m_DrawPartSelectBrowser->callback( staticScreenCB, this );
@@ -1010,8 +1010,8 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
 
     m_FemTabLayout.SetButtonWidth( m_FemTabLayout.GetW() / 2 );
 
-    m_FemTabLayout.AddButton( m_DrawAllButton, "Draw All Elements" );
-    m_FemTabLayout.AddButton( m_HideAllButton, "Hide All Elements" );
+    m_FemTabLayout.AddButton( m_DrawAllButton, _("Draw All Elements") );
+    m_FemTabLayout.AddButton( m_HideAllButton, _("Hide All Elements") );
     m_FemTabLayout.ForceNewLine();
 
     //=== CAD TAB ===//
@@ -1022,9 +1022,9 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_CadTabLayout.SetSameLineFlag( false );
     m_CadTabLayout.InitWidthHeightVals();
 
-    m_CadTabLayout.AddDividerBox("Surface and Curve Export");
+    m_CadTabLayout.AddDividerBox(_("Surface and Curve Export"));
 
-    m_CadTabLayout.AddButton( m_ExportRaw, "Export Raw Points" );
+    m_CadTabLayout.AddButton( m_ExportRaw, _("Export Raw Points") );
 
     m_CadTabLayout.InitWidthHeightVals();
     m_CadTabLayout.SetInputWidth( m_CadTabLayout.GetW() - 75 - 55 );
@@ -1056,13 +1056,13 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
 
     m_CadTabLayout.SetSameLineFlag( false );
     m_CadTabLayout.SetFitWidthFlag( true );
-    m_CadTabLayout.AddButton( m_XYZIntCurves, "Include X,Y,Z Intersection Curves" );
+    m_CadTabLayout.AddButton( m_XYZIntCurves, _("Include X,Y,Z Intersection Curves") );
 
     m_CadTabLayout.AddYGap();
     m_CadTabLayout.SetFitWidthFlag( true );
     m_CadTabLayout.SetSameLineFlag( false );
 
-    m_CadTabLayout.AddDividerBox( "Trimmed CAD Export" );
+    m_CadTabLayout.AddDividerBox( _("Trimmed CAD Export") );
 
     m_CadTabLayout.InitWidthHeightVals();
     m_CadTabLayout.SetFitWidthFlag( false );
@@ -1070,28 +1070,28 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
 
     m_CadTabLayout.SetButtonWidth( m_CadTabLayout.GetRemainX() / 4 );
 
-    m_CadTabLayout.AddButton( m_LabelIDToggle, "Geom ID" );
-    m_CadTabLayout.AddButton( m_LabelNameToggle, "Geom Name" );
-    m_CadTabLayout.AddButton( m_LabelSurfNoToggle, "Surf Number" );
-    m_CadTabLayout.AddButton( m_LabelSplitNoToggle, "Split Number" );
+    m_CadTabLayout.AddButton( m_LabelIDToggle, _("Geom ID") );
+    m_CadTabLayout.AddButton( m_LabelNameToggle, _("Geom Name") );
+    m_CadTabLayout.AddButton( m_LabelSurfNoToggle, _("Surf Number") );
+    m_CadTabLayout.AddButton( m_LabelSplitNoToggle, _("Split Number") );
 
     m_CadTabLayout.ForceNewLine();
     m_CadTabLayout.SetSliderWidth( m_CadTabLayout.GetRemainX() / 4 );
     m_CadTabLayout.SetChoiceButtonWidth( m_CadTabLayout.GetRemainX() / 4 );
 
-    m_LabelDelimChoice.AddItem( "Comma" );
-    m_LabelDelimChoice.AddItem( "Underscore" );
-    m_LabelDelimChoice.AddItem( "Space" );
-    m_LabelDelimChoice.AddItem( "None" );
-    m_CadTabLayout.AddChoice( m_LabelDelimChoice, "Delimiter" );
+    m_LabelDelimChoice.AddItem( _("Comma") );
+    m_LabelDelimChoice.AddItem( _("Underscore") );
+    m_LabelDelimChoice.AddItem( _("Space") );
+    m_LabelDelimChoice.AddItem( _("None") );
+    m_CadTabLayout.AddChoice( m_LabelDelimChoice, _("Delimiter") );
 
-    m_LenUnitChoice.AddItem( "MM" );
-    m_LenUnitChoice.AddItem( "CM" );
-    m_LenUnitChoice.AddItem( "M" );
-    m_LenUnitChoice.AddItem( "IN" );
-    m_LenUnitChoice.AddItem( "FT" );
-    m_LenUnitChoice.AddItem( "YD" );
-    m_CadTabLayout.AddChoice( m_LenUnitChoice, "Length Unit" );
+    m_LenUnitChoice.AddItem( _("MM") );
+    m_LenUnitChoice.AddItem( _("CM") );
+    m_LenUnitChoice.AddItem( _("M") );
+    m_LenUnitChoice.AddItem( _("IN") );
+    m_LenUnitChoice.AddItem( _("FT") );
+    m_LenUnitChoice.AddItem( _("YD") );
+    m_CadTabLayout.AddChoice( m_LenUnitChoice, _("Length Unit") );
     m_CadTabLayout.ForceNewLine();
     m_CadTabLayout.AddYGap();
 
@@ -1122,7 +1122,7 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     //m_CadTabLayout.SetButtonWidth( m_OutputTabLayout.GetRemainX() / 3 );
     //m_CadTabLayout.AddButton( m_STEPMergePointsToggle, "Merge Points" );
     //m_CadTabLayout.SetFitWidthFlag( true );
-    m_CadTabLayout.AddSlider( m_STEPTolSlider, "STEP Tolerance", 10, "%5.4g", 0, true );
+    m_CadTabLayout.AddSlider( m_STEPTolSlider, _("STEP Tolerance"), 10, "%5.4g", 0, true );
     //m_CadTabLayout.SetFitWidthFlag( false );
     //m_CadTabLayout.ForceNewLine();
 
@@ -1130,8 +1130,8 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_CadTabLayout.SetSameLineFlag( true );
 
     m_CadTabLayout.SetButtonWidth( m_CadTabLayout.GetRemainX() / 2 );
-    m_CadTabLayout.AddButton( m_STEPShell, "Shell Representation" );
-    m_CadTabLayout.AddButton( m_STEPBREP, "BREP Solid Representation" );
+    m_CadTabLayout.AddButton( m_STEPShell, _("Shell Representation") );
+    m_CadTabLayout.AddButton( m_STEPBREP, _("BREP Solid Representation") );
     m_CadTabLayout.ForceNewLine();
 
     m_STEPRepGroup.Init( this );
@@ -1143,23 +1143,23 @@ StructScreen::StructScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA St
     m_CadTabLayout.SetFitWidthFlag( true );
     m_CadTabLayout.SetSameLineFlag( false );
 
-    m_CadTabLayout.AddDividerBox( "Intersection Curve Display" );
+    m_CadTabLayout.AddDividerBox( _("Intersection Curve Display") );
 
     m_CadTabLayout.SetFitWidthFlag( false );
     m_CadTabLayout.SetSameLineFlag( true );
 
     m_CadTabLayout.SetButtonWidth( m_CadTabLayout.GetW() / 2 );
 
-    m_CadTabLayout.AddButton( m_DrawIsect, "Show Intersection Curves");
-    m_CadTabLayout.AddButton( m_DrawBorder, "Show Border Curves");
+    m_CadTabLayout.AddButton( m_DrawIsect, _("Show Intersection Curves"));
+    m_CadTabLayout.AddButton( m_DrawBorder, _("Show Border Curves"));
     m_CadTabLayout.ForceNewLine();
 
-    m_CadTabLayout.AddButton( m_ShowCurve, "Show Curves");
-    m_CadTabLayout.AddButton( m_ShowPts, "Show Points");
+    m_CadTabLayout.AddButton( m_ShowCurve, _("Show Curves"));
+    m_CadTabLayout.AddButton( m_ShowPts, _("Show Points"));
     m_CadTabLayout.ForceNewLine();
 
-    m_CadTabLayout.AddButton( m_ShowRaw, "Show Raw Curve");
-    m_CadTabLayout.AddButton( m_ShowBinAdapt, "Show Binary Adapted");
+    m_CadTabLayout.AddButton( m_ShowRaw, _("Show Raw Curve"));
+    m_CadTabLayout.AddButton( m_ShowBinAdapt, _("Show Binary Adapted"));
     m_CadTabLayout.ForceNewLine();
 
     // Set initial values

@@ -14,7 +14,7 @@
 #include "GraphicEngine.h"
 #include "Display.h"
 
-ManageViewScreen::ManageViewScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 250, 445 + 45 + 45, "Adjust View" )
+ManageViewScreen::ManageViewScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 250, 445 + 45 + 45, _("Adjust View") )
 {
     m_FLTK_Window->callback( staticCloseCB, this );
     m_MainLayout.SetGroupAndScreen( m_FLTK_Window, this );
@@ -28,63 +28,63 @@ ManageViewScreen::ManageViewScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 250, 44
 
     //===== Viewport Section =====//
 
-    m_BorderLayout.AddDividerBox( "Viewport Size" );
+    m_BorderLayout.AddDividerBox( _("Viewport Size") );
     m_BorderLayout.AddYGap();
     m_BorderLayout.SetButtonWidth( 50 );
-    m_BorderLayout.AddSlider( m_ViewportSizeX, "Width:", 250.0, "%7.0f" );
-    m_BorderLayout.AddSlider( m_ViewportSizeY, "Height:", 250.0, "%7.0f" );
+    m_BorderLayout.AddSlider( m_ViewportSizeX, _("Width:"), 250.0, "%7.0f" );
+    m_BorderLayout.AddSlider( m_ViewportSizeY, _("Height:"), 250.0, "%7.0f" );
     m_BorderLayout.AddYGap();
-    m_BorderLayout.AddButton(m_SetDefaultViewportSize, "Reset Viewport Size");
+    m_BorderLayout.AddButton(m_SetDefaultViewportSize, _("Reset Viewport Size"));
     m_BorderLayout.AddYGap();
 
     //===== Look At Point Section =====//
 
-    m_BorderLayout.AddDividerBox( "Center of Rotation" );
+    m_BorderLayout.AddDividerBox( _("Center of Rotation") );
     m_BorderLayout.AddYGap();
 
-    m_BorderLayout.AddSlider( m_CORX, "X:", 10.0, "%7.3f" );
-    m_BorderLayout.AddSlider( m_CORY, "Y:", 10.0, "%7.3f" );
-    m_BorderLayout.AddSlider( m_CORZ, "Z:", 10.0, "%7.3f" );
+    m_BorderLayout.AddSlider( m_CORX, _("X:"), 10.0, "%7.3f" );
+    m_BorderLayout.AddSlider( m_CORY, _("Y:"), 10.0, "%7.3f" );
+    m_BorderLayout.AddSlider( m_CORZ, _("Z:"), 10.0, "%7.3f" );
     m_BorderLayout.AddYGap();
 
-    m_BorderLayout.AddButton( m_PickLookAtBtn, "Pick Point" );
+    m_BorderLayout.AddButton( m_PickLookAtBtn, _("Pick Point") );
     m_BorderLayout.AddYGap();
-    m_BorderLayout.AddButton( m_ResetOriginLookAtBtn, "Reset To Origin" );
+    m_BorderLayout.AddButton( m_ResetOriginLookAtBtn, _("Reset To Origin") );
     m_BorderLayout.AddYGap();
 
     //===== Camera Movement =====//
 
-    m_BorderLayout.AddDividerBox( "Camera Movement" );
+    m_BorderLayout.AddDividerBox( _("Camera Movement") );
     m_BorderLayout.AddYGap();
 
     m_BorderLayout.SetButtonWidth( 50 );
 
-    m_BorderLayout.AddSlider( m_PanXPos, "Pan X:", 10.0, "%7.3f" );
-    m_BorderLayout.AddSlider( m_PanYPos, "Pan Y:", 10.0, "%7.3f" );
+    m_BorderLayout.AddSlider( m_PanXPos, _("Pan X:"), 10.0, "%7.3f" );
+    m_BorderLayout.AddSlider( m_PanYPos, _("Pan Y:"), 10.0, "%7.3f" );
     m_BorderLayout.AddYGap();
 
-    m_BorderLayout.AddSlider( m_Zoom, "Zoom:", 1, "%7.3g", 0, true );
+    m_BorderLayout.AddSlider( m_Zoom, _("Zoom:"), 1, "%7.3g", 0, true );
     m_BorderLayout.AddYGap();
 
     //===== Attempt at Euler Angle Rotation =====//
-    m_BorderLayout.AddSlider( m_XRotation, "X Rot:", 10.0, "%7.3f" );
-    m_BorderLayout.AddSlider( m_YRotation, "Y Rot:", 10.0, "%7.3f" );
-    m_BorderLayout.AddSlider( m_ZRotation, "Z Rot:", 10.0, "%7.3f" );
+    m_BorderLayout.AddSlider( m_XRotation, _("X Rot:"), 10.0, "%7.3f" );
+    m_BorderLayout.AddSlider( m_YRotation, _("Y Rot:"), 10.0, "%7.3f" );
+    m_BorderLayout.AddSlider( m_ZRotation, _("Z Rot:"), 10.0, "%7.3f" );
     m_BorderLayout.AddYGap();
 
-    m_BorderLayout.AddButton( m_ResetCamera, "Reset Camera" );
+    m_BorderLayout.AddButton( m_ResetCamera, _("Reset Camera") );
 
     m_BorderLayout.AddYGap();
-    m_BorderLayout.AddDividerBox( "Axis Marker Size" );
+    m_BorderLayout.AddDividerBox( _("Axis Marker Size") );
     m_BorderLayout.AddYGap();
 
-    m_BorderLayout.AddSlider( m_AxisLenSlider, "Len", 10.0, "%7.3f" );
+    m_BorderLayout.AddSlider( m_AxisLenSlider, _("Len"), 10.0, "%7.3f" );
 
     m_BorderLayout.AddYGap();
-    m_BorderLayout.AddDividerBox( "Text Label Size" );
+    m_BorderLayout.AddDividerBox( _("Text Label Size") );
     m_BorderLayout.AddYGap();
 
-    m_BorderLayout.AddSlider( m_TextSizeSlider, "Size", 10.0, "%5.1f" );
+    m_BorderLayout.AddSlider( m_TextSizeSlider, _("Size"), 10.0, "%5.1f" );
 
 }
 

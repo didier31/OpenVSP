@@ -9,11 +9,13 @@
 
 #include "ClippingScreen.h"
 
+#include <intl.h>
+
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-ClippingScreen::ClippingScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 300, 170, "View Clipping" )
+ClippingScreen::ClippingScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 300, 170, _("View Clipping") )
 {
     m_GenLayout.SetGroupAndScreen( m_FLTK_Window, this );
     m_GenLayout.AddY( 25 );
@@ -25,39 +27,39 @@ ClippingScreen::ClippingScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 300, 170, "
     m_GenLayout.SetSameLineFlag( true );
 
     m_GenLayout.SetFitWidthFlag( false );
-    m_GenLayout.AddButton( m_XGTClipToggle, "Active" );
+    m_GenLayout.AddButton( m_XGTClipToggle, _("Active") );
     m_GenLayout.SetFitWidthFlag( true );
-    m_GenLayout.AddSlider( m_XGTClipSlider, "X >", 10, "%7.3f" );
+    m_GenLayout.AddSlider( m_XGTClipSlider, _("X >"), 10, "%7.3f" );
     m_GenLayout.ForceNewLine();
 
     m_GenLayout.SetFitWidthFlag( false );
-    m_GenLayout.AddButton( m_XLTClipToggle, "Active" );
+    m_GenLayout.AddButton( m_XLTClipToggle, _("Active") );
     m_GenLayout.SetFitWidthFlag( true );
-    m_GenLayout.AddSlider( m_XLTClipSlider, "X <", 10, "%7.3f" );
+    m_GenLayout.AddSlider( m_XLTClipSlider, _("X <"), 10, "%7.3f" );
     m_GenLayout.ForceNewLine();
 
     m_GenLayout.SetFitWidthFlag( false );
-    m_GenLayout.AddButton( m_YGTClipToggle, "Active" );
+    m_GenLayout.AddButton( m_YGTClipToggle, _("Active") );
     m_GenLayout.SetFitWidthFlag( true );
-    m_GenLayout.AddSlider( m_YGTClipSlider, "Y >", 10, "%7.3f" );
+    m_GenLayout.AddSlider( m_YGTClipSlider, _("Y >"), 10, "%7.3f" );
     m_GenLayout.ForceNewLine();
 
     m_GenLayout.SetFitWidthFlag( false );
     m_GenLayout.AddButton( m_YLTClipToggle, "Active" );
     m_GenLayout.SetFitWidthFlag( true );
-    m_GenLayout.AddSlider( m_YLTClipSlider, "Y <", 10, "%7.3f" );
+    m_GenLayout.AddSlider( m_YLTClipSlider, _("Y <"), 10, "%7.3f" );
     m_GenLayout.ForceNewLine();
 
     m_GenLayout.SetFitWidthFlag( false );
-    m_GenLayout.AddButton( m_ZGTClipToggle, "Active" );
+    m_GenLayout.AddButton( m_ZGTClipToggle, _("Active") );
     m_GenLayout.SetFitWidthFlag( true );
-    m_GenLayout.AddSlider( m_ZGTClipSlider, "Z >", 10, "%7.3f" );
+    m_GenLayout.AddSlider( m_ZGTClipSlider, _("Z >"), 10, "%7.3f" );
     m_GenLayout.ForceNewLine();
 
     m_GenLayout.SetFitWidthFlag( false );
-    m_GenLayout.AddButton( m_ZLTClipToggle, "Active" );
+    m_GenLayout.AddButton( m_ZLTClipToggle, _("Active") );
     m_GenLayout.SetFitWidthFlag( true );
-    m_GenLayout.AddSlider( m_ZLTClipSlider, "Z <", 10, "%7.3f" );
+    m_GenLayout.AddSlider( m_ZLTClipSlider, _("Z <"), 10, "%7.3f" );
     m_GenLayout.ForceNewLine();
 
 }

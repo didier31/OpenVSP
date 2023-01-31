@@ -27,19 +27,19 @@ using namespace vsp;
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-StructAssemblyScreen::StructAssemblyScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, "FEA Assembly", 221 + 5 )
+StructAssemblyScreen::StructAssemblyScreen( ScreenMgr* mgr ) : TabScreen( mgr, 430, 720, _("FEA Assembly"), 221 + 5 )
 {
     m_FLTK_Window->callback( staticCloseCB, this );
 
     int border = 5;
 
-    Fl_Group* assyTab = AddTab( "Assembly" );
+    Fl_Group* assyTab = AddTab( _("Assembly") );
     Fl_Group* assyTabGroup = AddSubGroup( assyTab, border );
-    Fl_Group* structTab = AddTab( "Structures" );
+    Fl_Group* structTab = AddTab( _("Structures") );
     Fl_Group* structTabGroup = AddSubGroup( structTab, border );
-    Fl_Group* conTab = AddTab( "Connections" );
+    Fl_Group* conTab = AddTab( _("Connections") );
     Fl_Group* conTabGroup = AddSubGroup( conTab, border );
-    Fl_Group* femTab = AddTab( "FEM" );
+    Fl_Group* femTab = AddTab( _("FEM") );
     Fl_Group* femTabGroup = AddSubGroup( femTab, border );
 
     //=== Create Console Area ===//
@@ -69,7 +69,7 @@ StructAssemblyScreen::StructAssemblyScreen( ScreenMgr* mgr ) : TabScreen( mgr, 4
 
     m_BorderConsoleLayout.AddYGap();
 
-    m_BorderConsoleLayout.AddButton( m_DrawAsMeshButton, "Draw as Mesh When Ready" );
+    m_BorderConsoleLayout.AddButton( m_DrawAsMeshButton, _("Draw as Mesh When Ready") );
 
     m_BorderConsoleLayout.SetSameLineFlag( true );
     m_BorderConsoleLayout.SetFitWidthFlag( false );
@@ -77,20 +77,20 @@ StructAssemblyScreen::StructAssemblyScreen( ScreenMgr* mgr ) : TabScreen( mgr, 4
     m_BorderConsoleLayout.SetButtonWidth( m_BorderConsoleLayout.GetW() / 2 );
 
 
-    m_BorderConsoleLayout.AddButton( m_FeaReMeshAllButton, "Re-Mesh All" );
-    m_BorderConsoleLayout.AddButton( m_FeaMeshUnmeshedButton, "Mesh Unmeshed" );
+    m_BorderConsoleLayout.AddButton( m_FeaReMeshAllButton, _("Re-Mesh All") );
+    m_BorderConsoleLayout.AddButton( m_FeaMeshUnmeshedButton, _("Mesh Unmeshed") );
     m_BorderConsoleLayout.ForceNewLine();
 
     m_BorderConsoleLayout.SetButtonWidth( m_BorderConsoleLayout.GetW() );
 
-    m_BorderConsoleLayout.AddButton( m_FeaExportMeshButton, "Export FEM" );
+    m_BorderConsoleLayout.AddButton( m_FeaExportMeshButton, _("Export FEM") );
 
     //=== Assembly Tab ===//
     assyTab->show();
 
     m_AssemblyTabLayout.SetGroupAndScreen( assyTabGroup, this );
 
-    m_AssemblyTabLayout.AddDividerBox( "Assembly Selection" );
+    m_AssemblyTabLayout.AddDividerBox( _("Assembly Selection") );
 
     // Pointer for the widths of each column in the browser to support resizing
     // Last column width must be 0
@@ -110,8 +110,8 @@ StructAssemblyScreen::StructAssemblyScreen( ScreenMgr* mgr ) : TabScreen( mgr, 4
 
     m_AssemblyTabLayout.SetButtonWidth( m_AssemblyTabLayout.GetRemainX() / 2 );
 
-    m_AssemblyTabLayout.AddButton( m_AddAssemblyButton, "Add Assembly" );
-    m_AssemblyTabLayout.AddButton( m_DelAssemblyButton, "Delete Assembly" );
+    m_AssemblyTabLayout.AddButton( m_AddAssemblyButton, _("Add Assembly") );
+    m_AssemblyTabLayout.AddButton( m_DelAssemblyButton, _("Delete Assembly") );
 
     m_AssemblyTabLayout.ForceNewLine();
     m_AssemblyTabLayout.AddYGap();
@@ -119,35 +119,35 @@ StructAssemblyScreen::StructAssemblyScreen( ScreenMgr* mgr ) : TabScreen( mgr, 4
     m_AssemblyTabLayout.SetSameLineFlag( false );
     m_AssemblyTabLayout.SetFitWidthFlag( true );
 
-    m_AssemblyTabLayout.AddInput( m_AssemblyNameInput, "Assembly Name" );
+    m_AssemblyTabLayout.AddInput( m_AssemblyNameInput, _("Assembly Name") );
 
 
     //=== Structure Tab ===//
 
     m_StructureTabLayout.SetGroupAndScreen( structTabGroup, this );
 
-    m_StructureTabLayout.AddDividerBox( "Structure Selection" );
+    m_StructureTabLayout.AddDividerBox( _("Structure Selection") );
 
     static int struct_col_widths[] = { 300, 100, 0 }; // widths for each column
 
     m_StructureSelectBrowser = m_StructureTabLayout.AddColResizeBrowser( struct_col_widths, 2, browser_h );
     m_StructureSelectBrowser->callback( staticScreenCB, this );
 
-    m_StructureTabLayout.AddChoice( m_FeaStructureChoice, "Structure" );
+    m_StructureTabLayout.AddChoice( m_FeaStructureChoice, _("Structure") );
 
     m_StructureTabLayout.SetButtonWidth( m_StructureTabLayout.GetRemainX() / 2 );
 
     m_StructureTabLayout.SetSameLineFlag( true );
     m_StructureTabLayout.SetFitWidthFlag( false );
 
-    m_StructureTabLayout.AddButton( m_AddFeaStructureButton, "Add Structure" );
-    m_StructureTabLayout.AddButton( m_DelFeaStructureButton, "Delete Structure" );
+    m_StructureTabLayout.AddButton( m_AddFeaStructureButton, _("Add Structure") );
+    m_StructureTabLayout.AddButton( m_DelFeaStructureButton, _("Delete Structure") );
 
     //=== Connection Tab ===//
 
     m_ConnectionsTabLayout.SetGroupAndScreen( conTabGroup, this );
 
-    m_ConnectionsTabLayout.AddDividerBox( "Connection Selection" );
+    m_ConnectionsTabLayout.AddDividerBox( _("Connection Selection") );
 
     static int con_col_widths[] = { 100, 75, 25, 100, 75, 25, 0 }; // widths for each column
 
@@ -160,28 +160,28 @@ StructAssemblyScreen::StructAssemblyScreen( ScreenMgr* mgr ) : TabScreen( mgr, 4
     m_ConnectionsTabLayout.SetChoiceButtonWidth( m_ConnectionsTabLayout.GetRemainX() / 4 );
     m_ConnectionsTabLayout.SetSliderWidth( m_ConnectionsTabLayout.GetRemainX() / 4 );
 
-    m_ConnectionsTabLayout.AddChoice( m_ConnectionStartChoice, "Start" );
-    m_ConnectionsTabLayout.AddChoice( m_ConnectionStartSurfIndxChoice, "Index" );
+    m_ConnectionsTabLayout.AddChoice( m_ConnectionStartChoice, _("Start") );
+    m_ConnectionsTabLayout.AddChoice( m_ConnectionStartSurfIndxChoice, _("Index") );
 
     m_ConnectionsTabLayout.ForceNewLine();
 
-    m_ConnectionsTabLayout.AddChoice( m_ConnectionEndChoice, "End" );
-    m_ConnectionsTabLayout.AddChoice( m_ConnectionEndSurfIndxChoice, "Index" );
+    m_ConnectionsTabLayout.AddChoice( m_ConnectionEndChoice, _("End") );
+    m_ConnectionsTabLayout.AddChoice( m_ConnectionEndSurfIndxChoice, _("Index") );
 
     m_ConnectionsTabLayout.ForceNewLine();
 
     m_ConnectionsTabLayout.SetButtonWidth( m_ConnectionsTabLayout.GetRemainX() / 2 );
 
-    m_ConnectionsTabLayout.AddButton( m_AddConnectionButton, "Add Connection" );
-    m_ConnectionsTabLayout.AddButton( m_DelConnectionButton, "Delete Connection" );
+    m_ConnectionsTabLayout.AddButton( m_AddConnectionButton, _("Add Connection") );
+    m_ConnectionsTabLayout.AddButton( m_DelConnectionButton, _("Delete Connection") );
     m_ConnectionsTabLayout.ForceNewLine();
 
     m_ConnectionsTabLayout.SetSameLineFlag( false );
     m_ConnectionsTabLayout.SetFitWidthFlag( true );
 
-    m_ConnectionsTabLayout.AddDividerBox( "Connection Properties" );
+    m_ConnectionsTabLayout.AddDividerBox( _("Connection Properties") );
 
-    m_ConnectionsTabLayout.AddChoice( m_FeaConnModeChoice, "Mode" );
+    m_ConnectionsTabLayout.AddChoice( m_FeaConnModeChoice, _("Mode") );
     m_FeaConnModeChoice.AddItem( "User", vsp::FEA_BCM_USER );
     m_FeaConnModeChoice.AddItem( "All", vsp::FEA_BCM_ALL );
     m_FeaConnModeChoice.AddItem( "Pin", vsp::FEA_BCM_PIN );
@@ -194,21 +194,21 @@ StructAssemblyScreen::StructAssemblyScreen( ScreenMgr* mgr ) : TabScreen( mgr, 4
 
     m_ConnectionsTabLayout.AddLabel( "Translation:", m_ConnectionsTabLayout.GetButtonWidth() );
 
-    m_ConnectionsTabLayout.AddButton( m_TxButton, "X", 1 << 0 );
-    m_ConnectionsTabLayout.AddButton( m_TyButton, "Y", 1 << 1 );
-    m_ConnectionsTabLayout.AddButton( m_TzButton, "Z", 1 << 2 );
+    m_ConnectionsTabLayout.AddButton( m_TxButton, _("X"), 1 << 0 );
+    m_ConnectionsTabLayout.AddButton( m_TyButton, _("Y"), 1 << 1 );
+    m_ConnectionsTabLayout.AddButton( m_TzButton, _("Z"), 1 << 2 );
 
     m_ConnectionsTabLayout.ForceNewLine();
 
     m_ConnectionsTabLayout.AddLabel( "Rotation:", m_ConnectionsTabLayout.GetButtonWidth() );
-    m_ConnectionsTabLayout.AddButton( m_RxButton, "X", 1 << 3 );
-    m_ConnectionsTabLayout.AddButton( m_RyButton, "Y", 1 << 4 );
-    m_ConnectionsTabLayout.AddButton( m_RzButton, "Z", 1 << 5 );
+    m_ConnectionsTabLayout.AddButton( m_RxButton, _("X"), 1 << 3 );
+    m_ConnectionsTabLayout.AddButton( m_RyButton, _("Y"), 1 << 4 );
+    m_ConnectionsTabLayout.AddButton( m_RzButton, _("Z"), 1 << 5 );
 
     //=== Output Tab ===//
     m_FemTabLayout.SetGroupAndScreen( femTabGroup, this );
 
-    m_FemTabLayout.AddDividerBox( "File Export" );
+    m_FemTabLayout.AddDividerBox( _("File Export") );
 
     m_FemTabLayout.SetFitWidthFlag( false );
     m_FemTabLayout.SetSameLineFlag( true );
@@ -232,7 +232,7 @@ StructAssemblyScreen::StructAssemblyScreen( ScreenMgr* mgr ) : TabScreen( mgr, 4
     m_FemTabLayout.AddYGap();
 
     m_FemTabLayout.SetButtonWidth( 75 );
-    m_FemTabLayout.AddButton( m_MassFile, "Mass" );
+    m_FemTabLayout.AddButton( m_MassFile, _("Mass") );
     m_FemTabLayout.AddOutput( m_MassOutput );
     m_FemTabLayout.SetButtonWidth( m_FemTabLayout.GetRemainX() );
     m_FemTabLayout.AddButton( m_SelectMassFile, "..." );
@@ -241,14 +241,14 @@ StructAssemblyScreen::StructAssemblyScreen( ScreenMgr* mgr ) : TabScreen( mgr, 4
     m_FemTabLayout.AddYGap();
 
     m_FemTabLayout.SetButtonWidth( 75 );
-    m_FemTabLayout.AddButton( m_NastFile, "Nastran" );
+    m_FemTabLayout.AddButton( m_NastFile, _("Nastran") );
     m_FemTabLayout.AddOutput( m_NastOutput );
     m_FemTabLayout.SetButtonWidth( m_FemTabLayout.GetRemainX() );
     m_FemTabLayout.AddButton( m_SelectNastFile, "..." );
     m_FemTabLayout.ForceNewLine();
 
     m_FemTabLayout.SetButtonWidth( 75 );
-    m_FemTabLayout.AddButton( m_NkeyFile, "Nkey" );
+    m_FemTabLayout.AddButton( m_NkeyFile, _("Nkey") );
     m_FemTabLayout.AddOutput( m_NkeyOutput );
     m_FemTabLayout.SetButtonWidth( m_FemTabLayout.GetRemainX() );
     m_FemTabLayout.AddButton( m_SelectNkeyFile, "..." );
@@ -257,7 +257,7 @@ StructAssemblyScreen::StructAssemblyScreen( ScreenMgr* mgr ) : TabScreen( mgr, 4
     m_FemTabLayout.AddYGap();
 
     m_FemTabLayout.SetButtonWidth( 75 );
-    m_FemTabLayout.AddButton( m_CalcFile, "Calculix" );
+    m_FemTabLayout.AddButton( m_CalcFile, _("Calculix") );
     m_FemTabLayout.AddOutput( m_CalcOutput );
     m_FemTabLayout.SetButtonWidth( m_FemTabLayout.GetRemainX() );
     m_FemTabLayout.AddButton( m_SelectCalcFile, "..." );
@@ -267,21 +267,21 @@ StructAssemblyScreen::StructAssemblyScreen( ScreenMgr* mgr ) : TabScreen( mgr, 4
     m_FemTabLayout.SetSameLineFlag( false );
     m_FemTabLayout.SetFitWidthFlag( true );
 
-    m_FemTabLayout.AddDividerBox( "FEM Display" );
+    m_FemTabLayout.AddDividerBox( _("FEM Display") );
 
     m_FemTabLayout.SetSameLineFlag( true );
     m_FemTabLayout.SetFitWidthFlag( false );
     m_FemTabLayout.SetButtonWidth( m_FemTabLayout.GetW() / 2 );
 
-    m_FemTabLayout.AddButton( m_DrawMeshButton, "Draw Mesh" );
+    m_FemTabLayout.AddButton( m_DrawMeshButton, _("Draw Mesh") );
     m_FemTabLayout.AddButton( m_ColorElementsButton, "Color Elements" );
     m_FemTabLayout.ForceNewLine();
 
-    m_FemTabLayout.AddButton( m_DrawNodesToggle, "Draw Nodes" );
+    m_FemTabLayout.AddButton( m_DrawNodesToggle, _("Draw Nodes") );
     m_FemTabLayout.AddButton( m_DrawElementOrientVecToggle, "Draw Element Orientation Vectors" );
     m_FemTabLayout.ForceNewLine();
 
-    m_FemTabLayout.AddButton( m_DrawBCNodesToggle, "Draw BCs" );
+    m_FemTabLayout.AddButton( m_DrawBCNodesToggle, _("Draw BCs") );
     m_FemTabLayout.ForceNewLine();
 
     m_FemTabLayout.AddYGap();
@@ -300,8 +300,8 @@ StructAssemblyScreen::StructAssemblyScreen( ScreenMgr* mgr ) : TabScreen( mgr, 4
     m_FemTabLayout.SetSameLineFlag( true );
     m_FemTabLayout.SetFitWidthFlag( false );
 
-    m_FemTabLayout.AddButton( m_DrawAllButton, "Draw All Elements" );
-    m_FemTabLayout.AddButton( m_HideAllButton, "Hide All Elements" );
+    m_FemTabLayout.AddButton( m_DrawAllButton, _("Draw All Elements") );
+    m_FemTabLayout.AddButton( m_HideAllButton, _("Hide All Elements") );
     m_FemTabLayout.ForceNewLine();
 
 
@@ -899,7 +899,7 @@ void StructAssemblyScreen::GuiDeviceCallBack( GuiDevice* device )
     {
         if ( curr_assy )
         {
-            string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Select .stl file.", "*.stl" );
+            string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Select .stl file."), "*.stl" );
             if ( newfile.compare( "" ) != 0 )
             {
                 curr_assy->m_AssemblySettings.SetExportFileName( newfile, vsp::FEA_STL_FILE_NAME );
@@ -910,7 +910,7 @@ void StructAssemblyScreen::GuiDeviceCallBack( GuiDevice* device )
     {
         if ( curr_assy )
         {
-            string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Select mass .txt file.", "*.txt" );
+            string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Select mass .txt file."), "*.txt" );
             if ( newfile.compare( "" ) != 0 )
             {
                 curr_assy->m_AssemblySettings.SetExportFileName( newfile, vsp::FEA_MASS_FILE_NAME );
@@ -921,7 +921,7 @@ void StructAssemblyScreen::GuiDeviceCallBack( GuiDevice* device )
     {
         if ( curr_assy )
         {
-            string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Select NASTRAN .dat file.", "*.dat" );
+            string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Select NASTRAN .dat file."), "*.dat" );
             if ( newfile.compare( "" ) != 0 )
             {
                 curr_assy->m_AssemblySettings.SetExportFileName( newfile, vsp::FEA_NASTRAN_FILE_NAME );
@@ -932,7 +932,7 @@ void StructAssemblyScreen::GuiDeviceCallBack( GuiDevice* device )
     {
         if ( curr_assy )
         {
-            string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Select NASTRAN key file.", "*.nkey" );
+            string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Select NASTRAN key file."), "*.nkey" );
             if ( newfile.compare( "" ) != 0 )
             {
                 curr_assy->m_AssemblySettings.SetExportFileName( newfile, vsp::FEA_NKEY_FILE_NAME );
@@ -943,7 +943,7 @@ void StructAssemblyScreen::GuiDeviceCallBack( GuiDevice* device )
     {
         if ( curr_assy )
         {
-            string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Select Calculix .dat file.", "*.dat" );
+            string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Select Calculix .dat file."), "*.dat" );
             if ( newfile.compare( "" ) != 0 )
             {
                 curr_assy->m_AssemblySettings.SetExportFileName( newfile, vsp::FEA_CALCULIX_FILE_NAME );
@@ -954,7 +954,7 @@ void StructAssemblyScreen::GuiDeviceCallBack( GuiDevice* device )
     {
         if ( curr_assy )
         {
-            string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Select .msh file.", "*.msh" );
+            string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Select .msh file."), "*.msh" );
             if ( newfile.compare( "" ) != 0 )
             {
                 curr_assy->m_AssemblySettings.SetExportFileName( newfile, vsp::FEA_GMSH_FILE_NAME );

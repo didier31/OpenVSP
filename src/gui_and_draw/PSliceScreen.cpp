@@ -7,7 +7,9 @@
 #include "PSliceScreen.h"
 #include "ScreenMgr.h"
 
-PSliceScreen::PSliceScreen( ScreenMgr *mgr ) : BasicScreen( mgr, 300, 450, "Planar Slicing" )
+#include <intl.h>
+
+PSliceScreen::PSliceScreen( ScreenMgr *mgr ) : BasicScreen( mgr, 300, 450, _("Planar Slicing") )
 {
     m_FLTK_Window->callback( staticCloseCB, this );
     m_MainLayout.SetGroupAndScreen( m_FLTK_Window, this );
@@ -29,27 +31,27 @@ PSliceScreen::PSliceScreen( ScreenMgr *mgr ) : BasicScreen( mgr, 300, 450, "Plan
                                         m_MainLayout.GetRemainY() - borderPaddingWidth );
 
     m_BorderLayout.SetButtonWidth( smallButtonWidth );
-    m_BorderLayout.AddSlider( m_NumSlicesInput, "Num Slice:", 100, "%6.0f" );
+    m_BorderLayout.AddSlider( m_NumSlicesInput, _("Num Slice:"), 100, "%6.0f" );
     m_BorderLayout.AddYGap();
 
-    m_AxisChoice.AddItem( "X-Axis" );
-    m_AxisChoice.AddItem( "Y-Axis" );
-    m_AxisChoice.AddItem( "Z-Axis" );
+    m_AxisChoice.AddItem( _("X-Axis") );
+    m_AxisChoice.AddItem( _("Y-Axis") );
+    m_AxisChoice.AddItem( _("Z-Axis") );
 
-    m_BorderLayout.AddChoice( m_AxisChoice, "Normal Axis" );
+    m_BorderLayout.AddChoice( m_AxisChoice, _("Normal Axis") );
     m_BorderLayout.AddYGap();
 
-    m_BorderLayout.AddDividerBox( "Slicing Bounds" );
+    m_BorderLayout.AddDividerBox( _("Slicing Bounds") );
 
-    m_BorderLayout.AddButton( m_AutoButton, "Auto" );
+    m_BorderLayout.AddButton( m_AutoButton, _("Auto") );
     m_BorderLayout.AddYGap();
 
-    m_BorderLayout.AddSlider( m_StartLocSlider, "Start Location", 10, "%6.3f" );
+    m_BorderLayout.AddSlider( m_StartLocSlider, _("Start Location"), 10, "%6.3f" );
 
-    m_BorderLayout.AddSlider( m_EndLocSlider, "End Location", 10, "%6.3f" );
+    m_BorderLayout.AddSlider( m_EndLocSlider, _("End Location"), 10, "%6.3f" );
     m_BorderLayout.AddYGap();
 
-    m_BorderLayout.AddDividerBox( "Output File" );
+    m_BorderLayout.AddDividerBox( _("Output File") );
 
     m_BorderLayout.SetSameLineFlag( true );
     m_BorderLayout.SetFitWidthFlag( true );
@@ -77,10 +79,10 @@ PSliceScreen::PSliceScreen( ScreenMgr *mgr ) : BasicScreen( mgr, 300, 450, "Plan
     m_TextDisplay->buffer( m_TextBuffer );
     m_BorderLayout.AddYGap();
 
-    m_BorderLayout.AddChoice( m_SetChoice, "Set" );
+    m_BorderLayout.AddChoice( m_SetChoice, _("Set") );
     m_BorderLayout.AddYGap();
 
-    m_BorderLayout.AddButton( m_StartSlicingTrigger, "Start Slicing" );
+    m_BorderLayout.AddButton( m_StartSlicingTrigger, _("Start Slicing") );
     m_BorderLayout.AddYGap();
 }
 
@@ -194,7 +196,7 @@ void PSliceScreen::GuiDeviceCallBack( GuiDevice* device )
     {
          veh->setExportFileName( vsp::SLICE_TXT_TYPE,
                                        m_ScreenMgr->GetSelectFileScreen()->FileChooser(
-                                               "Select Mass Prop output file.", "*.txt" ) );
+                                               _("Select Mass Prop output file."), "*.txt" ) );
     }
     else if ( device == &m_StartSlicingTrigger )
     {

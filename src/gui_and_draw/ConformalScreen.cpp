@@ -9,18 +9,19 @@
 #include "ScreenMgr.h"
 #include "ConformalGeom.h"
 
+#include <intl.h>
 
 //==== Constructor ====//
-ConformalScreen::ConformalScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 525, "Conformal" )
+ConformalScreen::ConformalScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 525, _("Conformal") )
 {
-    Fl_Group* design_tab = AddTab( "Design" );
+    Fl_Group* design_tab = AddTab( _("Design") );
     Fl_Group* design_group = AddSubGroup( design_tab, 5 );
 
     m_DesignLayout.SetGroupAndScreen( design_group, this );
     m_DesignLayout.AddDividerBox( "Design" );
 
     //==== Design ====//
-    m_DesignLayout.AddSlider( m_OffsetSlider, "Offset", 0.1, "%7.3f" );
+    m_DesignLayout.AddSlider( m_OffsetSlider, _("Offset"), 0.1, "%7.3f" );
     m_DesignLayout.AddYGap();
 
     m_DesignLayout.AddDividerBox("UV Trim");
@@ -28,18 +29,18 @@ ConformalScreen::ConformalScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 525, 
     m_DesignLayout.AddSubGroupLayout( m_TrimGroup, m_DesignLayout.GetW(), m_DesignLayout.GetH() );
 
     int start_y = m_TrimGroup.GetY();
-    m_TrimGroup.AddButton( m_UTrimToggle, "Trim U");
-    m_TrimGroup.AddSlider( m_UTrimMinSlider, "U Min", 1.0, "%5.4f" );
-    m_TrimGroup.AddSlider( m_UTrimMaxSlider, "U Max", 1.0, "%5.4f" );
+    m_TrimGroup.AddButton( m_UTrimToggle, _("Trim U"));
+    m_TrimGroup.AddSlider( m_UTrimMinSlider, _("U Min"), 1.0, "%5.4f" );
+    m_TrimGroup.AddSlider( m_UTrimMaxSlider, _("U Max"), 1.0, "%5.4f" );
     m_TrimGroup.AddYGap();
 
-    m_TrimGroup.AddButton(m_V1TrimToggle, "Trim V1");
-    m_TrimGroup.AddSlider( m_V1TrimMinSlider, "V1 Begin", 1.0, "%5.4f" );
-    m_TrimGroup.AddSlider( m_V1TrimMaxSlider, "V1 End", 1.0, "%5.4f" );
+    m_TrimGroup.AddButton(m_V1TrimToggle, _("Trim V1"));
+    m_TrimGroup.AddSlider( m_V1TrimMinSlider, _("V1 Begin"), 1.0, "%5.4f" );
+    m_TrimGroup.AddSlider( m_V1TrimMaxSlider, _("V1 End"), 1.0, "%5.4f" );
     m_TrimGroup.AddYGap();
-    m_TrimGroup.AddButton(m_V2TrimToggle, "Trim V2");
-    m_TrimGroup.AddSlider( m_V2TrimMinSlider, "V2 Begin", 1.0, "%5.4f" );
-    m_TrimGroup.AddSlider( m_V2TrimMaxSlider, "V2 End", 1.0, "%5.4f" );
+    m_TrimGroup.AddButton(m_V2TrimToggle, _("Trim V2"));
+    m_TrimGroup.AddSlider( m_V2TrimMinSlider, _("V2 Begin"), 1.0, "%5.4f" );
+    m_TrimGroup.AddSlider( m_V2TrimMaxSlider, _("V2 End"), 1.0, "%5.4f" );
     m_TrimGroup.AddYGap();
     int offset_y = m_TrimGroup.GetY() - start_y;
 
@@ -47,16 +48,16 @@ ConformalScreen::ConformalScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 525, 
 
     m_DesignLayout.AddSubGroupLayout( m_WingGroup, m_DesignLayout.GetW(), 200 );
     m_WingGroup.AddYGap();
-    m_WingGroup.AddDividerBox("Wing Trim");
+    m_WingGroup.AddDividerBox(_("Wing Trim"));
 
-    //m_WingGroup.AddButton( m_SpanTrimToggle, "Trim Span");
-    //m_WingGroup.AddSlider( m_SpanTrimMinSlider, "Span Min", 1.0, "%5.4f" );
-    //m_WingGroup.AddSlider( m_SpanTrimMaxSlider, "Span Max", 1.0, "%5.4f" );
+    //m_WingGroup.AddButton( m_SpanTrimToggle, _("Trim Span"));
+    //m_WingGroup.AddSlider( m_SpanTrimMinSlider, _("Span Min"), 1.0, "%5.4f" );
+    //m_WingGroup.AddSlider( m_SpanTrimMaxSlider, _("Span Max"), 1.0, "%5.4f" );
     //m_WingGroup.AddYGap();
 
-    m_WingGroup.AddButton( m_ChordTrimToggle, "Trim Chord");
-    m_WingGroup.AddSlider( m_ChordTrimMinSlider, "Chord Min", 1.0, "%5.4f" );
-    m_WingGroup.AddSlider( m_ChordTrimMaxSlider, "Chord Max", 1.0, "%5.4f" );
+    m_WingGroup.AddButton( m_ChordTrimToggle, _("Trim Chord"));
+    m_WingGroup.AddSlider( m_ChordTrimMinSlider, _("Chord Min"), 1.0, "%5.4f" );
+    m_WingGroup.AddSlider( m_ChordTrimMaxSlider, _("Chord Max"), 1.0, "%5.4f" );
     m_WingGroup.AddYGap();
 
 }

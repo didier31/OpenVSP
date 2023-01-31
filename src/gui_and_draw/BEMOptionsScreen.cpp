@@ -9,11 +9,13 @@
 
 #include "BEMOptionsScreen.h"
 
+#include <intl.h>
+
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-BEMOptionsScreen::BEMOptionsScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 250, 174, "BEM Options" )
+BEMOptionsScreen::BEMOptionsScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 250, 174, _("BEM Options") )
 {
     m_OkFlag = false;
 
@@ -33,9 +35,9 @@ BEMOptionsScreen::BEMOptionsScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 250, 17
     m_GenLayout.SetButtonWidth( 100 );
 
     m_GenLayout.AddX( 20 );
-    m_GenLayout.AddButton( m_OkButton, "OK" );
+    m_GenLayout.AddButton( m_OkButton, _("OK") );
     m_GenLayout.AddX( 10 );
-    m_GenLayout.AddButton( m_CancelButton, "Cancel" );
+    m_GenLayout.AddButton( m_CancelButton, _("Cancel") );
     m_GenLayout.ForceNewLine();
 }
 

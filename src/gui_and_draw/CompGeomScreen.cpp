@@ -7,7 +7,9 @@
 
 #include "CompGeomScreen.h"
 
-CompGeomScreen::CompGeomScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 375, 470, "Comp Geom - Mesh, Intersect, Trim" )
+#include <intl.h>
+
+CompGeomScreen::CompGeomScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 375, 470, _("Comp Geom - Mesh, Intersect, Trim") )
 {
     m_FLTK_Window->callback( staticCloseCB, this );
     m_MainLayout.SetGroupAndScreen( m_FLTK_Window, this );
@@ -41,7 +43,7 @@ CompGeomScreen::CompGeomScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 375, 470, "
     m_BorderLayout.SetFitWidthFlag( true );
     m_BorderLayout.SetSameLineFlag( false );
 
-    m_BorderLayout.AddDividerBox("Parasite Drag Output");
+    m_BorderLayout.AddDividerBox(_("Parasite Drag Output"));
     m_BorderLayout.AddYGap();
 
     m_BorderLayout.SetFitWidthFlag( true );
@@ -63,21 +65,21 @@ CompGeomScreen::CompGeomScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 375, 470, "
     m_BorderLayout.SetButtonWidth(( m_BorderLayout.GetRemainX() - 5 ) / 2.0 );
     m_BorderLayout.SetFitWidthFlag( true );
     m_BorderLayout.SetSameLineFlag( false );
-    m_BorderLayout.AddChoice(m_UseSet, "Normal Set:");
-    m_BorderLayout.AddChoice(m_DegenSet, "Degen Set:" );
+    m_BorderLayout.AddChoice(m_UseSet, _("Normal Set:"));
+    m_BorderLayout.AddChoice(m_DegenSet, _("Degen Set:") );
 
     m_BorderLayout.SetFitWidthFlag( false );
     m_BorderLayout.SetSameLineFlag( true );
-    m_BorderLayout.AddButton(m_HalfMesh, "Half Mesh");
+    m_BorderLayout.AddButton(m_HalfMesh, _("Half Mesh"));
     m_BorderLayout.AddX(5);
-    m_BorderLayout.AddButton(m_Subsurfs, "Subsurfs");
+    m_BorderLayout.AddButton(m_Subsurfs, _("Subsurfs"));
     m_BorderLayout.ForceNewLine();
     m_BorderLayout.AddYGap();
 
     m_BorderLayout.SetFitWidthFlag( true );
     m_BorderLayout.SetSameLineFlag( false );
 
-    m_BorderLayout.AddButton(m_Execute, "Execute");
+    m_BorderLayout.AddButton(m_Execute, _("Execute"));
 
     m_SelectedSetIndex = DEFAULT_SET;
     m_DegenSelectedSetIndex = vsp::SET_NONE;

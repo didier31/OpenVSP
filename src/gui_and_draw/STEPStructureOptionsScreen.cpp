@@ -14,7 +14,7 @@
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-STEPStructureOptionsScreen::STEPStructureOptionsScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 250, 320, "Untrimmed STEP Struct Options" )
+STEPStructureOptionsScreen::STEPStructureOptionsScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 250, 320, _("Untrimmed STEP Struct Options") )
 {
     m_FLTK_Window->callback( staticCloseCB, this );
 
@@ -35,32 +35,32 @@ STEPStructureOptionsScreen::STEPStructureOptionsScreen( ScreenMgr* mgr ) : Basic
 
     m_GenLayout.AddYGap();
 
-    m_GenLayout.AddChoice( m_StructureChoice, "Structure" );
+    m_GenLayout.AddChoice( m_StructureChoice, _("Structure") );
     m_GenLayout.AddYGap();
 
     m_GenLayout.AddDividerBox( "Options" );
-    m_GenLayout.AddSlider( m_TolSlider, "Tolerance", 10, "%5.4g", 0, true );
+    m_GenLayout.AddSlider( m_TolSlider, _("Tolerance"), 10, "%5.4g", 0, true );
     m_GenLayout.AddYGap();
-    m_GenLayout.AddButton( m_SplitSurfsToggle, "Split Surfaces" );
+    m_GenLayout.AddButton( m_SplitSurfsToggle, _("Split Surfaces") );
     m_GenLayout.AddYGap();
-    //m_GenLayout.AddButton( m_MergePointsToggle, "Merge Points" );
+    //m_GenLayout.AddButton( m_MergePointsToggle, _("Merge Points") );
     //m_GenLayout.AddYGap();
-    m_GenLayout.AddButton( m_ToCubicToggle, "Demote Surfs to Cubic" );
-    m_GenLayout.AddSlider( m_ToCubicTolSlider, "Tolerance", 10, "%5.4g", 0, true );
+    m_GenLayout.AddButton( m_ToCubicToggle, _("Demote Surfs to Cubic") );
+    m_GenLayout.AddSlider( m_ToCubicTolSlider, _("Tolerance"), 10, "%5.4g", 0, true );
     m_GenLayout.AddYGap();
 
     m_GenLayout.AddYGap();
 
-    m_GenLayout.AddDividerBox( "Surface Name" );
-    m_GenLayout.AddButton( m_LabelIDToggle, "Geom ID" );
-    m_GenLayout.AddButton( m_LabelNameToggle, "Geom Name" );
-    m_GenLayout.AddButton( m_LabelSurfNoToggle, "Surface Number" );
+    m_GenLayout.AddDividerBox( _("Surface Name") );
+    m_GenLayout.AddButton( m_LabelIDToggle, _("Geom ID") );
+    m_GenLayout.AddButton( m_LabelNameToggle, _("Geom Name") );
+    m_GenLayout.AddButton( m_LabelSurfNoToggle, _("Surface Number") );
 
-    m_LabelDelimChoice.AddItem( "Comma" );
-    m_LabelDelimChoice.AddItem( "Underscore" );
-    m_LabelDelimChoice.AddItem( "Space" );
-    m_LabelDelimChoice.AddItem( "None" );
-    m_GenLayout.AddChoice( m_LabelDelimChoice, "Delimiter" );
+    m_LabelDelimChoice.AddItem( _("Comma") );
+    m_LabelDelimChoice.AddItem( _("Underscore") );
+    m_LabelDelimChoice.AddItem( _("Space") );
+    m_LabelDelimChoice.AddItem( _("None") );
+    m_GenLayout.AddChoice( m_LabelDelimChoice, _("Delimiter") );
 
     m_GenLayout.AddY( 25 );
     m_GenLayout.SetFitWidthFlag( false );
@@ -68,9 +68,9 @@ STEPStructureOptionsScreen::STEPStructureOptionsScreen( ScreenMgr* mgr ) : Basic
     m_GenLayout.SetButtonWidth( 100 );
 
     m_GenLayout.AddX( 20 );
-    m_GenLayout.AddButton( m_OkButton, "OK" );
+    m_GenLayout.AddButton( m_OkButton, _("OK") );
     m_GenLayout.AddX( 10 );
-    m_GenLayout.AddButton( m_CancelButton, "Cancel" );
+    m_GenLayout.AddButton( m_CancelButton, _("Cancel") );
     m_GenLayout.ForceNewLine();
 }
 

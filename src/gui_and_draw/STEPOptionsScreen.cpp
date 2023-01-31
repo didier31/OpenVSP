@@ -36,41 +36,41 @@ STEPOptionsScreen::STEPOptionsScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 250, 
 
     m_GenLayout.AddYGap();
 
-    m_LenUnitChoice.AddItem( "MM" );
-    m_LenUnitChoice.AddItem( "CM" );
-    m_LenUnitChoice.AddItem( "M" );
-    m_LenUnitChoice.AddItem( "IN" );
-    m_LenUnitChoice.AddItem( "FT" );
-    m_LenUnitChoice.AddItem( "YD" );
-    m_GenLayout.AddChoice( m_LenUnitChoice, "Length Unit" );
-    m_GenLayout.AddSlider( m_TolSlider, "Tolerance", 10, "%5.4g", 0, true );
+    m_LenUnitChoice.AddItem( _("MM") );
+    m_LenUnitChoice.AddItem( _("CM") );
+    m_LenUnitChoice.AddItem( _("M") );
+    m_LenUnitChoice.AddItem( _("IN") );
+    m_LenUnitChoice.AddItem( _("FT") );
+    m_LenUnitChoice.AddItem( _("YD") );
+    m_GenLayout.AddChoice( m_LenUnitChoice, _("Length Unit") );
+    m_GenLayout.AddSlider( m_TolSlider, _("Tolerance"), 10, "%5.4g", 0, true );
     m_GenLayout.AddYGap();
 
-    m_GenLayout.AddButton( m_SplitSurfsToggle, "Split Surfaces" );
+    m_GenLayout.AddButton( m_SplitSurfsToggle, _("Split Surfaces") );
     m_GenLayout.AddYGap();
-    m_GenLayout.AddButton( m_SplitSubSurfsToggle, "Split U/W-Const Sub-Surfaces" );
+    m_GenLayout.AddButton( m_SplitSubSurfsToggle, _("Split U/W-Const Sub-Surfaces") );
     m_GenLayout.AddYGap();
-    m_GenLayout.AddButton( m_TrimTEToggle, "Omit TE Surfaces" );
+    m_GenLayout.AddButton( m_TrimTEToggle, _("Omit TE Surfaces") );
     ////m_GenLayout.AddYGap();
-    //m_GenLayout.AddButton( m_MergePointsToggle, "Merge Points" );
+    //m_GenLayout.AddButton( m_MergePointsToggle, _("Merge Points") );
     m_GenLayout.AddYGap();
-    m_GenLayout.AddButton( m_ToCubicToggle, "Demote Surfs to Cubic" );
-    m_GenLayout.AddSlider( m_ToCubicTolSlider, "Tolerance", 10, "%5.4g", 0, true );
+    m_GenLayout.AddButton( m_ToCubicToggle, _("Demote Surfs to Cubic") );
+    m_GenLayout.AddSlider( m_ToCubicTolSlider, _("Tolerance"), 10, "%5.4g", 0, true );
     m_GenLayout.AddYGap();
-    m_GenLayout.AddButton( m_PropExportOriginToggle, "Export Props At Origin" );
+    m_GenLayout.AddButton( m_PropExportOriginToggle, _("Export Props At Origin") );
 
     m_GenLayout.AddYGap();
 
-    m_GenLayout.AddDividerBox( "Surface Name" );
-    m_GenLayout.AddButton( m_LabelIDToggle, "Geom ID" );
-    m_GenLayout.AddButton( m_LabelNameToggle, "Geom Name" );
-    m_GenLayout.AddButton( m_LabelSurfNoToggle, "Surface Number" );
+    m_GenLayout.AddDividerBox( _("Surface Name") );
+    m_GenLayout.AddButton( m_LabelIDToggle, _("Geom ID") );
+    m_GenLayout.AddButton( m_LabelNameToggle, _("Geom Name") );
+    m_GenLayout.AddButton( m_LabelSurfNoToggle, _("Surface Number") );
 
-    m_LabelDelimChoice.AddItem( "Comma" );
-    m_LabelDelimChoice.AddItem( "Underscore" );
-    m_LabelDelimChoice.AddItem( "Space" );
-    m_LabelDelimChoice.AddItem( "None" );
-    m_GenLayout.AddChoice( m_LabelDelimChoice, "Delimiter" );
+    m_LabelDelimChoice.AddItem( _("Comma") );
+    m_LabelDelimChoice.AddItem( _("Underscore") );
+    m_LabelDelimChoice.AddItem( _("Space") );
+    m_LabelDelimChoice.AddItem( _("None") );
+    m_GenLayout.AddChoice( m_LabelDelimChoice, _("Delimiter") );
 
     m_GenLayout.AddY( 25 );
     m_GenLayout.SetFitWidthFlag( false );
@@ -78,9 +78,9 @@ STEPOptionsScreen::STEPOptionsScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 250, 
     m_GenLayout.SetButtonWidth( 100 );
 
     m_GenLayout.AddX( 20 );
-    m_GenLayout.AddButton( m_OkButton, "OK" );
+    m_GenLayout.AddButton( m_OkButton, _("OK") );
     m_GenLayout.AddX( 10 );
-    m_GenLayout.AddButton( m_CancelButton, "Cancel" );
+    m_GenLayout.AddButton( m_CancelButton, _("Cancel") );
     m_GenLayout.ForceNewLine();
 }
 

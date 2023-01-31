@@ -6,7 +6,9 @@
 
 #include "MassPropScreen.h"
 
-MassPropScreen::MassPropScreen( ScreenMgr *mgr ) : BasicScreen( mgr, 300, 410, "Mass Properties" )
+#include <intl.h>
+
+MassPropScreen::MassPropScreen( ScreenMgr *mgr ) : BasicScreen( mgr, 300, 410, _("Mass Properties") )
 {
     int borderPaddingWidth = 5;
     int yPadding = 7;
@@ -28,58 +30,58 @@ MassPropScreen::MassPropScreen( ScreenMgr *mgr ) : BasicScreen( mgr, 300, 410, "
                                         m_MainLayout.GetRemainY() - borderPaddingWidth );
 
     m_BorderLayout.SetButtonWidth( smallButtonWidth );
-    m_BorderLayout.AddSlider( m_NumSlicesInput, "Num Slice:", 200, "%6.0f" );
+    m_BorderLayout.AddSlider( m_NumSlicesInput, _("Num Slice:"), 200, "%6.0f" );
     m_BorderLayout.AddYGap();
 
-    m_BorderLayout.AddChoice( m_SetChoice, "Set" );
+    m_BorderLayout.AddChoice( m_SetChoice, _("Set") );
     m_BorderLayout.AddYGap();
 
-    m_BorderLayout.AddButton( m_ComputeButton, "Compute" );
+    m_BorderLayout.AddButton( m_ComputeButton, _("Compute") );
     m_BorderLayout.AddYGap();
 
-    m_BorderLayout.AddButton( m_DrawCgButton, "Draw Cg" );
+    m_BorderLayout.AddButton( m_DrawCgButton, _("Draw Cg") );
 
     m_BorderLayout.AddYGap();
     m_BorderLayout.AddDividerBox( "Results" );
 
     m_BorderLayout.SetButtonWidth( largeButtonWidth );
-    m_BorderLayout.AddOutput( m_TotalMassOutput, "Total Mass" );
+    m_BorderLayout.AddOutput( m_TotalMassOutput, _("Total Mass") );
     m_BorderLayout.AddYGap();
 
     m_BorderLayout.SetButtonWidth( largeButtonWidth );
-    m_BorderLayout.AddOutput( m_XCgOutput, "X Cg" );
+    m_BorderLayout.AddOutput( m_XCgOutput, _("X Cg") );
 
     m_BorderLayout.SetButtonWidth( largeButtonWidth );
-    m_BorderLayout.AddOutput( m_YCgOutput, "Y Cg" );
+    m_BorderLayout.AddOutput( m_YCgOutput, _("Y Cg") );
 
     m_BorderLayout.SetButtonWidth( largeButtonWidth );
-    m_BorderLayout.AddOutput( m_ZCgOutput, "Z Cg" );
+    m_BorderLayout.AddOutput( m_ZCgOutput, _("Z Cg") );
     m_BorderLayout.AddYGap();
 
     m_BorderLayout.SetButtonWidth( largeButtonWidth );
-    m_BorderLayout.AddOutput( m_IxxOutput, "I xx" );
+    m_BorderLayout.AddOutput( m_IxxOutput, _("I xx") );
 
     m_BorderLayout.SetButtonWidth( largeButtonWidth );
-    m_BorderLayout.AddOutput( m_IyyOutput, "I yy" );
+    m_BorderLayout.AddOutput( m_IyyOutput, _("I yy") );
 
     m_BorderLayout.SetButtonWidth( largeButtonWidth );
-    m_BorderLayout.AddOutput( m_IzzOutput, "I zz" );
+    m_BorderLayout.AddOutput( m_IzzOutput, _("I zz") );
     m_BorderLayout.AddYGap();
 
     m_BorderLayout.SetButtonWidth( largeButtonWidth );
-    m_BorderLayout.AddOutput( m_IxyOutput, "I xy" );
+    m_BorderLayout.AddOutput( m_IxyOutput, _("I xy") );
 
     m_BorderLayout.SetButtonWidth( largeButtonWidth );
-    m_BorderLayout.AddOutput( m_IxzOutput, "I xz" );
+    m_BorderLayout.AddOutput( m_IxzOutput, _("I xz") );
 
     m_BorderLayout.SetButtonWidth( largeButtonWidth );
-    m_BorderLayout.AddOutput( m_IyzOutput, "I yz" );
+    m_BorderLayout.AddOutput( m_IyzOutput, _("I yz") );
     m_BorderLayout.AddYGap();
 
     m_BorderLayout.SetFitWidthFlag( true );
     m_BorderLayout.SetSameLineFlag( false );
 
-    m_BorderLayout.AddDividerBox( "File Export" );
+    m_BorderLayout.AddDividerBox( _("File Export") );
 
     m_BorderLayout.SetSameLineFlag( true );
     m_BorderLayout.SetFitWidthFlag( true );

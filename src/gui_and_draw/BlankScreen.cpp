@@ -9,9 +9,11 @@
 #include "BlankGeom.h"
 #include "ScreenMgr.h"
 
+#include <intl.h>
+
 
 //==== Constructor ====//
-BlankScreen::BlankScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 525, "Blank" )
+BlankScreen::BlankScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 525, _("Blank") )
 {
     Fl_Group* mass_tab = AddTab( "Mass" );
     Fl_Group* mass_group = AddSubGroup( mass_tab, 5 );

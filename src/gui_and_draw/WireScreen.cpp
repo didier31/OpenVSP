@@ -11,7 +11,7 @@
 
 
 //==== Constructor ====//
-WireScreen::WireScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 525, "Wireframe" )
+WireScreen::WireScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 525, _("Wireframe") )
 {
 
     RemoveTab( GetTab( m_SubSurfTab_ind ) );
@@ -21,70 +21,70 @@ WireScreen::WireScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 525, "Wireframe
 
     m_WireLayout.SetGroupAndScreen( wire_group, this );
 
-    m_WireLayout.AddDividerBox( "Wireframe Characteristics" );
+    m_WireLayout.AddDividerBox( _("Wireframe Characteristics") );
 
-    m_TypeChoice.AddItem( "Lifting" );
-    m_TypeChoice.AddItem( "Non-Lifting" );
-    m_WireLayout.AddChoice( m_TypeChoice, "Type" );
-
-    m_WireLayout.AddYGap();
-    m_WireLayout.AddDividerBox( "Normal Vector" );
-    m_WireLayout.AddButton( m_InvertButton, "Invert" );
+    m_TypeChoice.AddItem( _("Lifting") );
+    m_TypeChoice.AddItem( _("Non-Lifting") );
+    m_WireLayout.AddChoice( m_TypeChoice, _("Type") );
 
     m_WireLayout.AddYGap();
-    m_WireLayout.AddDividerBox( "Swap Point Ordering" );
-    m_WireLayout.AddButton( m_SwapIJButton, "Swap I/J" );
+    m_WireLayout.AddDividerBox( _("Normal Vector") );
+    m_WireLayout.AddButton( m_InvertButton, _("Invert") );
+
+    m_WireLayout.AddYGap();
+    m_WireLayout.AddDividerBox( _("Swap Point Ordering") );
+    m_WireLayout.AddButton( m_SwapIJButton, _("Swap I/J") );
 
     m_WireLayout.AddYGap();
     m_WireLayout.AddDividerBox( "Reverse" );
 
-    m_WireLayout.AddButton( m_RevIButton, "Reverse I" );
-    m_WireLayout.AddButton( m_RevJButton, "Reverse J" );
+    m_WireLayout.AddButton( m_RevIButton, _("Reverse I") );
+    m_WireLayout.AddButton( m_RevJButton, _("Reverse J") );
 
     m_WireLayout.AddYGap();
-    m_WireLayout.AddDividerBox( "Patch" );
+    m_WireLayout.AddDividerBox( _("Patch") );
 
-    m_IStartPatchTypeChoice.AddItem( "None" );
-    m_IStartPatchTypeChoice.AddItem( "Point" );
-    m_IStartPatchTypeChoice.AddItem( "Line" );
-    m_IStartPatchTypeChoice.AddItem( "Copy Opposite" );
-    m_IStartPatchTypeChoice.AddItem( "Halfway Opposite" );
-    m_WireLayout.AddChoice( m_IStartPatchTypeChoice, "I Start" );
+    m_IStartPatchTypeChoice.AddItem( _("None") );
+    m_IStartPatchTypeChoice.AddItem( _("Point") );
+    m_IStartPatchTypeChoice.AddItem( _("Line") );
+    m_IStartPatchTypeChoice.AddItem( _("Copy Opposite") );
+    m_IStartPatchTypeChoice.AddItem( _("Halfway Opposite") );
+    m_WireLayout.AddChoice( m_IStartPatchTypeChoice, _("I Start") );
 
-    m_IEndPatchTypeChoice.AddItem( "None" );
-    m_IEndPatchTypeChoice.AddItem( "Point" );
-    m_IEndPatchTypeChoice.AddItem( "Line" );
-    m_IEndPatchTypeChoice.AddItem( "Copy Opposite" );
-    m_IEndPatchTypeChoice.AddItem( "Halfway Opposite" );
-    m_WireLayout.AddChoice( m_IEndPatchTypeChoice, "I End" );
+    m_IEndPatchTypeChoice.AddItem( _("None") );
+    m_IEndPatchTypeChoice.AddItem( _("Point") );
+    m_IEndPatchTypeChoice.AddItem( _("Line") );
+    m_IEndPatchTypeChoice.AddItem( _("Copy Opposite") );
+    m_IEndPatchTypeChoice.AddItem( _("Halfway Opposite") );
+    m_WireLayout.AddChoice( m_IEndPatchTypeChoice, _("I End") );
 
-    m_JStartPatchTypeChoice.AddItem( "None" );
-    m_JStartPatchTypeChoice.AddItem( "Point" );
-    m_JStartPatchTypeChoice.AddItem( "Line" );
-    m_JStartPatchTypeChoice.AddItem( "Copy Opposite" );
-    m_JStartPatchTypeChoice.AddItem( "Halfway Opposite" );
-    m_WireLayout.AddChoice( m_JStartPatchTypeChoice, "J Start" );
+    m_JStartPatchTypeChoice.AddItem( _("None") );
+    m_JStartPatchTypeChoice.AddItem( _("Point") );
+    m_JStartPatchTypeChoice.AddItem( _("Line") );
+    m_JStartPatchTypeChoice.AddItem( _("Copy Opposite") );
+    m_JStartPatchTypeChoice.AddItem( _("Halfway Opposite") );
+    m_WireLayout.AddChoice( m_JStartPatchTypeChoice, _("J Start") );
 
-    m_JEndPatchTypeChoice.AddItem( "None" );
-    m_JEndPatchTypeChoice.AddItem( "Point" );
-    m_JEndPatchTypeChoice.AddItem( "Line" );
-    m_JEndPatchTypeChoice.AddItem( "Copy Opposite" );
-    m_JEndPatchTypeChoice.AddItem( "Halfway Opposite" );
-    m_WireLayout.AddChoice( m_JEndPatchTypeChoice, "J End" );
+    m_JEndPatchTypeChoice.AddItem( _("None") );
+    m_JEndPatchTypeChoice.AddItem( _("Point") );
+    m_JEndPatchTypeChoice.AddItem( _("Line") );
+    m_JEndPatchTypeChoice.AddItem( _("Copy Opposite") );
+    m_JEndPatchTypeChoice.AddItem( _("Halfway Opposite") );
+    m_WireLayout.AddChoice( m_JEndPatchTypeChoice, _("J End") );
 
     m_WireLayout.AddYGap();
-    m_WireLayout.AddDividerBox( "Start/End Skip" );
+    m_WireLayout.AddDividerBox( _("Start/End Skip") );
 
-    m_WireLayout.AddIndexSelector( m_ISkipStartIndexSelector, "I Start Skip" );
-    m_WireLayout.AddIndexSelector( m_ISkipEndIndexSelector, "I End Skip" );
-    m_WireLayout.AddIndexSelector( m_JSkipStartIndexSelector, "J Start Skip" );
-    m_WireLayout.AddIndexSelector( m_JSkipEndIndexSelector, "J End Skip" );
+    m_WireLayout.AddIndexSelector( m_ISkipStartIndexSelector, _("I Start Skip") );
+    m_WireLayout.AddIndexSelector( m_ISkipEndIndexSelector, _("I End Skip") );
+    m_WireLayout.AddIndexSelector( m_JSkipStartIndexSelector, _("J Start Skip") );
+    m_WireLayout.AddIndexSelector( m_JSkipEndIndexSelector, _("J End Skip") );
 
     m_WireLayout.AddYGap();
     m_WireLayout.AddDividerBox( "Stride" );
 
-    m_WireLayout.AddIndexSelector( m_IStrideIndexSelector, "I Stride" );
-    m_WireLayout.AddIndexSelector( m_JStrideIndexSelector, "J Stride" );
+    m_WireLayout.AddIndexSelector( m_IStrideIndexSelector, _("I Stride") );
+    m_WireLayout.AddIndexSelector( m_JStrideIndexSelector, _("J Stride") );
 }
 
 

@@ -8,7 +8,9 @@
 #include "ProjectionScreen.h"
 #include "ProjectionMgr.h"
 
-ProjectionScreen::ProjectionScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 300, 397, "Projected Area Analysis" )
+#include <intl.h>
+
+ProjectionScreen::ProjectionScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 300, 397, _("Projected Area Analysis") )
 {
     m_FLTK_Window->callback( staticCloseCB, this );
     m_MainLayout.SetGroupAndScreen( m_FLTK_Window, this );
@@ -28,13 +30,13 @@ ProjectionScreen::ProjectionScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 300, 39
 
     m_BorderLayout.SetFitWidthFlag( false );
     m_BorderLayout.SetSameLineFlag( true );
-    m_BorderLayout.AddButton( m_TargetTypeSet, "Set" );
+    m_BorderLayout.AddButton( m_TargetTypeSet, _("Set") );
     m_BorderLayout.SetFitWidthFlag( true );
     m_BorderLayout.AddChoice( m_TargetSet, "", m_BorderLayout.GetButtonWidth() );
     m_BorderLayout.SetFitWidthFlag( false );
     m_BorderLayout.ForceNewLine();
 
-    m_BorderLayout.AddButton( m_TargetTypeGeom, "Geom" );
+    m_BorderLayout.AddButton( m_TargetTypeGeom, _("Geom") );
     m_BorderLayout.SetFitWidthFlag( true );
     m_TargetGeom.AddExcludeType( PT_CLOUD_GEOM_TYPE );
     m_TargetGeom.AddExcludeType( WIRE_FRAME_GEOM_TYPE );
@@ -57,19 +59,19 @@ ProjectionScreen::ProjectionScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 300, 39
 
     m_BorderLayout.SetSameLineFlag( false );
     m_BorderLayout.SetFitWidthFlag( true );
-    m_BorderLayout.AddDividerBox("Boundary");
+    m_BorderLayout.AddDividerBox(_("Boundary"));
 
     m_BorderLayout.SetFitWidthFlag( false );
-    m_BorderLayout.AddButton( m_BoundaryTypeNone, "None" );
+    m_BorderLayout.AddButton( m_BoundaryTypeNone, _("None") );
 
     m_BorderLayout.SetSameLineFlag( true );
-    m_BorderLayout.AddButton( m_BoundaryTypeSet, "Set" );
+    m_BorderLayout.AddButton( m_BoundaryTypeSet, _("Set") );
     m_BorderLayout.SetFitWidthFlag( true );
     m_BorderLayout.AddChoice( m_BoundarySet, "", m_BorderLayout.GetButtonWidth() );
     m_BorderLayout.SetFitWidthFlag( false );
     m_BorderLayout.ForceNewLine();
 
-    m_BorderLayout.AddButton( m_BoundaryTypeGeom, "Geom" );
+    m_BorderLayout.AddButton( m_BoundaryTypeGeom, _("Geom") );
     m_BorderLayout.SetFitWidthFlag( true );
     m_BoundaryGeom.AddExcludeType( MESH_GEOM_TYPE );
     m_BoundaryGeom.AddExcludeType( HUMAN_GEOM_TYPE );   // QUESTION THESE
@@ -98,13 +100,13 @@ ProjectionScreen::ProjectionScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 300, 39
     m_BorderLayout.SetFitWidthFlag( true );
     m_BorderLayout.SetSameLineFlag( false );
 
-    m_BorderLayout.AddDividerBox("Direction");
+    m_BorderLayout.AddDividerBox(_("Direction"));
 
     int tw = 15;
     int bw = m_BorderLayout.GetButtonWidth();
 
     m_BorderLayout.SetFitWidthFlag( false );
-    m_BorderLayout.AddButton( m_DirectionTypeVector, "Vector" );
+    m_BorderLayout.AddButton( m_DirectionTypeVector, _("Vector") );
 
     m_BorderLayout.SetSameLineFlag( true );
 
@@ -135,7 +137,7 @@ ProjectionScreen::ProjectionScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 300, 39
     m_BorderLayout.SetSameLineFlag( true );
     m_BorderLayout.SetFitWidthFlag( false );
 
-    m_BorderLayout.AddButton( m_DirectionTypeGeom, "Geom" );
+    m_BorderLayout.AddButton( m_DirectionTypeGeom, _("Geom") );
     m_BorderLayout.SetFitWidthFlag( true );
     m_DirectionGeom.AddExcludeType( MESH_GEOM_TYPE );
     m_DirectionGeom.AddExcludeType( HUMAN_GEOM_TYPE );
@@ -168,12 +170,12 @@ ProjectionScreen::ProjectionScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 300, 39
     m_BorderLayout.SetFitWidthFlag( true );
     m_BorderLayout.SetSameLineFlag( false );
 
-    m_BorderLayout.AddDividerBox( "Output File" );
+    m_BorderLayout.AddDividerBox( _("Output File") );
 
     m_BorderLayout.SetSameLineFlag( true );
     m_BorderLayout.SetFitWidthFlag( true );
 
-    m_BorderLayout.AddOutput( m_FileSelect, "File", 25 );
+    m_BorderLayout.AddOutput( m_FileSelect, _("File"), 25 );
 
     m_BorderLayout.SetFitWidthFlag( false );
     m_BorderLayout.SetButtonWidth( 25 );
@@ -188,13 +190,13 @@ ProjectionScreen::ProjectionScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 300, 39
     m_BorderLayout.SetFitWidthFlag( true );
     m_BorderLayout.SetSameLineFlag( false );
 
-    m_BorderLayout.AddDividerBox("Execute Projected Area");
+    m_BorderLayout.AddDividerBox(_("Execute Projected Area"));
 
-    m_BorderLayout.AddButton(m_Execute, "START");
+    m_BorderLayout.AddButton(m_Execute, _("START"));
 
     m_BorderLayout.AddYGap();
 
-    m_BorderLayout.AddOutput( m_AreaOutput, "Area" );
+    m_BorderLayout.AddOutput( m_AreaOutput, _("Area") );
 }
 
 ProjectionScreen::~ProjectionScreen()
@@ -342,7 +344,7 @@ void ProjectionScreen::GuiDeviceCallBack( GuiDevice* device )
     }
     else if ( device == &m_FileTrigger  )
     {
-        string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Choose Projected Area Output File", "*.csv" );
+        string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Choose Projected Area Output File"), "*.csv" );
         vehiclePtr->setExportFileName( vsp::PROJ_AREA_CSV_TYPE, newfile );
     }
     else if ( device == &m_Execute )

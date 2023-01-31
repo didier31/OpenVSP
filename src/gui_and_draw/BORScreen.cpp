@@ -9,9 +9,10 @@
 #include "ScreenMgr.h"
 #include "BORGeom.h"
 
+#include <intl.h>
 
 //==== Constructor ====//
-BORScreen::BORScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 680, "BOR" )
+BORScreen::BORScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 680, _("BOR") )
 {
     m_CurrDisplayGroup = NULL;
 
@@ -25,15 +26,15 @@ BORScreen::BORScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 680, "BOR" )
 
     m_DesignLayout.SetButtonWidth( 80 );
 
-    m_ModeChoice.AddItem( "Flowthrough" );
-    m_ModeChoice.AddItem( "Upper" );
-    m_ModeChoice.AddItem( "Lower" );
-    m_DesignLayout.AddChoice( m_ModeChoice, "Mode" );
+    m_ModeChoice.AddItem( _("Flowthrough") );
+    m_ModeChoice.AddItem( _("Upper") );
+    m_ModeChoice.AddItem( _("Lower") );
+    m_DesignLayout.AddChoice( m_ModeChoice, _("Mode") );
 
     m_DesignLayout.AddYGap();
 
-    m_DesignLayout.AddDividerBox( "Flowthrough Control" );
-    m_DesignLayout.AddSlider( m_BORDiameterSlider, "Diameter", 10, "%7.3f" );
+    m_DesignLayout.AddDividerBox( _("Flowthrough Control") );
+    m_DesignLayout.AddSlider( m_BORDiameterSlider, _("Diameter"), 10, "%7.3f" );
     m_DesignLayout.AddSlider( m_AngleSlider, "Angle", 10, "%7.3f" );
 
     m_DesignLayout.AddYGap();
@@ -43,73 +44,73 @@ BORScreen::BORScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 680, "BOR" )
     m_DesignLayout.AddOutput( m_AeOutput, "Ae", "%6.5g" );
 
     m_DesignLayout.SetSameLineFlag( true );
-    m_DesignLayout.AddOutput( m_AminOutput, "Amin", "%6.5g", m_DesignLayout.GetW() / 2 );
-    m_DesignLayout.AddOutput( m_AminWOutput, "Amin W", "%6.5g" , m_DesignLayout.GetW() / 2 );
+    m_DesignLayout.AddOutput( m_AminOutput, _("Amin"), "%6.5g", m_DesignLayout.GetW() / 2 );
+    m_DesignLayout.AddOutput( m_AminWOutput, _("Amin W"), "%6.5g" , m_DesignLayout.GetW() / 2 );
     m_DesignLayout.ForceNewLine();
 
     m_DesignLayout.SetSameLineFlag( false );
 
     m_DesignLayout.AddYGap();
 
-    m_DesignLayout.AddDividerBox( "Tessellation Control" );
-    m_DesignLayout.AddSlider( m_LEClusterSlider, "LE Clustering", 1, "%6.5f" );
-    m_DesignLayout.AddSlider( m_TEClusterSlider, "TE Clustering", 1, "%6.5f" );
+    m_DesignLayout.AddDividerBox( _("Tessellation Control") );
+    m_DesignLayout.AddSlider( m_LEClusterSlider, _("LE Clustering"), 1, "%6.5f" );
+    m_DesignLayout.AddSlider( m_TEClusterSlider, _("TE Clustering"), 1, "%6.5f" );
 
 
-    m_DesignLayout.AddSlider( m_CapTessSlider, "Cap Tess", 10, "%3.0f" );
+    m_DesignLayout.AddSlider( m_CapTessSlider, _("Cap Tess"), 10, "%3.0f" );
 
 
     //==== XSec ====//
-    Fl_Group* xsec_tab = AddTab( "XSec" );
+    Fl_Group* xsec_tab = AddTab( _("XSec") );
     Fl_Group* xsec_group = AddSubGroup( xsec_tab, 5 );
 
     m_XSecLayout.SetGroupAndScreen( xsec_group, this );
-    m_XSecLayout.AddDividerBox( "Cross Section" );
+    m_XSecLayout.AddDividerBox( _("Cross Section") );
 
     m_XSecLayout.AddYGap();
 
-    m_XSecLayout.AddDividerBox( "Type" );
+    m_XSecLayout.AddDividerBox( _("Type") );
 
-    m_XSecTypeChoice.AddItem( "POINT" );
-    m_XSecTypeChoice.AddItem( "CIRCLE" );
-    m_XSecTypeChoice.AddItem( "ELLIPSE" );
-    m_XSecTypeChoice.AddItem( "SUPER_ELLIPSE" );
-    m_XSecTypeChoice.AddItem( "ROUNDED_RECTANGLE" );
-    m_XSecTypeChoice.AddItem( "GENERAL_FUSE" );
-    m_XSecTypeChoice.AddItem( "FUSE_FILE" );
-    m_XSecTypeChoice.AddItem( "FOUR_SERIES" );
-    m_XSecTypeChoice.AddItem( "SIX_SERIES" );
-    m_XSecTypeChoice.AddItem( "BICONVEX" );
-    m_XSecTypeChoice.AddItem( "WEDGE" );
-    m_XSecTypeChoice.AddItem( "EDIT_CURVE" );
-    m_XSecTypeChoice.AddItem( "AF_FILE" );
-    m_XSecTypeChoice.AddItem( "CST_AIRFOIL" );
-    m_XSecTypeChoice.AddItem( "KARMAN_TREFFTZ" );
-    m_XSecTypeChoice.AddItem( "FOUR_DIGIT_MOD" );
-    m_XSecTypeChoice.AddItem( "FIVE_DIGIT" );
-    m_XSecTypeChoice.AddItem( "FIVE_DIGIT_MOD" );
-    m_XSecTypeChoice.AddItem( "16_SERIES" );
+    m_XSecTypeChoice.AddItem( _("POINT") );
+    m_XSecTypeChoice.AddItem( _("CIRCLE") );
+    m_XSecTypeChoice.AddItem( _("ELLIPSE") );
+    m_XSecTypeChoice.AddItem( _("SUPER_ELLIPSE") );
+    m_XSecTypeChoice.AddItem( _("ROUNDED_RECTANGLE") );
+    m_XSecTypeChoice.AddItem( _("GENERAL_FUSE") );
+    m_XSecTypeChoice.AddItem( _("FUSE_FILE") );
+    m_XSecTypeChoice.AddItem( _("FOUR_SERIES") );
+    m_XSecTypeChoice.AddItem( _("SIX_SERIES") );
+    m_XSecTypeChoice.AddItem( _("BICONVEX") );
+    m_XSecTypeChoice.AddItem( _("WEDGE") );
+    m_XSecTypeChoice.AddItem( _("EDIT_CURVE") );
+    m_XSecTypeChoice.AddItem( _("AF_FILE") );
+    m_XSecTypeChoice.AddItem( _("CST_AIRFOIL") );
+    m_XSecTypeChoice.AddItem( _("KARMAN_TREFFTZ") );
+    m_XSecTypeChoice.AddItem( _("FOUR_DIGIT_MOD") );
+    m_XSecTypeChoice.AddItem( _("FIVE_DIGIT") );
+    m_XSecTypeChoice.AddItem( _("FIVE_DIGIT_MOD") );
+    m_XSecTypeChoice.AddItem( _("16_SERIES") );
 
     m_XSecLayout.SetFitWidthFlag( true );
     m_XSecLayout.SetSameLineFlag( false );
 
-    m_XSecLayout.AddChoice( m_XSecTypeChoice, "Choose Type:" );
+    m_XSecLayout.AddChoice( m_XSecTypeChoice, _("Choose Type:") );
 
     m_XSecLayout.SetFitWidthFlag( false );
     m_XSecLayout.SetSameLineFlag( true );
 
     m_XSecLayout.SetButtonWidth( m_XSecLayout.GetW() / 2 );
-    m_XSecLayout.AddButton( m_ShowXSecButton, "Show" );
+    m_XSecLayout.AddButton( m_ShowXSecButton, _("Show") );
 
     m_XSecLayout.AddSubGroupLayout( m_ConvertCEDITGroup, m_XSecLayout.GetW(), m_XSecLayout.GetStdHeight() );
     m_ConvertCEDITGroup.SetButtonWidth( m_XSecLayout.GetW() / 2 );
     m_ConvertCEDITGroup.SetFitWidthFlag( false );
-    m_ConvertCEDITGroup.AddButton( m_ConvertCEDITButton, "Convert CEDIT" );
+    m_ConvertCEDITGroup.AddButton( m_ConvertCEDITButton, _("Convert CEDIT") );
 
     m_XSecLayout.AddSubGroupLayout( m_EditCEDITGroup, m_XSecLayout.GetW(), m_XSecLayout.GetStdHeight() );
     m_EditCEDITGroup.SetFitWidthFlag( false );
     m_EditCEDITGroup.SetButtonWidth( m_XSecLayout.GetW() / 2 );
-    m_EditCEDITGroup.AddButton( m_EditCEDITButton, "Edit Curve" );
+    m_EditCEDITGroup.AddButton( m_EditCEDITButton, _("Edit Curve") );
 
     m_XSecLayout.ForceNewLine();
 
@@ -120,35 +121,35 @@ BORScreen::BORScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 680, "BOR" )
 
     //==== Circle XSec ====//
     m_XSecLayout.AddSubGroupLayout( m_CircleGroup, m_XSecLayout.GetW(), m_XSecLayout.GetRemainY() );
-    m_CircleGroup.AddSlider(  m_DiameterSlider, "Diameter", 10, "%6.5f" );
+    m_CircleGroup.AddSlider(  m_DiameterSlider, _("Diameter"), 10, "%6.5f" );
 
     //==== Ellipse XSec ====//
     m_XSecLayout.AddSubGroupLayout( m_EllipseGroup, m_XSecLayout.GetW(), m_XSecLayout.GetRemainY() );
-    m_EllipseGroup.AddSlider(  m_EllipseHeightSlider, "Height", 10, "%6.5f" );
-    m_EllipseGroup.AddSlider(  m_EllipseWidthSlider, "Width", 10, "%6.5f" );
+    m_EllipseGroup.AddSlider(  m_EllipseHeightSlider, _("Height"), 10, "%6.5f" );
+    m_EllipseGroup.AddSlider(  m_EllipseWidthSlider, _("Width"), 10, "%6.5f" );
 
     //==== Super XSec ====//
     m_XSecLayout.AddSubGroupLayout( m_SuperGroup, m_XSecLayout.GetW(), m_XSecLayout.GetRemainY() );
-    m_SuperGroup.AddSlider( m_SuperHeightSlider, "Height", 10, "%6.5f" );
-    m_SuperGroup.AddSlider( m_SuperWidthSlider,  "Width", 10, "%6.5f" );
+    m_SuperGroup.AddSlider( m_SuperHeightSlider, _("Height"), 10, "%6.5f" );
+    m_SuperGroup.AddSlider( m_SuperWidthSlider,  _("Width"), 10, "%6.5f" );
     m_SuperGroup.AddYGap();
-    m_SuperGroup.AddSlider( m_SuperMaxWidthLocSlider, "MaxWLoc", 2, "%6.5f" );
+    m_SuperGroup.AddSlider( m_SuperMaxWidthLocSlider, _("MaxWLoc"), 2, "%6.5f" );
     m_SuperGroup.AddYGap();
-    m_SuperGroup.AddSlider( m_SuperMSlider, "M", 10, "%6.5f" );
-    m_SuperGroup.AddSlider( m_SuperNSlider, "N", 10, "%6.5f" );
+    m_SuperGroup.AddSlider( m_SuperMSlider, _("M"), 10, "%6.5f" );
+    m_SuperGroup.AddSlider( m_SuperNSlider, _("N"), 10, "%6.5f" );
     m_SuperGroup.AddYGap();
-    m_SuperGroup.AddButton( m_SuperToggleSym, "T/B Symmetric Exponents" );
-    m_SuperGroup.AddSlider( m_SuperM_botSlider, "M Bottom", 10, "%6.5f" );
-    m_SuperGroup.AddSlider( m_SuperN_botSlider, "N Bottom", 10, "%6.5f" );
+    m_SuperGroup.AddButton( m_SuperToggleSym, _("T/B Symmetric Exponents") );
+    m_SuperGroup.AddSlider( m_SuperM_botSlider, _("M Bottom"), 10, "%6.5f" );
+    m_SuperGroup.AddSlider( m_SuperN_botSlider, _("N Bottom"), 10, "%6.5f" );
 
     //==== Rounded Rect ====//
     m_XSecLayout.AddSubGroupLayout( m_RoundedRectGroup, m_XSecLayout.GetW(), m_XSecLayout.GetRemainY() );
-    m_RoundedRectGroup.AddSlider( m_RRHeightSlider, "Height", 10, "%6.5f" );
-    m_RoundedRectGroup.AddSlider( m_RRWidthSlider,  "Width", 10, "%6.5f" );
+    m_RoundedRectGroup.AddSlider( m_RRHeightSlider, _("Height"), 10, "%6.5f" );
+    m_RoundedRectGroup.AddSlider( m_RRWidthSlider,  _("Width"), 10, "%6.5f" );
     m_RoundedRectGroup.AddYGap();
-    m_RoundedRectGroup.AddSlider( m_RRSkewSlider, "Skew", 2, "%6.5f");
-    m_RoundedRectGroup.AddSlider( m_RRVSkewSlider, "VSkew", 2, "%6.5f" );
-    m_RoundedRectGroup.AddSlider( m_RRKeystoneSlider, "Keystone", 1, "%6.5f");
+    m_RoundedRectGroup.AddSlider( m_RRSkewSlider, _("Skew"), 2, "%6.5f");
+    m_RoundedRectGroup.AddSlider( m_RRVSkewSlider, _("VSkew"), 2, "%6.5f" );
+    m_RoundedRectGroup.AddSlider( m_RRKeystoneSlider, _("Keystone"), 1, "%6.5f");
 
     m_RoundedRectGroup.AddYGap();
     m_RoundedRectGroup.SetSameLineFlag( true );
@@ -156,13 +157,13 @@ BORScreen::BORScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 680, "BOR" )
 
     int oldbw = m_RoundedRectGroup.GetButtonWidth();
 
-    m_RoundedRectGroup.AddLabel( "Symmetry:", oldbw );
+    m_RoundedRectGroup.AddLabel( _("Symmetry:"), oldbw );
 
     m_RoundedRectGroup.SetButtonWidth( m_RoundedRectGroup.GetRemainX() / 4 );
-    m_RoundedRectGroup.AddButton( m_RRRadNoSymToggle, "None" );
-    m_RoundedRectGroup.AddButton( m_RRRadRLSymToggle, "R//L" );
-    m_RoundedRectGroup.AddButton( m_RRRadTBSymToggle, "T//B" );
-    m_RoundedRectGroup.AddButton( m_RRRadAllSymToggle, "All" );
+    m_RoundedRectGroup.AddButton( m_RRRadNoSymToggle, _("None") );
+    m_RoundedRectGroup.AddButton( m_RRRadRLSymToggle, _("R//L") );
+    m_RoundedRectGroup.AddButton( m_RRRadTBSymToggle, _("T//B") );
+    m_RoundedRectGroup.AddButton( m_RRRadAllSymToggle, _("All") );
 
     m_RRRadSymRadioGroup.Init( this );
     m_RRRadSymRadioGroup.AddButton( m_RRRadNoSymToggle.GetFlButton() );
@@ -176,36 +177,36 @@ BORScreen::BORScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 680, "BOR" )
 
     m_RoundedRectGroup.SetButtonWidth( oldbw );
 
-    m_RoundedRectGroup.AddSlider( m_RRRadiusTRSlider, "TR Radius", 10, "%6.5f" );
-    m_RoundedRectGroup.AddSlider( m_RRRadiusTLSlider, "TL Radius", 10, "%6.5f" );
-    m_RoundedRectGroup.AddSlider( m_RRRadiusBLSlider, "BL Radius", 10, "%6.5f" );
-    m_RoundedRectGroup.AddSlider( m_RRRadiusBRSlider, "BR Radius", 10, "%6.5f" );
+    m_RoundedRectGroup.AddSlider( m_RRRadiusTRSlider, _("TR Radius"), 10, "%6.5f" );
+    m_RoundedRectGroup.AddSlider( m_RRRadiusTLSlider, _("TL Radius"), 10, "%6.5f" );
+    m_RoundedRectGroup.AddSlider( m_RRRadiusBLSlider, _("BL Radius"), 10, "%6.5f" );
+    m_RoundedRectGroup.AddSlider( m_RRRadiusBRSlider, _("BR Radius"), 10, "%6.5f" );
     m_RoundedRectGroup.AddYGap();
 
-    m_RoundedRectGroup.AddButton( m_RRKeyCornerButton, "Key Corner" );
+    m_RoundedRectGroup.AddButton( m_RRKeyCornerButton, _("Key Corner") );
 
     //==== General Fuse XSec ====//
     m_XSecLayout.AddSubGroupLayout( m_GenGroup, m_XSecLayout.GetW(), m_XSecLayout.GetRemainY() );
-    m_GenGroup.AddSlider( m_GenHeightSlider, "Height", 10, "%6.5f" );
-    m_GenGroup.AddSlider( m_GenWidthSlider, "Width", 10, "%6.5f" );
+    m_GenGroup.AddSlider( m_GenHeightSlider, _("Height"), 10, "%6.5f" );
+    m_GenGroup.AddSlider( m_GenWidthSlider, _("Width"), 10, "%6.5f" );
     m_GenGroup.AddYGap();
-    m_GenGroup.AddSlider( m_GenMaxWidthLocSlider, "MaxWLoc", 1, "%6.5f" );
-    m_GenGroup.AddSlider( m_GenCornerRadSlider, "CornerRad", 1, "%6.5f" );
+    m_GenGroup.AddSlider( m_GenMaxWidthLocSlider, _("MaxWLoc"), 1, "%6.5f" );
+    m_GenGroup.AddSlider( m_GenCornerRadSlider, _("CornerRad"), 1, "%6.5f" );
     m_GenGroup.AddYGap();
-    m_GenGroup.AddSlider( m_GenTopTanAngleSlider, "TopTanAng", 90, "%7.5f" );
-    m_GenGroup.AddSlider( m_GenBotTanAngleSlider, "BotTanAng", 90, "%7.5f" );
+    m_GenGroup.AddSlider( m_GenTopTanAngleSlider, _("TopTanAng"), 90, "%7.5f" );
+    m_GenGroup.AddSlider( m_GenBotTanAngleSlider, _("BotTanAng"), 90, "%7.5f" );
     m_GenGroup.AddYGap();
-    m_GenGroup.AddSlider( m_GenTopStrSlider, "TopStr", 1, "%7.5f" );
-    m_GenGroup.AddSlider( m_GenBotStrSlider, "BotStr", 1, "%7.5f" );
-    m_GenGroup.AddSlider( m_GenUpStrSlider, "UpStr", 1, "%7.5f" );
-    m_GenGroup.AddSlider( m_GenLowStrSlider, "LowStr", 1, "%7.5f" );
+    m_GenGroup.AddSlider( m_GenTopStrSlider, _("TopStr"), 1, "%7.5f" );
+    m_GenGroup.AddSlider( m_GenBotStrSlider, _("BotStr"), 1, "%7.5f" );
+    m_GenGroup.AddSlider( m_GenUpStrSlider, _("UpStr"), 1, "%7.5f" );
+    m_GenGroup.AddSlider( m_GenLowStrSlider, _("LowStr"), 1, "%7.5f" );
 
     //==== Four Series AF ====//
     m_XSecLayout.AddSubGroupLayout( m_FourSeriesGroup, m_XSecLayout.GetW(), m_XSecLayout.GetRemainY() );
-    m_FourSeriesGroup.AddOutput( m_FourNameOutput, "Name" );
+    m_FourSeriesGroup.AddOutput( m_FourNameOutput, _("Name") );
     m_FourSeriesGroup.AddYGap();
-    m_FourSeriesGroup.AddSlider( m_FourChordSlider, "Chord", 10, "%7.3f" );
-    m_FourSeriesGroup.AddSlider( m_FourThickChordSlider, "T/C", 1, "%7.5f" );
+    m_FourSeriesGroup.AddSlider( m_FourChordSlider, _("Chord"), 10, "%7.3f" );
+    m_FourSeriesGroup.AddSlider( m_FourThickChordSlider, _("T/C"), 1, "%7.5f" );
     m_FourSeriesGroup.AddYGap();
 
     int actionToggleButtonWidth = 15;
@@ -218,7 +219,7 @@ BORScreen::BORScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 680, "BOR" )
     m_FourSeriesGroup.AddButton( m_FourCamberButton, "" );
     m_FourSeriesGroup.SetButtonWidth( actionSliderButtonWidth );
     m_FourSeriesGroup.SetFitWidthFlag( true );
-    m_FourSeriesGroup.AddSlider( m_FourCamberSlider, "Camber", 0.2, "%7.5f" );
+    m_FourSeriesGroup.AddSlider( m_FourCamberSlider, _("Camber"), 0.2, "%7.5f" );
 
     m_FourSeriesGroup.ForceNewLine();
 
@@ -227,7 +228,7 @@ BORScreen::BORScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 680, "BOR" )
     m_FourSeriesGroup.AddButton( m_FourCLiButton, "" );
     m_FourSeriesGroup.SetButtonWidth( actionSliderButtonWidth );
     m_FourSeriesGroup.SetFitWidthFlag( true );
-    m_FourSeriesGroup.AddSlider( m_FourCLiSlider, "Ideal CL", 1, "%7.5f" );
+    m_FourSeriesGroup.AddSlider( m_FourCLiSlider, _("Ideal CL"), 1, "%7.5f" );
 
     m_FourSeriesGroup.ForceNewLine();
 
@@ -243,24 +244,24 @@ BORScreen::BORScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 680, "BOR" )
     camb_val_map.push_back( vsp::DESIGN_CL );
     m_FourCamberGroup.SetValMapVec( camb_val_map );
 
-    m_FourSeriesGroup.AddSlider( m_FourCamberLocSlider, "CamberLoc", 1, "%7.5f" );
+    m_FourSeriesGroup.AddSlider( m_FourCamberLocSlider, _("CamberLoc"), 1, "%7.5f" );
     m_FourSeriesGroup.AddYGap();
-    m_FourSeriesGroup.AddButton( m_FourInvertButton, "Invert Airfoil" );
+    m_FourSeriesGroup.AddButton( m_FourInvertButton, _("Invert Airfoil") );
     m_FourSeriesGroup.AddYGap();
-    m_FourSeriesGroup.AddButton( m_FourSharpTEButton, "Sharpen TE" );
+    m_FourSeriesGroup.AddButton( m_FourSharpTEButton, _("Sharpen TE") );
 
     m_FourSeriesGroup.AddYGap();
     m_FourSeriesGroup.SetSameLineFlag( true );
     m_FourSeriesGroup.SetFitWidthFlag( false );
     m_FourSeriesGroup.SetButtonWidth( 125 );
-    m_FourSeriesGroup.AddButton( m_FourFitCSTButton, "Fit CST" );
+    m_FourSeriesGroup.AddButton( m_FourFitCSTButton, _("Fit CST") );
     m_FourSeriesGroup.InitWidthHeightVals();
     m_FourSeriesGroup.SetFitWidthFlag( true );
-    m_FourSeriesGroup.AddCounter( m_FourDegreeCounter, "Degree", 125 );
+    m_FourSeriesGroup.AddCounter( m_FourDegreeCounter, _("Degree"), 125 );
 
     //==== Six Series AF ====//
     m_XSecLayout.AddSubGroupLayout( m_SixSeriesGroup, m_XSecLayout.GetW(), m_XSecLayout.GetRemainY() );
-    m_SixSeriesGroup.AddOutput( m_SixNameOutput, "Name" );
+    m_SixSeriesGroup.AddOutput( m_SixNameOutput, _("Name") );
     m_SixSeriesGroup.AddYGap();
 
     m_SixSeriesChoice.AddItem( "63" );
@@ -271,100 +272,100 @@ BORScreen::BORScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 680, "BOR" )
     m_SixSeriesChoice.AddItem( "63a" );
     m_SixSeriesChoice.AddItem( "64a" );
     m_SixSeriesChoice.AddItem( "65a" );
-    m_SixSeriesGroup.AddChoice( m_SixSeriesChoice, "Series" );
+    m_SixSeriesGroup.AddChoice( m_SixSeriesChoice, _("Series") );
 
     m_SixSeriesGroup.AddYGap();
 
-    m_SixSeriesGroup.AddSlider( m_SixChordSlider, "Chord", 10, "%7.3f" );
-    m_SixSeriesGroup.AddSlider( m_SixThickChordSlider, "T/C", 1, "%7.5f" );
+    m_SixSeriesGroup.AddSlider( m_SixChordSlider, _("Chord"), 10, "%7.3f" );
+    m_SixSeriesGroup.AddSlider( m_SixThickChordSlider, _("T/C"), 1, "%7.5f" );
     m_SixSeriesGroup.AddYGap();
-    m_SixSeriesGroup.AddSlider( m_SixIdealClSlider, "Ideal CL", 1, "%7.5f" );
+    m_SixSeriesGroup.AddSlider( m_SixIdealClSlider, _("Ideal CL"), 1, "%7.5f" );
     m_SixSeriesGroup.AddSlider( m_SixASlider, "A", 1, "%7.5f" );
     m_SixSeriesGroup.AddYGap();
-    m_SixSeriesGroup.AddButton( m_SixInvertButton, "Invert Airfoil" );
+    m_SixSeriesGroup.AddButton( m_SixInvertButton, _("Invert Airfoil") );
     m_SixSeriesGroup.AddYGap();
     m_SixSeriesGroup.SetSameLineFlag( true );
     m_SixSeriesGroup.SetFitWidthFlag( false );
     m_SixSeriesGroup.SetButtonWidth( 125 );
-    m_SixSeriesGroup.AddButton( m_SixFitCSTButton, "Fit CST" );
+    m_SixSeriesGroup.AddButton( m_SixFitCSTButton, _("Fit CST") );
     m_SixSeriesGroup.InitWidthHeightVals();
     m_SixSeriesGroup.SetFitWidthFlag( true );
-    m_SixSeriesGroup.AddCounter( m_SixDegreeCounter, "Degree", 125 );
+    m_SixSeriesGroup.AddCounter( m_SixDegreeCounter, _("Degree"), 125 );
 
     //==== Biconvex AF ====//
     m_XSecLayout.AddSubGroupLayout( m_BiconvexGroup, m_XSecLayout.GetW(), m_XSecLayout.GetRemainY() );
-    m_BiconvexGroup.AddSlider( m_BiconvexChordSlider, "Chord", 10, "%7.3f" );
-    m_BiconvexGroup.AddSlider( m_BiconvexThickChordSlider, "T/C", 1, "%7.5f" );
+    m_BiconvexGroup.AddSlider( m_BiconvexChordSlider, _("Chord"), 10, "%7.3f" );
+    m_BiconvexGroup.AddSlider( m_BiconvexThickChordSlider, _("T/C"), 1, "%7.5f" );
 
     //==== Wedge AF ====//
     m_XSecLayout.AddSubGroupLayout( m_WedgeGroup, m_XSecLayout.GetW(), m_XSecLayout.GetRemainY() );
-    m_WedgeGroup.AddSlider( m_WedgeChordSlider, "Chord", 10, "%7.3f" );
-    m_WedgeGroup.AddSlider( m_WedgeThickChordSlider, "T/C", 1, "%7.5f" );
+    m_WedgeGroup.AddSlider( m_WedgeChordSlider, _("Chord"), 10, "%7.3f" );
+    m_WedgeGroup.AddSlider( m_WedgeThickChordSlider, _("T/C"), 1, "%7.5f" );
     m_WedgeGroup.AddYGap();
-    m_WedgeGroup.AddSlider( m_WedgeThickLocSlider, "Thick X", 1, "%7.5f" );
-    m_WedgeGroup.AddSlider( m_WedgeFlatUpSlider, "Flat Up", 1, "%7.5f" );
+    m_WedgeGroup.AddSlider( m_WedgeThickLocSlider, _("Thick X"), 1, "%7.5f" );
+    m_WedgeGroup.AddSlider( m_WedgeFlatUpSlider, _("Flat Up"), 1, "%7.5f" );
     m_WedgeGroup.AddYGap();
-    m_WedgeGroup.AddButton( m_WedgeSymmThickButton, "Symm Thickness" );
-    m_WedgeGroup.AddSlider( m_WedgeThickLocLowSlider, "Thick X Low", 1, "%7.5f" );
-    m_WedgeGroup.AddSlider( m_WedgeFlatLowSlider, "Flat Low", 1, "%7.5f" );
+    m_WedgeGroup.AddButton( m_WedgeSymmThickButton, _("Symm Thickness") );
+    m_WedgeGroup.AddSlider( m_WedgeThickLocLowSlider, _("Thick X Low"), 1, "%7.5f" );
+    m_WedgeGroup.AddSlider( m_WedgeFlatLowSlider, _("Flat Low"), 1, "%7.5f" );
     m_WedgeGroup.AddYGap();
-    m_WedgeGroup.AddSlider( m_WedgeZCamberSlider, "Camber", 1, "%7.5f" );
+    m_WedgeGroup.AddSlider( m_WedgeZCamberSlider, _("Camber"), 1, "%7.5f" );
     m_WedgeGroup.AddYGap();
-    m_WedgeGroup.AddSlider( m_WedgeUForeUpSlider, "U Fwd Up", 1, "%7.5f" );
-    m_WedgeGroup.AddSlider( m_WedgeUForeLowSlider, "U Fwd Low", 1, "%7.5f" );
-    m_WedgeGroup.AddSlider( m_WedgeDuUpSlider, "dU Flat Up", 1, "%7.5f" );
-    m_WedgeGroup.AddSlider( m_WedgeDuLowSlider, "dU Flat Low", 1, "%7.5f" );
+    m_WedgeGroup.AddSlider( m_WedgeUForeUpSlider, _("U Fwd Up"), 1, "%7.5f" );
+    m_WedgeGroup.AddSlider( m_WedgeUForeLowSlider, _("U Fwd Low"), 1, "%7.5f" );
+    m_WedgeGroup.AddSlider( m_WedgeDuUpSlider, _("dU Flat Up"), 1, "%7.5f" );
+    m_WedgeGroup.AddSlider( m_WedgeDuLowSlider, _("dU Flat Low"), 1, "%7.5f" );
     m_WedgeGroup.AddYGap();
-    m_WedgeGroup.AddButton( m_WedgeInvertButton, "Invert Airfoil" );
+    m_WedgeGroup.AddButton( m_WedgeInvertButton, _("Invert Airfoil") );
 
     //==== Fuse File ====//
     m_XSecLayout.AddSubGroupLayout( m_FuseFileGroup, m_XSecLayout.GetW(), m_XSecLayout.GetRemainY() );
-    m_FuseFileGroup.AddButton( m_ReadFuseFileButton, "Read File" );
+    m_FuseFileGroup.AddButton( m_ReadFuseFileButton, _("Read File") );
     m_FuseFileGroup.AddYGap();
-    m_FuseFileGroup.AddSlider( m_FileHeightSlider, "Height", 10, "%7.3f" );
-    m_FuseFileGroup.AddSlider( m_FileWidthSlider, "Width", 10, "%7.3f" );
+    m_FuseFileGroup.AddSlider( m_FileHeightSlider, _("Height"), 10, "%7.3f" );
+    m_FuseFileGroup.AddSlider( m_FileWidthSlider, _("Width"), 10, "%7.3f" );
 
     //==== Airfoil File ====//
     m_XSecLayout.AddSubGroupLayout( m_AfFileGroup, m_XSecLayout.GetW(), m_XSecLayout.GetRemainY() );
-    m_AfFileGroup.AddButton( m_AfReadFileButton, "Read File" );
+    m_AfFileGroup.AddButton( m_AfReadFileButton, _("Read File") );
     m_AfFileGroup.AddYGap();
-    m_AfFileGroup.AddOutput( m_AfFileNameOutput, "Name" );
+    m_AfFileGroup.AddOutput( m_AfFileNameOutput, _("Name") );
     m_AfFileGroup.AddYGap();
-    m_AfFileGroup.AddSlider( m_AfFileChordSlider, "Chord", 10, "%7.3f" );
-    m_AfFileGroup.AddSlider( m_AfFileThickChordSlider, "T/C", 1, "%7.5f" );
-    m_AfFileGroup.AddOutput( m_AfFileBaseThickChordOutput, "Base T/C", "%7.5f" );
+    m_AfFileGroup.AddSlider( m_AfFileChordSlider, _("Chord"), 10, "%7.3f" );
+    m_AfFileGroup.AddSlider( m_AfFileThickChordSlider, _("T/C"), 1, "%7.5f" );
+    m_AfFileGroup.AddOutput( m_AfFileBaseThickChordOutput, _("Base T/C"), "%7.5f" );
     m_AfFileGroup.AddYGap();
-    m_AfFileGroup.AddButton( m_AfFileInvertButton, "Invert Airfoil" );
+    m_AfFileGroup.AddButton( m_AfFileInvertButton, _("Invert Airfoil") );
     m_AfFileGroup.AddYGap();
     m_AfFileGroup.SetSameLineFlag( true );
     m_AfFileGroup.SetFitWidthFlag( false );
     m_AfFileGroup.SetButtonWidth( 125 );
-    m_AfFileGroup.AddButton( m_AfFileFitCSTButton, "Fit CST" );
+    m_AfFileGroup.AddButton( m_AfFileFitCSTButton, _("Fit CST") );
     m_AfFileGroup.InitWidthHeightVals();
     m_AfFileGroup.SetFitWidthFlag( true );
-    m_AfFileGroup.AddCounter( m_AfFileDegreeCounter, "Degree", 125 );
+    m_AfFileGroup.AddCounter( m_AfFileDegreeCounter, _("Degree"), 125 );
 
     //==== CST Airfoil ====//
     m_XSecLayout.AddSubGroupLayout( m_CSTAirfoilGroup, m_XSecLayout.GetW(), m_XSecLayout.GetRemainY() );
 
-    m_CSTAirfoilGroup.AddOutput( m_CSTThickChordOutput, "T/C", "%7.5f" );
+    m_CSTAirfoilGroup.AddOutput( m_CSTThickChordOutput, _("T/C"), "%7.5f" );
 
-    m_CSTAirfoilGroup.AddButton( m_CSTContLERadButton, "Enforce Continuous LE Radius" );
-    m_CSTAirfoilGroup.AddButton( m_CSTInvertButton, "Invert Airfoil" );
-
-    m_CSTAirfoilGroup.AddYGap();
-    m_CSTAirfoilGroup.AddSlider( m_CSTChordSlider, "Chord", 10, "%7.3f");
+    m_CSTAirfoilGroup.AddButton( m_CSTContLERadButton, _("Enforce Continuous LE Radius") );
+    m_CSTAirfoilGroup.AddButton( m_CSTInvertButton, _("Invert Airfoil") );
 
     m_CSTAirfoilGroup.AddYGap();
-    m_CSTAirfoilGroup.AddDividerBox( "Upper Surface" );
+    m_CSTAirfoilGroup.AddSlider( m_CSTChordSlider, _("Chord"), 10, "%7.3f");
+
+    m_CSTAirfoilGroup.AddYGap();
+    m_CSTAirfoilGroup.AddDividerBox( _("Upper Surface") );
 
     m_CSTAirfoilGroup.SetSameLineFlag( true );
     m_CSTAirfoilGroup.SetFitWidthFlag( true );
 
-    m_CSTAirfoilGroup.AddOutput( m_UpDegreeOutput, "Degree", m_CSTAirfoilGroup.GetButtonWidth() * 2 );
+    m_CSTAirfoilGroup.AddOutput( m_UpDegreeOutput, _("Degree"), m_CSTAirfoilGroup.GetButtonWidth() * 2 );
     m_CSTAirfoilGroup.SetFitWidthFlag( false );
-    m_CSTAirfoilGroup.AddButton( m_UpDemoteButton, "Demote" );
-    m_CSTAirfoilGroup.AddButton( m_UpPromoteButton, "Promote" );
+    m_CSTAirfoilGroup.AddButton( m_UpDemoteButton, _("Demote") );
+    m_CSTAirfoilGroup.AddButton( m_UpPromoteButton, _("Promote") );
 
     m_CSTAirfoilGroup.ForceNewLine();
 
@@ -379,12 +380,12 @@ BORScreen::BORScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 680, "BOR" )
 
     m_CSTAirfoilGroup.AddYGap();
 
-    m_CSTAirfoilGroup.AddDividerBox( "Lower Surface" );
+    m_CSTAirfoilGroup.AddDividerBox( _("Lower Surface") );
 
     m_CSTAirfoilGroup.SetSameLineFlag( true );
     m_CSTAirfoilGroup.SetFitWidthFlag( true );
 
-    m_CSTAirfoilGroup.AddOutput( m_LowDegreeOutput, "Degree", m_CSTAirfoilGroup.GetButtonWidth() * 2 );
+    m_CSTAirfoilGroup.AddOutput( m_LowDegreeOutput, _("Degree"), m_CSTAirfoilGroup.GetButtonWidth() * 2 );
     m_CSTAirfoilGroup.SetFitWidthFlag( false );
     m_CSTAirfoilGroup.AddButton( m_LowDemoteButton, "Demote" );
     m_CSTAirfoilGroup.AddButton( m_LowPromoteButton, "Promote" );
@@ -401,29 +402,29 @@ BORScreen::BORScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 680, "BOR" )
 
     //==== VKT AF ====//
     m_XSecLayout.AddSubGroupLayout( m_VKTGroup, m_XSecLayout.GetW(), m_XSecLayout.GetRemainY() );
-    m_VKTGroup.AddSlider( m_VKTChordSlider, "Chord", 10, "%7.3f" );
+    m_VKTGroup.AddSlider( m_VKTChordSlider, _("Chord"), 10, "%7.3f" );
     m_VKTGroup.AddYGap();
-    m_VKTGroup.AddSlider( m_VKTEpsilonSlider, "Epsilon", 1, "%7.5f" );
-    m_VKTGroup.AddSlider( m_VKTKappaSlider, "Kappa", 1, "%7.5f" );
-    m_VKTGroup.AddSlider( m_VKTTauSlider, "Tau", 10, "%7.5f" );
-    m_VKTGroup.AddOutput( m_VKTThickChordOutput, "T/C", "%7.5f" );
+    m_VKTGroup.AddSlider( m_VKTEpsilonSlider, _("Epsilon"), 1, "%7.5f" );
+    m_VKTGroup.AddSlider( m_VKTKappaSlider, _("Kappa"), 1, "%7.5f" );
+    m_VKTGroup.AddSlider( m_VKTTauSlider, _("Tau"), 10, "%7.5f" );
+    m_VKTGroup.AddOutput( m_VKTThickChordOutput, _("T/C"), "%7.5f" );
     m_VKTGroup.AddYGap();
-    m_VKTGroup.AddButton( m_VKTInvertButton, "Invert Airfoil" );
+    m_VKTGroup.AddButton( m_VKTInvertButton, _("Invert Airfoil") );
     m_VKTGroup.AddYGap();
     m_VKTGroup.SetSameLineFlag( true );
     m_VKTGroup.SetFitWidthFlag( false );
     m_VKTGroup.SetButtonWidth( 125 );
-    m_VKTGroup.AddButton( m_VKTFitCSTButton, "Fit CST" );
+    m_VKTGroup.AddButton( m_VKTFitCSTButton, _("Fit CST") );
     m_VKTGroup.InitWidthHeightVals();
     m_VKTGroup.SetFitWidthFlag( true );
-    m_VKTGroup.AddCounter( m_VKTDegreeCounter, "Degree", 125 );
+    m_VKTGroup.AddCounter( m_VKTDegreeCounter, _("Degree"), 125 );
 
     //==== Four Series AF ====//
     m_XSecLayout.AddSubGroupLayout( m_FourDigitModGroup, m_XSecLayout.GetW(), m_XSecLayout.GetRemainY() );
-    m_FourDigitModGroup.AddOutput( m_FourModNameOutput, "Name" );
+    m_FourDigitModGroup.AddOutput( m_FourModNameOutput, _("Name") );
     m_FourDigitModGroup.AddYGap();
-    m_FourDigitModGroup.AddSlider( m_FourModChordSlider, "Chord", 10, "%7.3f" );
-    m_FourDigitModGroup.AddSlider( m_FourModThickChordSlider, "T/C", 1, "%7.5f" );
+    m_FourDigitModGroup.AddSlider( m_FourModChordSlider, _("Chord"), 10, "%7.3f" );
+    m_FourDigitModGroup.AddSlider( m_FourModThickChordSlider, _("T/C"), 1, "%7.5f" );
     m_FourDigitModGroup.AddYGap();
 
     m_FourDigitModGroup.SetSameLineFlag( true );
@@ -433,7 +434,7 @@ BORScreen::BORScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 680, "BOR" )
     m_FourDigitModGroup.AddButton( m_FourModCamberButton, "" );
     m_FourDigitModGroup.SetButtonWidth( actionSliderButtonWidth );
     m_FourDigitModGroup.SetFitWidthFlag( true );
-    m_FourDigitModGroup.AddSlider( m_FourModCamberSlider, "Camber", 0.2, "%7.5f" );
+    m_FourDigitModGroup.AddSlider( m_FourModCamberSlider, _("Camber"), 0.2, "%7.5f" );
 
     m_FourDigitModGroup.ForceNewLine();
 
@@ -442,7 +443,7 @@ BORScreen::BORScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 680, "BOR" )
     m_FourDigitModGroup.AddButton( m_FourModCLiButton, "" );
     m_FourDigitModGroup.SetButtonWidth( actionSliderButtonWidth );
     m_FourDigitModGroup.SetFitWidthFlag( true );
-    m_FourDigitModGroup.AddSlider( m_FourModCLiSlider, "Ideal CL", 1, "%7.5f" );
+    m_FourDigitModGroup.AddSlider( m_FourModCLiSlider, _("Ideal CL"), 1, "%7.5f" );
 
     m_FourDigitModGroup.ForceNewLine();
 
@@ -455,90 +456,90 @@ BORScreen::BORScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 680, "BOR" )
 
     m_FourModCamberGroup.SetValMapVec( camb_val_map );
 
-    m_FourDigitModGroup.AddSlider( m_FourModCamberLocSlider, "CamberLoc", 1, "%7.5f" );
+    m_FourDigitModGroup.AddSlider( m_FourModCamberLocSlider, _("CamberLoc"), 1, "%7.5f" );
     m_FourDigitModGroup.AddYGap();
-    m_FourDigitModGroup.AddSlider( m_FourModThicknessLocSlider, "T/CLoc", 0.5, "%7.5f" );
-    m_FourDigitModGroup.AddSlider( m_FourModLERadIndexSlider, "LERadIndx", 5, "%7.5f" );
+    m_FourDigitModGroup.AddSlider( m_FourModThicknessLocSlider, _("T/CLoc"), 0.5, "%7.5f" );
+    m_FourDigitModGroup.AddSlider( m_FourModLERadIndexSlider, _("LERadIndx"), 5, "%7.5f" );
     m_FourDigitModGroup.AddYGap();
-    m_FourDigitModGroup.AddButton( m_FourModInvertButton, "Invert Airfoil" );
+    m_FourDigitModGroup.AddButton( m_FourModInvertButton, _("Invert Airfoil") );
     m_FourDigitModGroup.AddYGap();
-    m_FourDigitModGroup.AddButton( m_FourModSharpTEButton, "Sharpen TE" );
+    m_FourDigitModGroup.AddButton( m_FourModSharpTEButton, _("Sharpen TE") );
     m_FourDigitModGroup.AddYGap();
     m_FourDigitModGroup.SetSameLineFlag( true );
     m_FourDigitModGroup.SetFitWidthFlag( false );
     m_FourDigitModGroup.SetButtonWidth( 125 );
-    m_FourDigitModGroup.AddButton( m_FourModFitCSTButton, "Fit CST" );
+    m_FourDigitModGroup.AddButton( m_FourModFitCSTButton, _("Fit CST") );
     m_FourDigitModGroup.InitWidthHeightVals();
     m_FourDigitModGroup.SetFitWidthFlag( true );
-    m_FourDigitModGroup.AddCounter( m_FourModDegreeCounter, "Degree", 125 );
+    m_FourDigitModGroup.AddCounter( m_FourModDegreeCounter, _("Degree"), 125 );
 
     //==== Five Digit AF ====//
     m_XSecLayout.AddSubGroupLayout( m_FiveDigitGroup, m_XSecLayout.GetW(), m_XSecLayout.GetRemainY() );
-    m_FiveDigitGroup.AddOutput( m_FiveNameOutput, "Name" );
+    m_FiveDigitGroup.AddOutput( m_FiveNameOutput, _("Name") );
     m_FiveDigitGroup.AddYGap();
-    m_FiveDigitGroup.AddSlider( m_FiveChordSlider, "Chord", 10, "%7.3f" );
-    m_FiveDigitGroup.AddSlider( m_FiveThickChordSlider, "T/C", 1, "%7.5f" );
+    m_FiveDigitGroup.AddSlider( m_FiveChordSlider, _("Chord"), 10, "%7.3f" );
+    m_FiveDigitGroup.AddSlider( m_FiveThickChordSlider, _("T/C"), 1, "%7.5f" );
     m_FiveDigitGroup.AddYGap();
-    m_FiveDigitGroup.AddSlider( m_FiveCLiSlider, "Ideal CL", 1, "%7.5f" );
-    m_FiveDigitGroup.AddSlider( m_FiveCamberLocSlider, "CamberLoc", 1, "%7.5f" );
+    m_FiveDigitGroup.AddSlider( m_FiveCLiSlider, _("Ideal CL"), 1, "%7.5f" );
+    m_FiveDigitGroup.AddSlider( m_FiveCamberLocSlider, _("CamberLoc"), 1, "%7.5f" );
     m_FiveDigitGroup.AddYGap();
-    m_FiveDigitGroup.AddButton( m_FiveInvertButton, "Invert Airfoil" );
+    m_FiveDigitGroup.AddButton( m_FiveInvertButton, _("Invert Airfoil") );
     m_FiveDigitGroup.AddYGap();
-    m_FiveDigitGroup.AddButton( m_FiveSharpTEButton, "Sharpen TE" );
+    m_FiveDigitGroup.AddButton( m_FiveSharpTEButton, _("Sharpen TE") );
     m_FiveDigitGroup.AddYGap();
     m_FiveDigitGroup.SetSameLineFlag( true );
     m_FiveDigitGroup.SetFitWidthFlag( false );
     m_FiveDigitGroup.SetButtonWidth( 125 );
-    m_FiveDigitGroup.AddButton( m_FiveFitCSTButton, "Fit CST" );
+    m_FiveDigitGroup.AddButton( m_FiveFitCSTButton, _("Fit CST") );
     m_FiveDigitGroup.InitWidthHeightVals();
     m_FiveDigitGroup.SetFitWidthFlag( true );
-    m_FiveDigitGroup.AddCounter( m_FiveDegreeCounter, "Degree", 125 );
+    m_FiveDigitGroup.AddCounter( m_FiveDegreeCounter, _("Degree"), 125 );
 
     //==== Five Digit Mod AF ====//
     m_XSecLayout.AddSubGroupLayout( m_FiveDigitModGroup, m_XSecLayout.GetW(), m_XSecLayout.GetRemainY() );
-    m_FiveDigitModGroup.AddOutput( m_FiveModNameOutput, "Name" );
+    m_FiveDigitModGroup.AddOutput( m_FiveModNameOutput, _("Name") );
     m_FiveDigitModGroup.AddYGap();
-    m_FiveDigitModGroup.AddSlider( m_FiveModChordSlider, "Chord", 10, "%7.3f" );
-    m_FiveDigitModGroup.AddSlider( m_FiveModThickChordSlider, "T/C", 1, "%7.5f" );
+    m_FiveDigitModGroup.AddSlider( m_FiveModChordSlider, _("Chord"), 10, "%7.3f" );
+    m_FiveDigitModGroup.AddSlider( m_FiveModThickChordSlider, _("T/C"), 1, "%7.5f" );
     m_FiveDigitModGroup.AddYGap();
-    m_FiveDigitModGroup.AddSlider( m_FiveModCLiSlider, "Ideal CL", 1, "%7.5f" );
-    m_FiveDigitModGroup.AddSlider( m_FiveModCamberLocSlider, "CamberLoc", 1, "%7.5f" );
+    m_FiveDigitModGroup.AddSlider( m_FiveModCLiSlider, _("Ideal CL"), 1, "%7.5f" );
+    m_FiveDigitModGroup.AddSlider( m_FiveModCamberLocSlider, _("CamberLoc"), 1, "%7.5f" );
     m_FiveDigitModGroup.AddYGap();
-    m_FiveDigitModGroup.AddSlider( m_FiveModThicknessLocSlider, "T/CLoc", 0.5, "%7.5f" );
-    m_FiveDigitModGroup.AddSlider( m_FiveModLERadIndexSlider, "LERadIndx", 5, "%7.5f" );
+    m_FiveDigitModGroup.AddSlider( m_FiveModThicknessLocSlider, _("T/CLoc"), 0.5, "%7.5f" );
+    m_FiveDigitModGroup.AddSlider( m_FiveModLERadIndexSlider, _("LERadIndx"), 5, "%7.5f" );
     m_FiveDigitModGroup.AddYGap();
-    m_FiveDigitModGroup.AddButton( m_FiveModInvertButton, "Invert Airfoil" );
+    m_FiveDigitModGroup.AddButton( m_FiveModInvertButton, _("Invert Airfoil") );
     m_FiveDigitModGroup.AddYGap();
-    m_FiveDigitModGroup.AddButton( m_FiveModSharpTEButton, "Sharpen TE" );
+    m_FiveDigitModGroup.AddButton( m_FiveModSharpTEButton, _("Sharpen TE") );
     m_FiveDigitModGroup.AddYGap();
     m_FiveDigitModGroup.SetSameLineFlag( true );
     m_FiveDigitModGroup.SetFitWidthFlag( false );
     m_FiveDigitModGroup.SetButtonWidth( 125 );
-    m_FiveDigitModGroup.AddButton( m_FiveModFitCSTButton, "Fit CST" );
+    m_FiveDigitModGroup.AddButton( m_FiveModFitCSTButton, _("Fit CST") );
     m_FiveDigitModGroup.InitWidthHeightVals();
     m_FiveDigitModGroup.SetFitWidthFlag( true );
-    m_FiveDigitModGroup.AddCounter( m_FiveModDegreeCounter, "Degree", 125 );
+    m_FiveDigitModGroup.AddCounter( m_FiveModDegreeCounter, _("Degree"), 125 );
 
     //==== 16 Series AF ====//
     m_XSecLayout.AddSubGroupLayout( m_OneSixSeriesGroup, m_XSecLayout.GetW(), m_XSecLayout.GetRemainY() );
-    m_OneSixSeriesGroup.AddOutput( m_OneSixSeriesNameOutput, "Name" );
+    m_OneSixSeriesGroup.AddOutput( m_OneSixSeriesNameOutput, _("Name") );
     m_OneSixSeriesGroup.AddYGap();
-    m_OneSixSeriesGroup.AddSlider( m_OneSixSeriesChordSlider, "Chord", 10, "%7.3f" );
-    m_OneSixSeriesGroup.AddSlider( m_OneSixSeriesThickChordSlider, "T/C", 1, "%7.5f" );
+    m_OneSixSeriesGroup.AddSlider( m_OneSixSeriesChordSlider, ("Chord"), 10, "%7.3f" );
+    m_OneSixSeriesGroup.AddSlider( m_OneSixSeriesThickChordSlider, _("T/C"), 1, "%7.5f" );
     m_OneSixSeriesGroup.AddYGap();
-    m_OneSixSeriesGroup.AddSlider( m_OneSixSeriesCLiSlider, "Ideal CL", 1, "%7.5f" );
+    m_OneSixSeriesGroup.AddSlider( m_OneSixSeriesCLiSlider, _("Ideal CL"), 1, "%7.5f" );
     m_OneSixSeriesGroup.AddYGap();
-    m_OneSixSeriesGroup.AddButton( m_OneSixSeriesInvertButton, "Invert Airfoil" );
+    m_OneSixSeriesGroup.AddButton( m_OneSixSeriesInvertButton, _("Invert Airfoil") );
     m_OneSixSeriesGroup.AddYGap();
-    m_OneSixSeriesGroup.AddButton( m_OneSixSeriesSharpTEButton, "Sharpen TE" );
+    m_OneSixSeriesGroup.AddButton( m_OneSixSeriesSharpTEButton, _("Sharpen TE") );
     m_OneSixSeriesGroup.AddYGap();
     m_OneSixSeriesGroup.SetSameLineFlag( true );
     m_OneSixSeriesGroup.SetFitWidthFlag( false );
     m_OneSixSeriesGroup.SetButtonWidth( 125 );
-    m_OneSixSeriesGroup.AddButton( m_OneSixSeriesFitCSTButton, "Fit CST" );
+    m_OneSixSeriesGroup.AddButton( m_OneSixSeriesFitCSTButton, _("Fit CST") );
     m_OneSixSeriesGroup.InitWidthHeightVals();
     m_OneSixSeriesGroup.SetFitWidthFlag( true );
-    m_OneSixSeriesGroup.AddCounter( m_OneSixSeriesDegreeCounter, "Degree", 125 );
+    m_OneSixSeriesGroup.AddCounter( m_OneSixSeriesDegreeCounter, _("Degree"), 125 );
 
     DisplayGroup( &m_PointGroup );
 
@@ -557,32 +558,32 @@ BORScreen::BORScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 680, "BOR" )
     m_ModifyLayout.InitWidthHeightVals();
     m_ModifyLayout.AddDividerBox( "Shift, Rotate, & Scale" );
 
-    m_ModifyLayout.AddSlider( m_AFDeltaXSlider, "Delta X/C", 1, "%7.3f" );
-    m_ModifyLayout.AddSlider( m_AFDeltaYSlider, "Delta Y/C", 1, "%7.3f" );
-    m_ModifyLayout.AddSlider( m_AFThetaSlider, "Theta", 20, "%7.3f" );
-    m_ModifyLayout.AddSlider( m_AFScaleSlider, "Scale", 1, "%7.3f" );
-    m_ModifyLayout.AddSlider( m_AFShiftLESlider, "Shift LE", 1, "%7.3f" );
+    m_ModifyLayout.AddSlider( m_AFDeltaXSlider, _("Delta X/C"), 1, "%7.3f" );
+    m_ModifyLayout.AddSlider( m_AFDeltaYSlider, _("Delta Y/C"), 1, "%7.3f" );
+    m_ModifyLayout.AddSlider( m_AFThetaSlider, _("Theta"), 20, "%7.3f" );
+    m_ModifyLayout.AddSlider( m_AFScaleSlider, _("Scale"), 1, "%7.3f" );
+    m_ModifyLayout.AddSlider( m_AFShiftLESlider, _("Shift LE"), 1, "%7.3f" );
 
     m_ModifyLayout.SetChoiceButtonWidth( 74 );
 
     m_ModifyLayout.AddYGap();
 
-    m_ModifyLayout.AddDividerBox( "Leading Edge" );
+    m_ModifyLayout.AddDividerBox( _("Leading Edge") );
     m_LECapChoice.AddItem( "FLAT", vsp::FLAT_END_CAP );
     m_LECapChoice.AddItem( "ROUND", vsp::ROUND_END_CAP );
     m_LECapChoice.AddItem( "EDGE", vsp::EDGE_END_CAP );
     m_LECapChoice.AddItem( "SHARP", vsp::SHARP_END_CAP );
 
-    m_ModifyLayout.AddChoice( m_LECapChoice, "Cap" );
+    m_ModifyLayout.AddChoice( m_LECapChoice, _("Cap") );
 
-    m_ModifyLayout.AddSlider( m_LECapLengthSlider, "Length", 10.0, "%6.5f" );
-    m_ModifyLayout.AddSlider( m_LECapOffsetSlider, "Offset", 10.0, "%6.5f" );
-    m_ModifyLayout.AddSlider( m_LECapStrengthSlider, "Strength", 10.0, "%6.5f" );
+    m_ModifyLayout.AddSlider( m_LECapLengthSlider, _("Length"), 10.0, "%6.5f" );
+    m_ModifyLayout.AddSlider( m_LECapOffsetSlider, _("Offset"), 10.0, "%6.5f" );
+    m_ModifyLayout.AddSlider( m_LECapStrengthSlider, _("Strength"), 10.0, "%6.5f" );
 
-    m_LECloseChoice.AddItem( "NONE" );
-    m_LECloseChoice.AddItem( "SKEW LOWER" );
-    m_LECloseChoice.AddItem( "SKEW UPPER" );
-    m_LECloseChoice.AddItem( "SKEW BOTH" );
+    m_LECloseChoice.AddItem( _("NONE") );
+    m_LECloseChoice.AddItem( _("SKEW LOWER") );
+    m_LECloseChoice.AddItem( _("SKEW UPPER") );
+    m_LECloseChoice.AddItem( _("SKEW BOTH") );
 
     m_ModifyLayout.SetFitWidthFlag( true );
     m_ModifyLayout.SetSameLineFlag( true );
@@ -592,8 +593,8 @@ BORScreen::BORScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 680, "BOR" )
     m_ModifyLayout.AddChoice( m_LECloseChoice, "Closure:", m_ModifyLayout.GetButtonWidth() * 2 );
 
     m_ModifyLayout.SetFitWidthFlag( false );
-    m_ModifyLayout.AddButton( m_LECloseABSButton, "Abs" );
-    m_ModifyLayout.AddButton( m_LECloseRELButton, "Rel" );
+    m_ModifyLayout.AddButton( m_LECloseABSButton, _("Abs") );
+    m_ModifyLayout.AddButton( m_LECloseRELButton, _("Rel") );
 
     m_LECloseGroup.Init( this );
     m_LECloseGroup.AddButton( m_LECloseABSButton.GetFlButton() );
@@ -609,7 +610,7 @@ BORScreen::BORScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 680, "BOR" )
     m_ModifyLayout.SetFitWidthFlag( true );
     m_ModifyLayout.SetSameLineFlag( false );
 
-    m_ModifyLayout.AddSlider( m_CloseLEThickSlider, "T", 10.0, "%6.5f" );
+    m_ModifyLayout.AddSlider( m_CloseLEThickSlider, _("T"), 10.0, "%6.5f" );
 
     m_ModifyLayout.AddYGap();
 
@@ -620,11 +621,11 @@ BORScreen::BORScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 680, "BOR" )
     m_ModifyLayout.SetFitWidthFlag( true );
     m_ModifyLayout.SetSameLineFlag( true );
 
-    m_ModifyLayout.AddChoice( m_LETrimChoice, "Trim:", m_ModifyLayout.GetButtonWidth() * 2 );
+    m_ModifyLayout.AddChoice( m_LETrimChoice, _("Trim:"), m_ModifyLayout.GetButtonWidth() * 2 );
 
     m_ModifyLayout.SetFitWidthFlag( false );
-    m_ModifyLayout.AddButton( m_LETrimABSButton, "Abs" );
-    m_ModifyLayout.AddButton( m_LETrimRELButton, "Rel" );
+    m_ModifyLayout.AddButton( m_LETrimABSButton, _("Abs") );
+    m_ModifyLayout.AddButton( m_LETrimRELButton, _("Rel") );
 
     m_LETrimGroup.Init( this );
     m_LETrimGroup.AddButton( m_LETrimABSButton.GetFlButton() );
@@ -640,12 +641,12 @@ BORScreen::BORScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 680, "BOR" )
     m_ModifyLayout.SetFitWidthFlag( true );
     m_ModifyLayout.SetSameLineFlag( false );
 
-    m_ModifyLayout.AddSlider( m_TrimLEXSlider, "X", 10.0, "%6.5f" );
-    m_ModifyLayout.AddSlider( m_TrimLEThickSlider, "T", 10.0, "%6.5f" );
+    m_ModifyLayout.AddSlider( m_TrimLEXSlider, _("X"), 10.0, "%6.5f" );
+    m_ModifyLayout.AddSlider( m_TrimLEThickSlider, _("T"), 10.0, "%6.5f" );
 
     m_ModifyLayout.AddYGap();
 
-    m_ModifyLayout.AddDividerBox( "Trailing Edge" );
+    m_ModifyLayout.AddDividerBox( _("Trailing Edge") );
     m_TECapChoice.AddItem( "FLAT", vsp::FLAT_END_CAP );
     m_TECapChoice.AddItem( "ROUND", vsp::ROUND_END_CAP );
     m_TECapChoice.AddItem( "EDGE", vsp::EDGE_END_CAP );
@@ -653,26 +654,26 @@ BORScreen::BORScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 680, "BOR" )
 
     m_ModifyLayout.AddChoice( m_TECapChoice, "Cap:" );
 
-    m_ModifyLayout.AddSlider( m_TECapLengthSlider, "Length", 10.0, "%6.5f" );
-    m_ModifyLayout.AddSlider( m_TECapOffsetSlider, "Offset", 10.0, "%6.5f" );
-    m_ModifyLayout.AddSlider( m_TECapStrengthSlider, "Strength", 10.0, "%6.5f" );
+    m_ModifyLayout.AddSlider( m_TECapLengthSlider, _("Length"), 10.0, "%6.5f" );
+    m_ModifyLayout.AddSlider( m_TECapOffsetSlider, _("Offset"), 10.0, "%6.5f" );
+    m_ModifyLayout.AddSlider( m_TECapStrengthSlider, _("Strength"), 10.0, "%6.5f" );
 
-    m_TECloseChoice.AddItem( "NONE" );
-    m_TECloseChoice.AddItem( "SKEW LOWER" );
-    m_TECloseChoice.AddItem( "SKEW UPPER" );
-    m_TECloseChoice.AddItem( "SKEW BOTH" );
-    m_TECloseChoice.AddItem( "EXTRAPOLATE" );
+    m_TECloseChoice.AddItem( _("NONE") );
+    m_TECloseChoice.AddItem( _("SKEW LOWER") );
+    m_TECloseChoice.AddItem( _("SKEW UPPER") );
+    m_TECloseChoice.AddItem( _("SKEW BOTH") );
+    m_TECloseChoice.AddItem( _("EXTRAPOLATE") );
 
     m_ModifyLayout.SetFitWidthFlag( true );
     m_ModifyLayout.SetSameLineFlag( true );
 
     m_ModifyLayout.AddYGap();
 
-    m_ModifyLayout.AddChoice( m_TECloseChoice, "Closure:", m_ModifyLayout.GetButtonWidth() * 2 );
+    m_ModifyLayout.AddChoice( m_TECloseChoice, _("Closure:"), m_ModifyLayout.GetButtonWidth() * 2 );
 
     m_ModifyLayout.SetFitWidthFlag( false );
-    m_ModifyLayout.AddButton( m_TECloseABSButton, "Abs" );
-    m_ModifyLayout.AddButton( m_TECloseRELButton, "Rel" );
+    m_ModifyLayout.AddButton( m_TECloseABSButton, _("Abs") );
+    m_ModifyLayout.AddButton( m_TECloseRELButton, _("Rel") );
 
     m_TECloseGroup.Init( this );
     m_TECloseGroup.AddButton( m_TECloseABSButton.GetFlButton() );
@@ -685,7 +686,7 @@ BORScreen::BORScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 680, "BOR" )
     m_ModifyLayout.SetFitWidthFlag( true );
     m_ModifyLayout.SetSameLineFlag( false );
 
-    m_ModifyLayout.AddSlider( m_CloseTEThickSlider, "T", 10.0, "%6.5f" );
+    m_ModifyLayout.AddSlider( m_CloseTEThickSlider, _("T"), 10.0, "%6.5f" );
 
     m_ModifyLayout.AddYGap();
 
@@ -696,11 +697,11 @@ BORScreen::BORScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 680, "BOR" )
     m_ModifyLayout.SetFitWidthFlag( true );
     m_ModifyLayout.SetSameLineFlag( true );
 
-    m_ModifyLayout.AddChoice( m_TETrimChoice, "Trim:", m_ModifyLayout.GetButtonWidth() * 2 );
+    m_ModifyLayout.AddChoice( m_TETrimChoice, _("Trim:"), m_ModifyLayout.GetButtonWidth() * 2 );
 
     m_ModifyLayout.SetFitWidthFlag( false );
-    m_ModifyLayout.AddButton( m_TETrimABSButton, "Abs" );
-    m_ModifyLayout.AddButton( m_TETrimRELButton, "Rel" );
+    m_ModifyLayout.AddButton( m_TETrimABSButton, _("Abs") );
+    m_ModifyLayout.AddButton( m_TETrimRELButton, _("Rel") );
 
     m_TETrimGroup.Init( this );
     m_TETrimGroup.AddButton( m_TETrimABSButton.GetFlButton() );
@@ -713,8 +714,8 @@ BORScreen::BORScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 680, "BOR" )
     m_ModifyLayout.SetFitWidthFlag( true );
     m_ModifyLayout.SetSameLineFlag( false );
 
-    m_ModifyLayout.AddSlider( m_TrimTEXSlider, "X", 10.0, "%6.5f" );
-    m_ModifyLayout.AddSlider( m_TrimTEThickSlider, "T", 10.0, "%6.5f" );
+    m_ModifyLayout.AddSlider( m_TrimTEXSlider, _("X"), 10.0, "%6.5f" );
+    m_ModifyLayout.AddSlider( m_TrimTEThickSlider, _("T"), 10.0, "%6.5f" );
 
 }
 
@@ -1438,7 +1439,7 @@ void BORScreen::GuiDeviceCallBack( GuiDevice* gui_device )
             {
                 FileXSec* file_xs = dynamic_cast< FileXSec* >( xsc );
                 assert( file_xs );
-                string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Fuselage Cross Section", "*.fxs" );
+                string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Fuselage Cross Section"), "*.fxs" );
 
                 file_xs->ReadXsecFile( newfile );
                 file_xs->Update();
@@ -1455,7 +1456,7 @@ void BORScreen::GuiDeviceCallBack( GuiDevice* gui_device )
             {
                 FileAirfoil* affile_xs = dynamic_cast< FileAirfoil* >( xsc );
                 assert( affile_xs );
-                string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Airfoil File", "*.{af,dat}", false  );
+                string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Airfoil File"), "*.{af,dat}", false  );
 
                 affile_xs->ReadFile( newfile );
                 affile_xs->Update();
@@ -1634,7 +1635,7 @@ void BORScreen::RebuildCSTGroup( CSTAirfoil* cst_xs)
 
     for ( int i = 0; i < num_up; i++ )
     {
-        m_CSTUpCoeffLayout.AddSlider( m_UpCoeffSliderVec[i], "AUTO_UPDATE", 2, "%9.5f" );
+        m_CSTUpCoeffLayout.AddSlider( m_UpCoeffSliderVec[i], _("AUTO_UPDATE"), 2, "%9.5f" );
     }
 
 
@@ -1653,6 +1654,6 @@ void BORScreen::RebuildCSTGroup( CSTAirfoil* cst_xs)
 
     for ( int i = 0; i < num_low; i++ )
     {
-        m_CSTLowCoeffLayout.AddSlider( m_LowCoeffSliderVec[i], "AUTO_UPDATE", 2, "%9.5f" );
+        m_CSTLowCoeffLayout.AddSlider( m_LowCoeffSliderVec[i], _("AUTO_UPDATE"), 2, "%9.5f" );
     }
 }

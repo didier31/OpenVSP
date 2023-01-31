@@ -5,15 +5,14 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include <intl.h>
-
 #include "PodScreen.h"
 #include "ScreenMgr.h"
 #include "PodGeom.h"
 
+#include <intl.h>
 
 //==== Constructor ====//
-PodScreen::PodScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 525, "Pod" )
+PodScreen::PodScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 525, _("Pod") )
 {
     Fl_Group* design_tab = AddTab( _("Design") );
     Fl_Group* design_group = AddSubGroup( design_tab, 5 );

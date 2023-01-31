@@ -7,10 +7,12 @@
 #include "ImportScreen.h"
 #include "ScreenMgr.h"
 
+#include <intl.h>
+
 using namespace vsp;
 
 //==== Constructor ====//
-ImportScreen::ImportScreen( ScreenMgr* mgr ) : BasicScreen( mgr , 200, 25 + 9*20 + 1*15 + 2*6, "Import" )
+ImportScreen::ImportScreen( ScreenMgr* mgr ) : BasicScreen( mgr , 200, 25 + 9*20 + 1*15 + 2*6, _("Import") )
 {
     m_MainLayout.SetGroupAndScreen( m_FLTK_Window, this );
     m_MainLayout.AddX( 5 );
@@ -25,12 +27,12 @@ ImportScreen::ImportScreen( ScreenMgr* mgr ) : BasicScreen( mgr , 200, 25 + 9*20
     m_GenLayout.AddButton( m_TRIButton, "Cart3D (.tri)" );
     m_GenLayout.AddButton( m_STLButton, "Stereolith (.stl)" );
     m_GenLayout.AddButton( m_NASCARTButton, "NASCART (.dat)" );
-    m_GenLayout.AddButton( m_XSecButton, "XSec as Tri Mesh (.hrm)" );
-    m_GenLayout.AddButton( m_XSecWireButton, "XSec as Wireframe (.hrm)" );
-    m_GenLayout.AddButton( m_PTSButton, "Point Cloud (.pts)" );
+    m_GenLayout.AddButton( m_XSecButton, _("XSec as Tri Mesh (.hrm)") );
+    m_GenLayout.AddButton( m_XSecWireButton, _("XSec as Wireframe (.hrm)") );
+    m_GenLayout.AddButton( m_PTSButton, _("Point Cloud (.pts)") );
     m_GenLayout.AddButton( m_V2Button, "OpenVSP v2 (.vsp)" );
-    m_GenLayout.AddButton( m_BEMButton, "Blade Element (.bem)" );
-    m_GenLayout.AddButton( m_P3DWireButton, "Plot3D as Wireframe (.p3d)" );
+    m_GenLayout.AddButton( m_BEMButton, _("Blade Element (.bem)") );
+    m_GenLayout.AddButton( m_P3DWireButton, _("Plot3D as Wireframe (.p3d)") );
 
 }
 
@@ -46,35 +48,35 @@ void ImportScreen::ImportFile( string & in_file, int type )
 
     if ( type == IMPORT_STL )
     {
-        in_file = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Import STL file?", "*.stl" );
+        in_file = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Import STL file?"), "*.stl" );
     }
     else if ( type == IMPORT_NASCART )
     {
-        in_file = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Import NASCART file?", "*.dat" );
+        in_file = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Import NASCART file?"), "*.dat" );
     }
     else if ( type == IMPORT_CART3D_TRI )
     {
-        in_file = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Import Cart3D Tri File?", "*.tri" );
+        in_file = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Import Cart3D Tri File?"), "*.tri" );
     }
     else if ( type == IMPORT_XSEC_MESH || type == IMPORT_XSEC_WIRE )
     {
-        in_file = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Import XSec File?", "*.hrm" );
+        in_file = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Import XSec File?"), "*.hrm" );
     }
     else if ( type == IMPORT_PTS )
     {
-        in_file = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Import Points File?", "*.pts" );
+        in_file = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Import Points File?"), "*.pts" );
     }
     else if ( type == IMPORT_V2 )
     {
-        in_file = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Import OpenVSP v2 File?", "*.vsp" );
+        in_file = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Import OpenVSP v2 File?"), "*.vsp" );
     }
     else if ( type == IMPORT_BEM )
     {
-        in_file = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Import Blade Element File?", "*.bem" );
+        in_file = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Import Blade Element File?"), "*.bem" );
     }
     else if ( type == IMPORT_P3D_WIRE )
     {
-        in_file = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Import Plot3D Unformatted File?", "*.p3d" );
+        in_file = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Import Plot3D Unformatted File?"), "*.p3d" );
     }
     else
     {

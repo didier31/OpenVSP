@@ -22,6 +22,8 @@
 
 #include <FL/fl_ask.H>
 
+#include <intl.h>
+
 
 //==== Constructor ====//
 AeroStructScreen::AeroStructScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 400, 600, _("Aero Structure Coupled Analysis") )

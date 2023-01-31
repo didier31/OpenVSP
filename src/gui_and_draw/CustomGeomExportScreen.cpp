@@ -7,8 +7,10 @@
 
 #include "CustomGeomExportScreen.h"
 
+#include <intl.h>
+
 //==== Constructor ====//
-CustomGeomExportScreen::CustomGeomExportScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 210, 245, "Export Custom Script" )
+CustomGeomExportScreen::CustomGeomExportScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 210, 245, _("Export Custom Script") )
 {
     int borderPaddingWidth = 5;
     int yPadding = 7;
@@ -37,9 +39,9 @@ CustomGeomExportScreen::CustomGeomExportScreen( ScreenMgr* mgr ) : BasicScreen( 
     m_BorderLayout.SetSameLineFlag( true );
     m_BorderLayout.SetFitWidthFlag( false );
 
-    m_BorderLayout.AddButton( m_SaveScriptToggle, "Save To File" );
+    m_BorderLayout.AddButton( m_SaveScriptToggle, _("Save To File") );
     m_BorderLayout.AddX( gap_w );
-    m_BorderLayout.AddButton( m_CancelToggle, "Cancel" );
+    m_BorderLayout.AddButton( m_CancelToggle, _("Cancel") );
 
     m_CustomScriptsBrowser->callback( staticScreenCB, this );
 }
@@ -90,7 +92,7 @@ void CustomGeomExportScreen::GuiDeviceCallBack( GuiDevice* device )
             string module_name = mod_name_vec[m_ScriptIndex];
 
             string dir = veh->GetWriteScriptDir();
-            string savefile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Save Custom Geom Script", "*.vsppart",  dir.c_str() );
+            string savefile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Save Custom Geom Script"), "*.vsppart",  dir.c_str() );
 
             if ( savefile.size() != 0 && savefile[savefile.size() - 1] != '/' )
             {

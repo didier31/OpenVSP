@@ -12,9 +12,11 @@
 
 #include <FL/fl_ask.H>
 
+#include <intl.h>
+
 
 //==== Constructor ====//
-AdvLinkScreen::AdvLinkScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 829, 645, "Advanced Parameter Links" )
+AdvLinkScreen::AdvLinkScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 829, 645, _("Advanced Parameter Links") )
 {
     m_InputBrowserSelect = -1;
     m_OutputBrowserSelect = -1;
@@ -28,38 +30,38 @@ AdvLinkScreen::AdvLinkScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 829, 645, "Ad
     m_BigGroup.AddX( 100 + 2 );
     m_BigGroup.AddSubGroupLayout( m_LinkBrowserGroup, m_BigGroup.GetW() - 100 - 2, 80 );
 
-    m_LinkAddDelGroup.AddButton( m_AddLink, "Add" );
+    m_LinkAddDelGroup.AddButton( m_AddLink, _("Add") );
     m_LinkAddDelGroup.AddYGap();
-    m_LinkAddDelGroup.AddButton( m_DelLink, "Del" );
+    m_LinkAddDelGroup.AddButton( m_DelLink, _("Del") );
     m_LinkAddDelGroup.AddYGap();
-    m_LinkAddDelGroup.AddButton( m_DelAllLink, "Del All" );
+    m_LinkAddDelGroup.AddButton( m_DelAllLink, _("Del All") );
     m_LinkAddDelGroup.AddYGap();
 
     m_LinkBrowser = m_LinkBrowserGroup.AddFlBrowser( 70 );
     m_LinkBrowser->callback( staticScreenCB, this );
 
-    m_LinkBrowserGroup.AddInput( m_NameInput, "Name:" );
+    m_LinkBrowserGroup.AddInput( m_NameInput, _("Name:") );
 
     m_BigGroup.ForceNewLine();
     m_BigGroup.AddY( 70 );
 
     m_BigGroup.AddYGap();
-    m_BigGroup.AddDividerBox( "Parm Picker" );
+    m_BigGroup.AddDividerBox( _("Parm Picker") );
 
     m_BigGroup.AddParmPicker( m_ParmPicker );
 
     m_BigGroup.SetButtonWidth(110);
     m_BigGroup.AddYGap();
-    m_BigGroup.AddInput( m_VarNameInput, "Var Name:" );
+    m_BigGroup.AddInput( m_VarNameInput, _("Var Name:") );
     m_BigGroup.AddYGap();
 
     int gap = 4;
     m_BigGroup.SetFitWidthFlag( false );
     m_BigGroup.SetSameLineFlag( true );
     m_BigGroup.SetButtonWidth( m_BigGroup.GetRemainX()/2 - gap/2 );
-    m_BigGroup.AddButton( m_PickInput, "Add Input Var" );
+    m_BigGroup.AddButton( m_PickInput, _("Add Input Var") );
     m_BigGroup.AddX( gap );
-    m_BigGroup.AddButton( m_PickOutput, "Add Output Var" );
+    m_BigGroup.AddButton( m_PickOutput, _("Add Output Var") );
     m_BigGroup.SetFitWidthFlag( true );
     m_BigGroup.SetSameLineFlag( false );
     m_BigGroup.ForceNewLine();
@@ -75,7 +77,7 @@ AdvLinkScreen::AdvLinkScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 829, 645, "Ad
     ( static_cast <Vsp_Group*> ( m_OutputGroup.GetGroup() ) )->SetAllowDrop( true );
     m_OutputGroup.GetGroup()->callback( staticScreenCB, this );
 
-    m_InputGroup.AddDividerBox("Input Parms");
+    m_InputGroup.AddDividerBox(_("Input Parms"));
 
     // Pointer for the widths of each column in the browser to support resizing
     // Last column width must be 0
@@ -87,11 +89,11 @@ AdvLinkScreen::AdvLinkScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 829, 645, "Ad
     m_InputGroup.SetFitWidthFlag( false );
     m_InputGroup.SetSameLineFlag( true );
     m_InputGroup.AddX( 20 );
-    m_InputGroup.AddButton( m_DelInput, "Del" );
+    m_InputGroup.AddButton( m_DelInput, _("Del") );
     m_InputGroup.AddX( 20 );
-    m_InputGroup.AddButton( m_DelAllInput, "Del All" );
+    m_InputGroup.AddButton( m_DelAllInput, _("Del All") );
 
-    m_OutputGroup.AddDividerBox("Output Parms");
+    m_OutputGroup.AddDividerBox(_("Output Parms"));
 
     // Pointer for the widths of each column in the browser to support resizing
     // Last column width must be 0
@@ -103,9 +105,9 @@ AdvLinkScreen::AdvLinkScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 829, 645, "Ad
     m_OutputGroup.SetFitWidthFlag( false );
     m_OutputGroup.SetSameLineFlag( true );
     m_OutputGroup.AddX( 20 );
-    m_OutputGroup.AddButton( m_DelOutput, "Del" );
+    m_OutputGroup.AddButton( m_DelOutput, _("Del") );
     m_OutputGroup.AddX( 20 );
-    m_OutputGroup.AddButton( m_DelAllOutput, "Del All" );
+    m_OutputGroup.AddButton( m_DelAllOutput, _("Del All") );
 
     m_BigGroup.ForceNewLine();
     m_BigGroup.AddY( 120 );
@@ -115,12 +117,12 @@ AdvLinkScreen::AdvLinkScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 829, 645, "Ad
     m_BigGroup.SetFitWidthFlag( false );
     m_BigGroup.SetSameLineFlag( true );
 
-    m_BigGroup.AddButton( m_CompileCode, "Compile" );
+    m_BigGroup.AddButton( m_CompileCode, _("Compile") );
     m_BigGroup.AddX( 12 );
     m_BigGroup.SetButtonWidth(m_BigGroup.GetRemainX()/2 - 3 );
-    m_BigGroup.AddButton( m_SaveCode, "File Write..." );
+    m_BigGroup.AddButton( m_SaveCode, _("File Write...") );
     m_BigGroup.AddX( 6 );
-    m_BigGroup.AddButton( m_ReadCode, "File Read..." );
+    m_BigGroup.AddButton( m_ReadCode, _("File Read...") );
     m_BigGroup.ForceNewLine();
     m_BigGroup.SetFitWidthFlag( true );
     m_BigGroup.SetSameLineFlag( false );
@@ -462,7 +464,7 @@ void AdvLinkScreen::GuiDeviceCallBack( GuiDevice* gui_device )
     {
         if ( edit_link )
         {
-            string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Select Code File", "*.vspcode" );
+            string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Select Code File"), "*.vspcode" );
             if ( newfile.size() > 0 )
             {
                 edit_link->SaveCode( newfile );
@@ -473,7 +475,7 @@ void AdvLinkScreen::GuiDeviceCallBack( GuiDevice* gui_device )
     {
         if ( edit_link )
         {
-            string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Select Code File", "*.vspcode" );
+            string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Select Code File"), "*.vspcode" );
             if ( newfile.size() > 0 )
             {
                 edit_link->ReadCode( newfile );

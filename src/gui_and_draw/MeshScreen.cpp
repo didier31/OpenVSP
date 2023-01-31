@@ -9,31 +9,32 @@
 #include "ScreenMgr.h"
 #include "MeshGeom.h"
 
+#include <intl.h>
 
 //==== Constructor ====//
-MeshScreen::MeshScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 525, "Mesh" )
+MeshScreen::MeshScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 525, _("Mesh") )
 {
     RemoveTab( GetTab( m_SubSurfTab_ind ) );
 
-    Fl_Group* other_tab = AddTab( "Other" );
+    Fl_Group* other_tab = AddTab( _("Other") );
     Fl_Group* other_group = AddSubGroup( other_tab, 5 );
 
     m_OtherLayout.SetGroupAndScreen( other_group, this );
-    m_OtherLayout.AddDividerBox( "Convert to Point Cloud" );
+    m_OtherLayout.AddDividerBox( _("Convert to Point Cloud") );
     m_OtherLayout.AddYGap();
 
-    m_OtherLayout.AddButton( m_ConvertButton, "Convert" );
+    m_OtherLayout.AddButton( m_ConvertButton, _("Convert") );
 
     m_OtherLayout.AddYGap();
-    m_OtherLayout.AddDividerBox( "Visualize Meshes" );
+    m_OtherLayout.AddDividerBox( _("Visualize Meshes") );
     m_OtherLayout.AddYGap();
 
-    m_OtherLayout.AddButton( m_ViewMeshToggle, "Mesh" );
-    m_OtherLayout.AddButton( m_ViewSliceToggle, "Slices" );
+    m_OtherLayout.AddButton( m_ViewMeshToggle, _("Mesh") );
+    m_OtherLayout.AddButton( m_ViewSliceToggle, _("Slices") );
 
     m_OtherLayout.AddYGap();
     m_OtherLayout.SetButtonWidth( 2 * m_OtherLayout.GetRemainX() / 5 );
-    m_OtherLayout.AddSlider( m_StartColorDegree, "Start Color Degree", 100, " %5.0f" );
+    m_OtherLayout.AddSlider( m_StartColorDegree, _("Start Color Degree"), 100, " %5.0f" );
 
 }
 

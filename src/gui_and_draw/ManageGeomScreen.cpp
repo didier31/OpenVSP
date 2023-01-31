@@ -9,6 +9,8 @@
 #include "ScreenMgr.h"
 #include "StlHelper.h"
 
+#include <intl.h>
+
 using namespace vsp;
 
 
@@ -21,7 +23,7 @@ ManageGeomScreen::ManageGeomScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 235, 64
     m_SetIndex = 0;
     m_TypeIndex = 0;
     m_CollapseFlag = false;
-    m_LastSelectedGeomID = "NONE";
+    m_LastSelectedGeomID = _("NONE");
 
     m_MainLayout.SetGroupAndScreen( m_FLTK_Window, this );
     m_FLTK_Window->resizable( m_MainLayout.GetGroup() );

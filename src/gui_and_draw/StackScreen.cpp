@@ -12,67 +12,67 @@
 using namespace vsp;
 
 //==== Constructor ====//
-StackScreen::StackScreen( ScreenMgr* mgr ) : ChevronScreen( mgr, 400, 715, "Stack" )
+StackScreen::StackScreen( ScreenMgr* mgr ) : ChevronScreen( mgr, 400, 715, _("Stack") )
 {
     m_CurrDisplayGroup = NULL;
 
-    Fl_Group* design_tab = AddTab( "Design", 3 );
+    Fl_Group* design_tab = AddTab( _("Design"), 3 );
 
     Fl_Group* design_group = AddSubGroup( design_tab, 5 );
 
     m_DesignLayout.SetGroupAndScreen( design_group, this );
-    m_DesignLayout.AddDividerBox( "Design" );
+    m_DesignLayout.AddDividerBox( _("Design") );
 
     m_DesignLayout.AddYGap();
-    m_DesignLayout.AddDividerBox( "Design Policy" );
-    m_DesignPolicyChoice.AddItem( "FREE" );
-    m_DesignPolicyChoice.AddItem( "LOOP" );
-    m_DesignLayout.AddChoice( m_DesignPolicyChoice, "XSec Order: " );
+    m_DesignLayout.AddDividerBox( _("Design Policy") );
+    m_DesignPolicyChoice.AddItem( _("FREE") );
+    m_DesignPolicyChoice.AddItem( _("LOOP") );
+    m_DesignLayout.AddChoice( m_DesignPolicyChoice, _("XSec Order: ") );
 
     m_DesignLayout.AddYGap();
-    m_DesignLayout.AddDividerBox( "Tip Treatment" );
+    m_DesignLayout.AddDividerBox( _("Tip Treatment") );
 
-    m_NoseCapTypeChoice.AddItem("None");
-    m_NoseCapTypeChoice.AddItem("Flat");
-    m_NoseCapTypeChoice.AddItem("Round");
-    m_NoseCapTypeChoice.AddItem("Edge");
-    m_NoseCapTypeChoice.AddItem("Sharp");
-    m_DesignLayout.AddChoice(m_NoseCapTypeChoice, "Nose Cap Type");
+    m_NoseCapTypeChoice.AddItem(_("None"));
+    m_NoseCapTypeChoice.AddItem(_("Flat"));
+    m_NoseCapTypeChoice.AddItem(_("Round"));
+    m_NoseCapTypeChoice.AddItem(_("Edge"));
+    m_NoseCapTypeChoice.AddItem(_("Sharp"));
+    m_DesignLayout.AddChoice(m_NoseCapTypeChoice, _("Nose Cap Type"));
 
-    m_DesignLayout.AddSlider( m_NoseCapLenSlider, "Length", 1, "%6.5f" );
-    m_DesignLayout.AddSlider( m_NoseCapOffsetSlider, "Offset", 1, "%6.5f" );
-    m_DesignLayout.AddSlider( m_NoseCapStrengthSlider, "Strength", 1, "%6.5f" );
-    m_DesignLayout.AddButton( m_NoseCapSweepFlagButton, "Sweep Stretch" );
-
-    m_DesignLayout.AddYGap();
-
-    m_TailCapTypeChoice.AddItem("None");
-    m_TailCapTypeChoice.AddItem("Flat");
-    m_TailCapTypeChoice.AddItem("Round");
-    m_TailCapTypeChoice.AddItem("Edge");
-    m_TailCapTypeChoice.AddItem("Sharp");
-    m_DesignLayout.AddChoice(m_TailCapTypeChoice, "Tail Cap Type");
-
-    m_DesignLayout.AddSlider( m_TailCapLenSlider, "Length", 1, "%6.5f" );
-    m_DesignLayout.AddSlider( m_TailCapOffsetSlider, "Offset", 1, "%6.5f" );
-    m_DesignLayout.AddSlider( m_TailCapStrengthSlider, "Strength", 1, "%6.5f" );
-    m_DesignLayout.AddButton( m_TailCapSweepFlagButton, "Sweep Stretch" );
+    m_DesignLayout.AddSlider( m_NoseCapLenSlider, _("Length"), 1, "%6.5f" );
+    m_DesignLayout.AddSlider( m_NoseCapOffsetSlider, _("Offset"), 1, "%6.5f" );
+    m_DesignLayout.AddSlider( m_NoseCapStrengthSlider, _("Strength"), 1, "%6.5f" );
+    m_DesignLayout.AddButton( m_NoseCapSweepFlagButton, _("Sweep Stretch") );
 
     m_DesignLayout.AddYGap();
 
-    m_DesignLayout.AddSlider( m_CapTessSlider, "Cap Tess", 10, "%3.0f" );
+    m_TailCapTypeChoice.AddItem(_("None"));
+    m_TailCapTypeChoice.AddItem(_("Flat"));
+    m_TailCapTypeChoice.AddItem(_("Round"));
+    m_TailCapTypeChoice.AddItem(_("Edge"));
+    m_TailCapTypeChoice.AddItem(_("Sharp"));
+    m_DesignLayout.AddChoice(m_TailCapTypeChoice, _("Tail Cap Type"));
+
+    m_DesignLayout.AddSlider( m_TailCapLenSlider, _("Length"), 1, "%6.5f" );
+    m_DesignLayout.AddSlider( m_TailCapOffsetSlider, _("Offset"), 1, "%6.5f" );
+    m_DesignLayout.AddSlider( m_TailCapStrengthSlider, _("Strength"), 1, "%6.5f" );
+    m_DesignLayout.AddButton( m_TailCapSweepFlagButton, _("Sweep Stretch") );
+
+    m_DesignLayout.AddYGap();
+
+    m_DesignLayout.AddSlider( m_CapTessSlider, _("Cap Tess"), 10, "%3.0f" );
 
     // Xsec layout after index selector has been defined in base class
     m_XSecLayout.SetFitWidthFlag( false );
     m_XSecLayout.SetSameLineFlag( true );
     m_XSecLayout.SetButtonWidth( ( m_XFormLayout.GetRemainX() - 30 ) / 4 );
-    m_XSecLayout.AddButton( m_InsertXSec, "Insert" );
+    m_XSecLayout.AddButton( m_InsertXSec, _("Insert") );
     m_XSecLayout.AddX( 10 );
-    m_XSecLayout.AddButton( m_CutXSec, "Cut" );
+    m_XSecLayout.AddButton( m_CutXSec, _("Cut") );
     m_XSecLayout.AddX( 10 );
-    m_XSecLayout.AddButton( m_CopyXSec, "Copy" );
+    m_XSecLayout.AddButton( m_CopyXSec, _("Copy") );
     m_XSecLayout.AddX( 10 );
-    m_XSecLayout.AddButton( m_PasteXSec, "Paste" );
+    m_XSecLayout.AddButton( m_PasteXSec, _("Paste") );
     m_XSecLayout.ForceNewLine();
     m_XSecLayout.AddYGap();
 
@@ -81,19 +81,19 @@ StackScreen::StackScreen( ScreenMgr* mgr ) : ChevronScreen( mgr, 400, 715, "Stac
 
     m_XSecLayout.AddYGap();
     int tess_w = m_XSecLayout.GetButtonWidth();
-    m_XSecLayout.AddSlider( m_SectUTessSlider, "Num U", 20, " %5.0f" );
+    m_XSecLayout.AddSlider( m_SectUTessSlider, _("Num U"), 20, " %5.0f" );
 
     m_XSecLayout.SetButtonWidth( 50 );
-    m_XSecLayout.AddSlider( m_XSecXDeltaSlider, "Delta X", 10.0, "%6.5f" );
-    m_XSecLayout.AddSlider( m_XSecYDeltaSlider, "Delta Y", 10.0, "%6.5f" );
-    m_XSecLayout.AddSlider( m_XSecZDeltaSlider, "Delta Z", 10.0, "%6.5f" );
+    m_XSecLayout.AddSlider( m_XSecXDeltaSlider, _("Delta X"), 10.0, "%6.5f" );
+    m_XSecLayout.AddSlider( m_XSecYDeltaSlider, _("Delta Y"), 10.0, "%6.5f" );
+    m_XSecLayout.AddSlider( m_XSecZDeltaSlider, _("Delta Z"), 10.0, "%6.5f" );
     m_XSecLayout.AddYGap();
 
     m_XSecLayout.InitWidthHeightVals();
-    m_XSecLayout.AddSlider( m_XSecXRotSlider, "Rot X", 90.0, "%6.5f" );
-    m_XSecLayout.AddSlider( m_XSecYRotSlider, "Rot Y", 90.0, "%6.5f" );
-    m_XSecLayout.AddSlider( m_XSecZRotSlider, "Rot Z", 90.0, "%6.5f" );
-    m_XSecLayout.AddSlider( m_XSecSpinSlider, "Spin",  2.0, "%6.5f" );
+    m_XSecLayout.AddSlider( m_XSecXRotSlider, _("Rot X"), 90.0, "%6.5f" );
+    m_XSecLayout.AddSlider( m_XSecYRotSlider, _("Rot Y"), 90.0, "%6.5f" );
+    m_XSecLayout.AddSlider( m_XSecZRotSlider, _("Rot Z"), 90.0, "%6.5f" );
+    m_XSecLayout.AddSlider( m_XSecSpinSlider, _("Spin"),  2.0, "%6.5f" );
     m_XSecLayout.AddYGap();
 
     AddXSecLayout();

@@ -1,7 +1,9 @@
 #include "MultTransScreen.h"
 #include "ScreenMgr.h"
 
-MultTransScreen::MultTransScreen( ScreenMgr * mgr ) : TabScreen( mgr, 300, 270, "Group Modifications" )
+#include <intl.h>
+
+MultTransScreen::MultTransScreen( ScreenMgr * mgr ) : TabScreen( mgr, 300, 270, _("Group Modifications") )
 {
     // Set the window as a geom screen window
     VSP_Window* vsp_win = dynamic_cast<VSP_Window*>(m_FLTK_Window);
@@ -9,41 +11,41 @@ MultTransScreen::MultTransScreen( ScreenMgr * mgr ) : TabScreen( mgr, 300, 270, 
     vsp_win->SetGeomScreenFlag( true );
 
     //==== XForm Tab ====//
-    Fl_Group* xform_tab = AddTab( "XForm" );
+    Fl_Group* xform_tab = AddTab( _("XForm") );
     m_TransTabMainLayout.SetGroupAndScreen( xform_tab, this );
     m_TransTabMainLayout.AddX( 5 );
     m_TransTabMainLayout.AddSubGroupLayout( m_TransTabGenLayout, m_TransTabMainLayout.GetRemainX() - 5, m_TransTabMainLayout.GetRemainY() );
 
-    m_TransTabGenLayout.AddDividerBox( "Transformations and Scaling" );
+    m_TransTabGenLayout.AddDividerBox( _("Transformations and Scaling") );
 
-    m_TransTabGenLayout.AddSlider( m_XLoc, "XLoc", 10.0, "%7.3f" );
-    m_TransTabGenLayout.AddSlider( m_YLoc, "YLoc", 10.0, "%7.3f" );
-    m_TransTabGenLayout.AddSlider( m_ZLoc, "ZLoc", 10.0, "%7.3f" );
+    m_TransTabGenLayout.AddSlider( m_XLoc, _("XLoc"), 10.0, "%7.3f" );
+    m_TransTabGenLayout.AddSlider( m_YLoc, _("YLoc"), 10.0, "%7.3f" );
+    m_TransTabGenLayout.AddSlider( m_ZLoc, _("ZLoc"), 10.0, "%7.3f" );
     m_TransTabGenLayout.AddYGap();
 
-    m_TransTabGenLayout.AddSlider( m_XRot, "XRot", 10.0, "%7.3f" );
-    m_TransTabGenLayout.AddSlider( m_YRot, "YRot", 10.0, "%7.3f" );
-    m_TransTabGenLayout.AddSlider( m_ZRot, "ZRot", 10.0, "%7.3f" );
+    m_TransTabGenLayout.AddSlider( m_XRot, _("XRot"), 10.0, "%7.3f" );
+    m_TransTabGenLayout.AddSlider( m_YRot, _("YRot"), 10.0, "%7.3f" );
+    m_TransTabGenLayout.AddSlider( m_ZRot, _("ZRot"), 10.0, "%7.3f" );
     m_TransTabGenLayout.AddYGap();
 
-    m_TransTabGenLayout.AddButton( m_ApplyScaleToTranslations, "Scale Translations" );
-    m_TransTabGenLayout.AddSlider(m_Scale, "Scale", 1, " %5.4f" );
+    m_TransTabGenLayout.AddButton( m_ApplyScaleToTranslations, _("Scale Translations") );
+    m_TransTabGenLayout.AddSlider(m_Scale, _("Scale"), 1, " %5.4f" );
 
     m_TransTabGenLayout.AddYGap();
 
     m_TransTabGenLayout.SetButtonWidth( m_TransTabGenLayout.GetRemainX() / 2.0 );
     m_TransTabGenLayout.SetFitWidthFlag( false );
     m_TransTabGenLayout.SetSameLineFlag( true );
-    m_TransTabGenLayout.AddButton( m_AcceptButton, "Accept" );
-    m_TransTabGenLayout.AddButton( m_ResetButton, "Reset" );
+    m_TransTabGenLayout.AddButton( m_AcceptButton, _("Accept") );
+    m_TransTabGenLayout.AddButton( m_ResetButton, _("Reset") );
 
     //==== General Properties Tab
-    Fl_Group* gen_tab = AddTab( "Gen" );
+    Fl_Group* gen_tab = AddTab( _("Gen") );
     m_MaterialTabMainLayout.SetGroupAndScreen( gen_tab, this );
     m_MaterialTabMainLayout.AddX( 5 );
     m_MaterialTabMainLayout.AddSubGroupLayout( m_MaterialTabGenLayout, m_MaterialTabMainLayout.GetRemainX() - 5, m_MaterialTabMainLayout.GetRemainY() );
 
-    m_MaterialTabGenLayout.AddDividerBox( "Material & Color" );
+    m_MaterialTabGenLayout.AddDividerBox( _("Material & Color") );
     m_MaterialTabGenLayout.AddYGap();
     m_MaterialTabGenLayout.AddColorPicker( m_ColorPicker );
     m_MaterialTabGenLayout.AddYGap();
@@ -56,7 +58,7 @@ MultTransScreen::MultTransScreen( ScreenMgr * mgr ) : TabScreen( mgr, 300, 270, 
     m_MaterialTabGenLayout.AddChoice( m_MaterialChoice, "Material:", m_MaterialTabGenLayout.GetButtonWidth() );
 
     m_MaterialTabGenLayout.SetFitWidthFlag( false );
-    //m_MaterialTabGenLayout.AddButton( m_CustomMaterialButton, "Custom" );
+    //m_MaterialTabGenLayout.AddButton( m_CustomMaterialButton, _("Custom") );
     m_MaterialTabGenLayout.ForceNewLine();
 
     m_MaterialTabGenLayout.SetFitWidthFlag( true );

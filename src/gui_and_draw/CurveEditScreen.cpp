@@ -19,14 +19,16 @@
 
 #include "VspUtil.h"
 
+#include <intl.h>
+
 //==== Constructor ====//
-CurveEditScreen::CurveEditScreen( ScreenMgr* mgr ) : TabScreen( mgr, 750, 615+17, "Edit Curve", 180, 425 )
+CurveEditScreen::CurveEditScreen( ScreenMgr* mgr ) : TabScreen( mgr, 750, 615+17, _("Edit Curve"), 180, 425 )
 {
     m_FLTK_Window->callback( staticCloseCB, this );
     m_MainLayout.SetGroupAndScreen( m_FLTK_Window, this );
 
-    Fl_Group* xsec_tab = AddTab( "Curve" );
-    Fl_Group* draw_tab = AddTab( "Display" );
+    Fl_Group* xsec_tab = AddTab( _("Curve") );
+    Fl_Group* draw_tab = AddTab( _("Display") );
 
     xsec_tab->show();
 
@@ -38,7 +40,7 @@ CurveEditScreen::CurveEditScreen( ScreenMgr* mgr ) : TabScreen( mgr, 750, 615+17
     m_MainLayout.AddY( 7 );
     m_MainLayout.AddX( 5 );
 
-    m_XSecLayout.AddDividerBox( "General" );
+    m_XSecLayout.AddDividerBox( _("General") );
     m_XSecLayout.SetFitWidthFlag( false );
     m_XSecLayout.SetSameLineFlag( true );
 
@@ -46,17 +48,17 @@ CurveEditScreen::CurveEditScreen( ScreenMgr* mgr ) : TabScreen( mgr, 750, 615+17
     m_XSecLayout.SetSliderWidth( m_XSecLayout.GetRemainX() / 3 );
     m_XSecLayout.SetButtonWidth( m_XSecLayout.GetRemainX() / 3 );
 
-    m_ShapeChoice.AddItem( "Circle" );
-    m_ShapeChoice.AddItem( "Ellipse" );
-    m_ShapeChoice.AddItem( "Rectangle" );
+    m_ShapeChoice.AddItem( _("Circle") );
+    m_ShapeChoice.AddItem( _("Ellipse") );
+    m_ShapeChoice.AddItem( _("Rectangle") );
     m_XSecLayout.AddChoice( m_ShapeChoice, "Shape" );
 
-    m_XSecLayout.AddButton( m_InitShapeButton, "Init Shape" );
+    m_XSecLayout.AddButton( m_InitShapeButton, _("Init Shape") );
     m_XSecLayout.ForceNewLine();
 
-    m_XSecLayout.AddButton( m_ClosedCurveToggle, "Close Curve" );
-    m_XSecLayout.AddButton( m_AbsDimToggle, "View Abs" ); // Absolute dimensions flag
-    m_XSecLayout.AddButton( m_SymToggle, "R-L Symmetry" );
+    m_XSecLayout.AddButton( m_ClosedCurveToggle, _("Close Curve") );
+    m_XSecLayout.AddButton( m_AbsDimToggle, _("View Abs") ); // Absolute dimensions flag
+    m_XSecLayout.AddButton( m_SymToggle, _("R-L Symmetry") );
 
     m_XSecLayout.ForceNewLine();
     m_XSecLayout.AddYGap();
@@ -65,17 +67,17 @@ CurveEditScreen::CurveEditScreen( ScreenMgr* mgr ) : TabScreen( mgr, 750, 615+17
     m_XSecLayout.SetFitWidthFlag( false );
 
     m_XSecLayout.SetInputWidth( m_XSecLayout.GetRemainX() - m_XSecLayout.GetButtonWidth() );
-    m_XSecLayout.AddOutput( m_CurveType, "Current Type:" );
+    m_XSecLayout.AddOutput( m_CurveType, _("Current Type:") );
 
     m_XSecLayout.ForceNewLine();
 
-    m_ConvertChoice.AddItem( "Linear" );
-    m_ConvertChoice.AddItem( "Spline (PCHIP)" );
-    m_ConvertChoice.AddItem( "Cubic Bezier" );
+    m_ConvertChoice.AddItem( _("Linear") );
+    m_ConvertChoice.AddItem( _("Spline (PCHIP)") );
+    m_ConvertChoice.AddItem( _("Cubic Bezier") );
 
-    m_XSecLayout.AddChoice( m_ConvertChoice, "Convert to:" );
+    m_XSecLayout.AddChoice( m_ConvertChoice, _("Convert to:") );
 
-    m_XSecLayout.AddButton( m_ConvertButton, "Convert" );
+    m_XSecLayout.AddButton( m_ConvertButton, _("Convert") );
     m_XSecLayout.ForceNewLine();
     m_XSecLayout.AddYGap();
 
@@ -89,37 +91,37 @@ CurveEditScreen::CurveEditScreen( ScreenMgr* mgr ) : TabScreen( mgr, 750, 615+17
 
     vector < string > xsec_driver_labels;
     xsec_driver_labels.resize( vsp::NUM_XSEC_DRIVER );
-    xsec_driver_labels[vsp::WIDTH_XSEC_DRIVER] = string( "Width" );
-    xsec_driver_labels[vsp::HEIGHT_XSEC_DRIVER] = "Height";
-    xsec_driver_labels[vsp::AREA_XSEC_DRIVER] = "Area";
-    xsec_driver_labels[vsp::HWRATIO_XSEC_DRIVER] = "H/W Ratio";
+    xsec_driver_labels[vsp::WIDTH_XSEC_DRIVER] = string( _("Width") );
+    xsec_driver_labels[vsp::HEIGHT_XSEC_DRIVER] = _("Height");
+    xsec_driver_labels[vsp::AREA_XSEC_DRIVER] = _("Area");
+    xsec_driver_labels[vsp::HWRATIO_XSEC_DRIVER] = _("H/W Ratio");
 
     m_XSecDriverGroupBank.SetDriverGroup( &m_DefaultXSecDriverGroup );
     m_XSecLayout.AddDriverGroupBank( m_XSecDriverGroupBank, xsec_driver_labels, 10, "%6.5f" );
 
     m_XSecLayout.AddX( 2 * 17 + 1 );
-    m_XSecLayout.AddSlider( m_DepthSlider, "Depth", 1, "%6.5f" );
+    m_XSecLayout.AddSlider( m_DepthSlider, _("Depth"), 1, "%6.5f" );
 
     m_XSecLayout.AddYGap();
     m_XSecLayout.SetSameLineFlag( false );
     m_XSecLayout.SetFitWidthFlag( true );
 
-    m_XSecLayout.AddButton( m_ReparameterizeButton, "Reparameterize by Arc Length" );
+    m_XSecLayout.AddButton( m_ReparameterizeButton, _("Reparameterize by Arc Length") );
 
     m_XSecLayout.AddYGap();
 
     //==== Add Split Button ====//
-    m_XSecLayout.AddDividerBox( "Split Curve" );
+    m_XSecLayout.AddDividerBox( _("Split Curve") );
 
-    m_XSecLayout.AddSlider( m_SplitPtSlider, "U Parameter", 1, "%3.2f");
+    m_XSecLayout.AddSlider( m_SplitPtSlider, _("U Parameter"), 1, "%3.2f");
 
     m_XSecLayout.SetSameLineFlag( true );
     m_XSecLayout.SetFitWidthFlag( false );
 
     m_XSecLayout.SetButtonWidth( m_XSecLayout.GetRemainX() / 2 );
 
-    m_XSecLayout.AddButton( m_SplitButton, "Split U" );
-    m_XSecLayout.AddButton( m_SplitPickButton, "Split Pick" );
+    m_XSecLayout.AddButton( m_SplitButton, _("Split U") );
+    m_XSecLayout.AddButton( m_SplitPickButton, _("Split Pick") );
 
     m_XSecLayout.ForceNewLine();
     m_XSecLayout.SetSameLineFlag( false );
@@ -128,7 +130,7 @@ CurveEditScreen::CurveEditScreen( ScreenMgr* mgr ) : TabScreen( mgr, 750, 615+17
     m_XSecLayout.AddYGap();
 
     //==== Add Delete Button and Toggle ====//
-    m_XSecLayout.AddDividerBox( "Selected Point" );
+    m_XSecLayout.AddDividerBox( _("Selected Point") );
     m_XSecLayout.SetFitWidthFlag( true );
     m_XSecLayout.InitWidthHeightVals();
 
@@ -136,13 +138,13 @@ CurveEditScreen::CurveEditScreen( ScreenMgr* mgr ) : TabScreen( mgr, 750, 615+17
 
     m_XSecLayout.AddYGap();
 
-    m_XSecLayout.AddDividerBox( "Delete Point" );
+    m_XSecLayout.AddDividerBox( _("Delete Point") );
 
     m_XSecLayout.SetSameLineFlag( true );
     m_XSecLayout.SetFitWidthFlag( false );
     m_XSecLayout.SetButtonWidth( m_XSecLayout.GetRemainX() / 2 );
-    m_XSecLayout.AddButton( m_DelButton, "Delete Selected" );
-    m_XSecLayout.AddButton( m_DelPickButton, "Delete Pick" );
+    m_XSecLayout.AddButton( m_DelButton, _("Delete Selected") );
+    m_XSecLayout.AddButton( m_DelPickButton, _("Delete Pick") );
     m_XSecLayout.ForceNewLine();
     m_XSecLayout.AddYGap();
 
@@ -150,7 +152,7 @@ CurveEditScreen::CurveEditScreen( ScreenMgr* mgr ) : TabScreen( mgr, 750, 615+17
     Fl_Group* draw_group = AddSubGroup( draw_tab, 5 );
     m_DrawLayout.SetGroupAndScreen( draw_group, this );
 
-    m_DrawLayout.AddDividerBox( "Line Color" );
+    m_DrawLayout.AddDividerBox( _("Line Color") );
 
     m_DrawLayout.AddColorPicker( m_ColorPicker );
 
@@ -163,27 +165,27 @@ CurveEditScreen::CurveEditScreen( ScreenMgr* mgr ) : TabScreen( mgr, 750, 615+17
     m_DrawLayout.AddButton( m_PointColorCheck, "" );
     m_DrawLayout.SetButtonWidth( button_w + 5 );
     m_DrawLayout.SetFitWidthFlag( true );
-    m_DrawLayout.AddSlider( m_PointColorWheelSlider, "Point Color", 100, "%5.0f" );
+    m_DrawLayout.AddSlider( m_PointColorWheelSlider, _("Point Color"), 100, "%5.0f" );
 
     m_DrawLayout.ForceNewLine();
     m_DrawLayout.AddYGap();
     m_DrawLayout.SetSameLineFlag( false );
     m_DrawLayout.SetButtonWidth( button_w );
 
-    m_DrawLayout.AddSlider( m_PointSizeSlider, "Point Size", 10, "%7.4f" );
-    m_DrawLayout.AddSlider( m_LineThicknessSlider, "Line Thick", 10, "%7.4f" );
+    m_DrawLayout.AddSlider( m_PointSizeSlider, _("Point Size"), 10, "%7.4f" );
+    m_DrawLayout.AddSlider( m_LineThicknessSlider, _("Line Thick"), 10, "%7.4f" );
 
     m_DrawLayout.AddYGap();
 
-    m_DrawLayout.AddDividerBox( "Background" );
+    m_DrawLayout.AddDividerBox( _("Background") );
     
     m_DrawLayout.SetSameLineFlag( true );
     m_DrawLayout.SetFitWidthFlag( false );
     m_DrawLayout.SetButtonWidth( m_DrawLayout.GetRemainX() / 3 );
 
-    m_DrawLayout.AddButton( m_BorderToggle, "Border" );
-    m_DrawLayout.AddButton( m_AxisToggle, "Axis" );
-    m_DrawLayout.AddButton( m_GridToggle, "Grid" );
+    m_DrawLayout.AddButton( m_BorderToggle, _("Border") );
+    m_DrawLayout.AddButton( m_AxisToggle, _("Axis") );
+    m_DrawLayout.AddButton( m_GridToggle, _("Grid") );
 
     m_BorderToggle.GetFlButton()->value( 1 );
     m_AxisToggle.GetFlButton()->value( 1 );
@@ -194,7 +196,7 @@ CurveEditScreen::CurveEditScreen( ScreenMgr* mgr ) : TabScreen( mgr, 750, 615+17
     m_DrawLayout.SetSameLineFlag( false );
     m_DrawLayout.SetFitWidthFlag( true );
 
-    m_DrawLayout.AddButton( m_ImageToggle, "Image" );
+    m_DrawLayout.AddButton( m_ImageToggle, _("Image") );
     m_ImageToggle.GetFlButton()->value( 0 );
 
     m_DrawLayout.AddYGap();
@@ -206,7 +208,7 @@ CurveEditScreen::CurveEditScreen( ScreenMgr* mgr ) : TabScreen( mgr, 750, 615+17
 
     m_BackgroundImageLayout.SetInputWidth( m_BackgroundImageLayout.GetRemainX() - 80 );
     m_BackgroundImageLayout.SetButtonWidth( 50 );
-    m_BackgroundImageLayout.AddOutput( m_ImageFileOutput, "File:" );
+    m_BackgroundImageLayout.AddOutput( m_ImageFileOutput, _("File:") );
     m_BackgroundImageLayout.SetButtonWidth( 30 );
     m_BackgroundImageLayout.AddButton( m_ImageFileSelect, "..." );
     m_BackgroundImageLayout.ForceNewLine();
@@ -216,10 +218,10 @@ CurveEditScreen::CurveEditScreen( ScreenMgr* mgr ) : TabScreen( mgr, 750, 615+17
     m_BackgroundImageLayout.SetSameLineFlag( true );
     m_BackgroundImageLayout.SetButtonWidth( ( m_BackgroundImageLayout.GetW() / 3 ) + 20 );
 
-    m_BackgroundImageLayout.AddButton( m_PreserveImageAspect, "Preserve Aspect" );
+    m_BackgroundImageLayout.AddButton( m_PreserveImageAspect, _("Preserve Aspect") );
     m_BackgroundImageLayout.SetButtonWidth( ( m_BackgroundImageLayout.GetW() / 3 ) - 10 );
-    m_BackgroundImageLayout.AddButton( m_LockImageToggle, "Lock Image" );
-    m_BackgroundImageLayout.AddButton( m_FlipImageToggle, "Flip Image" );
+    m_BackgroundImageLayout.AddButton( m_LockImageToggle, _("Lock Image") );
+    m_BackgroundImageLayout.AddButton( m_FlipImageToggle, _("Flip Image") );
 
     m_BackgroundImageLayout.SetFitWidthFlag( true );
     m_BackgroundImageLayout.SetSameLineFlag( false );
@@ -233,19 +235,19 @@ CurveEditScreen::CurveEditScreen( ScreenMgr* mgr ) : TabScreen( mgr, 750, 615+17
 
     m_BackgroundImageLayout.AddYGap();
 
-    m_BackgroundImageLayout.AddSlider( m_ImageXOffset, "X Offset", 0.500, "%7.3f" );
-    m_BackgroundImageLayout.AddSlider( m_ImageYOffset, "Y Offset", 0.500, "%7.3f" );
+    m_BackgroundImageLayout.AddSlider( m_ImageXOffset, _("X Offset"), 0.500, "%7.3f" );
+    m_BackgroundImageLayout.AddSlider( m_ImageYOffset, _("Y Offset"), 0.500, "%7.3f" );
 
     m_DrawLayout.AddY( m_BackgroundImageLayout.GetH() );
 
-    m_DrawLayout.AddButton( m_CopyDrawToAllXSec, "Copy Settings to All XSecs" );
+    m_DrawLayout.AddButton( m_CopyDrawToAllXSec, _("Copy Settings to All XSecs") );
 
     m_DrawLayout.SetSameLineFlag( true );
     m_DrawLayout.SetFitWidthFlag( false );
     m_DrawLayout.SetButtonWidth( m_DrawLayout.GetRemainX() / 2 );
 
-    m_DrawLayout.AddButton( m_ResetDefaultBackground, "Reset Background" );
-    m_DrawLayout.AddButton( m_ResetViewButton, "Reset Zoom && Pan" );
+    m_DrawLayout.AddButton( m_ResetDefaultBackground, _("Reset Background") );
+    m_DrawLayout.AddButton( m_ResetViewButton, _("Reset Zoom && Pan") );
 
     m_DrawLayout.ForceNewLine();
 

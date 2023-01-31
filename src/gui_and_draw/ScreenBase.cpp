@@ -283,9 +283,9 @@ GeomScreen::GeomScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
 
     vsp_win->SetGeomScreenFlag( true );
 
-    Fl_Group* gen_tab = AddTab( "Gen" );
-    Fl_Group* xform_tab = AddTab( "XForm" );
-    Fl_Group* subsurf_tab = AddTab( "Sub" );
+    Fl_Group* gen_tab = AddTab( _("Gen") );
+    Fl_Group* xform_tab = AddTab( _("XForm") );
+    Fl_Group* subsurf_tab = AddTab( _("Sub") );
     m_SubSurfTab_ind = m_TabGroupVec.size() - 1;
     Fl_Group* gen_group = AddSubGroup( gen_tab, 5 );
     Fl_Group* xform_group = AddSubGroup( xform_tab, 5 );
@@ -296,8 +296,8 @@ GeomScreen::GeomScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
 
     //==== Gen Group Layout ====//
     m_GenLayout.SetGroupAndScreen( gen_group, this );
-    m_GenLayout.AddDividerBox( "Name & Color" );
-    m_GenLayout.AddInput( m_NameInput, "Name:" );
+    m_GenLayout.AddDividerBox( _("Name & Color") );
+    m_GenLayout.AddInput( m_NameInput, _("Name:") );
     m_GenLayout.AddYGap();
     m_GenLayout.AddColorPicker( m_ColorPicker );
     m_GenLayout.AddYGap();
@@ -307,10 +307,10 @@ GeomScreen::GeomScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
     m_GenLayout.SetFitWidthFlag( true );
     m_GenLayout.SetSameLineFlag( true );
 
-    m_GenLayout.AddChoice( m_MaterialChoice, "Material:", m_GenLayout.GetButtonWidth() );
+    m_GenLayout.AddChoice( m_MaterialChoice, _("Material:"), m_GenLayout.GetButtonWidth() );
 
     m_GenLayout.SetFitWidthFlag( false );
-    m_GenLayout.AddButton( m_CustomMaterialButton, "Custom" );
+    m_GenLayout.AddButton( m_CustomMaterialButton, _("Custom") );
     m_GenLayout.ForceNewLine();
 
     m_GenLayout.SetFitWidthFlag( true );
@@ -318,35 +318,35 @@ GeomScreen::GeomScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
 
     m_GenLayout.AddYGap();
 
-    m_GenLayout.AddDividerBox( "Tessellation" );
-    m_GenLayout.AddSlider( m_NumUSlider, "Num_U", 100, " %5.0f" );
-    m_GenLayout.AddSlider( m_NumWSlider, "Num_W", 100, " %5.0f" );
+    m_GenLayout.AddDividerBox( _("Tessellation") );
+    m_GenLayout.AddSlider( m_NumUSlider, _("Num_U"), 100, " %5.0f" );
+    m_GenLayout.AddSlider( m_NumWSlider, _("Num_W"), 100, " %5.0f" );
 
     m_GenLayout.AddYGap();
-    m_GenLayout.AddDividerBox( "Mass Properties" );
+    m_GenLayout.AddDividerBox( _("Mass Properties") );
 
     //==== Two Columns ====//
     m_GenLayout.AddSubGroupLayout( m_Density, gen_group->w() / 2 - 2, 2 * m_GenLayout.GetStdHeight() );
     m_GenLayout.AddX( gen_group->w() / 2 + 2 );
     m_GenLayout.AddSubGroupLayout( m_Shell,   gen_group->w() / 2 - 2, 2 * m_GenLayout.GetStdHeight() );
 
-    m_Density.AddInput( m_DensityInput, "Density", " %7.5f" );
-    m_Density.AddCounter( m_PriorCounter, "Priority" );
+    m_Density.AddInput( m_DensityInput, _("Density"), " %7.5f" );
+    m_Density.AddCounter( m_PriorCounter, _("Priority") );
 
-    m_Shell.AddButton( m_ThinShellButton, "Thin Shell" );
-    m_Shell.AddInput( m_ShellMassAreaInput, "Mass/Area", " %7.5f" );
+    m_Shell.AddButton( m_ThinShellButton, _("Thin Shell") );
+    m_Shell.AddInput( m_ShellMassAreaInput, _("Mass/Area"), " %7.5f" );
 
     m_GenLayout.ForceNewLine();
     m_GenLayout.AddY( m_GenLayout.GetStdHeight() );
     m_GenLayout.AddYGap();
 
     //=== Negative Volumes ===//
-    m_GenLayout.AddDividerBox( "CFDMesh Negative Volume" );
+    m_GenLayout.AddDividerBox( _("CFDMesh Negative Volume") );
 
-    m_GenLayout.AddButton( m_NegativeVolumeBtn, "Negative Volume" );
+    m_GenLayout.AddButton( m_NegativeVolumeBtn, _("Negative Volume") );
     m_GenLayout.AddYGap();
 
-    m_GenLayout.AddDividerBox( "Set Export/Analysis" );
+    m_GenLayout.AddDividerBox( _("Set Export/Analysis") );
     int remain_y = ( m_GenLayout.GetH() + m_GenLayout.GetStartY() ) - m_GenLayout.GetY();
     m_SetBrowser = m_GenLayout.AddCheckBrowser( remain_y );
     m_SetBrowser->callback( staticCB, this );
@@ -355,15 +355,15 @@ GeomScreen::GeomScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
 
     //==== XForm Layout ====//
     m_XFormLayout.SetGroupAndScreen( xform_group, this );
-    m_XFormLayout.AddDividerBox( "Transforms" );
+    m_XFormLayout.AddDividerBox( _("Transforms") );
 
 
     m_XFormLayout.SetFitWidthFlag( false );
     m_XFormLayout.SetSameLineFlag( true );
-    m_XFormLayout.AddLabel( "Coord System:", 170 );
+    m_XFormLayout.AddLabel( _("Coord System:"), 170 );
     m_XFormLayout.SetButtonWidth( m_XFormLayout.GetRemainX() / 2 );
-    m_XFormLayout.AddButton( m_XFormRelativeToggle, "Rel" );
-    m_XFormLayout.AddButton( m_XFormAbsoluteToggle, "Abs" );
+    m_XFormLayout.AddButton( m_XFormRelativeToggle, _("Rel") );
+    m_XFormLayout.AddButton( m_XFormAbsoluteToggle, _("Abs") );
     m_XFormLayout.ForceNewLine();
 
     m_XFormAbsRelToggle.Init( this );
@@ -375,16 +375,16 @@ GeomScreen::GeomScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
     m_XFormLayout.AddYGap();
 
     m_XFormLayout.SetButtonWidth( 50 );
-    m_XFormLayout.AddSlider( m_XLocSlider, "XLoc", 10.0, "%7.3f" );
-    m_XFormLayout.AddSlider( m_YLocSlider, "YLoc", 10.0, "%7.3f" );
-    m_XFormLayout.AddSlider( m_ZLocSlider, "ZLoc", 10.0, "%7.3f" );
+    m_XFormLayout.AddSlider( m_XLocSlider, _("XLoc"), 10.0, "%7.3f" );
+    m_XFormLayout.AddSlider( m_YLocSlider, _("YLoc"), 10.0, "%7.3f" );
+    m_XFormLayout.AddSlider( m_ZLocSlider, _("ZLoc"), 10.0, "%7.3f" );
     m_XFormLayout.AddYGap();
-    m_XFormLayout.AddSlider( m_XRotSlider, "XRot", 10.0, "%7.3f" );
-    m_XFormLayout.AddSlider( m_YRotSlider, "YRot", 10.0, "%7.3f" );
-    m_XFormLayout.AddSlider( m_ZRotSlider, "ZRot", 10.0, "%7.3f" );
+    m_XFormLayout.AddSlider( m_XRotSlider, _("XRot"), 10.0, "%7.3f" );
+    m_XFormLayout.AddSlider( m_YRotSlider, _("YRot"), 10.0, "%7.3f" );
+    m_XFormLayout.AddSlider( m_ZRotSlider, _("ZRot"), 10.0, "%7.3f" );
     m_XFormLayout.AddYGap();
     m_XFormLayout.SetButtonWidth( 100 );
-    m_XFormLayout.AddSlider( m_RotOriginSlider, "Rot Origin(X)", 1.0, "%5.3f" );
+    m_XFormLayout.AddSlider( m_RotOriginSlider, _("Rot Origin(X)"), 1.0, "%5.3f" );
     m_XFormLayout.AddYGap();
 
     m_XFormLayout.AddDividerBox( "Symmetry" );
@@ -397,10 +397,10 @@ GeomScreen::GeomScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
     m_SymmLayout.SetChoiceButtonWidth( 50 );
     m_SymmLayout.SetButtonWidth( 60 );
 
-    m_SymmLayout.AddChoice( m_SymAncestorChoice, "About:", m_SymmLayout.GetButtonWidth() * 2 );
+    m_SymmLayout.AddChoice( m_SymAncestorChoice, _("About:"), m_SymmLayout.GetButtonWidth() * 2 );
     m_SymmLayout.SetFitWidthFlag( false );
-    m_SymmLayout.AddButton( m_SymAncestorOriginToggle, "Attach" );
-    m_SymmLayout.AddButton( m_SymAncestorObjectToggle, "Object" );
+    m_SymmLayout.AddButton( m_SymAncestorOriginToggle, _("Attach") );
+    m_SymmLayout.AddButton( m_SymAncestorObjectToggle, _("Object") );
     m_SymmLayout.ForceNewLine();
     m_SymmLayout.AddYGap();
 
@@ -410,18 +410,18 @@ GeomScreen::GeomScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
 
     m_SymmLayout.AddLabel( "Planar:", 74 );
     m_SymmLayout.SetButtonWidth( m_SymmLayout.GetRemainX() / 3 );
-    m_SymmLayout.AddButton( m_XYSymToggle, "XY", vsp::SYM_XY );
-    m_SymmLayout.AddButton( m_XZSymToggle, "XZ", vsp::SYM_XZ );
-    m_SymmLayout.AddButton( m_YZSymToggle, "YZ", vsp::SYM_YZ );
+    m_SymmLayout.AddButton( m_XYSymToggle, _("XY"), vsp::SYM_XY );
+    m_SymmLayout.AddButton( m_XZSymToggle, _("XZ"), vsp::SYM_XZ );
+    m_SymmLayout.AddButton( m_YZSymToggle, _("YZ"), vsp::SYM_YZ );
     m_SymmLayout.ForceNewLine();
     m_SymmLayout.AddYGap();
 
     m_SymmLayout.AddLabel( "Axial:", 74 );
     m_SymmLayout.SetButtonWidth( m_SymmLayout.GetRemainX() / 4 );
     m_SymmLayout.AddButton( m_AxialNoneToggle, "None" );
-    m_SymmLayout.AddButton( m_AxialXToggle, "X" );
-    m_SymmLayout.AddButton( m_AxialYToggle, "Y" );
-    m_SymmLayout.AddButton( m_AxialZToggle, "Z" );
+    m_SymmLayout.AddButton( m_AxialXToggle, _("X") );
+    m_SymmLayout.AddButton( m_AxialYToggle, _("Y") );
+    m_SymmLayout.AddButton( m_AxialZToggle, _("Z") );
     m_SymmLayout.ForceNewLine();
 
     m_AxialToggleGroup.Init( this );
@@ -442,7 +442,7 @@ GeomScreen::GeomScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
     m_SymmLayout.SetFitWidthFlag( true );
     m_SymmLayout.SetSameLineFlag( false );
 
-    m_SymmLayout.AddSlider( m_AxialNSlider, "N", 100, " %5.0f" );
+    m_SymmLayout.AddSlider( m_AxialNSlider, _("N"), 100, " %5.0f" );
 
     m_SymmLayout.AddYGap();
 
@@ -452,34 +452,34 @@ GeomScreen::GeomScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
     m_XFormLayout.SetFitWidthFlag( true );
     m_XFormLayout.SetSameLineFlag( false );
 
-    m_XFormLayout.AddDividerBox( "Scale Factor" );
+    m_XFormLayout.AddDividerBox( _("Scale Factor") );
     m_XFormLayout.SetFitWidthFlag( false );
     m_XFormLayout.SetSameLineFlag( true );
     m_XFormLayout.SetButtonWidth( 50 );
     m_XFormLayout.SetSliderWidth( 70 );
 
-    m_XFormLayout.AddSlider( m_ScaleSlider, "Scale", 1, " %5.4f" );
+    m_XFormLayout.AddSlider( m_ScaleSlider, _("Scale"), 1, " %5.4f" );
     m_XFormLayout.SetButtonWidth( ( m_XFormLayout.GetRemainX() ) / 2 );
-    m_XFormLayout.AddButton( m_ScaleResetButton, "Reset" );
-    m_XFormLayout.AddButton( m_ScaleAcceptButton, "Accept" );
+    m_XFormLayout.AddButton( m_ScaleResetButton, _("Reset") );
+    m_XFormLayout.AddButton( m_ScaleAcceptButton, _("Accept") );
     m_XFormLayout.ForceNewLine();
     m_XFormLayout.AddYGap();
 
     m_XFormLayout.InitWidthHeightVals();
     m_XFormLayout.SetFitWidthFlag( true );
     m_XFormLayout.SetSameLineFlag( false );
-    m_XFormLayout.AddDividerBox( "Attach To Parent" );
+    m_XFormLayout.AddDividerBox( _("Attach To Parent") );
 
     m_XFormLayout.AddSubGroupLayout( m_AttachLayout, m_XFormLayout.GetW(), 4 * m_AttachLayout.GetStdHeight() + 3 * m_AttachLayout.GetGapHeight() );
 
     m_AttachLayout.SetFitWidthFlag( false );
     m_AttachLayout.SetSameLineFlag( true );
 
-    m_AttachLayout.AddLabel( "Translate:", 74 );
+    m_AttachLayout.AddLabel( _("Translate:"), 74 );
     m_AttachLayout.SetButtonWidth( ( m_AttachLayout.GetRemainX() ) / 3 );
-    m_AttachLayout.AddButton( m_TransNoneButton, "None" );
-    m_AttachLayout.AddButton( m_TransCompButton, "Comp" );
-    m_AttachLayout.AddButton( m_TransUVButton, "UW" );
+    m_AttachLayout.AddButton( m_TransNoneButton, _("None") );
+    m_AttachLayout.AddButton( m_TransCompButton, _("Comp") );
+    m_AttachLayout.AddButton( m_TransUVButton, _("UW") );
     m_AttachLayout.ForceNewLine();
     m_AttachLayout.AddYGap();
 
@@ -489,9 +489,9 @@ GeomScreen::GeomScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
     m_TransToggleGroup.AddButton( m_TransUVButton.GetFlButton() );
 
     m_AttachLayout.AddLabel( "Rotate:", 74 );
-    m_AttachLayout.AddButton( m_RotNoneButton, "None" );
-    m_AttachLayout.AddButton( m_RotCompButton, "Comp" );
-    m_AttachLayout.AddButton( m_RotUVButton, "UW" );
+    m_AttachLayout.AddButton( m_RotNoneButton, _("None") );
+    m_AttachLayout.AddButton( m_RotCompButton, _("Comp") );
+    m_AttachLayout.AddButton( m_RotUVButton, _("UW") );
     m_AttachLayout.ForceNewLine();
     m_AttachLayout.AddYGap();
 
@@ -503,14 +503,14 @@ GeomScreen::GeomScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
     m_AttachLayout.SetFitWidthFlag( true );
     m_AttachLayout.SetSameLineFlag( false );
 
-    m_AttachLayout.AddSlider( m_AttachUSlider, "U", 1, " %7.6f" );
-    m_AttachLayout.AddSlider( m_AttachVSlider, "W", 1, " %7.6f" );
+    m_AttachLayout.AddSlider( m_AttachUSlider, _("U"), 1, " %7.6f" );
+    m_AttachLayout.AddSlider( m_AttachVSlider, _("W"), 1, " %7.6f" );
 
 
     //=============== SubSurface Tab ===================//
     m_CurSubDispGroup = NULL;
     m_SubSurfLayout.SetGroupAndScreen( subsurf_group, this );
-    m_SubSurfLayout.AddDividerBox( "Sub-Surface List" );
+    m_SubSurfLayout.AddDividerBox( _("Sub-Surface List") );
 
     // Initial column widths
     static int col_widths[] = { m_SubSurfLayout.GetW() / 2, m_SubSurfLayout.GetW() / 3, m_SubSurfLayout.GetW() / 6, 0 }; // 3 columns
@@ -521,7 +521,7 @@ GeomScreen::GeomScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
 
     m_SubSurfLayout.AddYGap();
 
-    m_SubSurfLayout.AddButton( m_DelSubSurfButton, "Delete" );
+    m_SubSurfLayout.AddButton( m_DelSubSurfButton, _("Delete") );
     m_SubSurfLayout.AddYGap();
 
     m_SubSurfChoice.AddItem( SubSurface::GetTypeName( vsp::SS_LINE ), vsp::SS_LINE );
@@ -533,9 +533,9 @@ GeomScreen::GeomScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
 
     m_SubSurfLayout.SetChoiceButtonWidth( m_SubSurfLayout.GetRemainX() / 3 );
 
-    m_SubSurfLayout.AddChoice( m_SubSurfChoice, "Type" );
-    m_SubSurfLayout.AddChoice( m_SubSurfSelectSurface, "Surface" );
-    m_SubSurfLayout.AddButton( m_AddSubSurfButton, "Add" );
+    m_SubSurfLayout.AddChoice( m_SubSurfChoice, _("Type") );
+    m_SubSurfLayout.AddChoice( m_SubSurfSelectSurface, _("Surface") );
+    m_SubSurfLayout.AddButton( m_AddSubSurfButton, _("Add") );
 
     m_SSCurrMainSurfIndx = 0;
 
@@ -543,7 +543,7 @@ GeomScreen::GeomScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
 
     m_SubSurfLayout.AddSubGroupLayout( m_SSCommonGroup, m_SubSurfLayout.GetW(), m_SubSurfLayout.GetRemainY() );
 
-    m_SSCommonGroup.AddDividerBox( "Sub-Surface Parameters" );
+    m_SSCommonGroup.AddDividerBox( _("Sub-Surface Parameters") );
     m_SSCommonGroup.AddInput( m_SubNameInput, "Name" );
 
     // Individual SubSurface Parameters
@@ -557,8 +557,8 @@ GeomScreen::GeomScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
     m_SSLineGroup.SetSameLineFlag( true );
     m_SSLineGroup.AddLabel( "Line Type", remain_x / 3 );
     m_SSLineGroup.SetButtonWidth( remain_x / 3 );
-    m_SSLineGroup.AddButton( m_SSLineConstUButton, "U" );
-    m_SSLineGroup.AddButton( m_SSLineConstWButton, "W" );
+    m_SSLineGroup.AddButton( m_SSLineConstUButton, _("U") );
+    m_SSLineGroup.AddButton( m_SSLineConstWButton, _("W") );
 
     m_SSLineConstToggleGroup.Init( this );
     m_SSLineConstToggleGroup.AddButton( m_SSLineConstUButton.GetFlButton() );
@@ -566,7 +566,7 @@ GeomScreen::GeomScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
 
     m_SSLineGroup.ForceNewLine();
 
-    m_SSLineGroup.AddLabel( "Scale", remain_x / 3 );
+    m_SSLineGroup.AddLabel( _("Scale"), remain_x / 3 );
     m_SSLineGroup.AddButton( m_SSLine01Toggle, "[0, 1]" );
     m_SSLineGroup.AddButton( m_SSLine0NToggle, "[0, N]" );
 
@@ -576,9 +576,9 @@ GeomScreen::GeomScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
 
     m_SSLineGroup.ForceNewLine();
 
-    m_SSLineGroup.AddLabel( "Test", remain_x / 3 );
-    m_SSLineGroup.AddButton( m_SSLineGreaterToggle, "Greater" );
-    m_SSLineGroup.AddButton( m_SSLineLessToggle, "Less" );
+    m_SSLineGroup.AddLabel( _("Test"), remain_x / 3 );
+    m_SSLineGroup.AddButton( m_SSLineGreaterToggle, _("Greater") );
+    m_SSLineGroup.AddButton( m_SSLineLessToggle, _("Less") );
 
     m_SSLineTestToggleGroup.Init( this );
     m_SSLineTestToggleGroup.AddButton( m_SSLineGreaterToggle.GetFlButton() );
@@ -587,8 +587,8 @@ GeomScreen::GeomScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
     m_SSLineGroup.SetFitWidthFlag( true );
     m_SSLineGroup.SetSameLineFlag( false );
     m_SSLineGroup.ForceNewLine();
-    m_SSLineGroup.AddSlider( m_SSLineConstSlider, "Value01", 1, "%7.6f" );
-    m_SSLineGroup.AddSlider( m_SSLineConstSlider0N, "Value0N", 1, "%7.6f" );
+    m_SSLineGroup.AddSlider( m_SSLineConstSlider, _("Value01"), 1, "%7.6f" );
+    m_SSLineGroup.AddSlider( m_SSLineConstSlider0N, _("Value0N"), 1, "%7.6f" );
 
     //==== SSRectangle ====//
     m_SSCommonGroup.AddSubGroupLayout( m_SSRecGroup, m_SSCommonGroup.GetW(), m_SSCommonGroup.GetRemainY() );
@@ -598,8 +598,8 @@ GeomScreen::GeomScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
     m_SSRecGroup.SetSameLineFlag( true );
     m_SSRecGroup.AddLabel( "Tag", remain_x / 3 );
     m_SSRecGroup.SetButtonWidth( remain_x / 3 );
-    m_SSRecGroup.AddButton( m_SSRecInsideButton, "Inside" );
-    m_SSRecGroup.AddButton( m_SSRecOutsideButton, "Outside" );
+    m_SSRecGroup.AddButton( m_SSRecInsideButton, _("Inside") );
+    m_SSRecGroup.AddButton( m_SSRecOutsideButton, _("Outside") );
 
     m_SSRecTestToggleGroup.Init( this );
     m_SSRecTestToggleGroup.AddButton( m_SSRecInsideButton.GetFlButton() );
@@ -609,11 +609,11 @@ GeomScreen::GeomScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
     m_SSRecGroup.SetSameLineFlag( false );
     m_SSRecGroup.ForceNewLine();
 
-    m_SSRecGroup.AddSlider( m_SSRecCentUSlider, "Center U", 1, "%7.6f" );
-    m_SSRecGroup.AddSlider( m_SSRecCentWSlider, "Center W", 1, "%7.6f" );
-    m_SSRecGroup.AddSlider( m_SSRecULenSlider, "U Length", 1, "%7.6f" );
-    m_SSRecGroup.AddSlider( m_SSRecWLenSlider, "W Length", 1, "%7.6f" );
-    m_SSRecGroup.AddSlider( m_SSRecThetaSlider, "Theta", 25, "%7.6f" );
+    m_SSRecGroup.AddSlider( m_SSRecCentUSlider, _("Center U"), 1, "%7.6f" );
+    m_SSRecGroup.AddSlider( m_SSRecCentWSlider, _("Center W"), 1, "%7.6f" );
+    m_SSRecGroup.AddSlider( m_SSRecULenSlider, _("U Length"), 1, "%7.6f" );
+    m_SSRecGroup.AddSlider( m_SSRecWLenSlider, _("W Length"), 1, "%7.6f" );
+    m_SSRecGroup.AddSlider( m_SSRecThetaSlider, _("Theta"), 25, "%7.6f" );
 
     //==== SS_Ellipse ====//
     m_SSCommonGroup.AddSubGroupLayout( m_SSEllGroup, m_SSCommonGroup.GetW(), m_SSCommonGroup.GetRemainY() );
@@ -623,8 +623,8 @@ GeomScreen::GeomScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
     m_SSEllGroup.SetSameLineFlag( true );
     m_SSEllGroup.AddLabel( "Tag", remain_x / 3 );
     m_SSEllGroup.SetButtonWidth( remain_x / 3 );
-    m_SSEllGroup.AddButton( m_SSEllInsideButton, "Inside" );
-    m_SSEllGroup.AddButton( m_SSEllOutsideButton, "Outside" );
+    m_SSEllGroup.AddButton( m_SSEllInsideButton, _("Inside") );
+    m_SSEllGroup.AddButton( m_SSEllOutsideButton, _("Outside") );
 
     m_SSEllTestToggleGroup.Init( this );
     m_SSEllTestToggleGroup.AddButton( m_SSEllInsideButton.GetFlButton() );
@@ -634,12 +634,12 @@ GeomScreen::GeomScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
     m_SSEllGroup.SetSameLineFlag( false );
     m_SSEllGroup.ForceNewLine();
 
-    m_SSEllGroup.AddSlider( m_SSEllTessSlider, "Num Points", 100, "%5.0f" );
-    m_SSEllGroup.AddSlider( m_SSEllCentUSlider, "Center U", 1, "%7.6f" );
-    m_SSEllGroup.AddSlider( m_SSEllCentWSlider, "Center W", 1, "%7.6f" );
-    m_SSEllGroup.AddSlider( m_SSEllULenSlider, "U Length", 1, "%7.6f" );
-    m_SSEllGroup.AddSlider( m_SSEllWLenSlider, "W Length", 1, "%7.6f" );
-    m_SSEllGroup.AddSlider( m_SSEllThetaSlider, "Theta", 25, "%7.6f" );
+    m_SSEllGroup.AddSlider( m_SSEllTessSlider, _("Num Points"), 100, "%5.0f" );
+    m_SSEllGroup.AddSlider( m_SSEllCentUSlider, _("Center U"), 1, "%7.6f" );
+    m_SSEllGroup.AddSlider( m_SSEllCentWSlider, _("Center W"), 1, "%7.6f" );
+    m_SSEllGroup.AddSlider( m_SSEllULenSlider, _("U Length"), 1, "%7.6f" );
+    m_SSEllGroup.AddSlider( m_SSEllWLenSlider, _("W Length"), 1, "%7.6f" );
+    m_SSEllGroup.AddSlider( m_SSEllThetaSlider, _("Theta"), 25, "%7.6f" );
 
     //===== SSControl ====//
     m_SSCommonGroup.AddSubGroupLayout( m_SSConGroup, m_SSCommonGroup.GetW(), m_SSCommonGroup.GetRemainY() );
@@ -649,8 +649,8 @@ GeomScreen::GeomScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
     m_SSConGroup.SetSameLineFlag(true);
     m_SSConGroup.AddLabel("Tag", remain_x / 3);
     m_SSConGroup.SetButtonWidth(remain_x / 3);
-    m_SSConGroup.AddButton(m_SSConInsideButton, "Inside");
-    m_SSConGroup.AddButton(m_SSConOutsideButton, "Outside");
+    m_SSConGroup.AddButton(m_SSConInsideButton, _("Inside"));
+    m_SSConGroup.AddButton(m_SSConOutsideButton, _("Outside"));
 
     m_SSConTestToggleGroup.Init(this);
     m_SSConTestToggleGroup.AddButton(m_SSConInsideButton.GetFlButton());
@@ -664,23 +664,23 @@ GeomScreen::GeomScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
     m_SSConSurfTypeChoice.AddItem("Upper");
     m_SSConSurfTypeChoice.AddItem("Lower");
     m_SSConSurfTypeChoice.AddItem("Both");
-    m_SSConGroup.AddChoice(m_SSConSurfTypeChoice, "Upper/Lower", m_SSConGroup.GetButtonWidth() );
+    m_SSConGroup.AddChoice(m_SSConSurfTypeChoice, _("Upper/Lower"), m_SSConGroup.GetButtonWidth() );
 
     m_SSConGroup.SetFitWidthFlag( false );
-    m_SSConGroup.AddButton( m_SSConLEFlagButton, "Leading Edge" );
+    m_SSConGroup.AddButton( m_SSConLEFlagButton, _("Leading Edge") );
     m_SSConGroup.SetFitWidthFlag( true );
 
     m_SSConGroup.SetSameLineFlag(false);
     m_SSConGroup.ForceNewLine();
 
     m_SSConGroup.AddYGap();
-    m_SSConGroup.AddDividerBox( "Spanwise" );
+    m_SSConGroup.AddDividerBox( _("Spanwise") );
 
-    m_SSConGroup.AddSlider(m_SSConUSSlider, "Start U", 1, "%7.6f");
-    m_SSConGroup.AddSlider(m_SSConUESlider, "End U", 1, "%7.6f");
+    m_SSConGroup.AddSlider(m_SSConUSSlider, _("Start U"), 1, "%7.6f");
+    m_SSConGroup.AddSlider(m_SSConUESlider, _("End U"), 1, "%7.6f");
 
     m_SSConGroup.AddYGap();
-    m_SSConGroup.AddDividerBox( "Chordwise" );
+    m_SSConGroup.AddDividerBox( _("Chordwise") );
 
 
     m_SSConGroup.SetFitWidthFlag(false);
@@ -688,9 +688,9 @@ GeomScreen::GeomScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
 
     m_SSConGroup.SetButtonWidth( m_SSConGroup.GetW() / 3 );
 
-    m_SSConGroup.AddButton( m_SSConSAbsButton, "Length" );
-    m_SSConGroup.AddButton( m_SSConSRelButton, "Length/C" );
-    m_SSConGroup.AddButton( m_SSConSEConstButton, "Constant" );
+    m_SSConGroup.AddButton( m_SSConSAbsButton, _("Length") );
+    m_SSConGroup.AddButton( m_SSConSRelButton, _("Length/C") );
+    m_SSConGroup.AddButton( m_SSConSEConstButton, _("Constant") );
 
     m_SSConGroup.SetFitWidthFlag(true);
     m_SSConGroup.SetSameLineFlag(false);
@@ -700,30 +700,30 @@ GeomScreen::GeomScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
     m_SSConSAbsRelToggleGroup.AddButton( m_SSConSAbsButton.GetFlButton() );
     m_SSConSAbsRelToggleGroup.AddButton( m_SSConSRelButton.GetFlButton() );
 
-    m_SSConGroup.AddSlider( m_SSConSLenSlider, "Start Length", 10.0, "%7.6f" );
-    m_SSConGroup.AddSlider( m_SSConSFracSlider, "Start Length/C", 1.0, "%7.6f");
+    m_SSConGroup.AddSlider( m_SSConSLenSlider, _("Start Length"), 10.0, "%7.6f" );
+    m_SSConGroup.AddSlider( m_SSConSFracSlider, _("Start Length/C"), 1.0, "%7.6f");
 
-    m_SSConGroup.AddSlider( m_SSConELenSlider, "End Length", 10.0, "%7.6f" );
-    m_SSConGroup.AddSlider( m_SSConEFracSlider, "End Length/C", 1.0, "%7.6f" );
+    m_SSConGroup.AddSlider( m_SSConELenSlider, _("End Length"), 10.0, "%7.6f" );
+    m_SSConGroup.AddSlider( m_SSConEFracSlider, _("End Length/C"), 1.0, "%7.6f" );
 
     m_SSConGroup.AddYGap();
-    m_SSConGroup.AddDividerBox( "Surface End Angle" );
+    m_SSConGroup.AddDividerBox( _("Surface End Angle") );
 
     m_SSConGroup.SetSameLineFlag( true );
     m_SSConGroup.SetFitWidthFlag( false );
 
-    m_SSConGroup.AddButton( m_SSConSAngleButton, "Start" );
-    m_SSConGroup.AddButton( m_SSConEAngleButton, "End" );
-    m_SSConGroup.AddButton( m_SSConSameAngleButton, "Same Angle" );
+    m_SSConGroup.AddButton( m_SSConSAngleButton, _("Start") );
+    m_SSConGroup.AddButton( m_SSConEAngleButton, _("End") );
+    m_SSConGroup.AddButton( m_SSConSameAngleButton, _("Same Angle") );
 
     m_SSConGroup.SetSameLineFlag( false );
     m_SSConGroup.SetFitWidthFlag( true );
     m_SSConGroup.ForceNewLine();
 
-    m_SSConGroup.AddSlider( m_SSConSAngleSlider, "Start Angle", 10.0, "%7.6f" );
-    m_SSConGroup.AddSlider( m_SSConEAngleSlider, "End Angle", 10.0, "%7.6f" );
+    m_SSConGroup.AddSlider( m_SSConSAngleSlider, _("Start Angle"), 10.0, "%7.6f" );
+    m_SSConGroup.AddSlider( m_SSConEAngleSlider, _("End Angle"), 10.0, "%7.6f" );
 
-    m_SSConGroup.AddSlider( m_SSConTessSlider, "Num Points", 100, "%5.0f" );
+    m_SSConGroup.AddSlider( m_SSConTessSlider, _("Num Points"), 100, "%5.0f" );
 
     //==== SSFiniteLine ====//
     m_SSCommonGroup.AddSubGroupLayout( m_SSFLineGroup, m_SSCommonGroup.GetW(), m_SSCommonGroup.GetRemainY() );
@@ -733,10 +733,10 @@ GeomScreen::GeomScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
     m_SSFLineGroup.SetSameLineFlag( false );
     m_SSFLineGroup.ForceNewLine();
 
-    m_SSFLineGroup.AddSlider( m_SSFLineUStartSlider, "U Start", 1, "%7.6f" );
-    m_SSFLineGroup.AddSlider( m_SSFLineUEndSlider, "U End", 1, "%7.6f" );
-    m_SSFLineGroup.AddSlider( m_SSFLineWStartSlider, "W Start", 1, "%7.6f" );
-    m_SSFLineGroup.AddSlider( m_SSFLineWEndSlider, "W End", 1, "%7.6f" );
+    m_SSFLineGroup.AddSlider( m_SSFLineUStartSlider, _("U Start"), 1, "%7.6f" );
+    m_SSFLineGroup.AddSlider( m_SSFLineUEndSlider, _("U End"), 1, "%7.6f" );
+    m_SSFLineGroup.AddSlider( m_SSFLineWStartSlider, _("W Start"), 1, "%7.6f" );
+    m_SSFLineGroup.AddSlider( m_SSFLineWEndSlider, _("W End"), 1, "%7.6f" );
 
     m_RotActive = true;
 }
@@ -1179,7 +1179,7 @@ void GeomScreen::GuiDeviceCallBack( GuiDevice* device )
     else if ( device == &m_CustomMaterialButton )
     {
         ( ( MaterialEditScreen* ) ( m_ScreenMgr->GetScreen( ScreenMgr::VSP_MATERIAL_EDIT_SCREEN ) ) )->m_OrigColor = geom_ptr->GetMaterial()->m_Name;
-        geom_ptr->GetMaterial()->m_Name = "Custom";
+        geom_ptr->GetMaterial()->m_Name = _("Custom");
         m_ScreenMgr->ShowScreen( ScreenMgr::VSP_MATERIAL_EDIT_SCREEN );
     }
     else if ( device == &m_ScaleAcceptButton )
@@ -1286,7 +1286,7 @@ void GeomScreen::CallBack( Fl_Widget *w )
 XSecScreen::XSecScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
     GeomScreen( mgr, w, h, title )
 {
-    m_XSecTab = AddTab( "XSec" );
+    m_XSecTab = AddTab( _("XSec") );
     Fl_Group* xsec_group = AddSubGroup( m_XSecTab, 5 );
 
     m_XSecLayout.SetGroupAndScreen( xsec_group, this );
@@ -1305,49 +1305,49 @@ void XSecScreen::AddXSecLayout(bool include_point_type)
     m_XSecLayout.SetFitWidthFlag( true );
     m_XSecLayout.SetSameLineFlag( false );
 
-    m_XSecLayout.AddDividerBox( "Type" );
+    m_XSecLayout.AddDividerBox( _("Type") );
 
     if (include_point_type) {
-        m_XSecTypeChoice.AddItem( "POINT", XS_POINT );
+        m_XSecTypeChoice.AddItem( _("POINT"), XS_POINT );
     }
-    m_XSecTypeChoice.AddItem( "CIRCLE", XS_CIRCLE );
-    m_XSecTypeChoice.AddItem( "ELLIPSE", XS_ELLIPSE );
-    m_XSecTypeChoice.AddItem( "SUPER_ELLIPSE", XS_SUPER_ELLIPSE );
-    m_XSecTypeChoice.AddItem( "ROUNDED_RECTANGLE", XS_ROUNDED_RECTANGLE );
-    m_XSecTypeChoice.AddItem( "GENERAL_FUSE", XS_GENERAL_FUSE );
-    m_XSecTypeChoice.AddItem( "FUSE_FILE", XS_FILE_FUSE );
-    m_XSecTypeChoice.AddItem( "FOUR_SERIES", XS_FOUR_SERIES );
-    m_XSecTypeChoice.AddItem( "SIX_SERIES", XS_SIX_SERIES );
-    m_XSecTypeChoice.AddItem( "BICONVEX", XS_BICONVEX );
-    m_XSecTypeChoice.AddItem( "WEDGE", XS_WEDGE );
-    m_XSecTypeChoice.AddItem( "EDIT_CURVE", XS_EDIT_CURVE );
-    m_XSecTypeChoice.AddItem( "AF_FILE", XS_FILE_AIRFOIL );
-    m_XSecTypeChoice.AddItem( "CST_AIRFOIL", XS_CST_AIRFOIL );
-    m_XSecTypeChoice.AddItem( "KARMAN_TREFFTZ", XS_VKT_AIRFOIL );
-    m_XSecTypeChoice.AddItem( "FOUR_DIGIT_MOD", XS_FOUR_DIGIT_MOD );
-    m_XSecTypeChoice.AddItem( "FIVE_DIGIT", XS_FIVE_DIGIT );
-    m_XSecTypeChoice.AddItem( "FIVE_DIGIT_MOD", XS_FIVE_DIGIT_MOD );
-    m_XSecTypeChoice.AddItem( "16_SERIES", XS_ONE_SIX_SERIES );
+    m_XSecTypeChoice.AddItem( _("CIRCLE"), XS_CIRCLE );
+    m_XSecTypeChoice.AddItem( _("ELLIPSE"), XS_ELLIPSE );
+    m_XSecTypeChoice.AddItem( _("SUPER_ELLIPSE"), XS_SUPER_ELLIPSE );
+    m_XSecTypeChoice.AddItem( _("ROUNDED_RECTANGLE"), XS_ROUNDED_RECTANGLE );
+    m_XSecTypeChoice.AddItem( _("GENERAL_FUSE"), XS_GENERAL_FUSE );
+    m_XSecTypeChoice.AddItem( _("FUSE_FILE"), XS_FILE_FUSE );
+    m_XSecTypeChoice.AddItem( _("FOUR_SERIES"), XS_FOUR_SERIES );
+    m_XSecTypeChoice.AddItem( _("SIX_SERIES"), XS_SIX_SERIES );
+    m_XSecTypeChoice.AddItem( _("BICONVEX"), XS_BICONVEX );
+    m_XSecTypeChoice.AddItem( _("WEDGE"), XS_WEDGE );
+    m_XSecTypeChoice.AddItem( _("EDIT_CURVE"), XS_EDIT_CURVE );
+    m_XSecTypeChoice.AddItem( _("AF_FILE"), XS_FILE_AIRFOIL );
+    m_XSecTypeChoice.AddItem( _("CST_AIRFOIL"), XS_CST_AIRFOIL );
+    m_XSecTypeChoice.AddItem( _("KARMAN_TREFFTZ"), XS_VKT_AIRFOIL );
+    m_XSecTypeChoice.AddItem( _("FOUR_DIGIT_MOD"), XS_FOUR_DIGIT_MOD );
+    m_XSecTypeChoice.AddItem( _("FIVE_DIGIT"), XS_FIVE_DIGIT );
+    m_XSecTypeChoice.AddItem( _("FIVE_DIGIT_MOD"), XS_FIVE_DIGIT_MOD );
+    m_XSecTypeChoice.AddItem( _("16_SERIES"), XS_ONE_SIX_SERIES );
 
     m_XSecLayout.SetChoiceButtonWidth( 100 ); // TODO: Get appropriate width
     int show_w = 50;
     int convert_w = 100;
 
     m_XSecLayout.SetSameLineFlag( true );
-    m_XSecLayout.AddChoice( m_XSecTypeChoice, "Choose Type:", (show_w + convert_w) );
+    m_XSecLayout.AddChoice( m_XSecTypeChoice, _("Choose Type:"), (show_w + convert_w) );
     m_XSecLayout.SetFitWidthFlag( false );
     m_XSecLayout.SetButtonWidth( show_w );
-    m_XSecLayout.AddButton( m_ShowXSecButton, "Show" );
+    m_XSecLayout.AddButton( m_ShowXSecButton, _("Show") );
 
     m_XSecLayout.AddSubGroupLayout( m_ConvertCEDITGroup, m_XSecLayout.GetW(), m_XSecLayout.GetStdHeight() );
     m_ConvertCEDITGroup.SetButtonWidth( convert_w );
     m_ConvertCEDITGroup.SetFitWidthFlag( false );
-    m_ConvertCEDITGroup.AddButton( m_ConvertCEDITButton, "Convert CEDIT" );
+    m_ConvertCEDITGroup.AddButton( m_ConvertCEDITButton, _("Convert CEDIT") );
 
     m_XSecLayout.AddSubGroupLayout( m_EditCEDITGroup, m_XSecLayout.GetW(), m_XSecLayout.GetStdHeight() );
     m_EditCEDITGroup.SetFitWidthFlag( false );
     m_EditCEDITGroup.SetButtonWidth( convert_w );
-    m_EditCEDITGroup.AddButton( m_EditCEDITButton, "Edit Curve" );
+    m_EditCEDITGroup.AddButton( m_EditCEDITButton, _("Edit Curve") );
 
     m_XSecLayout.ForceNewLine();
 
@@ -1359,15 +1359,15 @@ void XSecScreen::AddXSecLayout(bool include_point_type)
 
     vector < string > xsec_driver_labels;
     xsec_driver_labels.resize( vsp::NUM_XSEC_DRIVER );
-    xsec_driver_labels[vsp::WIDTH_XSEC_DRIVER] = "Width";
-    xsec_driver_labels[vsp::AREA_XSEC_DRIVER] = "Area";
-    xsec_driver_labels[vsp::HEIGHT_XSEC_DRIVER] = "Height";
-    xsec_driver_labels[vsp::HWRATIO_XSEC_DRIVER] = "H/W Ratio";
+    xsec_driver_labels[vsp::WIDTH_XSEC_DRIVER] = _("Width");
+    xsec_driver_labels[vsp::AREA_XSEC_DRIVER] = _("Area");
+    xsec_driver_labels[vsp::HEIGHT_XSEC_DRIVER] = _("Height");
+    xsec_driver_labels[vsp::HWRATIO_XSEC_DRIVER] = _("H/W Ratio");
 
     vector < string > circ_xsec_driver_labels;
     circ_xsec_driver_labels.resize( vsp::CIRCLE_NUM_XSEC_DRIVER );
-    circ_xsec_driver_labels[vsp::WIDTH_XSEC_DRIVER] = "Diameter";
-    circ_xsec_driver_labels[vsp::AREA_XSEC_DRIVER] = "Area";
+    circ_xsec_driver_labels[vsp::WIDTH_XSEC_DRIVER] = _("Diameter");
+    circ_xsec_driver_labels[vsp::AREA_XSEC_DRIVER] = _("Area");
 
     //==== Super XSec ====//
     m_XSecLayout.AddSubGroupLayout( m_SuperGroup, m_XSecLayout.GetW(), m_XSecLayout.GetRemainY() );
@@ -1379,19 +1379,19 @@ void XSecScreen::AddXSecLayout(bool include_point_type)
     }
     else
     {
-        m_SuperGroup.AddSlider( m_SuperHeightSlider, "Height", 10, "%6.5f" );
-        m_SuperGroup.AddSlider( m_SuperWidthSlider, "Width", 10, "%6.5f" );
+        m_SuperGroup.AddSlider( m_SuperHeightSlider, _("Height"), 10, "%6.5f" );
+        m_SuperGroup.AddSlider( m_SuperWidthSlider, _("Width"), 10, "%6.5f" );
     }
 
     m_SuperGroup.AddYGap();
-    m_SuperGroup.AddSlider( m_SuperMaxWidthLocSlider, "MaxWLoc", 2, "%6.5f" );
+    m_SuperGroup.AddSlider( m_SuperMaxWidthLocSlider, _("MaxWLoc"), 2, "%6.5f" );
     m_SuperGroup.AddYGap();
-    m_SuperGroup.AddSlider( m_SuperMSlider, "M", 10, "%6.5f" );
-    m_SuperGroup.AddSlider( m_SuperNSlider, "N", 10, "%6.5f" );
+    m_SuperGroup.AddSlider( m_SuperMSlider, _("M"), 10, "%6.5f" );
+    m_SuperGroup.AddSlider( m_SuperNSlider, _("N"), 10, "%6.5f" );
     m_SuperGroup.AddYGap();
-    m_SuperGroup.AddButton( m_SuperToggleSym, "T/B Symmetric Exponents" );
-    m_SuperGroup.AddSlider( m_SuperM_botSlider, "M Bottom", 10, "%6.5f" );
-    m_SuperGroup.AddSlider( m_SuperN_botSlider, "N Bottom", 10, "%6.5f" );
+    m_SuperGroup.AddButton( m_SuperToggleSym, _("T/B Symmetric Exponents") );
+    m_SuperGroup.AddSlider( m_SuperM_botSlider, _("M Bottom"), 10, "%6.5f" );
+    m_SuperGroup.AddSlider( m_SuperN_botSlider, _("N Bottom"), 10, "%6.5f" );
 
     //==== Circle XSec ====//
     m_XSecLayout.AddSubGroupLayout( m_CircleGroup, m_XSecLayout.GetW(), m_XSecLayout.GetRemainY() );
@@ -1403,7 +1403,7 @@ void XSecScreen::AddXSecLayout(bool include_point_type)
     }
     else
     {
-        m_CircleGroup.AddSlider( m_DiameterSlider, "Diameter", 10, "%6.5f" );
+        m_CircleGroup.AddSlider( m_DiameterSlider, _("Diameter"), 10, "%6.5f" );
     }
 
     //==== Ellipse XSec ====//
@@ -1416,8 +1416,8 @@ void XSecScreen::AddXSecLayout(bool include_point_type)
     }
     else
     {
-        m_EllipseGroup.AddSlider( m_EllipseHeightSlider, "Height", 10, "%6.5f" );
-        m_EllipseGroup.AddSlider( m_EllipseWidthSlider, "Width", 10, "%6.5f" );
+        m_EllipseGroup.AddSlider( m_EllipseHeightSlider, _("Height"), 10, "%6.5f" );
+        m_EllipseGroup.AddSlider( m_EllipseWidthSlider, _("Width"), 10, "%6.5f" );
     }
 
     //==== Rounded Rect ====//
@@ -1430,14 +1430,14 @@ void XSecScreen::AddXSecLayout(bool include_point_type)
     }
     else
     {
-        m_RoundedRectGroup.AddSlider( m_RRHeightSlider, "Height", 10, "%6.5f" );
-        m_RoundedRectGroup.AddSlider( m_RRWidthSlider, "Width", 10, "%6.5f" );
+        m_RoundedRectGroup.AddSlider( m_RRHeightSlider, _("Height"), 10, "%6.5f" );
+        m_RoundedRectGroup.AddSlider( m_RRWidthSlider, _("Width"), 10, "%6.5f" );
     }
 
     m_RoundedRectGroup.AddYGap();
-    m_RoundedRectGroup.AddSlider( m_RRSkewSlider, "Skew", 10, "%6.5f" );
-    m_RoundedRectGroup.AddSlider( m_RRVSkewSlider, "VSkew", 10, "%6.5f" );
-    m_RoundedRectGroup.AddSlider( m_RRKeystoneSlider, "Keystone", 10, "%6.5f" );
+    m_RoundedRectGroup.AddSlider( m_RRSkewSlider, _("Skew"), 10, "%6.5f" );
+    m_RoundedRectGroup.AddSlider( m_RRVSkewSlider, _("VSkew"), 10, "%6.5f" );
+    m_RoundedRectGroup.AddSlider( m_RRKeystoneSlider, _("Keystone"), 10, "%6.5f" );
     m_RoundedRectGroup.AddYGap();
 
     m_RoundedRectGroup.SetSameLineFlag( true );
@@ -1445,13 +1445,13 @@ void XSecScreen::AddXSecLayout(bool include_point_type)
 
     int oldbw = m_RoundedRectGroup.GetButtonWidth();
 
-    m_RoundedRectGroup.AddLabel( "Symmetry:", oldbw );
+    m_RoundedRectGroup.AddLabel( _("Symmetry:"), oldbw );
 
     m_RoundedRectGroup.SetButtonWidth( m_RoundedRectGroup.GetRemainX() / 4 );
-    m_RoundedRectGroup.AddButton( m_RRRadNoSymToggle, "None" );
-    m_RoundedRectGroup.AddButton( m_RRRadRLSymToggle, "R//L" );
-    m_RoundedRectGroup.AddButton( m_RRRadTBSymToggle, "T//B" );
-    m_RoundedRectGroup.AddButton( m_RRRadAllSymToggle, "All" );
+    m_RoundedRectGroup.AddButton( m_RRRadNoSymToggle, _("None") );
+    m_RoundedRectGroup.AddButton( m_RRRadRLSymToggle, _("R//L") );
+    m_RoundedRectGroup.AddButton( m_RRRadTBSymToggle, _("T//B") );
+    m_RoundedRectGroup.AddButton( m_RRRadAllSymToggle, _("All") );
 
     m_RRRadSymRadioGroup.Init( this );
     m_RRRadSymRadioGroup.AddButton( m_RRRadNoSymToggle.GetFlButton() );
@@ -1465,12 +1465,12 @@ void XSecScreen::AddXSecLayout(bool include_point_type)
 
     m_RoundedRectGroup.SetButtonWidth( oldbw );
 
-    m_RoundedRectGroup.AddSlider( m_RRRadiusTRSlider, "TR Radius", 10, "%6.5f" );
-    m_RoundedRectGroup.AddSlider( m_RRRadiusTLSlider, "TL Radius", 10, "%6.5f" );
-    m_RoundedRectGroup.AddSlider( m_RRRadiusBLSlider, "BL Radius", 10, "%6.5f" );
-    m_RoundedRectGroup.AddSlider( m_RRRadiusBRSlider, "BR Radius", 10, "%6.5f" );
+    m_RoundedRectGroup.AddSlider( m_RRRadiusTRSlider, _("TR Radius"), 10, "%6.5f" );
+    m_RoundedRectGroup.AddSlider( m_RRRadiusTLSlider, _("TL Radius"), 10, "%6.5f" );
+    m_RoundedRectGroup.AddSlider( m_RRRadiusBLSlider, _("BL Radius"), 10, "%6.5f" );
+    m_RoundedRectGroup.AddSlider( m_RRRadiusBRSlider, _("BR Radius"), 10, "%6.5f" );
     m_RoundedRectGroup.AddYGap();
-    m_RoundedRectGroup.AddButton( m_RRKeyCornerButton, "Key Corner" );
+    m_RoundedRectGroup.AddButton( m_RRKeyCornerButton, _("Key Corner") );
 
     //==== General Fuse XSec ====//
     m_XSecLayout.AddSubGroupLayout( m_GenGroup, m_XSecLayout.GetW(), m_XSecLayout.GetRemainY() );
@@ -1482,28 +1482,28 @@ void XSecScreen::AddXSecLayout(bool include_point_type)
     }
     else
     {
-        m_GenGroup.AddSlider( m_GenHeightSlider, "Height", 10, "%6.5f" );
-        m_GenGroup.AddSlider( m_GenWidthSlider, "Width", 10, "%6.5f" );
+        m_GenGroup.AddSlider( m_GenHeightSlider, _("Height"), 10, "%6.5f" );
+        m_GenGroup.AddSlider( m_GenWidthSlider, _("Width"), 10, "%6.5f" );
     }
 
     m_GenGroup.AddYGap();
-    m_GenGroup.AddSlider( m_GenMaxWidthLocSlider, "MaxWLoc", 1, "%6.5f" );
-    m_GenGroup.AddSlider( m_GenCornerRadSlider, "CornerRad", 1, "%6.5f" );
+    m_GenGroup.AddSlider( m_GenMaxWidthLocSlider, _("MaxWLoc"), 1, "%6.5f" );
+    m_GenGroup.AddSlider( m_GenCornerRadSlider, _("CornerRad"), 1, "%6.5f" );
     m_GenGroup.AddYGap();
-    m_GenGroup.AddSlider( m_GenTopTanAngleSlider, "TopTanAng", 90, "%7.5f" );
-    m_GenGroup.AddSlider( m_GenBotTanAngleSlider, "BotTanAng", 90, "%7.5f" );
+    m_GenGroup.AddSlider( m_GenTopTanAngleSlider, _("TopTanAng"), 90, "%7.5f" );
+    m_GenGroup.AddSlider( m_GenBotTanAngleSlider, _("BotTanAng"), 90, "%7.5f" );
     m_GenGroup.AddYGap();
-    m_GenGroup.AddSlider( m_GenTopStrSlider, "TopStr", 1, "%7.5f" );
-    m_GenGroup.AddSlider( m_GenBotStrSlider, "BotStr", 1, "%7.5f" );
-    m_GenGroup.AddSlider( m_GenUpStrSlider, "UpStr", 1, "%7.5f" );
-    m_GenGroup.AddSlider( m_GenLowStrSlider, "LowStr", 1, "%7.5f" );
+    m_GenGroup.AddSlider( m_GenTopStrSlider, _("TopStr"), 1, "%7.5f" );
+    m_GenGroup.AddSlider( m_GenBotStrSlider, _("BotStr"), 1, "%7.5f" );
+    m_GenGroup.AddSlider( m_GenUpStrSlider, _("UpStr"), 1, "%7.5f" );
+    m_GenGroup.AddSlider( m_GenLowStrSlider, _("LowStr"), 1, "%7.5f" );
 
     //==== Four Series AF ====//
     m_XSecLayout.AddSubGroupLayout( m_FourSeriesGroup, m_XSecLayout.GetW(), m_XSecLayout.GetRemainY() );
-    m_FourSeriesGroup.AddOutput( m_FourNameOutput, "Name" );
+    m_FourSeriesGroup.AddOutput( m_FourNameOutput, _("Name") );
     m_FourSeriesGroup.AddYGap();
-    m_FourSeriesGroup.AddSlider( m_FourChordSlider, "Chord", 10, "%7.3f" );
-    m_FourSeriesGroup.AddSlider( m_FourThickChordSlider, "T/C", 1, "%7.5f" );
+    m_FourSeriesGroup.AddSlider( m_FourChordSlider, _("Chord"), 10, "%7.3f" );
+    m_FourSeriesGroup.AddSlider( m_FourThickChordSlider, _("T/C"), 1, "%7.5f" );
     m_FourSeriesGroup.AddYGap();
 
     int actionToggleButtonWidth = 15;
@@ -1516,7 +1516,7 @@ void XSecScreen::AddXSecLayout(bool include_point_type)
     m_FourSeriesGroup.AddButton( m_FourCamberButton, "" );
     m_FourSeriesGroup.SetButtonWidth( actionSliderButtonWidth );
     m_FourSeriesGroup.SetFitWidthFlag( true );
-    m_FourSeriesGroup.AddSlider( m_FourCamberSlider, "Camber", 0.2, "%7.5f" );
+    m_FourSeriesGroup.AddSlider( m_FourCamberSlider, _("Camber"), 0.2, "%7.5f" );
 
     m_FourSeriesGroup.ForceNewLine();
 
@@ -1525,7 +1525,7 @@ void XSecScreen::AddXSecLayout(bool include_point_type)
     m_FourSeriesGroup.AddButton( m_FourCLiButton, "" );
     m_FourSeriesGroup.SetButtonWidth( actionSliderButtonWidth );
     m_FourSeriesGroup.SetFitWidthFlag( true );
-    m_FourSeriesGroup.AddSlider( m_FourCLiSlider, "Ideal CL", 1, "%7.5f" );
+    m_FourSeriesGroup.AddSlider( m_FourCLiSlider, _("Ideal CL"), 1, "%7.5f" );
 
     m_FourSeriesGroup.ForceNewLine();
 
@@ -1541,23 +1541,23 @@ void XSecScreen::AddXSecLayout(bool include_point_type)
     camb_val_map.push_back( vsp::DESIGN_CL );
     m_FourCamberGroup.SetValMapVec( camb_val_map );
 
-    m_FourSeriesGroup.AddSlider( m_FourCamberLocSlider, "CamberLoc", 1, "%7.5f" );
+    m_FourSeriesGroup.AddSlider( m_FourCamberLocSlider, _("CamberLoc"), 1, "%7.5f" );
     m_FourSeriesGroup.AddYGap();
-    m_FourSeriesGroup.AddButton( m_FourInvertButton, "Invert Airfoil" );
+    m_FourSeriesGroup.AddButton( m_FourInvertButton, _("Invert Airfoil") );
     m_FourSeriesGroup.AddYGap();
-    m_FourSeriesGroup.AddButton( m_FourSharpTEButton, "Sharpen TE" );
+    m_FourSeriesGroup.AddButton( m_FourSharpTEButton, _("Sharpen TE") );
     m_FourSeriesGroup.AddYGap();
     m_FourSeriesGroup.SetSameLineFlag( true );
     m_FourSeriesGroup.SetFitWidthFlag( false );
     m_FourSeriesGroup.SetButtonWidth( 125 );
-    m_FourSeriesGroup.AddButton( m_FourFitCSTButton, "Fit CST" );
+    m_FourSeriesGroup.AddButton( m_FourFitCSTButton, _("Fit CST") );
     m_FourSeriesGroup.InitWidthHeightVals();
     m_FourSeriesGroup.SetFitWidthFlag( true );
-    m_FourSeriesGroup.AddCounter( m_FourDegreeCounter, "Degree", 125 );
+    m_FourSeriesGroup.AddCounter( m_FourDegreeCounter, _("Degree"), 125 );
 
     //==== Six Series AF ====//
     m_XSecLayout.AddSubGroupLayout( m_SixSeriesGroup, m_XSecLayout.GetW(), m_XSecLayout.GetRemainY() );
-    m_SixSeriesGroup.AddOutput( m_SixNameOutput, "Name" );
+    m_SixSeriesGroup.AddOutput( m_SixNameOutput, _("Name") );
     m_SixSeriesGroup.AddYGap();
 
     m_SixSeriesChoice.AddItem( "63" );
@@ -1568,55 +1568,55 @@ void XSecScreen::AddXSecLayout(bool include_point_type)
     m_SixSeriesChoice.AddItem( "63a" );
     m_SixSeriesChoice.AddItem( "64a" );
     m_SixSeriesChoice.AddItem( "65a" );
-    m_SixSeriesGroup.AddChoice( m_SixSeriesChoice, "Series" );
+    m_SixSeriesGroup.AddChoice( m_SixSeriesChoice, _("Series") );
 
     m_SixSeriesGroup.AddYGap();
 
-    m_SixSeriesGroup.AddSlider( m_SixChordSlider, "Chord", 10, "%7.3f" );
-    m_SixSeriesGroup.AddSlider( m_SixThickChordSlider, "T/C", 1, "%7.5f" );
+    m_SixSeriesGroup.AddSlider( m_SixChordSlider, _("Chord"), 10, "%7.3f" );
+    m_SixSeriesGroup.AddSlider( m_SixThickChordSlider, _("T/C"), 1, "%7.5f" );
     m_SixSeriesGroup.AddYGap();
-    m_SixSeriesGroup.AddSlider( m_SixIdealClSlider, "Ideal CL", 1, "%7.5f" );
-    m_SixSeriesGroup.AddSlider( m_SixASlider, "A", 1, "%7.5f" );
+    m_SixSeriesGroup.AddSlider( m_SixIdealClSlider, _("Ideal CL"), 1, "%7.5f" );
+    m_SixSeriesGroup.AddSlider( m_SixASlider, _("A"), 1, "%7.5f" );
     m_SixSeriesGroup.AddYGap();
-    m_SixSeriesGroup.AddButton( m_SixInvertButton, "Invert Airfoil" );
+    m_SixSeriesGroup.AddButton( m_SixInvertButton, _("Invert Airfoil") );
     m_SixSeriesGroup.AddYGap();
     m_SixSeriesGroup.SetSameLineFlag( true );
     m_SixSeriesGroup.SetFitWidthFlag( false );
     m_SixSeriesGroup.SetButtonWidth( 125 );
-    m_SixSeriesGroup.AddButton( m_SixFitCSTButton, "Fit CST" );
+    m_SixSeriesGroup.AddButton( m_SixFitCSTButton, _("Fit CST") );
     m_SixSeriesGroup.InitWidthHeightVals();
     m_SixSeriesGroup.SetFitWidthFlag( true );
-    m_SixSeriesGroup.AddCounter( m_SixDegreeCounter, "Degree", 125 );
+    m_SixSeriesGroup.AddCounter( m_SixDegreeCounter, _("Degree"), 125 );
 
     //==== Biconvex AF ====//
     m_XSecLayout.AddSubGroupLayout( m_BiconvexGroup, m_XSecLayout.GetW(), m_XSecLayout.GetRemainY() );
-    m_BiconvexGroup.AddSlider( m_BiconvexChordSlider, "Chord", 10, "%7.3f" );
-    m_BiconvexGroup.AddSlider( m_BiconvexThickChordSlider, "T/C", 1, "%7.5f" );
+    m_BiconvexGroup.AddSlider( m_BiconvexChordSlider, _("Chord"), 10, "%7.3f" );
+    m_BiconvexGroup.AddSlider( m_BiconvexThickChordSlider, _("T/C"), 1, "%7.5f" );
 
     //==== Wedge AF ====//
     m_XSecLayout.AddSubGroupLayout( m_WedgeGroup, m_XSecLayout.GetW(), m_XSecLayout.GetRemainY() );
-    m_WedgeGroup.AddSlider( m_WedgeChordSlider, "Chord", 10, "%7.3f" );
-    m_WedgeGroup.AddSlider( m_WedgeThickChordSlider, "T/C", 1, "%7.5f" );
+    m_WedgeGroup.AddSlider( m_WedgeChordSlider, _("Chord"), 10, "%7.3f" );
+    m_WedgeGroup.AddSlider( m_WedgeThickChordSlider, _("T/C"), 1, "%7.5f" );
     m_WedgeGroup.AddYGap();
-    m_WedgeGroup.AddSlider( m_WedgeThickLocSlider, "Thick X", 1, "%7.5f" );
-    m_WedgeGroup.AddSlider( m_WedgeFlatUpSlider, "Flat Up", 1, "%7.5f" );
+    m_WedgeGroup.AddSlider( m_WedgeThickLocSlider, _("Thick X"), 1, "%7.5f" );
+    m_WedgeGroup.AddSlider( m_WedgeFlatUpSlider, _("Flat Up"), 1, "%7.5f" );
     m_WedgeGroup.AddYGap();
-    m_WedgeGroup.AddButton( m_WedgeSymmThickButton, "Symm Thickness" );
-    m_WedgeGroup.AddSlider( m_WedgeThickLocLowSlider, "Thick X Low", 1, "%7.5f" );
-    m_WedgeGroup.AddSlider( m_WedgeFlatLowSlider, "Flat Low", 1, "%7.5f" );
+    m_WedgeGroup.AddButton( m_WedgeSymmThickButton, _("Symm Thickness") );
+    m_WedgeGroup.AddSlider( m_WedgeThickLocLowSlider, _("Thick X Low"), 1, "%7.5f" );
+    m_WedgeGroup.AddSlider( m_WedgeFlatLowSlider, _("Flat Low"), 1, "%7.5f" );
     m_WedgeGroup.AddYGap();
-    m_WedgeGroup.AddSlider( m_WedgeZCamberSlider, "Camber", 1, "%7.5f" );
+    m_WedgeGroup.AddSlider( m_WedgeZCamberSlider, _("Camber"), 1, "%7.5f" );
     m_WedgeGroup.AddYGap();
-    m_WedgeGroup.AddSlider( m_WedgeUForeUpSlider, "U Fwd Up", 1, "%7.5f" );
-    m_WedgeGroup.AddSlider( m_WedgeUForeLowSlider, "U Fwd Low", 1, "%7.5f" );
-    m_WedgeGroup.AddSlider( m_WedgeDuUpSlider, "dU Flat Up", 1, "%7.5f" );
-    m_WedgeGroup.AddSlider( m_WedgeDuLowSlider, "dU Flat Low", 1, "%7.5f" );
+    m_WedgeGroup.AddSlider( m_WedgeUForeUpSlider, _("U Fwd Up"), 1, "%7.5f" );
+    m_WedgeGroup.AddSlider( m_WedgeUForeLowSlider, _("U Fwd Low"), 1, "%7.5f" );
+    m_WedgeGroup.AddSlider( m_WedgeDuUpSlider, _("dU Flat Up"), 1, "%7.5f" );
+    m_WedgeGroup.AddSlider( m_WedgeDuLowSlider, _("dU Flat Low"), 1, "%7.5f" );
     m_WedgeGroup.AddYGap();
-    m_WedgeGroup.AddButton( m_WedgeInvertButton, "Invert Airfoil" );
+    m_WedgeGroup.AddButton( m_WedgeInvertButton, _("Invert Airfoil") );
 
     //==== Fuse File ====//
     m_XSecLayout.AddSubGroupLayout( m_FuseFileGroup, m_XSecLayout.GetW(), m_XSecLayout.GetRemainY() );
-    m_FuseFileGroup.AddButton( m_ReadFuseFileButton, "Read File" );
+    m_FuseFileGroup.AddButton( m_ReadFuseFileButton, _("Read File") );
     m_FuseFileGroup.AddYGap();
 
     if (m_XSecDriversActive)
@@ -1626,51 +1626,51 @@ void XSecScreen::AddXSecLayout(bool include_point_type)
     }
     else
     {
-        m_FuseFileGroup.AddSlider( m_FileHeightSlider, "Height", 10, "%7.3f" );
-        m_FuseFileGroup.AddSlider( m_FileWidthSlider, "Width", 10, "%7.3f" );
+        m_FuseFileGroup.AddSlider( m_FileHeightSlider, _("Height"), 10, "%7.3f" );
+        m_FuseFileGroup.AddSlider( m_FileWidthSlider, _("Width"), 10, "%7.3f" );
     }
 
     //==== Airfoil File ====//
     m_XSecLayout.AddSubGroupLayout( m_AfFileGroup, m_XSecLayout.GetW(), m_XSecLayout.GetRemainY() );
-    m_AfFileGroup.AddButton( m_AfReadFileButton, "Read File" );
+    m_AfFileGroup.AddButton( m_AfReadFileButton, _("Read File") );
     m_AfFileGroup.AddYGap();
-    m_AfFileGroup.AddOutput( m_AfFileNameOutput, "Name" );
+    m_AfFileGroup.AddOutput( m_AfFileNameOutput, _("Name") );
     m_AfFileGroup.AddYGap();
-    m_AfFileGroup.AddSlider( m_AfFileChordSlider, "Chord", 10, "%7.3f" );
-    m_AfFileGroup.AddSlider( m_AfFileThickChordSlider, "T/C", 1, "%7.5f" );
-    m_AfFileGroup.AddOutput( m_AfFileBaseThickChordOutput, "Base T/C", "%7.5f" );
+    m_AfFileGroup.AddSlider( m_AfFileChordSlider, _("Chord"), 10, "%7.3f" );
+    m_AfFileGroup.AddSlider( m_AfFileThickChordSlider, _("T/C"), 1, "%7.5f" );
+    m_AfFileGroup.AddOutput( m_AfFileBaseThickChordOutput, _("Base T/C"), "%7.5f" );
     m_AfFileGroup.AddYGap();
-    m_AfFileGroup.AddButton( m_AfFileInvertButton, "Invert Airfoil" );
+    m_AfFileGroup.AddButton( m_AfFileInvertButton, _("Invert Airfoil") );
     m_AfFileGroup.AddYGap();
     m_AfFileGroup.SetSameLineFlag( true );
     m_AfFileGroup.SetFitWidthFlag( false );
     m_AfFileGroup.SetButtonWidth( 125 );
-    m_AfFileGroup.AddButton( m_AfFileFitCSTButton, "Fit CST" );
+    m_AfFileGroup.AddButton( m_AfFileFitCSTButton, _("Fit CST") );
     m_AfFileGroup.InitWidthHeightVals();
     m_AfFileGroup.SetFitWidthFlag( true );
-    m_AfFileGroup.AddCounter( m_AfFileDegreeCounter, "Degree", 125 );
+    m_AfFileGroup.AddCounter( m_AfFileDegreeCounter, _("Degree"), 125 );
 
     //==== CST Airfoil ====//
     m_XSecLayout.AddSubGroupLayout( m_CSTAirfoilGroup, m_XSecLayout.GetW(), m_XSecLayout.GetRemainY() );
 
-    m_CSTAirfoilGroup.AddOutput( m_CSTThickChordOutput, "T/C", "%7.5f" );
+    m_CSTAirfoilGroup.AddOutput( m_CSTThickChordOutput, _("T/C"), "%7.5f" );
 
-    m_CSTAirfoilGroup.AddButton( m_CSTContLERadButton, "Enforce Continuous LE Radius" );
-    m_CSTAirfoilGroup.AddButton( m_CSTInvertButton, "Invert Airfoil" );
-
-    m_CSTAirfoilGroup.AddYGap();
-    m_CSTAirfoilGroup.AddSlider( m_CSTChordSlider, "Chord", 10, "%7.3f" ); // TODO: Check why Prop and Wing do not have CST chord
+    m_CSTAirfoilGroup.AddButton( m_CSTContLERadButton, _("Enforce Continuous LE Radius") );
+    m_CSTAirfoilGroup.AddButton( m_CSTInvertButton, _("Invert Airfoil") );
 
     m_CSTAirfoilGroup.AddYGap();
-    m_CSTAirfoilGroup.AddDividerBox( "Upper Surface" );
+    m_CSTAirfoilGroup.AddSlider( m_CSTChordSlider, _("Chord"), 10, "%7.3f" ); // TODO: Check why Prop and Wing do not have CST chord
+
+    m_CSTAirfoilGroup.AddYGap();
+    m_CSTAirfoilGroup.AddDividerBox( _("Upper Surface") );
 
     m_CSTAirfoilGroup.SetSameLineFlag( true );
     m_CSTAirfoilGroup.SetFitWidthFlag( true );
 
-    m_CSTAirfoilGroup.AddOutput( m_UpDegreeOutput, "Degree", m_CSTAirfoilGroup.GetButtonWidth() * 2 );
+    m_CSTAirfoilGroup.AddOutput( m_UpDegreeOutput, _("Degree"), m_CSTAirfoilGroup.GetButtonWidth() * 2 );
     m_CSTAirfoilGroup.SetFitWidthFlag( false );
-    m_CSTAirfoilGroup.AddButton( m_UpDemoteButton, "Demote" );
-    m_CSTAirfoilGroup.AddButton( m_UpPromoteButton, "Promote" );
+    m_CSTAirfoilGroup.AddButton( m_UpDemoteButton, _("Demote") );
+    m_CSTAirfoilGroup.AddButton( m_UpPromoteButton, _("Promote") );
 
     m_CSTAirfoilGroup.ForceNewLine();
 
@@ -1685,15 +1685,15 @@ void XSecScreen::AddXSecLayout(bool include_point_type)
 
     m_CSTAirfoilGroup.AddYGap();
 
-    m_CSTAirfoilGroup.AddDividerBox( "Lower Surface" );
+    m_CSTAirfoilGroup.AddDividerBox( _("Lower Surface") );
 
     m_CSTAirfoilGroup.SetSameLineFlag( true );
     m_CSTAirfoilGroup.SetFitWidthFlag( true );
 
-    m_CSTAirfoilGroup.AddOutput( m_LowDegreeOutput, "Degree", m_CSTAirfoilGroup.GetButtonWidth() * 2 );
+    m_CSTAirfoilGroup.AddOutput( m_LowDegreeOutput, _("Degree"), m_CSTAirfoilGroup.GetButtonWidth() * 2 );
     m_CSTAirfoilGroup.SetFitWidthFlag( false );
-    m_CSTAirfoilGroup.AddButton( m_LowDemoteButton, "Demote" );
-    m_CSTAirfoilGroup.AddButton( m_LowPromoteButton, "Promote" );
+    m_CSTAirfoilGroup.AddButton( m_LowDemoteButton, _("Demote") );
+    m_CSTAirfoilGroup.AddButton( m_LowPromoteButton, _("Promote") );
 
     m_CSTAirfoilGroup.ForceNewLine();
 
@@ -1707,29 +1707,29 @@ void XSecScreen::AddXSecLayout(bool include_point_type)
 
     //==== VKT AF ====//
     m_XSecLayout.AddSubGroupLayout( m_VKTGroup, m_XSecLayout.GetW(), m_XSecLayout.GetRemainY() );
-    m_VKTGroup.AddSlider( m_VKTChordSlider, "Chord", 10, "%7.3f" );
+    m_VKTGroup.AddSlider( m_VKTChordSlider, _("Chord"), 10, "%7.3f" );
     m_VKTGroup.AddYGap();
-    m_VKTGroup.AddSlider( m_VKTEpsilonSlider, "Epsilon", 1, "%7.5f" );
-    m_VKTGroup.AddSlider( m_VKTKappaSlider, "Kappa", 1, "%7.5f" );
-    m_VKTGroup.AddSlider( m_VKTTauSlider, "Tau", 10, "%7.5f" );
-    m_VKTGroup.AddOutput( m_VKTThickChordOutput, "T/C", "%7.5f" );
+    m_VKTGroup.AddSlider( m_VKTEpsilonSlider, _("Epsilon"), 1, "%7.5f" );
+    m_VKTGroup.AddSlider( m_VKTKappaSlider, _("Kappa"), 1, "%7.5f" );
+    m_VKTGroup.AddSlider( m_VKTTauSlider, _("Tau"), 10, "%7.5f" );
+    m_VKTGroup.AddOutput( m_VKTThickChordOutput, _("T/C"), "%7.5f" );
     m_VKTGroup.AddYGap();
-    m_VKTGroup.AddButton( m_VKTInvertButton, "Invert Airfoil" );
+    m_VKTGroup.AddButton( m_VKTInvertButton, _("Invert Airfoil") );
     m_VKTGroup.AddYGap();
     m_VKTGroup.SetSameLineFlag( true );
     m_VKTGroup.SetFitWidthFlag( false );
     m_VKTGroup.SetButtonWidth( 125 );
-    m_VKTGroup.AddButton( m_VKTFitCSTButton, "Fit CST" );
+    m_VKTGroup.AddButton( m_VKTFitCSTButton, _("Fit CST") );
     m_VKTGroup.InitWidthHeightVals();
     m_VKTGroup.SetFitWidthFlag( true );
-    m_VKTGroup.AddCounter( m_VKTDegreeCounter, "Degree", 125 );
+    m_VKTGroup.AddCounter( m_VKTDegreeCounter, _("Degree"), 125 );
 
     //==== Four Series AF ====//
     m_XSecLayout.AddSubGroupLayout( m_FourDigitModGroup, m_XSecLayout.GetW(), m_XSecLayout.GetRemainY() );
-    m_FourDigitModGroup.AddOutput( m_FourModNameOutput, "Name" );
+    m_FourDigitModGroup.AddOutput( m_FourModNameOutput, _("Name") );
     m_FourDigitModGroup.AddYGap();
-    m_FourDigitModGroup.AddSlider( m_FourModChordSlider, "Chord", 10, "%7.3f" );
-    m_FourDigitModGroup.AddSlider( m_FourModThickChordSlider, "T/C", 1, "%7.5f" );
+    m_FourDigitModGroup.AddSlider( m_FourModChordSlider, _("Chord"), 10, "%7.3f" );
+    m_FourDigitModGroup.AddSlider( m_FourModThickChordSlider, _("T/C"), 1, "%7.5f" );
     m_FourDigitModGroup.AddYGap();
 
     m_FourDigitModGroup.SetSameLineFlag( true );
@@ -1739,7 +1739,7 @@ void XSecScreen::AddXSecLayout(bool include_point_type)
     m_FourDigitModGroup.AddButton( m_FourModCamberButton, "" );
     m_FourDigitModGroup.SetButtonWidth( actionSliderButtonWidth );
     m_FourDigitModGroup.SetFitWidthFlag( true );
-    m_FourDigitModGroup.AddSlider( m_FourModCamberSlider, "Camber", 0.2, "%7.5f" );
+    m_FourDigitModGroup.AddSlider( m_FourModCamberSlider, _("Camber"), 0.2, "%7.5f" );
 
     m_FourDigitModGroup.ForceNewLine();
 
@@ -1748,7 +1748,7 @@ void XSecScreen::AddXSecLayout(bool include_point_type)
     m_FourDigitModGroup.AddButton( m_FourModCLiButton, "" );
     m_FourDigitModGroup.SetButtonWidth( actionSliderButtonWidth );
     m_FourDigitModGroup.SetFitWidthFlag( true );
-    m_FourDigitModGroup.AddSlider( m_FourModCLiSlider, "Ideal CL", 1, "%7.5f" );
+    m_FourDigitModGroup.AddSlider( m_FourModCLiSlider, _("Ideal CL"), 1, "%7.5f" );
 
     m_FourDigitModGroup.ForceNewLine();
 
@@ -1761,90 +1761,90 @@ void XSecScreen::AddXSecLayout(bool include_point_type)
 
     m_FourModCamberGroup.SetValMapVec( camb_val_map );
 
-    m_FourDigitModGroup.AddSlider( m_FourModCamberLocSlider, "CamberLoc", 1, "%7.5f" );
+    m_FourDigitModGroup.AddSlider( m_FourModCamberLocSlider, _("CamberLoc"), 1, "%7.5f" );
     m_FourDigitModGroup.AddYGap();
-    m_FourDigitModGroup.AddSlider( m_FourModThicknessLocSlider, "T/CLoc", 0.5, "%7.5f" );
-    m_FourDigitModGroup.AddSlider( m_FourModLERadIndexSlider, "LERadIndx", 5, "%7.5f" );
+    m_FourDigitModGroup.AddSlider( m_FourModThicknessLocSlider, _("T/CLoc"), 0.5, "%7.5f" );
+    m_FourDigitModGroup.AddSlider( m_FourModLERadIndexSlider, _("LERadIndx"), 5, "%7.5f" );
     m_FourDigitModGroup.AddYGap();
-    m_FourDigitModGroup.AddButton( m_FourModInvertButton, "Invert Airfoil" );
+    m_FourDigitModGroup.AddButton( m_FourModInvertButton, _("Invert Airfoil") );
     m_FourDigitModGroup.AddYGap();
-    m_FourDigitModGroup.AddButton( m_FourModSharpTEButton, "Sharpen TE" );
+    m_FourDigitModGroup.AddButton( m_FourModSharpTEButton, _("Sharpen TE") );
     m_FourDigitModGroup.AddYGap();
     m_FourDigitModGroup.SetSameLineFlag( true );
     m_FourDigitModGroup.SetFitWidthFlag( false );
     m_FourDigitModGroup.SetButtonWidth( 125 );
-    m_FourDigitModGroup.AddButton( m_FourModFitCSTButton, "Fit CST" );
+    m_FourDigitModGroup.AddButton( m_FourModFitCSTButton, _("Fit CST") );
     m_FourDigitModGroup.InitWidthHeightVals();
     m_FourDigitModGroup.SetFitWidthFlag( true );
-    m_FourDigitModGroup.AddCounter( m_FourModDegreeCounter, "Degree", 125 );
+    m_FourDigitModGroup.AddCounter( m_FourModDegreeCounter, _("Degree"), 125 );
 
     //==== Five Digit AF ====//
     m_XSecLayout.AddSubGroupLayout( m_FiveDigitGroup, m_XSecLayout.GetW(), m_XSecLayout.GetRemainY() );
-    m_FiveDigitGroup.AddOutput( m_FiveNameOutput, "Name" );
+    m_FiveDigitGroup.AddOutput( m_FiveNameOutput, _("Name") );
     m_FiveDigitGroup.AddYGap();
-    m_FiveDigitGroup.AddSlider( m_FiveChordSlider, "Chord", 10, "%7.3f" );
-    m_FiveDigitGroup.AddSlider( m_FiveThickChordSlider, "T/C", 1, "%7.5f" );
+    m_FiveDigitGroup.AddSlider( m_FiveChordSlider, _("Chord"), 10, "%7.3f" );
+    m_FiveDigitGroup.AddSlider( m_FiveThickChordSlider, _("T/C"), 1, "%7.5f" );
     m_FiveDigitGroup.AddYGap();
-    m_FiveDigitGroup.AddSlider( m_FiveCLiSlider, "Ideal CL", 1, "%7.5f" );
-    m_FiveDigitGroup.AddSlider( m_FiveCamberLocSlider, "CamberLoc", 1, "%7.5f" );
+    m_FiveDigitGroup.AddSlider( m_FiveCLiSlider, _("Ideal CL"), 1, "%7.5f" );
+    m_FiveDigitGroup.AddSlider( m_FiveCamberLocSlider, _("CamberLoc"), 1, "%7.5f" );
     m_FiveDigitGroup.AddYGap();
-    m_FiveDigitGroup.AddButton( m_FiveInvertButton, "Invert Airfoil" );
+    m_FiveDigitGroup.AddButton( m_FiveInvertButton, _("Invert Airfoil") );
     m_FiveDigitGroup.AddYGap();
-    m_FiveDigitGroup.AddButton( m_FiveSharpTEButton, "Sharpen TE" );
+    m_FiveDigitGroup.AddButton( m_FiveSharpTEButton, _("Sharpen TE") );
     m_FiveDigitGroup.AddYGap();
     m_FiveDigitGroup.SetSameLineFlag( true );
     m_FiveDigitGroup.SetFitWidthFlag( false );
     m_FiveDigitGroup.SetButtonWidth( 125 );
-    m_FiveDigitGroup.AddButton( m_FiveFitCSTButton, "Fit CST" );
+    m_FiveDigitGroup.AddButton( m_FiveFitCSTButton, _("Fit CST") );
     m_FiveDigitGroup.InitWidthHeightVals();
     m_FiveDigitGroup.SetFitWidthFlag( true );
-    m_FiveDigitGroup.AddCounter( m_FiveDegreeCounter, "Degree", 125 );
+    m_FiveDigitGroup.AddCounter( m_FiveDegreeCounter, _("Degree"), 125 );
 
     //==== Five Digit Mod AF ====//
     m_XSecLayout.AddSubGroupLayout( m_FiveDigitModGroup, m_XSecLayout.GetW(), m_XSecLayout.GetRemainY() );
-    m_FiveDigitModGroup.AddOutput( m_FiveModNameOutput, "Name" );
+    m_FiveDigitModGroup.AddOutput( m_FiveModNameOutput, _("Name") );
     m_FiveDigitModGroup.AddYGap();
-    m_FiveDigitModGroup.AddSlider( m_FiveModChordSlider, "Chord", 10, "%7.3f" );
-    m_FiveDigitModGroup.AddSlider( m_FiveModThickChordSlider, "T/C", 1, "%7.5f" );
+    m_FiveDigitModGroup.AddSlider( m_FiveModChordSlider, _("Chord"), 10, "%7.3f" );
+    m_FiveDigitModGroup.AddSlider( m_FiveModThickChordSlider, _("T/C"), 1, "%7.5f" );
     m_FiveDigitModGroup.AddYGap();
-    m_FiveDigitModGroup.AddSlider( m_FiveModCLiSlider, "Ideal CL", 1, "%7.5f" );
-    m_FiveDigitModGroup.AddSlider( m_FiveModCamberLocSlider, "CamberLoc", 1, "%7.5f" );
+    m_FiveDigitModGroup.AddSlider( m_FiveModCLiSlider, _("Ideal CL"), 1, "%7.5f" );
+    m_FiveDigitModGroup.AddSlider( m_FiveModCamberLocSlider, _("CamberLoc"), 1, "%7.5f" );
     m_FiveDigitModGroup.AddYGap();
-    m_FiveDigitModGroup.AddSlider( m_FiveModThicknessLocSlider, "T/CLoc", 0.5, "%7.5f" );
-    m_FiveDigitModGroup.AddSlider( m_FiveModLERadIndexSlider, "LERadIndx", 5, "%7.5f" );
+    m_FiveDigitModGroup.AddSlider( m_FiveModThicknessLocSlider, _("T/CLoc"), 0.5, "%7.5f" );
+    m_FiveDigitModGroup.AddSlider( m_FiveModLERadIndexSlider, _("LERadIndx"), 5, "%7.5f" );
     m_FiveDigitModGroup.AddYGap();
-    m_FiveDigitModGroup.AddButton( m_FiveModInvertButton, "Invert Airfoil" );
+    m_FiveDigitModGroup.AddButton( m_FiveModInvertButton, _("Invert Airfoil") );
     m_FiveDigitModGroup.AddYGap();
-    m_FiveDigitModGroup.AddButton( m_FiveModSharpTEButton, "Sharpen TE" );
+    m_FiveDigitModGroup.AddButton( m_FiveModSharpTEButton, _("Sharpen TE") );
     m_FiveDigitModGroup.AddYGap();
     m_FiveDigitModGroup.SetSameLineFlag( true );
     m_FiveDigitModGroup.SetFitWidthFlag( false );
     m_FiveDigitModGroup.SetButtonWidth( 125 );
-    m_FiveDigitModGroup.AddButton( m_FiveModFitCSTButton, "Fit CST" );
+    m_FiveDigitModGroup.AddButton( m_FiveModFitCSTButton, _("Fit CST") );
     m_FiveDigitModGroup.InitWidthHeightVals();
     m_FiveDigitModGroup.SetFitWidthFlag( true );
-    m_FiveDigitModGroup.AddCounter( m_FiveModDegreeCounter, "Degree", 125 );
+    m_FiveDigitModGroup.AddCounter( m_FiveModDegreeCounter, _("Degree"), 125 );
 
     //==== 16 Series AF ====//
     m_XSecLayout.AddSubGroupLayout( m_OneSixSeriesGroup, m_XSecLayout.GetW(), m_XSecLayout.GetRemainY() );
-    m_OneSixSeriesGroup.AddOutput( m_OneSixSeriesNameOutput, "Name" );
+    m_OneSixSeriesGroup.AddOutput( m_OneSixSeriesNameOutput, _("Name") );
     m_OneSixSeriesGroup.AddYGap();
-    m_OneSixSeriesGroup.AddSlider( m_OneSixSeriesChordSlider, "Chord", 10, "%7.3f" );
-    m_OneSixSeriesGroup.AddSlider( m_OneSixSeriesThickChordSlider, "T/C", 1, "%7.5f" );
+    m_OneSixSeriesGroup.AddSlider( m_OneSixSeriesChordSlider, _("Chord"), 10, "%7.3f" );
+    m_OneSixSeriesGroup.AddSlider( m_OneSixSeriesThickChordSlider, _("T/C"), 1, "%7.5f" );
     m_OneSixSeriesGroup.AddYGap();
-    m_OneSixSeriesGroup.AddSlider( m_OneSixSeriesCLiSlider, "Ideal CL", 1, "%7.5f" );
+    m_OneSixSeriesGroup.AddSlider( m_OneSixSeriesCLiSlider, _("Ideal CL"), 1, "%7.5f" );
     m_OneSixSeriesGroup.AddYGap();
-    m_OneSixSeriesGroup.AddButton( m_OneSixSeriesInvertButton, "Invert Airfoil" );
+    m_OneSixSeriesGroup.AddButton( m_OneSixSeriesInvertButton, _("Invert Airfoil") );
     m_OneSixSeriesGroup.AddYGap();
-    m_OneSixSeriesGroup.AddButton( m_OneSixSeriesSharpTEButton, "Sharpen TE" );
+    m_OneSixSeriesGroup.AddButton( m_OneSixSeriesSharpTEButton, _("Sharpen TE") );
     m_OneSixSeriesGroup.AddYGap();
     m_OneSixSeriesGroup.SetSameLineFlag( true );
     m_OneSixSeriesGroup.SetFitWidthFlag( false );
     m_OneSixSeriesGroup.SetButtonWidth( 125 );
-    m_OneSixSeriesGroup.AddButton( m_OneSixSeriesFitCSTButton, "Fit CST" );
+    m_OneSixSeriesGroup.AddButton( m_OneSixSeriesFitCSTButton, _("Fit CST") );
     m_OneSixSeriesGroup.InitWidthHeightVals();
     m_OneSixSeriesGroup.SetFitWidthFlag( true );
-    m_OneSixSeriesGroup.AddCounter( m_OneSixSeriesDegreeCounter, "Degree", 125 );
+    m_OneSixSeriesGroup.AddCounter( m_OneSixSeriesDegreeCounter, _("Degree"), 125 );
 
     DisplayGroup( &m_PointGroup );
 }
@@ -2428,7 +2428,7 @@ void XSecScreen::GuiDeviceCallBack( GuiDevice* gui_device )
                 {
                     FileXSec* file_xs = dynamic_cast<FileXSec*>(xsc);
                     assert( file_xs );
-                    string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Fuselage Cross Section", "*.fxs" );
+                    string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Fuselage Cross Section"), "*.fxs" );
 
                     file_xs->ReadXsecFile( newfile );
                     file_xs->Update();
@@ -2451,7 +2451,7 @@ void XSecScreen::GuiDeviceCallBack( GuiDevice* gui_device )
                 {
                     FileAirfoil* affile_xs = dynamic_cast<FileAirfoil*>(xsc);
                     assert( affile_xs );
-                    string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Airfoil File", "*.{af,dat}", false );
+                    string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Airfoil File"), "*.{af,dat}", false );
 
                     affile_xs->ReadFile( newfile );
                     affile_xs->Update();
@@ -2628,7 +2628,7 @@ void XSecScreen::RebuildCSTGroup( CSTAirfoil* cst_xs )
 
     for (int i = 0; i < num_up; i++)
     {
-        m_CSTUpCoeffLayout.AddSlider( m_UpCoeffSliderVec[i], "AUTO_UPDATE", 2, "%9.5f" );
+        m_CSTUpCoeffLayout.AddSlider( m_UpCoeffSliderVec[i], _("AUTO_UPDATE"), 2, "%9.5f" );
     }
 
 
@@ -2647,7 +2647,7 @@ void XSecScreen::RebuildCSTGroup( CSTAirfoil* cst_xs )
 
     for (int i = 0; i < num_low; i++)
     {
-        m_CSTLowCoeffLayout.AddSlider( m_LowCoeffSliderVec[i], "AUTO_UPDATE", 2, "%9.5f" );
+        m_CSTLowCoeffLayout.AddSlider( m_LowCoeffSliderVec[i], _("AUTO_UPDATE"), 2, "%9.5f" );
     }
 }
 
@@ -2665,12 +2665,12 @@ SkinScreen::SkinScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
     const double strengthRng = 5;
     const double curveRng = 5;
 
-    Fl_Group* skin_tab = AddTab( "Skinning" );
+    Fl_Group* skin_tab = AddTab( _("Skinning") );
     Fl_Group* skin_group = AddSubGroup( skin_tab, 5 );
 
     m_SkinLayout.SetGroupAndScreen( skin_group, this );
 
-    m_SkinLayout.AddDividerBox( "Skin Cross Section" );
+    m_SkinLayout.AddDividerBox( _("Skin Cross Section") );
 
     m_SkinLayout.AddIndexSelector( m_SkinIndexSelector );
 
@@ -2685,9 +2685,9 @@ SkinScreen::SkinScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
     m_SkinLayout.AddYGap();
 
     m_SkinLayout.SetSameLineFlag( true );
-    m_SkinLayout.AddDividerBox( "Top Side", m_SkinLayout.GetButtonWidth() );
+    m_SkinLayout.AddDividerBox( _("Top Side"), m_SkinLayout.GetButtonWidth() );
     m_SkinLayout.SetFitWidthFlag( false );
-    m_SkinLayout.AddButton( m_AllSymButton, "All Sym" );
+    m_SkinLayout.AddButton( m_AllSymButton, _("All Sym") );
     m_SkinLayout.ForceNewLine();
     m_SkinLayout.SetFitWidthFlag( true );
     m_SkinLayout.SetSameLineFlag( false );
@@ -2697,49 +2697,49 @@ SkinScreen::SkinScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
     m_SkinLayout.SetSliderWidth( 50 );
     m_SkinLayout.AddSkinHeader( m_TopHeader );
 
-    m_SkinLayout.AddSkinControl( m_TopAngleSkinControl, "Angle", angleRng, angleFmt);
-    m_SkinLayout.AddSkinControl( m_TopSlewSkinControl, "Slew", angleRng, angleFmt);
-    m_SkinLayout.AddSkinControl( m_TopStrengthSkinControl, "Strength", strengthRng, strengthFmt);
-    m_SkinLayout.AddSkinControl( m_TopCurvatureSkinControl, "Curvature", curveRng, curveFmt);
+    m_SkinLayout.AddSkinControl( m_TopAngleSkinControl, _("Angle"), angleRng, angleFmt);
+    m_SkinLayout.AddSkinControl( m_TopSlewSkinControl, _("Slew"), angleRng, angleFmt);
+    m_SkinLayout.AddSkinControl( m_TopStrengthSkinControl, _("Strength"), strengthRng, strengthFmt);
+    m_SkinLayout.AddSkinControl( m_TopCurvatureSkinControl, _("Curvature"), curveRng, curveFmt);
 
     m_SkinLayout.AddYGap();
     m_SkinLayout.AddDividerBox( "Right Side" );
 
     m_SkinLayout.AddSkinHeader( m_RightHeader );
-    m_SkinLayout.AddSkinControl( m_RightAngleSkinControl, "Angle", angleRng, angleFmt);
-    m_SkinLayout.AddSkinControl( m_RightSlewSkinControl, "Slew", angleRng, angleFmt);
-    m_SkinLayout.AddSkinControl( m_RightStrengthSkinControl, "Strength", strengthRng, strengthFmt);
-    m_SkinLayout.AddSkinControl( m_RightCurvatureSkinControl, "Curvature", curveRng, curveFmt);
+    m_SkinLayout.AddSkinControl( m_RightAngleSkinControl, _("Angle"), angleRng, angleFmt);
+    m_SkinLayout.AddSkinControl( m_RightSlewSkinControl, _("Slew"), angleRng, angleFmt);
+    m_SkinLayout.AddSkinControl( m_RightStrengthSkinControl, _("Strength"), strengthRng, strengthFmt);
+    m_SkinLayout.AddSkinControl( m_RightCurvatureSkinControl, _("Curvature"), curveRng, curveFmt);
 
     m_SkinLayout.AddYGap();
     m_SkinLayout.SetSameLineFlag( true );
     m_SkinLayout.AddDividerBox( "Bottom Side", m_SkinLayout.GetButtonWidth() );
     m_SkinLayout.SetFitWidthFlag( false );
-    m_SkinLayout.AddButton( m_TBSymButton, "T/B Sym" );
+    m_SkinLayout.AddButton( m_TBSymButton, _("T/B Sym") );
     m_SkinLayout.ForceNewLine();
     m_SkinLayout.SetFitWidthFlag( true );
     m_SkinLayout.SetSameLineFlag( false );
 
     m_SkinLayout.AddSkinHeader( m_BottomHeader );
-    m_SkinLayout.AddSkinControl( m_BottomAngleSkinControl, "Angle", angleRng, angleFmt);
-    m_SkinLayout.AddSkinControl( m_BottomSlewSkinControl, "Slew", angleRng, angleFmt);
-    m_SkinLayout.AddSkinControl( m_BottomStrengthSkinControl, "Strength", strengthRng, strengthFmt);
-    m_SkinLayout.AddSkinControl( m_BottomCurvatureSkinControl, "Curvature", curveRng, curveFmt);
+    m_SkinLayout.AddSkinControl( m_BottomAngleSkinControl, _("Angle"), angleRng, angleFmt);
+    m_SkinLayout.AddSkinControl( m_BottomSlewSkinControl, _("Slew"), angleRng, angleFmt);
+    m_SkinLayout.AddSkinControl( m_BottomStrengthSkinControl, _("Strength"), strengthRng, strengthFmt);
+    m_SkinLayout.AddSkinControl( m_BottomCurvatureSkinControl, _("Curvature"), curveRng, curveFmt);
 
     m_SkinLayout.AddYGap();
     m_SkinLayout.SetSameLineFlag( true );
-    m_SkinLayout.AddDividerBox( "Left Side", m_SkinLayout.GetButtonWidth() );
+    m_SkinLayout.AddDividerBox( _("Left Side"), m_SkinLayout.GetButtonWidth() );
     m_SkinLayout.SetFitWidthFlag( false );
-    m_SkinLayout.AddButton( m_RLSymButton, "R/L Sym" );
+    m_SkinLayout.AddButton( m_RLSymButton, _("R/L Sym") );
     m_SkinLayout.ForceNewLine();
     m_SkinLayout.SetFitWidthFlag( true );
     m_SkinLayout.SetSameLineFlag( false );
 
     m_SkinLayout.AddSkinHeader( m_LeftHeader );
-    m_SkinLayout.AddSkinControl( m_LeftAngleSkinControl, "Angle", angleRng, angleFmt);
-    m_SkinLayout.AddSkinControl( m_LeftSlewSkinControl, "Slew", angleRng, angleFmt);
-    m_SkinLayout.AddSkinControl( m_LeftStrengthSkinControl, "Strength", strengthRng, strengthFmt);
-    m_SkinLayout.AddSkinControl( m_LeftCurvatureSkinControl, "Curvature", curveRng, curveFmt);
+    m_SkinLayout.AddSkinControl( m_LeftAngleSkinControl, _("Angle"), angleRng, angleFmt);
+    m_SkinLayout.AddSkinControl( m_LeftSlewSkinControl, _("Slew"), angleRng, angleFmt);
+    m_SkinLayout.AddSkinControl( m_LeftStrengthSkinControl, _("Strength"), strengthRng, strengthFmt);
+    m_SkinLayout.AddSkinControl( m_LeftCurvatureSkinControl, _("Curvature"), curveRng, curveFmt);
 
     m_SkinLayout.SetDividerHeight( oldDH );
 }
@@ -3001,13 +3001,13 @@ ChevronScreen::ChevronScreen( ScreenMgr* mgr, int w, int h, const string & title
 
     //==== XSec Modifications ====//
 
-    Fl_Group* modify_tab = AddTab( "Modify" );
+    Fl_Group* modify_tab = AddTab( _("Modify") );
     Fl_Group* modify_group = AddSubGroup( modify_tab, 5 );
 
     m_ModifyLayout.SetButtonWidth( 70 );
 
     m_ModifyLayout.SetGroupAndScreen( modify_group, this );
-    m_ModifyLayout.AddDividerBox( "XSec" );
+    m_ModifyLayout.AddDividerBox( _("XSec") );
 
     m_ModifyLayout.AddIndexSelector( m_XsecModIndexSelector );
 
@@ -3017,34 +3017,34 @@ ChevronScreen::ChevronScreen( ScreenMgr* mgr, int w, int h, const string & title
     m_ModifyLayout.SetChoiceButtonWidth( m_ModifyLayout.GetButtonWidth() );
 
     m_ModifyLayout.AddYGap();
-    m_ModifyLayout.AddDividerBox( "Chevron" );
+    m_ModifyLayout.AddDividerBox( _("Chevron") );
 
-    m_ChevronModeChoice.AddItem( "NONE", vsp::CHEVRON_NONE );
-    m_ChevronModeChoice.AddItem( "PARTIAL", vsp::CHEVRON_PARTIAL );
-    m_ChevronModeChoice.AddItem( "FULL", vsp::CHEVRON_FULL );
-    m_ModifyLayout.AddChoice( m_ChevronModeChoice, "Type:" );
+    m_ChevronModeChoice.AddItem( _("NONE"), vsp::CHEVRON_NONE );
+    m_ChevronModeChoice.AddItem( _("PARTIAL"), vsp::CHEVRON_PARTIAL );
+    m_ChevronModeChoice.AddItem( _("FULL"), vsp::CHEVRON_FULL );
+    m_ModifyLayout.AddChoice( m_ChevronModeChoice, _("Type:") );
 
-    m_ModifyLayout.AddSlider( m_ChevNumberSlider, "Number", 10, " %5.0f" );
+    m_ModifyLayout.AddSlider( m_ChevNumberSlider, _("Number"), 10, " %5.0f" );
 
     m_ModifyLayout.AddYGap();
-    m_ModifyLayout.AddDividerBox( "Corner Rounding Radius" );
+    m_ModifyLayout.AddDividerBox( _("Corner Rounding Radius") );
 
     m_ModifyLayout.SetButtonWidth( m_ModifyLayout.GetButtonWidth() * 0.6 );
 
     m_ModifyLayout.SetSameLineFlag( true );
-    m_ModifyLayout.AddSlider( m_ChevPeakRadSlider, "Peak", 1.0, "%6.5f", m_ModifyLayout.GetW() * 0.5 + 5 );
+    m_ModifyLayout.AddSlider( m_ChevPeakRadSlider, _("Peak"), 1.0, "%6.5f", m_ModifyLayout.GetW() * 0.5 + 5 );
     m_ModifyLayout.AddX( 5 );
-    m_ModifyLayout.AddSlider( m_ChevValleyRadSlider, "Valley", 1.0, "%6.5f" );
+    m_ModifyLayout.AddSlider( m_ChevValleyRadSlider, _("Valley"), 1.0, "%6.5f" );
     m_ModifyLayout.ForceNewLine();
     m_ModifyLayout.SetSameLineFlag( false );
 
     m_ModifyLayout.AddYGap();
-    m_ModifyLayout.AddDividerBox( "Waveform" );
+    m_ModifyLayout.AddDividerBox( _("Waveform") );
 
     m_ModifyLayout.SetSameLineFlag( true );
-    m_ModifyLayout.AddSlider( m_ChevOnDutySlider, "\% On", 1, "%6.5f", m_ModifyLayout.GetW() * 0.5 + 5 );
+    m_ModifyLayout.AddSlider( m_ChevOnDutySlider, _("\% On"), 1, "%6.5f", m_ModifyLayout.GetW() * 0.5 + 5 );
     m_ModifyLayout.AddX( 5 );
-    m_ModifyLayout.AddSlider( m_ChevOffDutySlider, "\% Off", 1, "%6.5f" );
+    m_ModifyLayout.AddSlider( m_ChevOffDutySlider, _("\% Off"), 1, "%6.5f" );
     m_ModifyLayout.ForceNewLine();
     m_ModifyLayout.SetSameLineFlag( false );
 
@@ -3054,9 +3054,9 @@ ChevronScreen::ChevronScreen( ScreenMgr* mgr, int w, int h, const string & title
     m_ModifyLayout.AddYGap();
     m_ModifyLayout.AddDividerBox( "Extents" );
 
-    m_ChevronExtentModeChoice.AddItem( "Start \\/ End", vsp::CHEVRON_W01_SE );
-    m_ChevronExtentModeChoice.AddItem( "Center \\/ Width", vsp::CHEVRON_W01_CW );
-    m_ModifyLayout.AddChoice( m_ChevronExtentModeChoice, "Mode:" );
+    m_ChevronExtentModeChoice.AddItem( _("Start \\/ End"), vsp::CHEVRON_W01_SE );
+    m_ChevronExtentModeChoice.AddItem( _("Center \\/ Width"), vsp::CHEVRON_W01_CW );
+    m_ModifyLayout.AddChoice( m_ChevronExtentModeChoice, _("Mode:") );
 
     m_ModifyLayout.SetChoiceButtonWidth( 0 );
     m_ModifyLayout.SetSameLineFlag( true );
@@ -3064,42 +3064,42 @@ ChevronScreen::ChevronScreen( ScreenMgr* mgr, int w, int h, const string & title
     int sliderw = m_ModifyLayout.GetSliderWidth();
     m_ModifyLayout.SetSliderWidth( 75 );
 
-    m_ModifyLayout.AddSlider( m_ChevW01StartSlider, "W Start", 1, "%6.5f", m_ModifyLayout.GetSliderWidth() );
+    m_ModifyLayout.AddSlider( m_ChevW01StartSlider, _("W Start"), 1, "%6.5f", m_ModifyLayout.GetSliderWidth() );
 
-    m_ChevW01StartChoice.AddItem( "Free", vsp::W_FREE );
-    m_ChevW01StartChoice.AddItem( "Right 0", vsp::W_RIGHT_0 );
-    m_ChevW01StartChoice.AddItem( "Bottom", vsp::W_BOTTOM );
-    m_ChevW01StartChoice.AddItem( "Left", vsp::W_LEFT );
-    m_ChevW01StartChoice.AddItem( "Top", vsp::W_TOP );
-    m_ChevW01StartChoice.AddItem( "Right 1", vsp::W_RIGHT_1 );
+    m_ChevW01StartChoice.AddItem( _("Free"), vsp::W_FREE );
+    m_ChevW01StartChoice.AddItem( _("Right 0"), vsp::W_RIGHT_0 );
+    m_ChevW01StartChoice.AddItem( _("Bottom"), vsp::W_BOTTOM );
+    m_ChevW01StartChoice.AddItem( _("Left"), vsp::W_LEFT );
+    m_ChevW01StartChoice.AddItem( _("Top"), vsp::W_TOP );
+    m_ChevW01StartChoice.AddItem( _("Right 1"), vsp::W_RIGHT_1 );
     m_ModifyLayout.SetFitWidthFlag( false );
-    m_ModifyLayout.AddChoice( m_ChevW01StartChoice, "W Start:" );
+    m_ModifyLayout.AddChoice( m_ChevW01StartChoice, _("W Start:") );
 
     m_ModifyLayout.ForceNewLine();
     m_ModifyLayout.SetFitWidthFlag( true );
 
-    m_ModifyLayout.AddSlider( m_ChevW01EndSlider, "W End", 1, "%6.5f", m_ModifyLayout.GetSliderWidth() );
+    m_ModifyLayout.AddSlider( m_ChevW01EndSlider, _("W End"), 1, "%6.5f", m_ModifyLayout.GetSliderWidth() );
 
-    m_ChevW01EndChoice.AddItem( "Free", vsp::W_FREE );
-    m_ChevW01EndChoice.AddItem( "Right 0", vsp::W_RIGHT_0 );
-    m_ChevW01EndChoice.AddItem( "Bottom", vsp::W_BOTTOM );
-    m_ChevW01EndChoice.AddItem( "Left", vsp::W_LEFT );
-    m_ChevW01EndChoice.AddItem( "Top", vsp::W_TOP );
-    m_ChevW01EndChoice.AddItem( "Right 1", vsp::W_RIGHT_1 );
+    m_ChevW01EndChoice.AddItem( _("Free"), vsp::W_FREE );
+    m_ChevW01EndChoice.AddItem( _("Right 0"), vsp::W_RIGHT_0 );
+    m_ChevW01EndChoice.AddItem( _("Bottom"), vsp::W_BOTTOM );
+    m_ChevW01EndChoice.AddItem( _("Left"), vsp::W_LEFT );
+    m_ChevW01EndChoice.AddItem( _("Top"), vsp::W_TOP );
+    m_ChevW01EndChoice.AddItem( _("Right 1"), vsp::W_RIGHT_1 );
     m_ModifyLayout.SetFitWidthFlag( false );
     m_ModifyLayout.AddChoice( m_ChevW01EndChoice, "W End:" );
 
     m_ModifyLayout.ForceNewLine();
     m_ModifyLayout.SetFitWidthFlag( true );
 
-    m_ModifyLayout.AddSlider( m_ChevW01CenterSlider, "W Center", 1, "%6.5f", m_ModifyLayout.GetSliderWidth() );
+    m_ModifyLayout.AddSlider( m_ChevW01CenterSlider, _("W Center"), 1, "%6.5f", m_ModifyLayout.GetSliderWidth() );
 
-    m_ChevW01CenterChoice.AddItem( "Free", vsp::W_FREE );
-    m_ChevW01CenterChoice.AddItem( "Right 0", vsp::W_RIGHT_0 );
-    m_ChevW01CenterChoice.AddItem( "Bottom", vsp::W_BOTTOM );
-    m_ChevW01CenterChoice.AddItem( "Left", vsp::W_LEFT );
-    m_ChevW01CenterChoice.AddItem( "Top", vsp::W_TOP );
-    m_ChevW01CenterChoice.AddItem( "Right 1", vsp::W_RIGHT_1 );
+    m_ChevW01CenterChoice.AddItem( _("Free"), vsp::W_FREE );
+    m_ChevW01CenterChoice.AddItem( _("Right 0"), vsp::W_RIGHT_0 );
+    m_ChevW01CenterChoice.AddItem( _("Bottom"), vsp::W_BOTTOM );
+    m_ChevW01CenterChoice.AddItem( _("Left"), vsp::W_LEFT );
+    m_ChevW01CenterChoice.AddItem( _("Top"), vsp::W_TOP );
+    m_ChevW01CenterChoice.AddItem( _("Right 1"), vsp::W_RIGHT_1 );
     m_ModifyLayout.SetFitWidthFlag( false );
     m_ModifyLayout.AddChoice( m_ChevW01CenterChoice, "W Center:" );
 
@@ -3107,7 +3107,7 @@ ChevronScreen::ChevronScreen( ScreenMgr* mgr, int w, int h, const string & title
     m_ModifyLayout.SetSameLineFlag( false );
     m_ModifyLayout.SetFitWidthFlag( true );
 
-    m_ModifyLayout.AddSlider( m_ChevW01WidthSlider, "W Width", 1, "%6.5f", m_ModifyLayout.GetSliderWidth() );
+    m_ModifyLayout.AddSlider( m_ChevW01WidthSlider, _("W Width"), 1, "%6.5f", m_ModifyLayout.GetSliderWidth() );
 
     m_ModifyLayout.SetSliderWidth( sliderw );
 
@@ -3116,49 +3116,49 @@ ChevronScreen::ChevronScreen( ScreenMgr* mgr, int w, int h, const string & title
     m_ModifyLayout.SetDividerHeight( m_ModifyLayout.GetStdHeight() );
 
     m_ModifyLayout.SetSameLineFlag( true );
-    m_ModifyLayout.AddDividerBox( "Top Side", m_ModifyLayout.GetButtonWidth() );
+    m_ModifyLayout.AddDividerBox( _("Top Side"), m_ModifyLayout.GetButtonWidth() );
     m_ModifyLayout.SetFitWidthFlag( false );
-    m_ModifyLayout.AddButton( m_ChevAngleAllSymButton, "All Sym" );
+    m_ModifyLayout.AddButton( m_ChevAngleAllSymButton, _("All Sym") );
     m_ModifyLayout.ForceNewLine();
     m_ModifyLayout.SetFitWidthFlag( true );
     m_ModifyLayout.SetSameLineFlag( false );
 
-    m_ModifyLayout.AddSlider( m_ChevTopAmpSlider, "Amplitude", 10, "%6.5f" );
-    m_ModifyLayout.AddSlider( m_ChevDirTopAngleSlider, "Angle", 90.0, "%5.2f" );
-    m_ModifyLayout.AddSlider( m_ChevDirTopSlewSlider, "Slew", 90.0, "%5.2f" );
+    m_ModifyLayout.AddSlider( m_ChevTopAmpSlider, _("Amplitude"), 10, "%6.5f" );
+    m_ModifyLayout.AddSlider( m_ChevDirTopAngleSlider, _("Angle"), 90.0, "%5.2f" );
+    m_ModifyLayout.AddSlider( m_ChevDirTopSlewSlider, _("Slew"), 90.0, "%5.2f" );
 
     m_ModifyLayout.AddYGap();
-    m_ModifyLayout.AddDividerBox( "Right Side" );
+    m_ModifyLayout.AddDividerBox( _("Right Side") );
 
-    m_ModifyLayout.AddSlider( m_ChevRightAmpSlider, "Amplitude", 10, "%6.5f" );
-    m_ModifyLayout.AddSlider( m_ChevDirRightAngleSlider, "Angle", 90.0, "%5.2f" );
-    m_ModifyLayout.AddSlider( m_ChevDirRightSlewSlider, "Slew", 90.0, "%5.2f" );
-
-    m_ModifyLayout.AddYGap();
-    m_ModifyLayout.SetSameLineFlag( true );
-    m_ModifyLayout.AddDividerBox( "Bottom Side", m_ModifyLayout.GetButtonWidth() );
-    m_ModifyLayout.SetFitWidthFlag( false );
-    m_ModifyLayout.AddButton( m_ChevAngleTBSymButton, "T/B Sym" );
-    m_ModifyLayout.ForceNewLine();
-    m_ModifyLayout.SetFitWidthFlag( true );
-    m_ModifyLayout.SetSameLineFlag( false );
-
-    m_ModifyLayout.AddSlider( m_ChevBottomAmpSlider, "Amplitude", 10, "%6.5f" );
-    m_ModifyLayout.AddSlider( m_ChevDirBottomAngleSlider, "Angle", 90.0, "%5.2f" );
-    m_ModifyLayout.AddSlider( m_ChevDirBottomSlewSlider, "Slew", 90.0, "%5.2f" );
+    m_ModifyLayout.AddSlider( m_ChevRightAmpSlider, _("Amplitude"), 10, "%6.5f" );
+    m_ModifyLayout.AddSlider( m_ChevDirRightAngleSlider, _("Angle"), 90.0, "%5.2f" );
+    m_ModifyLayout.AddSlider( m_ChevDirRightSlewSlider, _("Slew"), 90.0, "%5.2f" );
 
     m_ModifyLayout.AddYGap();
     m_ModifyLayout.SetSameLineFlag( true );
-    m_ModifyLayout.AddDividerBox( "Left Side", m_ModifyLayout.GetButtonWidth() );
+    m_ModifyLayout.AddDividerBox( _("Bottom Side"), m_ModifyLayout.GetButtonWidth() );
     m_ModifyLayout.SetFitWidthFlag( false );
-    m_ModifyLayout.AddButton( m_ChevAngleRLSymButton, "R/L Sym" );
+    m_ModifyLayout.AddButton( m_ChevAngleTBSymButton, _("T/B Sym") );
     m_ModifyLayout.ForceNewLine();
     m_ModifyLayout.SetFitWidthFlag( true );
     m_ModifyLayout.SetSameLineFlag( false );
 
-    m_ModifyLayout.AddSlider( m_ChevLeftAmpSlider, "Amplitude", 10, "%6.5f" );
-    m_ModifyLayout.AddSlider( m_ChevDirLeftAngleSlider, "Angle", 90.0, "%5.2f" );
-    m_ModifyLayout.AddSlider( m_ChevDirLeftSlewSlider, "Slew", 90.0, "%5.2f" );
+    m_ModifyLayout.AddSlider( m_ChevBottomAmpSlider, _("Amplitude"), 10, "%6.5f" );
+    m_ModifyLayout.AddSlider( m_ChevDirBottomAngleSlider, _("Angle"), 90.0, "%5.2f" );
+    m_ModifyLayout.AddSlider( m_ChevDirBottomSlewSlider, _("Slew"), 90.0, "%5.2f" );
+
+    m_ModifyLayout.AddYGap();
+    m_ModifyLayout.SetSameLineFlag( true );
+    m_ModifyLayout.AddDividerBox( _("Left Side"), m_ModifyLayout.GetButtonWidth() );
+    m_ModifyLayout.SetFitWidthFlag( false );
+    m_ModifyLayout.AddButton( m_ChevAngleRLSymButton, _("R/L Sym") );
+    m_ModifyLayout.ForceNewLine();
+    m_ModifyLayout.SetFitWidthFlag( true );
+    m_ModifyLayout.SetSameLineFlag( false );
+
+    m_ModifyLayout.AddSlider( m_ChevLeftAmpSlider, _("Amplitude"), 10, "%6.5f" );
+    m_ModifyLayout.AddSlider( m_ChevDirLeftAngleSlider, _("Angle"), 90.0, "%5.2f" );
+    m_ModifyLayout.AddSlider( m_ChevDirLeftSlewSlider, _("Slew"), 90.0, "%5.2f" );
 }
 
 //==== Update Pod Screen ====//
@@ -3259,65 +3259,65 @@ BlendScreen::BlendScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
 
     const int bw = 55;
 
-    Fl_Group* blend_tab = AddTab( "Blending" );
+    Fl_Group* blend_tab = AddTab( _("Blending") );
     Fl_Group* blend_group = AddSubGroup( blend_tab, 5 );
 
     m_BlendLayout.SetGroupAndScreen( blend_group, this );
 
-    m_BlendLayout.AddDividerBox( "Blend Airfoil" );
+    m_BlendLayout.AddDividerBox( _("Blend Airfoil") );
 
     m_BlendLayout.AddIndexSelector( m_BlendIndexSelector );
 
     m_BlendLayout.AddYGap();
 
-    m_BlendLayout.AddDividerBox( "Leading Edge" );
+    m_BlendLayout.AddDividerBox( _("Leading Edge") );
     m_BlendLayout.AddYGap();
 
     m_BlendLayout.AddSubGroupLayout( m_InLELayout, m_BlendLayout.GetW()/2 - 2, m_BlendLayout.GetStdHeight() * 4 + m_BlendLayout.GetDividerHeight() );
     m_BlendLayout.AddX( m_BlendLayout.GetW()/2 + 2 );
     m_BlendLayout.AddSubGroupLayout( m_OutLELayout, m_BlendLayout.GetW()/2 - 2, m_BlendLayout.GetStdHeight() * 4 + m_BlendLayout.GetDividerHeight() );
 
-    m_InLEChoice.AddItem( "FREE", vsp::BLEND_FREE );
-    m_InLEChoice.AddItem( "ANGLES", vsp::BLEND_ANGLES );
-    m_InLEChoice.AddItem( "IN_LE_TRAP", vsp::BLEND_MATCH_IN_LE_TRAP );
-    m_InLEChoice.AddItem( "IN_TE_TRAP", vsp::BLEND_MATCH_IN_TE_TRAP );
-    m_InLEChoice.AddItem( "OUT_LE_TRAP", vsp::BLEND_MATCH_OUT_LE_TRAP );
-    m_InLEChoice.AddItem( "OUT_TE_TRAP", vsp::BLEND_MATCH_OUT_TE_TRAP );
-    m_InLEChoice.AddItem( "IN_ANGLES", vsp::BLEND_MATCH_IN_ANGLES );
-    m_InLEChoice.AddItem( "LE_ANGLES", vsp::BLEND_MATCH_LE_ANGLES );
+    m_InLEChoice.AddItem( _("FREE"), vsp::BLEND_FREE );
+    m_InLEChoice.AddItem( _("ANGLES"), vsp::BLEND_ANGLES );
+    m_InLEChoice.AddItem( _("IN_LE_TRAP"), vsp::BLEND_MATCH_IN_LE_TRAP );
+    m_InLEChoice.AddItem( _("IN_TE_TRAP"), vsp::BLEND_MATCH_IN_TE_TRAP );
+    m_InLEChoice.AddItem( _("OUT_LE_TRAP"), vsp::BLEND_MATCH_OUT_LE_TRAP );
+    m_InLEChoice.AddItem( _("OUT_TE_TRAP"), vsp::BLEND_MATCH_OUT_TE_TRAP );
+    m_InLEChoice.AddItem( _("IN_ANGLES"), vsp::BLEND_MATCH_IN_ANGLES );
+    m_InLEChoice.AddItem( _("LE_ANGLES"), vsp::BLEND_MATCH_LE_ANGLES );
     m_InLEChoice.SetFlagByVal( BLEND_MATCH_IN_ANGLES, FL_MENU_INVISIBLE );
     m_InLEChoice.SetFlagByVal( BLEND_MATCH_LE_ANGLES, FL_MENU_INVISIBLE );
 
     m_InLELayout.SetButtonWidth( bw );
     m_InLELayout.SetChoiceButtonWidth( m_InLELayout.GetButtonWidth() );
-    m_InLELayout.AddDividerBox( "Inboard" );
-    m_InLELayout.AddChoice( m_InLEChoice, "Match:" );
-    m_InLELayout.AddSlider( m_InLESweep, "Sweep", angleRng, angleFmt );
-    m_InLELayout.AddSlider( m_InLEDihedral, "Dihedral", dihRng, angleFmt );
-    m_InLELayout.AddSlider( m_InLEStrength, "Strength", strengthRng, strengthFmt );
+    m_InLELayout.AddDividerBox( _("Inboard") );
+    m_InLELayout.AddChoice( m_InLEChoice, _("Match:") );
+    m_InLELayout.AddSlider( m_InLESweep, _("Sweep"), angleRng, angleFmt );
+    m_InLELayout.AddSlider( m_InLEDihedral, _("Dihedral"), dihRng, angleFmt );
+    m_InLELayout.AddSlider( m_InLEStrength, _("Strength"), strengthRng, strengthFmt );
 
-    m_OutLEChoice.AddItem( "FREE", vsp::BLEND_FREE );
-    m_OutLEChoice.AddItem( "ANGLES", vsp::BLEND_ANGLES );
-    m_OutLEChoice.AddItem( "IN_LE_TRAP", vsp::BLEND_MATCH_IN_LE_TRAP );
-    m_OutLEChoice.AddItem( "IN_TE_TRAP", vsp::BLEND_MATCH_IN_TE_TRAP );
-    m_OutLEChoice.AddItem( "OUT_LE_TRAP", vsp::BLEND_MATCH_OUT_LE_TRAP );
-    m_OutLEChoice.AddItem( "OUT_TE_TRAP", vsp::BLEND_MATCH_OUT_TE_TRAP );
-    m_OutLEChoice.AddItem( "IN_ANGLES", vsp::BLEND_MATCH_IN_ANGLES );
-    m_OutLEChoice.AddItem( "LE_ANGLES", vsp::BLEND_MATCH_LE_ANGLES );
+    m_OutLEChoice.AddItem( _("FREE"), vsp::BLEND_FREE );
+    m_OutLEChoice.AddItem( _("ANGLES"), vsp::BLEND_ANGLES );
+    m_OutLEChoice.AddItem( _("IN_LE_TRAP"), vsp::BLEND_MATCH_IN_LE_TRAP );
+    m_OutLEChoice.AddItem( _("IN_TE_TRAP"), vsp::BLEND_MATCH_IN_TE_TRAP );
+    m_OutLEChoice.AddItem( _("OUT_LE_TRAP"), vsp::BLEND_MATCH_OUT_LE_TRAP );
+    m_OutLEChoice.AddItem( _("OUT_TE_TRAP"), vsp::BLEND_MATCH_OUT_TE_TRAP );
+    m_OutLEChoice.AddItem( _("IN_ANGLES"), vsp::BLEND_MATCH_IN_ANGLES );
+    m_OutLEChoice.AddItem( _("LE_ANGLES"), vsp::BLEND_MATCH_LE_ANGLES );
     m_OutLEChoice.SetFlagByVal( BLEND_MATCH_LE_ANGLES, FL_MENU_INVISIBLE );
 
     m_OutLELayout.SetButtonWidth( bw );
     m_OutLELayout.SetChoiceButtonWidth( m_OutLELayout.GetButtonWidth() );
-    m_OutLELayout.AddDividerBox( "Outboard" );
-    m_OutLELayout.AddChoice( m_OutLEChoice, "Match:" );
-    m_OutLELayout.AddSlider( m_OutLESweep, "Sweep", angleRng, angleFmt );
-    m_OutLELayout.AddSlider( m_OutLEDihedral, "Dihedral", dihRng, angleFmt );
-    m_OutLELayout.AddSlider( m_OutLEStrength, "Strength", strengthRng, strengthFmt );
+    m_OutLELayout.AddDividerBox( _("Outboard") );
+    m_OutLELayout.AddChoice( m_OutLEChoice, _("Match:") );
+    m_OutLELayout.AddSlider( m_OutLESweep, _("Sweep"), angleRng, angleFmt );
+    m_OutLELayout.AddSlider( m_OutLEDihedral, _("Dihedral"), dihRng, angleFmt );
+    m_OutLELayout.AddSlider( m_OutLEStrength, _("Strength"), strengthRng, strengthFmt );
 
     m_BlendLayout.ForceNewLine();
     m_BlendLayout.AddY( m_InLELayout.GetH() );
 
-    m_BlendLayout.AddDividerBox( "Trailing Edge" );
+    m_BlendLayout.AddDividerBox( _("Trailing Edge") );
     m_BlendLayout.AddYGap();
 
     m_BlendLayout.AddSubGroupLayout( m_InTELayout, m_BlendLayout.GetW()/2 - 2, m_BlendLayout.GetStdHeight() * 4 + m_BlendLayout.GetDividerHeight() );
@@ -3325,41 +3325,41 @@ BlendScreen::BlendScreen( ScreenMgr* mgr, int w, int h, const string & title ) :
     m_BlendLayout.AddSubGroupLayout( m_OutTELayout, m_BlendLayout.GetW()/2 - 2, m_BlendLayout.GetStdHeight() * 4 + m_BlendLayout.GetDividerHeight() );
 
 
-    m_InTEChoice.AddItem( "FREE", vsp::BLEND_FREE );
-    m_InTEChoice.AddItem( "ANGLES", vsp::BLEND_ANGLES );
-    m_InTEChoice.AddItem( "IN_LE_TRAP", vsp::BLEND_MATCH_IN_LE_TRAP );
-    m_InTEChoice.AddItem( "IN_TE_TRAP", vsp::BLEND_MATCH_IN_TE_TRAP );
-    m_InTEChoice.AddItem( "OUT_LE_TRAP", vsp::BLEND_MATCH_OUT_LE_TRAP );
-    m_InTEChoice.AddItem( "OUT_TE_TRAP", vsp::BLEND_MATCH_OUT_TE_TRAP );
-    m_InTEChoice.AddItem( "IN_ANGLES", vsp::BLEND_MATCH_IN_ANGLES );
-    m_InTEChoice.AddItem( "LE_ANGLES", vsp::BLEND_MATCH_LE_ANGLES );
+    m_InTEChoice.AddItem( _("FREE"), vsp::BLEND_FREE );
+    m_InTEChoice.AddItem( _("ANGLES"), vsp::BLEND_ANGLES );
+    m_InTEChoice.AddItem( _("IN_LE_TRAP"), vsp::BLEND_MATCH_IN_LE_TRAP );
+    m_InTEChoice.AddItem( _("IN_TE_TRAP"), vsp::BLEND_MATCH_IN_TE_TRAP );
+    m_InTEChoice.AddItem( _("OUT_LE_TRAP"), vsp::BLEND_MATCH_OUT_LE_TRAP );
+    m_InTEChoice.AddItem( _("OUT_TE_TRAP"), vsp::BLEND_MATCH_OUT_TE_TRAP );
+    m_InTEChoice.AddItem( _("IN_ANGLES"), vsp::BLEND_MATCH_IN_ANGLES );
+    m_InTEChoice.AddItem( _("LE_ANGLES"), vsp::BLEND_MATCH_LE_ANGLES );
     m_InTEChoice.SetFlagByVal( BLEND_MATCH_IN_ANGLES, FL_MENU_INVISIBLE );
 
     m_InTELayout.SetButtonWidth( bw );
     m_InTELayout.SetChoiceButtonWidth( m_InTELayout.GetButtonWidth() );
-    m_InTELayout.AddDividerBox( "Inboard" );
-    m_InTELayout.AddChoice( m_InTEChoice, "Match:" );
-    m_InTELayout.AddSlider( m_InTESweep, "Sweep", angleRng, angleFmt );
-    m_InTELayout.AddSlider( m_InTEDihedral, "Dihedral", dihRng, angleFmt );
-    m_InTELayout.AddSlider( m_InTEStrength, "Strength", strengthRng, strengthFmt );
+    m_InTELayout.AddDividerBox( _("Inboard") );
+    m_InTELayout.AddChoice( m_InTEChoice, _("Match:") );
+    m_InTELayout.AddSlider( m_InTESweep, _("Sweep"), angleRng, angleFmt );
+    m_InTELayout.AddSlider( m_InTEDihedral, _("Dihedral"), dihRng, angleFmt );
+    m_InTELayout.AddSlider( m_InTEStrength, _("Strength"), strengthRng, strengthFmt );
 
 
-    m_OutTEChoice.AddItem( "FREE", vsp::BLEND_FREE );
-    m_OutTEChoice.AddItem( "ANGLES", vsp::BLEND_ANGLES );
-    m_OutTEChoice.AddItem( "IN_LE_TRAP", vsp::BLEND_MATCH_IN_LE_TRAP );
-    m_OutTEChoice.AddItem( "IN_TE_TRAP", vsp::BLEND_MATCH_IN_TE_TRAP );
-    m_OutTEChoice.AddItem( "OUT_LE_TRAP", vsp::BLEND_MATCH_OUT_LE_TRAP );
-    m_OutTEChoice.AddItem( "OUT_TE_TRAP", vsp::BLEND_MATCH_OUT_TE_TRAP );
-    m_OutTEChoice.AddItem( "IN_ANGLES", vsp::BLEND_MATCH_IN_ANGLES );
-    m_OutTEChoice.AddItem( "LE_ANGLES", vsp::BLEND_MATCH_LE_ANGLES );
+    m_OutTEChoice.AddItem( _("FREE"), vsp::BLEND_FREE );
+    m_OutTEChoice.AddItem( _("ANGLES"), vsp::BLEND_ANGLES );
+    m_OutTEChoice.AddItem( _("IN_LE_TRAP"), vsp::BLEND_MATCH_IN_LE_TRAP );
+    m_OutTEChoice.AddItem( _("IN_TE_TRAP"), vsp::BLEND_MATCH_IN_TE_TRAP );
+    m_OutTEChoice.AddItem( _("OUT_LE_TRAP"), vsp::BLEND_MATCH_OUT_LE_TRAP );
+    m_OutTEChoice.AddItem( _("OUT_TE_TRAP"), vsp::BLEND_MATCH_OUT_TE_TRAP );
+    m_OutTEChoice.AddItem( _("IN_ANGLES"), vsp::BLEND_MATCH_IN_ANGLES );
+    m_OutTEChoice.AddItem( _("LE_ANGLES"), vsp::BLEND_MATCH_LE_ANGLES );
 
     m_OutTELayout.SetButtonWidth( bw );
     m_OutTELayout.SetChoiceButtonWidth( m_OutTELayout.GetButtonWidth() );
-    m_OutTELayout.AddDividerBox( "Outboard" );
-    m_OutTELayout.AddChoice( m_OutTEChoice, "Match:" );
-    m_OutTELayout.AddSlider( m_OutTESweep, "Sweep", angleRng, angleFmt );
-    m_OutTELayout.AddSlider( m_OutTEDihedral, "Dihedral", dihRng, angleFmt );
-    m_OutTELayout.AddSlider( m_OutTEStrength, "Strength", strengthRng, strengthFmt );
+    m_OutTELayout.AddDividerBox( _("Outboard") );
+    m_OutTELayout.AddChoice( m_OutTEChoice, _("Match:") );
+    m_OutTELayout.AddSlider( m_OutTESweep, _("Sweep"), angleRng, angleFmt );
+    m_OutTELayout.AddSlider( m_OutTEDihedral, _("Dihedral"), dihRng, angleFmt );
+    m_OutTELayout.AddSlider( m_OutTEStrength, _("Strength"), strengthRng, strengthFmt );
 
     m_BlendLayout.ForceNewLine();
     m_BlendLayout.AddY( m_OutLELayout.GetH() );
@@ -3924,7 +3924,7 @@ void XSecViewScreen::GuiDeviceCallBack( GuiDevice* device )
     else if ( device == &m_FileSelect )
     {
         std::string fileName = m_ScreenMgr->GetSelectFileScreen()->FileChooser(
-            "Select Image File", "*.{jpg,png,tga,bmp,gif}", false );
+            _("Select Image File"), "*.{jpg,png,tga,bmp,gif}", false );
 
         if ( !fileName.empty() )
         {

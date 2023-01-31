@@ -9,11 +9,13 @@
 
 #include "AirfoilExportScreen.h"
 
+#include <intl.h>
+
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-SeligAirfoilExportScreen::SeligAirfoilExportScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 250, 174, "Selig Airfoil Options" )
+SeligAirfoilExportScreen::SeligAirfoilExportScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 250, 174, _("Selig Airfoil Options") )
 {
     m_OkFlag = false;
 
@@ -22,12 +24,12 @@ SeligAirfoilExportScreen::SeligAirfoilExportScreen( ScreenMgr* mgr ) : BasicScre
 
     m_GenLayout.AddYGap();
 
-    m_GenLayout.AddButton( m_AppendGeomIDToggle, "Append Geom ID to Airfoil File Names" );
+    m_GenLayout.AddButton( m_AppendGeomIDToggle, _("Append Geom ID to Airfoil File Names") );
 
     m_GenLayout.AddYGap();
 
     m_GenLayout.SetButtonWidth( 5 * m_GenLayout.GetW() / 12 );
-    m_GenLayout.AddSlider( m_WTessFactorSlider, "W Tess Factor", 9, "%6.2f" );
+    m_GenLayout.AddSlider( m_WTessFactorSlider, _("W Tess Factor"), 9, "%6.2f" );
 
     m_GenLayout.AddY( 70 );
     m_GenLayout.SetSameLineFlag( true );
@@ -35,9 +37,9 @@ SeligAirfoilExportScreen::SeligAirfoilExportScreen( ScreenMgr* mgr ) : BasicScre
     m_GenLayout.SetButtonWidth( 100 );
 
     m_GenLayout.AddX( 20 );
-    m_GenLayout.AddButton( m_OkButton, "OK" );
+    m_GenLayout.AddButton( m_OkButton, _("OK") );
     m_GenLayout.AddX( 10 );
-    m_GenLayout.AddButton( m_CancelButton, "Cancel" );
+    m_GenLayout.AddButton( m_CancelButton, _("Cancel") );
     m_GenLayout.ForceNewLine();
 }
 
@@ -106,7 +108,7 @@ bool SeligAirfoilExportScreen::ShowAirfoilExportScreen()
     return m_OkFlag;
 }
 
-BezierAirfoilExportScreen::BezierAirfoilExportScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 250, 174, "Bezier Airfoil Options" )
+BezierAirfoilExportScreen::BezierAirfoilExportScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 250, 174, _("Bezier Airfoil Options") )
 {
     m_OkFlag = false;
 
@@ -115,7 +117,7 @@ BezierAirfoilExportScreen::BezierAirfoilExportScreen( ScreenMgr* mgr ) : BasicSc
 
     m_GenLayout.AddYGap();
 
-    m_GenLayout.AddButton( m_AppendGeomIDToggle, "Append Geom ID to Airfoil File Names" );
+    m_GenLayout.AddButton( m_AppendGeomIDToggle, _("Append Geom ID to Airfoil File Names") );
 
     m_GenLayout.AddY( 95 );
     m_GenLayout.SetSameLineFlag( true );

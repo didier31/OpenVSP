@@ -24,6 +24,8 @@
 #include "ManageGeomScreen.h"
 #include "ManageViewScreen.h"
 
+#include <intl.h>
+
 using namespace vsp;
 
 using namespace vsp;
@@ -68,93 +70,93 @@ MainVSPScreen::MainVSPScreen( ScreenMgr* mgr ) : ActionScreen( mgr )
 
     m_MenuBar = m_GenLayout.AddFlMenuBar( 30 );
 
-    m_NewMenuItem.Init( this, m_MenuBar, "File/New" );
-    m_OpenMenuItem.Init( this, m_MenuBar, "File/Open..." );
-    m_SaveMenuItem.Init( this, m_MenuBar, "File/Save...", FL_COMMAND + 's' );
-    m_SaveAsMenuItem.Init( this, m_MenuBar, "File/Save As..." );
-    m_SaveSetMenuItem.Init( this, m_MenuBar, "File/Save Set..." );
-    m_InsertMenuItem.Init( this, m_MenuBar, "File/Insert..." );
-    m_ImportMenuItem.Init( mgr, m_MenuBar, "File/Import...", ScreenMgr::VSP_IMPORT_SCREEN );
-    m_ExportMenuItem.Init( mgr, m_MenuBar, "File/Export...", ScreenMgr::VSP_EXPORT_SCREEN );
-    // m_SetTempDirMenuItem.Init( this, m_MenuBar, "File/Set Temp Dir..." );
-    m_RunScriptMenuItem.Init( this, m_MenuBar, "File/Run Script..." );
-    m_ExitMenuItem.Init( this, m_MenuBar, "File/Exit" );
+    m_NewMenuItem.Init( this, m_MenuBar, _("File/New") );
+    m_OpenMenuItem.Init( this, m_MenuBar, _("File/Open...") );
+    m_SaveMenuItem.Init( this, m_MenuBar, _("File/Save..."), FL_COMMAND + 's' );
+    m_SaveAsMenuItem.Init( this, m_MenuBar, _("File/Save As...") );
+    m_SaveSetMenuItem.Init( this, m_MenuBar, _("File/Save Set...") );
+    m_InsertMenuItem.Init( this, m_MenuBar, _("File/Insert...") );
+    m_ImportMenuItem.Init( mgr, m_MenuBar, _("File/Import..."), ScreenMgr::VSP_IMPORT_SCREEN );
+    m_ExportMenuItem.Init( mgr, m_MenuBar, _("File/Export..."), ScreenMgr::VSP_EXPORT_SCREEN );
+    // m_SetTempDirMenuItem.Init( this, m_MenuBar, _("File/Set Temp Dir...") );
+    m_RunScriptMenuItem.Init( this, m_MenuBar, _("File/Run Script...") );
+    m_ExitMenuItem.Init( this, m_MenuBar, _("File/Exit") );
 
-    m_UndoMenuItem.Init( this, m_MenuBar, "Edit/Undo Parameter Change", FL_COMMAND + 'z' );
-    m_CutMenuItem.Init( this, m_MenuBar, "Edit/Cut", FL_COMMAND + 'x' );
-    m_CopyMenuItem.Init( this, m_MenuBar, "Edit/Copy", FL_COMMAND + 'c' );
-    m_PasteMenuItem.Init( this, m_MenuBar, "Edit/Paste", FL_COMMAND + 'v' );
-    m_DeleteMenuItem.Init( this, m_MenuBar, "Edit/Delete" );
-    m_SelAllMenuItem.Init( this, m_MenuBar, "Edit/Select All", FL_COMMAND + 'a' );
-    m_PickMenuItem.Init( this, m_MenuBar, "Edit/Toggle Pick Mode", 'p' );
+    m_UndoMenuItem.Init( this, m_MenuBar, _("Edit/Undo Parameter Change"), FL_COMMAND + 'z' );
+    m_CutMenuItem.Init( this, m_MenuBar, _("Edit/Cut"), FL_COMMAND + 'x' );
+    m_CopyMenuItem.Init( this, m_MenuBar, _("Edit/Copy"), FL_COMMAND + 'c' );
+    m_PasteMenuItem.Init( this, m_MenuBar, _("Edit/Paste"), FL_COMMAND + 'v' );
+    m_DeleteMenuItem.Init( this, m_MenuBar, _("Edit/Delete") );
+    m_SelAllMenuItem.Init( this, m_MenuBar, _("Edit/Select All"), FL_COMMAND + 'a' );
+    m_PickMenuItem.Init( this, m_MenuBar, _("Edit/Toggle Pick Mode"), 'p' );
 
-    m_OneMenuItem.Init( this, m_MenuBar, "Window/One" );
-    m_FourMenuItem.Init( this, m_MenuBar, "Window/Four" );
-    m_TwoHMenuItem.Init( this, m_MenuBar, "Window/Two Horizontal" );
-    m_TwoVMenuItem.Init( this, m_MenuBar, "Window/Two Vertical" );
-    m_BackgroundMenuItem.Init( mgr, m_MenuBar, "Window/Background...", ScreenMgr::VSP_BACKGROUND_SCREEN );
-    m_ScreenshotMenuItem.Init( mgr, m_MenuBar, "Window/Screenshot...", ScreenMgr::VSP_SCREENSHOT_SCREEN );
-    m_AxisMenuItem.Init( this, m_MenuBar, "Window/Axis Toggle" );
+    m_OneMenuItem.Init( this, m_MenuBar, _("Window/One") );
+    m_FourMenuItem.Init( this, m_MenuBar, _("Window/Four") );
+    m_TwoHMenuItem.Init( this, m_MenuBar, _("Window/Two Horizontal") );
+    m_TwoVMenuItem.Init( this, m_MenuBar, _("Window/Two Vertical") );
+    m_BackgroundMenuItem.Init( mgr, m_MenuBar, _("Window/Background..."), ScreenMgr::VSP_BACKGROUND_SCREEN );
+    m_ScreenshotMenuItem.Init( mgr, m_MenuBar, _("Window/Screenshot..."), ScreenMgr::VSP_SCREENSHOT_SCREEN );
+    m_AxisMenuItem.Init( this, m_MenuBar, _("Window/Axis Toggle") );
     m_AxisMenuItem.Update( m_ShowXYZArrow );
-    m_BorderMenuItem.Init( this, m_MenuBar, "Window/Border Toggle" );
+    m_BorderMenuItem.Init( this, m_MenuBar, _("Window/Border Toggle") );
     m_BorderMenuItem.Update( m_ShowBorder );
 
-    m_TopMenuItem.Init( this, m_MenuBar, "View/Top", FL_F + 5 );
-    m_FrontMenuItem.Init( this, m_MenuBar, "View/Front", FL_F + 6 );
-    m_LeftSideMenuItem.Init( this, m_MenuBar, "View/Left", FL_F + 7 );
-    m_LeftIsoMenuItem.Init( this, m_MenuBar, "View/Left Iso", FL_F + 8 );
-    m_BottomMenuItem.Init( this, m_MenuBar, "View/Bottom", FL_F + 9 );
-    m_RearMenuItem.Init( this, m_MenuBar, "View/Rear", FL_F + 10 );
-    m_RightSideMenuItem.Init( this, m_MenuBar, "View/Right", FL_F + 11 );
-    m_RightIsoMenuItem.Init( this, m_MenuBar, "View/Right Iso", FL_F + 12 );
-    m_CenterMenuItem.Init( this, m_MenuBar, "View/Center", 'c' );
-    m_SetCORMenuItem.Init( this, m_MenuBar, "View/Set Rotation Center", 'r' );
-    m_FitViewMenuItem.Init( this, m_MenuBar, "View/Fit On Screen", 'f' );
-    m_AdjustMenuItem.Init( mgr, m_MenuBar, "View/Adjust...", ScreenMgr::VSP_VIEW_SCREEN );
-    // m_AntialiasMenuItem.Init( this, m_MenuBar, "View/New" );
+    m_TopMenuItem.Init( this, m_MenuBar, _("View/Top"), FL_F + 5 );
+    m_FrontMenuItem.Init( this, m_MenuBar, _("View/Front"), FL_F + 6 );
+    m_LeftSideMenuItem.Init( this, m_MenuBar, _("View/Left"), FL_F + 7 );
+    m_LeftIsoMenuItem.Init( this, m_MenuBar, _("View/Left Iso"), FL_F + 8 );
+    m_BottomMenuItem.Init( this, m_MenuBar, _("View/Bottom"), FL_F + 9 );
+    m_RearMenuItem.Init( this, m_MenuBar, _("View/Rear"), FL_F + 10 );
+    m_RightSideMenuItem.Init( this, m_MenuBar, _("View/Right"), FL_F + 11 );
+    m_RightIsoMenuItem.Init( this, m_MenuBar, _("View/Right Iso"), FL_F + 12 );
+    m_CenterMenuItem.Init( this, m_MenuBar, _("View/Center"), 'c' );
+    m_SetCORMenuItem.Init( this, m_MenuBar, _("View/Set Rotation Center"), 'r' );
+    m_FitViewMenuItem.Init( this, m_MenuBar, _("View/Fit On Screen"), 'f' );
+    m_AdjustMenuItem.Init( mgr, m_MenuBar, _("View/Adjust..."), ScreenMgr::VSP_VIEW_SCREEN );
+    // m_AntialiasMenuItem.Init( this, _(m_MenuBar, _("View/New") );
 
-    m_GeomMenuItem.Init( mgr, m_MenuBar, "Model/Geometry...", ScreenMgr::VSP_MANAGE_GEOM_SCREEN );
-    m_SetEditMenuItem.Init( mgr, m_MenuBar, "Model/Set Editor...", ScreenMgr::VSP_SET_EDITOR_SCREEN );
-    m_LinkMenuItem.Init( mgr, m_MenuBar, "Model/Link...", ScreenMgr::VSP_PARM_LINK_SCREEN );
-    m_DesVarMenuItem.Init( mgr, m_MenuBar, "Model/Design Variables...", ScreenMgr::VSP_DESIGN_VAR_SCREEN );
-    m_LabelMenuItem.Init( mgr, m_MenuBar, "Model/Measure...", ScreenMgr::VSP_MEASURE_SCREEN );
-    m_LightMenuItem.Init( mgr, m_MenuBar, "Model/Lighting...", ScreenMgr::VSP_LIGHTING_SCREEN );
-    m_ClipMenuItem.Init( mgr, m_MenuBar, "Model/Clipping...", ScreenMgr::VSP_CLIPPING_SCREEN );
-    m_TextureMenuItem.Init( mgr, m_MenuBar, "Model/Texture...", ScreenMgr::VSP_MANAGE_TEXTURE_SCREEN );
-    m_AdvLinkMenuItem.Init( mgr, m_MenuBar, "Model/Adv Link...", ScreenMgr::VSP_ADV_LINK_SCREEN );
-    m_UserParmMenuItem.Init( mgr, m_MenuBar, "Model/User Parms...", ScreenMgr::VSP_USER_PARM_SCREEN );
-    m_FitModelMenuItem.Init( mgr, m_MenuBar, "Model/Fit Model...", ScreenMgr::VSP_FIT_MODEL_SCREEN );
-    m_SnapToMenuItem.Init( mgr, m_MenuBar, "Model/Snap To...", ScreenMgr::VSP_SNAP_TO_SCREEN );
-    m_VarPresetMenuItem.Init( mgr, m_MenuBar, "Model/Variable Presets...", ScreenMgr::VSP_VAR_PRESET_SCREEN );
+    m_GeomMenuItem.Init( mgr, m_MenuBar, _("Model/Geometry..."), ScreenMgr::VSP_MANAGE_GEOM_SCREEN );
+    m_SetEditMenuItem.Init( mgr, m_MenuBar, _("Model/Set Editor..."), ScreenMgr::VSP_SET_EDITOR_SCREEN );
+    m_LinkMenuItem.Init( mgr, m_MenuBar, _("Model/Link..."), ScreenMgr::VSP_PARM_LINK_SCREEN );
+    m_DesVarMenuItem.Init( mgr, m_MenuBar, _("Model/Design Variables..."), ScreenMgr::VSP_DESIGN_VAR_SCREEN );
+    m_LabelMenuItem.Init( mgr, m_MenuBar, _("Model/Measure..."), ScreenMgr::VSP_MEASURE_SCREEN );
+    m_LightMenuItem.Init( mgr, m_MenuBar, _("Model/Lighting..."), ScreenMgr::VSP_LIGHTING_SCREEN );
+    m_ClipMenuItem.Init( mgr, m_MenuBar, _("Model/Clipping..."), ScreenMgr::VSP_CLIPPING_SCREEN );
+    m_TextureMenuItem.Init( mgr, m_MenuBar, _("Model/Texture..."), ScreenMgr::VSP_MANAGE_TEXTURE_SCREEN );
+    m_AdvLinkMenuItem.Init( mgr, m_MenuBar, _("Model/Adv Link..."), ScreenMgr::VSP_ADV_LINK_SCREEN );
+    m_UserParmMenuItem.Init( mgr, m_MenuBar, _("Model/User Parms..."), ScreenMgr::VSP_USER_PARM_SCREEN );
+    m_FitModelMenuItem.Init( mgr, m_MenuBar, _("Model/Fit Model..."), ScreenMgr::VSP_FIT_MODEL_SCREEN );
+    m_SnapToMenuItem.Init( mgr, m_MenuBar, _("Model/Snap To..."), ScreenMgr::VSP_SNAP_TO_SCREEN );
+    m_VarPresetMenuItem.Init( mgr, m_MenuBar, _("Model/Variable Presets..."), ScreenMgr::VSP_VAR_PRESET_SCREEN );
 
-    m_CompGeomMenuItem.Init( mgr, m_MenuBar, "Analysis/CompGeom...", ScreenMgr::VSP_COMP_GEOM_SCREEN );
-    m_PSliceMenuItem.Init( mgr, m_MenuBar, "Analysis/Planar Slice...", ScreenMgr::VSP_PSLICE_SCREEN );
-    m_MassPropMenuItem.Init( mgr, m_MenuBar, "Analysis/Mass Prop...", ScreenMgr::VSP_MASS_PROP_SCREEN );
-    m_ProjectionMenuItem.Init( mgr, m_MenuBar, "Analysis/Projected Area...", ScreenMgr::VSP_PROJECTION_SCREEN );
-    m_DegenGeomMenuItem.Init( mgr, m_MenuBar, "Analysis/DegenGeom...", ScreenMgr::VSP_DEGEN_GEOM_SCREEN );
-    m_SurfIntMenuItem.Init( mgr, m_MenuBar, "Analysis/Trimmed Surfaces...", ScreenMgr::VSP_SURFACE_INTERSECTION_SCREEN );
-    m_CFDMeshMenuItem.Init( mgr, m_MenuBar, "Analysis/CFD Mesh...", ScreenMgr::VSP_CFD_MESH_SCREEN );
+    m_CompGeomMenuItem.Init( mgr, m_MenuBar, _("Analysis/CompGeom..."), ScreenMgr::VSP_COMP_GEOM_SCREEN );
+    m_PSliceMenuItem.Init( mgr, m_MenuBar, _("Analysis/Planar Slice..."), ScreenMgr::VSP_PSLICE_SCREEN );
+    m_MassPropMenuItem.Init( mgr, m_MenuBar, _("Analysis/Mass Prop..."), ScreenMgr::VSP_MASS_PROP_SCREEN );
+    m_ProjectionMenuItem.Init( mgr, m_MenuBar, _("Analysis/Projected Area..."), ScreenMgr::VSP_PROJECTION_SCREEN );
+    m_DegenGeomMenuItem.Init( mgr, m_MenuBar, _("Analysis/DegenGeom..."), ScreenMgr::VSP_DEGEN_GEOM_SCREEN );
+    m_SurfIntMenuItem.Init( mgr, m_MenuBar, _("Analysis/Trimmed Surfaces..."), ScreenMgr::VSP_SURFACE_INTERSECTION_SCREEN );
+    m_CFDMeshMenuItem.Init( mgr, m_MenuBar, _("Analysis/CFD Mesh..."), ScreenMgr::VSP_CFD_MESH_SCREEN );
 
-    m_StructMenuItem.Init( mgr, m_MenuBar, "Analysis/Structure/FEA Structure...", ScreenMgr::VSP_STRUCT_SCREEN );
-    m_StructAssemblyMenuItem.Init( mgr, m_MenuBar, "Analysis/Structure/FEA Assembly...", ScreenMgr::VSP_STRUCT_ASSEMBLY_SCREEN );
-    m_AeroStructMenuItem.Init( mgr, m_MenuBar, "Analysis/Structure/Aero Structural...", ScreenMgr::VSP_AERO_STRUCT_SCREEN );
+    m_StructMenuItem.Init( mgr, m_MenuBar, _("Analysis/Structure/FEA Structure..."), ScreenMgr::VSP_STRUCT_SCREEN );
+    m_StructAssemblyMenuItem.Init( mgr, m_MenuBar, _("Analysis/Structure/FEA Assembly..."), ScreenMgr::VSP_STRUCT_ASSEMBLY_SCREEN );
+    m_AeroStructMenuItem.Init( mgr, m_MenuBar, _("Analysis/Structure/Aero Structural..."), ScreenMgr::VSP_AERO_STRUCT_SCREEN );
 
-    m_VSPAEROMenuItem.Init( mgr, m_MenuBar, "Analysis/Aero/VSPAERO...", ScreenMgr::VSP_VSPAERO_SCREEN );
-    m_WaveDragMenuItem.Init( mgr, m_MenuBar, "Analysis/Aero/Wave Drag...", ScreenMgr::VSP_WAVEDRAG_SCREEN );
-    m_ParasiteDragMenuItem.Init( mgr, m_MenuBar, "Analysis/Aero/Parasite Drag...", ScreenMgr::VSP_PARASITE_DRAG_SCREEN );
+    m_VSPAEROMenuItem.Init( mgr, m_MenuBar, _("Analysis/Aero/VSPAERO..."), ScreenMgr::VSP_VSPAERO_SCREEN );
+    m_WaveDragMenuItem.Init( mgr, m_MenuBar, _("Analysis/Aero/Wave Drag..."), ScreenMgr::VSP_WAVEDRAG_SCREEN );
+    m_ParasiteDragMenuItem.Init( mgr, m_MenuBar, _("Analysis/Aero/Parasite Drag..."), ScreenMgr::VSP_PARASITE_DRAG_SCREEN );
 
 
-    // m_AboutMenuItem.Init( mgr, m_MenuBar, "Help/About...", ScreenMgr:: );
-    // m_OnlineHelpMenuItem.Init( mgr, m_MenuBar, "Help/Online Help...", ScreenMgr:: );
-    // m_VersionMenuItem.Init( mgr, m_MenuBar, "Help/Check Latest Version...", ScreenMgr:: );
+    // m_AboutMenuItem.Init( mgr, m_MenuBar, _("Help/About..."), ScreenMgr:: );
+    // m_OnlineHelpMenuItem.Init( mgr, m_MenuBar, _("Help/Online Help..."), ScreenMgr:: );
+    // m_VersionMenuItem.Init( mgr, m_MenuBar, _("Help/Check Latest Version..."), ScreenMgr:: );
 
-    BoldEntries( "File" );
-    BoldEntries( "Edit" );
-    BoldEntries( "Window" );
-    BoldEntries( "View" );
-    BoldEntries( "Model" );
-    BoldEntries( "Analysis" );
-    BoldEntries( "Undo" );
+    BoldEntries( _("File") );
+    BoldEntries( _("Edit") );
+    BoldEntries( _("Window") );
+    BoldEntries( _("View") );
+    BoldEntries( _("Model") );
+    BoldEntries( _("Analysis") );
+    BoldEntries( _("Undo") );
 
     int glh = m_GenLayout.GetRemainY() - 20;
 
@@ -166,7 +168,7 @@ MainVSPScreen::MainVSPScreen( ScreenMgr* mgr ) : ActionScreen( mgr )
 
     int filew = m_GenLayout.GetW() * .6;
 
-    m_FileNameBox = new Fl_Box(m_GenLayout.GetX(), m_GenLayout.GetY(), filew, 20, "File Name:");
+    m_FileNameBox = new Fl_Box(m_GenLayout.GetX(), m_GenLayout.GetY(), filew, 20, _("File Name:"));
     m_FileNameBox->box(FL_EMBOSSED_FRAME);
     m_FileNameBox->labelsize(10);
     m_FileNameBox->align( Fl_Align( FL_ALIGN_CLIP | FL_ALIGN_RIGHT | FL_ALIGN_INSIDE ) );
@@ -253,14 +255,14 @@ void MainVSPScreen::CloseCallBack( Fl_Widget *w )
 
 void MainVSPScreen::SetFileLabel( string fname )
 {
-    string label = "File Name: ";
+    string label = _("File Name: ");
     label.append( fname );
     m_FileNameBox->copy_label( label.c_str() );
 }
 
 void MainVSPScreen::ExitVSP()
 {
-    switch( fl_choice("VSP is exiting. Save or discard your changes.", "Cancel", "Discard", "Save") )
+    switch( fl_choice(_("VSP is exiting. Save or discard your changes."), _("Cancel"), _("Discard"), _("Save")) )
     {
         case(0):
             return;
@@ -273,7 +275,7 @@ void MainVSPScreen::ExitVSP()
 
             if ( savefile.compare( "Unnamed.vsp3" ) == 0 )
             {
-                savefile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Save VSP File", "*.vsp3" );
+                savefile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Save VSP File"), "*.vsp3" );
             }
 
             if ( savefile.compare( "" ) != 0 )
@@ -299,7 +301,7 @@ void MainVSPScreen::ActionCB( void * data )
     }
     else if ( data == &m_OpenMenuItem )
     {
-        string openfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Open VSP File", "*.vsp3" );
+        string openfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Open VSP File"), "*.vsp3" );
         if ( openfile.compare( "" ) != 0 )
         {
             VehicleMgr.GetVehicle()->Renew();
@@ -319,7 +321,7 @@ void MainVSPScreen::ActionCB( void * data )
 
         if ( savefile.compare( "Unnamed.vsp3" ) == 0 )
         {
-            savefile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Save VSP File", "*.vsp3" );
+            savefile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Save VSP File"), "*.vsp3" );
         }
 
         if ( savefile.compare( "" ) != 0 )
@@ -332,7 +334,7 @@ void MainVSPScreen::ActionCB( void * data )
     }
     else if ( data == &m_SaveAsMenuItem )
     {
-        string savefile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Save VSP File As", "*.vsp3" );
+        string savefile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Save VSP File As"), "*.vsp3" );
         if ( savefile.compare( "" ) != 0 )
         {
             VehicleMgr.GetVehicle()->SetVSP3FileName( savefile );
@@ -343,11 +345,11 @@ void MainVSPScreen::ActionCB( void * data )
     }
     else if ( data == &m_SaveSetMenuItem )
     {
-        int set = m_ScreenMgr->GetPickSetScreen()->PickSet( "Pick Save Set" );
+        int set = m_ScreenMgr->GetPickSetScreen()->PickSet( _("Pick Save Set") );
 
         if( set >= 0 )
         {
-            string savefile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Save VSP Set File As", "*.vsp3" );
+            string savefile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Save VSP Set File As"), "*.vsp3" );
             if ( savefile.compare( "" ) != 0 )
             {
                 VehicleMgr.GetVehicle()->WriteXMLFile( savefile, set );
@@ -356,7 +358,7 @@ void MainVSPScreen::ActionCB( void * data )
     }
     else if ( data == &m_InsertMenuItem )
     {
-        string openfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Insert VSP File", "*.vsp3" );
+        string openfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Insert VSP File"), "*.vsp3" );
         if ( openfile.compare( "" ) != 0 )
         {
             VehicleMgr.GetVehicle()->ReadXMLFileGeomsOnly( openfile );
@@ -367,7 +369,7 @@ void MainVSPScreen::ActionCB( void * data )
     // }
     else if ( data == &m_RunScriptMenuItem )
     {
-        string scriptfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Script File To Run", "*.vspscript" );
+        string scriptfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Script File To Run"), "*.vspscript" );
         if ( scriptfile.compare( "" ) != 0 )
         {
             VehicleMgr.GetVehicle()->RunScript( scriptfile );

@@ -11,7 +11,9 @@
 #include "ParmMgr.h"
 #include "LinkMgr.h"
 
-ParmLinkScreen::ParmLinkScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 600, 615, "Parm Link: ( A * Scale + Offset = B )" )
+#include <intl.h>
+
+ParmLinkScreen::ParmLinkScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 600, 615, _("Parm Link: ( A * Scale + Offset = B )") )
 {
     m_MainLayout.SetGroupAndScreen( m_FLTK_Window, this );
     m_MainLayout.AddY( 25 );
@@ -31,20 +33,20 @@ ParmLinkScreen::ParmLinkScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 600, 615, "
     m_GenLayout.AddSubGroupLayout( m_ParmBGroup, m_GenLayout.GetW() / 2 - 52, 75 );
 
     // Add content to Parameter Picker subgroups
-    m_ParmAGroup.AddDividerBox( "Parm A" );
+    m_ParmAGroup.AddDividerBox( _("Parm A") );
     m_ParmAGroup.AddParmPicker( m_ParmAPicker );
     ( (Vsp_Group*) m_ParmAGroup.GetGroup() )->SetAllowDrop( true );
     m_ParmAGroup.GetGroup()->callback( staticScreenCB, this );
 
-    m_ParmBGroup.AddDividerBox( "Parm B" );
+    m_ParmBGroup.AddDividerBox( _("Parm B") );
     m_ParmBGroup.AddParmPicker( m_ParmBPicker );
     ( (Vsp_Group*) m_ParmBGroup.GetGroup() )->SetAllowDrop( true );
     m_ParmBGroup.GetGroup()->callback( staticScreenCB, this );
 
 
     m_LinkGroup.AddY( 17 );
-    m_LinkGroup.AddButton( m_LinkConts, "Link All" );
-    m_LinkGroup.AddButton( m_LinkGroups, "Link All" );
+    m_LinkGroup.AddButton( m_LinkConts, _("Link All") );
+    m_LinkGroup.AddButton( m_LinkGroups, _("Link All") );
 
     m_GenLayout.ForceNewLine();
     m_GenLayout.AddY( 65 );
@@ -54,9 +56,9 @@ ParmLinkScreen::ParmLinkScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 600, 615, "
     // Add 'Offfset' On/Off toggle button and slider
     m_GenLayout.SetFitWidthFlag( false );
     m_GenLayout.SetSameLineFlag( true );
-    m_GenLayout.AddButton( m_OffsetTog, "Offset" );
+    m_GenLayout.AddButton( m_OffsetTog, _("Offset") );
     m_GenLayout.SetFitWidthFlag( true );
-    m_GenLayout.AddSlider( m_OffsetSlider, "Offset", 100, " %7.6f" );
+    m_GenLayout.AddSlider( m_OffsetSlider, _("Offset"), 100, " %7.6f" );
     m_GenLayout.ForceNewLine();
     m_GenLayout.SetSameLineFlag( false );
 
@@ -65,21 +67,21 @@ ParmLinkScreen::ParmLinkScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 600, 615, "
     // Add 'Scale' On/Off toggle button and slider
     m_GenLayout.SetFitWidthFlag( false );
     m_GenLayout.SetSameLineFlag( true );
-    m_GenLayout.AddButton( m_ScaleTog, "Scale" );
+    m_GenLayout.AddButton( m_ScaleTog, _("Scale") );
     m_GenLayout.SetFitWidthFlag( true );
-    m_GenLayout.AddSlider( m_ScaleSlider, "Scale", 2, " %7.6f" );
+    m_GenLayout.AddSlider( m_ScaleSlider, _("Scale"), 2, " %7.6f" );
     m_GenLayout.ForceNewLine();
     m_GenLayout.SetSameLineFlag( false );
 
     m_GenLayout.AddY( 10 );
-    m_GenLayout.AddDividerBox( "Constraints" );
+    m_GenLayout.AddDividerBox( _("Constraints") );
 
     // Set 'Lower' On/Off toggle button and slider
     m_GenLayout.SetFitWidthFlag( false );
     m_GenLayout.SetSameLineFlag( true );
-    m_GenLayout.AddButton( m_LowerTog, "Lower" );
+    m_GenLayout.AddButton( m_LowerTog, _("Lower") );
     m_GenLayout.SetFitWidthFlag( true );
-    m_GenLayout.AddSlider( m_LowerLimitSlider, "Lower", 10.0, "%7.6f" );
+    m_GenLayout.AddSlider( m_LowerLimitSlider, ("Lower"), 10.0, "%7.6f" );
     m_GenLayout.ForceNewLine();
     m_GenLayout.SetSameLineFlag( false );
 
@@ -88,9 +90,9 @@ ParmLinkScreen::ParmLinkScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 600, 615, "
     // Set 'Upper' On/Off toggle button and slider
     m_GenLayout.SetFitWidthFlag( false );
     m_GenLayout.SetSameLineFlag( true );
-    m_GenLayout.AddButton( m_UpperTog, "Upper" );
+    m_GenLayout.AddButton( m_UpperTog, _("Upper") );
     m_GenLayout.SetFitWidthFlag( true );
-    m_GenLayout.AddSlider( m_UpperLimitSlider, "Upper", 10.0, "%7.6f" );
+    m_GenLayout.AddSlider( m_UpperLimitSlider, _("Upper"), 10.0, "%7.6f" );
     m_GenLayout.ForceNewLine();
     m_GenLayout.SetSameLineFlag( false );
 
@@ -101,26 +103,26 @@ ParmLinkScreen::ParmLinkScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 600, 615, "
     m_ConstraintsButtons.SetFitWidthFlag( false );
     m_ConstraintsButtons.SetSameLineFlag( true );
     m_ConstraintsButtons.SetButtonWidth( 186 );
-    m_ConstraintsButtons.AddButton( m_AddLink, "Add Link" );
+    m_ConstraintsButtons.AddButton( m_AddLink, _("Add Link") );
     m_ConstraintsButtons.AddX( 15 );
-    m_ConstraintsButtons.AddButton( m_DeleteLink, "Delete Link" );
+    m_ConstraintsButtons.AddButton( m_DeleteLink, _("Delete Link") );
     m_ConstraintsButtons.AddX( 15 );
-    m_ConstraintsButtons.AddButton( m_DeleteAllLinks, "Delete All Links" );
+    m_ConstraintsButtons.AddButton( m_DeleteAllLinks, _("Delete All Links") );
 
     m_ConstraintsButtons.ForceNewLine();
     m_ConstraintsButtons.AddYGap();
 
     m_ConstraintsButtons.AddX( 93-15 );
-    m_ConstraintsButtons.AddButton( m_ASort, "Sort by A" );
+    m_ConstraintsButtons.AddButton( m_ASort, _("Sort by A") );
     m_ConstraintsButtons.AddX( 60 );
-    m_ConstraintsButtons.AddButton( m_BSort, "Sort by B" );
+    m_ConstraintsButtons.AddButton( m_BSort, _("Sort by B") );
 
     // Place the Parm Link List box
     m_GenLayout.ForceNewLine();
     m_GenLayout.AddY( 30 );
 
     // Add Link Browser
-    m_GenLayout.AddDividerBox( "Parm Link List" );
+    m_GenLayout.AddDividerBox( _("Parm Link List") );
 
     // Pointer for the widths of each column in the browser to support resizing
     // Last column width must be 0
@@ -305,7 +307,7 @@ void ParmLinkScreen::GuiDeviceCallBack( GuiDevice* device )
         bool success = LinkMgr.AddCurrLink();
         if ( !success )
         {
-            fl_alert( "Error: Identical Parms or Already Linked" );
+            fl_alert( _("Error: Identical Parms or Already Linked") );
         }
     }
     else if ( device == &m_DeleteLink )
@@ -321,7 +323,7 @@ void ParmLinkScreen::GuiDeviceCallBack( GuiDevice* device )
         bool success = LinkMgr.LinkAllComp();
         if ( !success )
         {
-            fl_alert( "Error: Identical Comps" );
+            fl_alert( _("Error: Identical Comps") );
         }
     }
     else if ( device == &m_LinkGroups )
@@ -329,7 +331,7 @@ void ParmLinkScreen::GuiDeviceCallBack( GuiDevice* device )
         bool success = LinkMgr.LinkAllGroup();
         if ( !success )
         {
-            fl_alert( "Error: Identical Group" );
+            fl_alert( _("Error: Identical Group") );
         }
     }
     else if ( device == &m_OffsetTog )

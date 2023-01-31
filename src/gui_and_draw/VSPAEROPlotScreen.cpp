@@ -21,7 +21,7 @@
 #define VSPAERO_PLOT_SCREEN_WIDTH 950   //<1024
 #define VSPAERO_PLOT_SCREEN_HEIGHT 700  //<768
 
-VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO_PLOT_SCREEN_WIDTH, VSPAERO_PLOT_SCREEN_HEIGHT, "Results Manager - VSPAERO" )
+VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO_PLOT_SCREEN_WIDTH, VSPAERO_PLOT_SCREEN_HEIGHT, _("Results Manager - VSPAERO") )
 {
     m_FLTK_Window->callback( staticCloseCB, this );
 
@@ -34,7 +34,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
 
 
     //==== Convergence Tab ====//
-    m_ConvergenceTab = AddTab( "Convergence" );
+    m_ConvergenceTab = AddTab( _("Convergence") );
     Fl_Group* convergencePlotGroup = AddSubGroup( m_ConvergenceTab, windowBorderWidth );
     m_ConvergenceLayout.SetGroupAndScreen( convergencePlotGroup, this );
 
@@ -54,7 +54,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
 
     GroupLayout convergenceYDataSelectLayout;
     m_ConvergenceControlLayout.AddSubGroupLayout( convergenceYDataSelectLayout, m_ConvergenceControlLayout.GetW(), yDataSelectHeight );
-    convergenceYDataSelectLayout.AddDividerBox( "Y-Data" );
+    convergenceYDataSelectLayout.AddDividerBox( _("Y-Data") );
     m_ConvergenceYDataBrowser = convergenceYDataSelectLayout.AddFlBrowser( convergenceYDataSelectLayout.GetRemainY() );
     m_ConvergenceYDataBrowser->callback( staticScreenCB, this );
     m_ConvergenceYDataBrowser->type( FL_MULTI_BROWSER );
@@ -62,13 +62,13 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
 
     GroupLayout convergenceFlowConditionLayout;
     m_ConvergenceControlLayout.AddSubGroupLayout( convergenceFlowConditionLayout, m_ConvergenceControlLayout.GetW(), flowConditionSelectHeight );
-    convergenceFlowConditionLayout.AddDividerBox( "Flow Condition" );
+    convergenceFlowConditionLayout.AddDividerBox( _("Flow Condition") );
     m_ConvergenceFlowConditionBrowser = convergenceFlowConditionLayout.AddFlBrowser( convergenceFlowConditionLayout.GetRemainY() );
     m_ConvergenceFlowConditionBrowser->callback( staticScreenCB, this );
     m_ConvergenceFlowConditionBrowser->type( FL_MULTI_BROWSER );
     m_ConvergenceControlLayout.AddY( convergenceFlowConditionLayout.GetH() + 2 * groupBorderWidth );
 
-    m_ConvergenceControlLayout.AddDividerBox( "Legend" );
+    m_ConvergenceControlLayout.AddDividerBox( _("Legend") );
     m_ConvergenceLegendGroup = m_ConvergenceControlLayout.AddFlScroll( legendHeight - rowHeight );
     m_ConvergenceLegendGroup->type( Fl_Scroll::VERTICAL_ALWAYS );
     m_ConvergenceLegendLayout.SetGroupAndScreen( m_ConvergenceLegendGroup, this );
@@ -77,8 +77,8 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
     // Action buttons
     GroupLayout convergenceActionLayout;
     m_ConvergenceControlLayout.AddSubGroupLayout( convergenceActionLayout, m_ConvergenceControlLayout.GetW(), actionButtonHeight );
-    convergenceActionLayout.AddDividerBox( "Actions:" );
-    convergenceActionLayout.AddButton( m_ConvergenceYDataResidualToggle, "Residual log10(|Y(i)-Y(i-1) |)" );
+    convergenceActionLayout.AddDividerBox( _("Actions:") );
+    convergenceActionLayout.AddButton( m_ConvergenceYDataResidualToggle, _("Residual log10(|Y(i)-Y(i-1) |)") );
     m_ConvergenceYDataResidualToggle.GetFlButton()->set();      //turn this on by default
 
     convergenceActionLayout.SetSameLineFlag( true );
@@ -90,7 +90,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
     convergenceActionLayout.AddButton( m_ConvergenceManualXMinToggle, "" );
     convergenceActionLayout.SetButtonWidth( actionSliderButtonWidth );
     convergenceActionLayout.SetFitWidthFlag( true );
-    convergenceActionLayout.AddSlider( m_ConvergenceXMinSlider, "Xmin", 1.0, "%g" );
+    convergenceActionLayout.AddSlider( m_ConvergenceXMinSlider, _("Xmin"), 1.0, "%g" );
 
     convergenceActionLayout.ForceNewLine();
 
@@ -99,7 +99,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
     convergenceActionLayout.AddButton( m_ConvergenceManualXMaxToggle, "" );
     convergenceActionLayout.SetButtonWidth( actionSliderButtonWidth );
     convergenceActionLayout.SetFitWidthFlag( true );
-    convergenceActionLayout.AddSlider( m_ConvergenceXMaxSlider, "Xmax", 1.0, "%g" );
+    convergenceActionLayout.AddSlider( m_ConvergenceXMaxSlider, _("Xmax"), 1.0, "%g" );
 
     convergenceActionLayout.ForceNewLine();
 
@@ -108,7 +108,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
     convergenceActionLayout.AddButton( m_ConvergenceManualYMinToggle, "" );
     convergenceActionLayout.SetButtonWidth( actionSliderButtonWidth );
     convergenceActionLayout.SetFitWidthFlag( true );
-    convergenceActionLayout.AddSlider( m_ConvergenceYMinSlider, "Ymin", 1.0, "%g" );
+    convergenceActionLayout.AddSlider( m_ConvergenceYMinSlider, _("Ymin"), 1.0, "%g" );
 
     convergenceActionLayout.ForceNewLine();
 
@@ -117,7 +117,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
     convergenceActionLayout.AddButton( m_ConvergenceManualYMaxToggle, "" );
     convergenceActionLayout.SetButtonWidth( actionSliderButtonWidth );
     convergenceActionLayout.SetFitWidthFlag( true );
-    convergenceActionLayout.AddSlider( m_ConvergenceYMaxSlider, "Ymax", 1.0, "%g" );
+    convergenceActionLayout.AddSlider( m_ConvergenceYMaxSlider, _("Ymax"), 1.0, "%g" );
     convergenceActionLayout.InitWidthHeightVals();
 
     // Plot layout
@@ -153,7 +153,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
 
     GroupLayout yDataSelectLayout;
     m_LoadDistControlLayout.AddSubGroupLayout( yDataSelectLayout, m_LoadDistControlLayout.GetW(), yDataSelectHeight );
-    yDataSelectLayout.AddDividerBox( "Y-Data" );
+    yDataSelectLayout.AddDividerBox( _("Y-Data") );
     m_LoadDistYDataBrowser = yDataSelectLayout.AddFlBrowser( yDataSelectLayout.GetRemainY() );
     m_LoadDistYDataBrowser->callback( staticScreenCB, this );
     m_LoadDistYDataBrowser->type( FL_MULTI_BROWSER );
@@ -166,8 +166,8 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
     loadChoiceLayout.SetSameLineFlag( true );
     loadChoiceLayout.SetFitWidthFlag( false );
     loadChoiceLayout.SetButtonWidth( loadChoiceLayout.GetRemainX() / 2 );
-    loadChoiceLayout.AddButton( m_LoadTypeToggle, "Load" );
-    loadChoiceLayout.AddButton( m_BladeTypeToggle, "Blade" );
+    loadChoiceLayout.AddButton( m_LoadTypeToggle, _("Load") );
+    loadChoiceLayout.AddButton( m_BladeTypeToggle, _("Blade") );
     m_LoadDataTypeRadio.AddButton( m_LoadTypeToggle.GetFlButton() );
     m_LoadDataTypeRadio.AddButton( m_BladeTypeToggle.GetFlButton() );
     m_LoadDataTypeRadio.Init( this );
@@ -179,7 +179,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
 
     GroupLayout loadDistSelectLayout;
     m_LoadDistControlLayout.AddSubGroupLayout( loadDistSelectLayout, m_LoadDistControlLayout.GetW(), flowConditionSelectHeight - m_LoadDistLayout.GetStdHeight() + 2 * windowBorderWidth );
-    loadDistSelectLayout.AddDividerBox( "Group/Rotor Selection" );
+    loadDistSelectLayout.AddDividerBox( _("Group/Rotor Selection") );
     m_LoadDistSelectBrowser = loadDistSelectLayout.AddFlBrowser( loadDistSelectLayout.GetRemainY() );
     m_LoadDistSelectBrowser->callback( staticScreenCB, this );
     m_LoadDistSelectBrowser->type( FL_MULTI_BROWSER );
@@ -187,13 +187,13 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
 
     GroupLayout flowConditionLayout;
     m_LoadDistControlLayout.AddSubGroupLayout( flowConditionLayout, m_LoadDistControlLayout.GetW(), flowConditionSelectHeight );
-    flowConditionLayout.AddDividerBox( "Flow Condition" );
+    flowConditionLayout.AddDividerBox( _("Flow Condition") );
     m_LoadDistFlowConditionBrowser = flowConditionLayout.AddFlBrowser( flowConditionLayout.GetRemainY() );
     m_LoadDistFlowConditionBrowser->callback( staticScreenCB, this );
     m_LoadDistFlowConditionBrowser->type( FL_MULTI_BROWSER );
     m_LoadDistControlLayout.AddY( flowConditionLayout.GetH() + 2 * groupBorderWidth );
 
-    m_LoadDistControlLayout.AddDividerBox( "Legend" );
+    m_LoadDistControlLayout.AddDividerBox( _("Legend") );
     m_LoadDistLegendGroup = m_LoadDistControlLayout.AddFlScroll( legendHeight - rowHeight );
     m_LoadDistLegendGroup->type( Fl_Scroll::VERTICAL_ALWAYS );
     m_LoadDistLegendLayout.SetGroupAndScreen( m_LoadDistLegendGroup, this );
@@ -202,7 +202,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
     // Action buttons
     GroupLayout loadDistActionLayout;
     m_LoadDistControlLayout.AddSubGroupLayout( loadDistActionLayout, m_LoadDistControlLayout.GetW(), actionButtonHeight );
-    loadDistActionLayout.AddDividerBox( "Actions:" );
+    loadDistActionLayout.AddDividerBox( _("Actions:") );
 
     loadDistActionLayout.SetSameLineFlag( true );
 
@@ -211,7 +211,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
     loadDistActionLayout.AddButton( m_LoadDistManualXMinToggle, "" );
     loadDistActionLayout.SetButtonWidth( actionSliderButtonWidth );
     loadDistActionLayout.SetFitWidthFlag( true );
-    loadDistActionLayout.AddSlider( m_LoadDistXMinSlider, "Xmin", 1.0, "%g" );
+    loadDistActionLayout.AddSlider( m_LoadDistXMinSlider, _("Xmin"), 1.0, "%g" );
 
     loadDistActionLayout.ForceNewLine();
 
@@ -220,7 +220,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
     loadDistActionLayout.AddButton( m_LoadDistManualXMaxToggle, "" );
     loadDistActionLayout.SetButtonWidth( actionSliderButtonWidth );
     loadDistActionLayout.SetFitWidthFlag( true );
-    loadDistActionLayout.AddSlider( m_LoadDistXMaxSlider, "Xmax", 1.0, "%g" );
+    loadDistActionLayout.AddSlider( m_LoadDistXMaxSlider, _("Xmax"), 1.0, "%g" );
 
     loadDistActionLayout.ForceNewLine();
 
@@ -229,7 +229,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
     loadDistActionLayout.AddButton( m_LoadDistManualYMinToggle, "" );
     loadDistActionLayout.SetButtonWidth( actionSliderButtonWidth );
     loadDistActionLayout.SetFitWidthFlag( true );
-    loadDistActionLayout.AddSlider( m_LoadDistYMinSlider, "Ymin", 1.0, "%g" );
+    loadDistActionLayout.AddSlider( m_LoadDistYMinSlider, _("Ymin"), 1.0, "%g" );
 
     loadDistActionLayout.ForceNewLine();
 
@@ -238,7 +238,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
     loadDistActionLayout.AddButton( m_LoadDistManualYMaxToggle, "" );
     loadDistActionLayout.SetButtonWidth( actionSliderButtonWidth );
     loadDistActionLayout.SetFitWidthFlag( true );
-    loadDistActionLayout.AddSlider( m_LoadDistYMaxSlider, "Ymax", 1.0, "%g" );
+    loadDistActionLayout.AddSlider( m_LoadDistYMaxSlider, _("Ymax"), 1.0, "%g" );
     loadDistActionLayout.InitWidthHeightVals();
 
     // Plot layout
@@ -269,7 +269,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
     //  X Data browser
     GroupLayout sweepXDataSelectLayout;
     sweepXYDataSelectLayout.AddSubGroupLayout( sweepXDataSelectLayout, sweepXYDataSelectLayout.GetW() / 2, sweepXYDataSelectLayout.GetH() );
-    sweepXDataSelectLayout.AddDividerBox( "X-Data" );
+    sweepXDataSelectLayout.AddDividerBox( _("X-Data") );
     m_SweepXDataBrowser = sweepXDataSelectLayout.AddFlBrowser( sweepXDataSelectLayout.GetRemainY() );
     m_SweepXDataBrowser->callback( staticScreenCB, this );
     m_SweepXDataBrowser->type( FL_MULTI_BROWSER );
@@ -277,7 +277,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
     //  Y Data browser
     GroupLayout sweepYDataSelectLayout;
     sweepXYDataSelectLayout.AddSubGroupLayout( sweepYDataSelectLayout, sweepXYDataSelectLayout.GetW() / 2, sweepXYDataSelectLayout.GetH() );
-    sweepYDataSelectLayout.AddDividerBox( "Y-Data" );
+    sweepYDataSelectLayout.AddDividerBox( _("Y-Data") );
     m_SweepYDataBrowser = sweepYDataSelectLayout.AddFlBrowser( sweepYDataSelectLayout.GetRemainY() );
     m_SweepYDataBrowser->callback( staticScreenCB, this );
     m_SweepYDataBrowser->type( FL_MULTI_BROWSER );
@@ -285,13 +285,13 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
 
     GroupLayout sweepFlowConditionLayout;
     m_SweepControlLayout.AddSubGroupLayout( flowConditionLayout, m_SweepControlLayout.GetW(), flowConditionSelectHeight );
-    flowConditionLayout.AddDividerBox( "Flow Condition" );
+    flowConditionLayout.AddDividerBox( _("Flow Condition") );
     m_SweepFlowConditionBrowser = flowConditionLayout.AddFlBrowser( flowConditionLayout.GetRemainY() );
     m_SweepFlowConditionBrowser->callback( staticScreenCB, this );
     m_SweepFlowConditionBrowser->type( FL_MULTI_BROWSER );
     m_SweepControlLayout.AddY( flowConditionLayout.GetH() + 2 * groupBorderWidth );
 
-    m_SweepControlLayout.AddDividerBox( "Legend" );
+    m_SweepControlLayout.AddDividerBox( _("Legend") );
     m_SweepLegendGroup = m_SweepControlLayout.AddFlScroll( legendHeight - rowHeight );
     m_SweepLegendGroup->type( Fl_Scroll::VERTICAL_ALWAYS );
     m_SweepLegendLayout.SetGroupAndScreen( m_SweepLegendGroup, this );
@@ -300,7 +300,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
     // Action buttons
     GroupLayout sweepActionLayout;
     m_SweepControlLayout.AddSubGroupLayout( sweepActionLayout, m_SweepControlLayout.GetW(), actionButtonHeight );
-    sweepActionLayout.AddDividerBox( "Actions:" );
+    sweepActionLayout.AddDividerBox( _("Actions:") );
 
     sweepActionLayout.SetSameLineFlag( true );
 
@@ -309,7 +309,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
     sweepActionLayout.AddButton( m_SweepManualXMinToggle, "" );
     sweepActionLayout.SetButtonWidth( actionSliderButtonWidth );
     sweepActionLayout.SetFitWidthFlag( true );
-    sweepActionLayout.AddSlider( m_SweepXMinSlider, "Xmin", 1.0, "%g" );
+    sweepActionLayout.AddSlider( m_SweepXMinSlider, _("Xmin"), 1.0, "%g" );
 
     sweepActionLayout.ForceNewLine();
 
@@ -318,7 +318,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
     sweepActionLayout.AddButton( m_SweepManualXMaxToggle, "" );
     sweepActionLayout.SetButtonWidth( actionSliderButtonWidth );
     sweepActionLayout.SetFitWidthFlag( true );
-    sweepActionLayout.AddSlider( m_SweepXMaxSlider, "Xmax", 1.0, "%g" );
+    sweepActionLayout.AddSlider( m_SweepXMaxSlider, _("Xmax"), 1.0, "%g" );
 
     sweepActionLayout.ForceNewLine();
 
@@ -327,7 +327,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
     sweepActionLayout.AddButton( m_SweepManualYMinToggle, "" );
     sweepActionLayout.SetButtonWidth( actionSliderButtonWidth );
     sweepActionLayout.SetFitWidthFlag( true );
-    sweepActionLayout.AddSlider( m_SweepYMinSlider, "Ymin", 1.0, "%g" );
+    sweepActionLayout.AddSlider( m_SweepYMinSlider, _("Ymin"), 1.0, "%g" );
 
     sweepActionLayout.ForceNewLine();
 
@@ -336,7 +336,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
     sweepActionLayout.AddButton( m_SweepManualYMaxToggle, "" );
     sweepActionLayout.SetButtonWidth( actionSliderButtonWidth );
     sweepActionLayout.SetFitWidthFlag( true );
-    sweepActionLayout.AddSlider( m_SweepYMaxSlider, "Ymax", 1.0, "%g" );
+    sweepActionLayout.AddSlider( m_SweepYMaxSlider, _("Ymax"), 1.0, "%g" );
     sweepActionLayout.InitWidthHeightVals();
 
     // Plot layout
@@ -352,7 +352,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
     m_SweepPlotCanvas->current_y()->label_format( "%g" );
 
     //==== Cp Slice Tab ====//
-    m_CpSliceTab = AddTab( "Cp Slice" );
+    m_CpSliceTab = AddTab( _("Cp Slice") );
     Fl_Group* CpSlicePlotGroup = AddSubGroup( m_CpSliceTab, windowBorderWidth );
     m_CpSliceLayout.SetGroupAndScreen( CpSlicePlotGroup, this );
 
@@ -368,7 +368,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
 
     GroupLayout CutSelectLayout;
     m_CpSliceControlLayout.AddSubGroupLayout( CutSelectLayout, m_CpSliceControlLayout.GetW(), yDataSelectHeight );
-    CutSelectLayout.AddDividerBox( "Slice" );
+    CutSelectLayout.AddDividerBox( _("Slice") );
     m_CpSliceCutBrowser = CutSelectLayout.AddFlBrowser( CutSelectLayout.GetRemainY() );
     m_CpSliceCutBrowser->callback( staticScreenCB, this );
     m_CpSliceCutBrowser->type( FL_MULTI_BROWSER );
@@ -376,7 +376,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
 
     GroupLayout CutPosChoiceLayout;
     m_CpSliceControlLayout.AddSubGroupLayout( CutPosChoiceLayout, m_CpSliceControlLayout.GetW() , PosTypeHeight );
-    CutPosChoiceLayout.AddDividerBox( "X-Axis Plotting" );
+    CutPosChoiceLayout.AddDividerBox( _("X-Axis Plotting") );
 
     CutPosChoiceLayout.SetChoiceButtonWidth( 3 * CutPosChoiceLayout.GetW() / 4 );
 
@@ -387,14 +387,14 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
 
     for ( size_t i = 0; i < m_CpSlicePosTypeChoiceVec.size(); i++ )
     {
-        m_CpSlicePosTypeChoiceVec[i]->AddItem( "X" );
-        m_CpSlicePosTypeChoiceVec[i]->AddItem( "Y" );
-        m_CpSlicePosTypeChoiceVec[i]->AddItem( "Z" );
+        m_CpSlicePosTypeChoiceVec[i]->AddItem( _("X") );
+        m_CpSlicePosTypeChoiceVec[i]->AddItem( _("Y") );
+        m_CpSlicePosTypeChoiceVec[i]->AddItem( _("Z") );
     }
 
-    CutPosChoiceLayout.AddChoice( m_XCpSlicePosTypeChoice, "X Cut Position Axis" );
-    CutPosChoiceLayout.AddChoice( m_YCpSlicePosTypeChoice, "Y Cut Position Axis" );
-    CutPosChoiceLayout.AddChoice( m_ZCpSlicePosTypeChoice, "Z Cut Position Axis" );
+    CutPosChoiceLayout.AddChoice( m_XCpSlicePosTypeChoice, _("X Cut Position Axis") );
+    CutPosChoiceLayout.AddChoice( m_YCpSlicePosTypeChoice, _("Y Cut Position Axis") );
+    CutPosChoiceLayout.AddChoice( m_ZCpSlicePosTypeChoice, _("Z Cut Position Axis") );
 
     m_XCpSlicePosTypeChoice.UpdateItems();
     m_YCpSlicePosTypeChoice.UpdateItems();
@@ -419,7 +419,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
     // Action buttons
     GroupLayout CpSliceActionLayout;
     m_CpSliceControlLayout.AddSubGroupLayout( CpSliceActionLayout, m_CpSliceControlLayout.GetW(), actionButtonHeight );
-    CpSliceActionLayout.AddDividerBox( "Actions:" );
+    CpSliceActionLayout.AddDividerBox( _("Actions:") );
 
     CpSliceActionLayout.SetSameLineFlag( true );
 
@@ -428,7 +428,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
     CpSliceActionLayout.AddButton( m_CpSliceManualXMinToggle, "" );
     CpSliceActionLayout.SetButtonWidth( actionSliderButtonWidth );
     CpSliceActionLayout.SetFitWidthFlag( true );
-    CpSliceActionLayout.AddSlider( m_CpSliceXMinSlider, "Xmin", 1.0, "%g" );
+    CpSliceActionLayout.AddSlider( m_CpSliceXMinSlider, _("Xmin"), 1.0, "%g" );
 
     CpSliceActionLayout.ForceNewLine();
 
@@ -437,7 +437,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
     CpSliceActionLayout.AddButton( m_CpSliceManualXMaxToggle, "" );
     CpSliceActionLayout.SetButtonWidth( actionSliderButtonWidth );
     CpSliceActionLayout.SetFitWidthFlag( true );
-    CpSliceActionLayout.AddSlider( m_CpSliceXMaxSlider, "Xmax", 1.0, "%g" );
+    CpSliceActionLayout.AddSlider( m_CpSliceXMaxSlider, _("Xmax"), 1.0, "%g" );
 
     CpSliceActionLayout.ForceNewLine();
 
@@ -446,7 +446,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
     CpSliceActionLayout.AddButton( m_CpSliceManualYMinToggle, "" );
     CpSliceActionLayout.SetButtonWidth( actionSliderButtonWidth );
     CpSliceActionLayout.SetFitWidthFlag( true );
-    CpSliceActionLayout.AddSlider( m_CpSliceYMinSlider, "Ymin", 1.0, "%g" );
+    CpSliceActionLayout.AddSlider( m_CpSliceYMinSlider, _("Ymin"), 1.0, "%g" );
 
     CpSliceActionLayout.ForceNewLine();
 
@@ -455,15 +455,15 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
     CpSliceActionLayout.AddButton( m_CpSliceManualYMaxToggle, "" );
     CpSliceActionLayout.SetButtonWidth( actionSliderButtonWidth );
     CpSliceActionLayout.SetFitWidthFlag( true );
-    CpSliceActionLayout.AddSlider( m_CpSliceYMaxSlider, "Ymax", 1.0, "%g" );
+    CpSliceActionLayout.AddSlider( m_CpSliceYMaxSlider, _("Ymax"), 1.0, "%g" );
     CpSliceActionLayout.InitWidthHeightVals();
 
     CpSliceActionLayout.SetFitWidthFlag( false );
     CpSliceActionLayout.ForceNewLine();
     CpSliceActionLayout.SetButtonWidth( CpSliceActionLayout.GetW() / 2 );
 
-    CpSliceActionLayout.AddButton( m_CpSliceFlipYToggle, "Flip Y Axis" );
-    CpSliceActionLayout.AddButton( m_CpSlicePlotLinesToggle, "Plot Lines" );
+    CpSliceActionLayout.AddButton( m_CpSliceFlipYToggle, _("Flip Y Axis") );
+    CpSliceActionLayout.AddButton( m_CpSlicePlotLinesToggle, _("Plot Lines") );
 
     // Plot layout
     m_CpSliceLayout.AddX( controlWidth + 2 * groupBorderWidth );
@@ -478,7 +478,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
     m_CpSlicePlotCanvas->current_y()->label_format( "%g" );
 
     //==== Unsteady Tab ====//
-    m_UnsteadyTab = AddTab( "Unsteady" );
+    m_UnsteadyTab = AddTab( _("Unsteady") );
     Fl_Group* unsteadyPlotGroup = AddSubGroup( m_UnsteadyTab, windowBorderWidth );
     m_UnsteadyLayout.SetGroupAndScreen( unsteadyPlotGroup, this );
 
@@ -495,7 +495,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
 
     GroupLayout unsteadyYDataSelectLayout;
     m_UnsteadyControlLayout.AddSubGroupLayout( unsteadyYDataSelectLayout, m_UnsteadyControlLayout.GetW(), yDataSelectHeight );
-    unsteadyYDataSelectLayout.AddDividerBox( "Y-Data" );
+    unsteadyYDataSelectLayout.AddDividerBox( _("Y-Data") );
     m_UnsteadyYDataBrowser = unsteadyYDataSelectLayout.AddFlBrowser( unsteadyYDataSelectLayout.GetRemainY() );
     m_UnsteadyYDataBrowser->callback( staticScreenCB, this );
     m_UnsteadyYDataBrowser->type( FL_MULTI_BROWSER );
@@ -503,14 +503,14 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
 
     GroupLayout unsteadyGroupChoiceLayout;
     m_UnsteadyControlLayout.AddSubGroupLayout( unsteadyGroupChoiceLayout, m_UnsteadyControlLayout.GetW(), 2 * m_UnsteadyControlLayout.GetStdHeight() - 2 * groupBorderWidth );
-    unsteadyGroupChoiceLayout.AddDividerBox( "Data Type Selection" );
+    unsteadyGroupChoiceLayout.AddDividerBox( _("Data Type Selection") );
 
     unsteadyGroupChoiceLayout.SetSameLineFlag( true );
     unsteadyGroupChoiceLayout.SetFitWidthFlag( false );
     unsteadyGroupChoiceLayout.SetButtonWidth( unsteadyGroupChoiceLayout.GetRemainX() / 3 );
-    unsteadyGroupChoiceLayout.AddButton( m_UnsteadyHistoryToggle, "History" );
-    unsteadyGroupChoiceLayout.AddButton( m_UnsteadyGroupToggle, "Group" );
-    unsteadyGroupChoiceLayout.AddButton( m_UnsteadyRotorToggle, "Rotor" );
+    unsteadyGroupChoiceLayout.AddButton( m_UnsteadyHistoryToggle, _("History") );
+    unsteadyGroupChoiceLayout.AddButton( m_UnsteadyGroupToggle, _("Group") );
+    unsteadyGroupChoiceLayout.AddButton( m_UnsteadyRotorToggle, _("Rotor") );
     m_UnsteadyDataTypeRadio.AddButton( m_UnsteadyHistoryToggle.GetFlButton() );
     m_UnsteadyDataTypeRadio.AddButton( m_UnsteadyGroupToggle.GetFlButton() );
     m_UnsteadyDataTypeRadio.AddButton( m_UnsteadyRotorToggle.GetFlButton() );
@@ -523,7 +523,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
 
     GroupLayout unsteadySelectLayout;
     m_UnsteadyControlLayout.AddSubGroupLayout( unsteadySelectLayout, m_UnsteadyControlLayout.GetW(), flowConditionSelectHeight - m_UnsteadyLayout.GetStdHeight() + 2 * windowBorderWidth );
-    unsteadySelectLayout.AddDividerBox( "Group/Rotor Selection" );
+    unsteadySelectLayout.AddDividerBox( _("Group/Rotor Selection") );
     m_UnsteadySelectBrowser = unsteadySelectLayout.AddFlBrowser( unsteadySelectLayout.GetRemainY() );
     m_UnsteadySelectBrowser->callback( staticScreenCB, this );
     m_UnsteadySelectBrowser->type( FL_MULTI_BROWSER );
@@ -531,13 +531,13 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
 
     GroupLayout unsteadyFlowConditionLayout;
     m_UnsteadyControlLayout.AddSubGroupLayout( unsteadyFlowConditionLayout, m_UnsteadyControlLayout.GetW(), flowConditionSelectHeight );
-    unsteadyFlowConditionLayout.AddDividerBox( "Flow Condition" );
+    unsteadyFlowConditionLayout.AddDividerBox( _("Flow Condition") );
     m_UnsteadyFlowConditionBrowser = unsteadyFlowConditionLayout.AddFlBrowser( unsteadyFlowConditionLayout.GetRemainY() );
     m_UnsteadyFlowConditionBrowser->callback( staticScreenCB, this );
     m_UnsteadyFlowConditionBrowser->type( FL_MULTI_BROWSER );
     m_UnsteadyControlLayout.AddY( unsteadyFlowConditionLayout.GetH() + 2 * groupBorderWidth );
 
-    m_UnsteadyControlLayout.AddDividerBox( "Legend" );
+    m_UnsteadyControlLayout.AddDividerBox( _("Legend") );
     m_UnsteadyLegendGroup = m_UnsteadyControlLayout.AddFlScroll( legendHeight - rowHeight );
     m_UnsteadyLegendGroup->type( Fl_Scroll::VERTICAL_ALWAYS );
     m_UnsteadyLegendLayout.SetGroupAndScreen( m_UnsteadyLegendGroup, this );
@@ -546,7 +546,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
     // Action buttons
     GroupLayout unsteadyActionLayout;
     m_UnsteadyControlLayout.AddSubGroupLayout( unsteadyActionLayout, m_UnsteadyControlLayout.GetW(), actionButtonHeight );
-    unsteadyActionLayout.AddDividerBox( "Actions:" );
+    unsteadyActionLayout.AddDividerBox( _("Actions:") );
 
     unsteadyActionLayout.SetSameLineFlag( true );
 
@@ -555,7 +555,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
     unsteadyActionLayout.AddButton( m_UnsteadyManualXMinToggle, "" );
     unsteadyActionLayout.SetButtonWidth( actionSliderButtonWidth );
     unsteadyActionLayout.SetFitWidthFlag( true );
-    unsteadyActionLayout.AddSlider( m_UnsteadyXMinSlider, "Xmin", 1.0, "%g" );
+    unsteadyActionLayout.AddSlider( m_UnsteadyXMinSlider, _("Xmin"), 1.0, "%g" );
 
     unsteadyActionLayout.ForceNewLine();
 
@@ -564,7 +564,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
     unsteadyActionLayout.AddButton( m_UnsteadyManualXMaxToggle, "" );
     unsteadyActionLayout.SetButtonWidth( actionSliderButtonWidth );
     unsteadyActionLayout.SetFitWidthFlag( true );
-    unsteadyActionLayout.AddSlider( m_UnsteadyXMaxSlider, "Xmax", 1.0, "%g" );
+    unsteadyActionLayout.AddSlider( m_UnsteadyXMaxSlider, _("Xmax"), 1.0, "%g" );
 
     unsteadyActionLayout.ForceNewLine();
 
@@ -573,7 +573,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
     unsteadyActionLayout.AddButton( m_UnsteadyManualYMinToggle, "" );
     unsteadyActionLayout.SetButtonWidth( actionSliderButtonWidth );
     unsteadyActionLayout.SetFitWidthFlag( true );
-    unsteadyActionLayout.AddSlider( m_UnsteadyYMinSlider, "Ymin", 1.0, "%g" );
+    unsteadyActionLayout.AddSlider( m_UnsteadyYMinSlider, _("Ymin"), 1.0, "%g" );
 
     unsteadyActionLayout.ForceNewLine();
 
@@ -582,7 +582,7 @@ VSPAEROPlotScreen::VSPAEROPlotScreen( ScreenMgr* mgr ) : TabScreen( mgr, VSPAERO
     unsteadyActionLayout.AddButton( m_UnsteadyManualYMaxToggle, "" );
     unsteadyActionLayout.SetButtonWidth( actionSliderButtonWidth );
     unsteadyActionLayout.SetFitWidthFlag( true );
-    unsteadyActionLayout.AddSlider( m_UnsteadyYMaxSlider, "Ymax", 1.0, "%g" );
+    unsteadyActionLayout.AddSlider( m_UnsteadyYMaxSlider, _("Ymax"), 1.0, "%g" );
     unsteadyActionLayout.InitWidthHeightVals();
 
     // Plot layout

@@ -10,31 +10,33 @@
 
 #include "MaterialEditScreen.h"
 
-MaterialEditScreen::MaterialEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 300, 365, "Material Edit" )
+#include <intl.h>
+
+MaterialEditScreen::MaterialEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 300, 365, _("Material Edit") )
 {
     m_FLTK_Window->callback( staticCloseCB, this );
 
     m_GenLayout.SetGroupAndScreen( m_FLTK_Window, this );
     m_GenLayout.AddY( 25 );
 
-    m_GenLayout.AddInput( m_MaterialNameInput, "Name" );
+    m_GenLayout.AddInput( m_MaterialNameInput, _("Name") );
     m_GenLayout.AddYGap();
 
-    m_GenLayout.AddDividerBox( "Ambient Reflection" );
+    m_GenLayout.AddDividerBox( _("Ambient Reflection") );
     m_GenLayout.AddColorPicker( m_AmbientColorPicker );
     m_GenLayout.AddYGap();
-    m_GenLayout.AddDividerBox( "Diffuse Reflection" );
+    m_GenLayout.AddDividerBox( _("Diffuse Reflection") );
     m_GenLayout.AddColorPicker( m_DiffuseColorPicker );
     m_GenLayout.AddYGap();
-    m_GenLayout.AddDividerBox( "Specular Reflection" );
+    m_GenLayout.AddDividerBox( _("Specular Reflection") );
     m_GenLayout.AddColorPicker( m_SpecularColorPicker );
     m_GenLayout.AddYGap();
-    m_GenLayout.AddDividerBox( "Emitted Light" );
+    m_GenLayout.AddDividerBox( _("Emitted Light") );
     m_GenLayout.AddColorPicker( m_EmissiveColorPicker );
     m_GenLayout.AddYGap();
 
-    m_GenLayout.AddSlider( m_AlphaSlider, "Alpha", 1.0, "%6.2f" );
-    m_GenLayout.AddSlider( m_ShininessSlider, "Shininess", 128, "%3.0f" );
+    m_GenLayout.AddSlider( m_AlphaSlider, _("Alpha"), 1.0, "%6.2f" );
+    m_GenLayout.AddSlider( m_ShininessSlider, _("Shininess"), 128, "%3.0f" );
 
     m_GenLayout.AddYGap();
 
@@ -42,8 +44,8 @@ MaterialEditScreen::MaterialEditScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 300
     m_GenLayout.SetSameLineFlag( true );
 
     m_GenLayout.SetButtonWidth( m_GenLayout.GetW() / 2 );
-    m_GenLayout.AddButton( m_SaveApplyButton, "Apply" );
-    m_GenLayout.AddButton( m_CancelButton, "Cancel" );
+    m_GenLayout.AddButton( m_SaveApplyButton, _("Apply") );
+    m_GenLayout.AddButton( m_CancelButton, _("Cancel") );
 
     m_GenLayout.SetFitWidthFlag( true );
     m_GenLayout.SetSameLineFlag( false );
@@ -153,7 +155,7 @@ void MaterialEditScreen::GuiDeviceCallBack( GuiDevice* device )
         }
         else
         {
-            m_ScreenMgr->Alert( "Please enter a unique name for your material." );
+            m_ScreenMgr->Alert( _("Please enter a unique name for your material.") );
         }
     }
     else if ( device == &m_CancelButton )

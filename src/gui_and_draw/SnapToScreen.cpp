@@ -13,7 +13,7 @@
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-SnapToScreen::SnapToScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 300, 380, "Snap To" )
+SnapToScreen::SnapToScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 300, 380, _("Snap To") )
 {
     m_FLTK_Window->callback( staticCloseCB, this );
     m_GenLayout.SetGroupAndScreen( m_FLTK_Window, this );
@@ -31,42 +31,42 @@ SnapToScreen::SnapToScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 300, 380, "Snap
     int gap = 4;
 
     m_BorderLayout.SetButtonWidth( 100 );
-    m_BorderLayout.AddSlider( m_TargetMinDistSlider, "Target Min Dist", 1, "%7.3f" );
+    m_BorderLayout.AddSlider( m_TargetMinDistSlider, _("Target Min Dist"), 1, "%7.3f" );
     m_BorderLayout.AddYGap();
 
     m_BorderLayout.SetButtonWidth( 150 );
-    m_BorderLayout.AddOutput( m_MinDistOutput, "Result Min Dist" );
+    m_BorderLayout.AddOutput( m_MinDistOutput, _("Result Min Dist") );
 
-    m_BorderLayout.AddButton( m_CheckClearance, "Check Clearance" );
-
-    m_BorderLayout.AddYGap();
-    m_BorderLayout.AddDividerBox( "Collision Set And Method" );
-    m_BorderLayout.AddChoice( m_SetChoice, "Set:" );
-    m_BorderLayout.AddChoice( m_MethodChoice, "Method:" );
-    m_BorderLayout.AddYGap();
+    m_BorderLayout.AddButton( m_CheckClearance, _("Check Clearance") );
 
     m_BorderLayout.AddYGap();
-    m_BorderLayout.AddDividerBox( "Interactive Collision Detection" );
-    m_BorderLayout.AddLabel("Press Alt (Option) Key and change parm", 290 );
+    m_BorderLayout.AddDividerBox( _("Collision Set And Method") );
+    m_BorderLayout.AddChoice( m_SetChoice, _("Set:") );
+    m_BorderLayout.AddChoice( m_MethodChoice, _("Method:") );
+    m_BorderLayout.AddYGap();
+
+    m_BorderLayout.AddYGap();
+    m_BorderLayout.AddDividerBox( _("Interactive Collision Detection") );
+    m_BorderLayout.AddLabel(_("Press Alt (Option) Key and change parm"), 290 );
     m_BorderLayout.ForceNewLine();
     m_BorderLayout.AddYGap();
     m_BorderLayout.AddYGap();
 
 
-    m_BorderLayout.AddDividerBox( "Manual Collision Detection" );
+    m_BorderLayout.AddDividerBox( _("Manual Collision Detection") );
     m_BorderLayout.AddParmPicker( m_ParmPicker );
 
     m_BorderLayout.AddYGap();
     m_BorderLayout.SetButtonWidth( 100 );
-    m_BorderLayout.AddSlider( m_ValSlider, "AUTO_UPDATE", 10, "%7.3f" );
+    m_BorderLayout.AddSlider( m_ValSlider, _("AUTO_UPDATE"), 10, "%7.3f" );
     m_BorderLayout.AddYGap();
 
     m_BorderLayout.SetSameLineFlag( true );
     m_BorderLayout.SetFitWidthFlag( false );
     m_BorderLayout.SetButtonWidth( m_BorderLayout.GetRemainX()/2 - gap/2 );
-    m_BorderLayout.AddButton( m_DecVal, "Decrease" );
+    m_BorderLayout.AddButton( m_DecVal, _("Decrease") );
     m_BorderLayout.AddX( gap );
-    m_BorderLayout.AddButton( m_IncVal, "Increase" );
+    m_BorderLayout.AddButton( m_IncVal, _("Increase") );
     m_BorderLayout.ForceNewLine();
 
     m_BorderLayout.SetSameLineFlag( false );
@@ -101,17 +101,17 @@ bool SnapToScreen::Update()
     m_SetChoice.SetVal( snap->m_CollisionSet );
 
     m_MethodChoice.ClearItems();
-    m_MethodChoice.AddItem( "Mesh - Faster" );
-//    m_MethodChoice.AddItem( "Surface - More Accurate" );
+    m_MethodChoice.AddItem( _("Mesh - Faster") );
+//    m_MethodChoice.AddItem( _("Surface - More Accurate") );
     m_MethodChoice.UpdateItems();
 
     m_TargetMinDistSlider.Update( snap->m_CollisionTargetDist.GetID() );
 
     string s_out = StringUtil::double_to_string( snap->m_CollisionMinDist, "  %8.7f" );
     if ( snap->m_CollisionErrorFlag ==  vsp::COLLISION_INTERSECT_NO_SOLUTION )
-        s_out = string("  Touching No Soln ");
+        s_out = string(_("  Touching No Soln "));
     else if ( snap->m_CollisionErrorFlag ==  vsp::COLLISION_CLEAR_NO_SOLUTION )
-        s_out = string("  Not Touching No Soln ");
+        s_out = string(_("  Not Touching No Soln "));
 
     m_MinDistOutput.Update( s_out );
 

@@ -49,13 +49,13 @@ SetEditorScreen::SetEditorScreen(ScreenMgr* mgr ) : BasicScreen( mgr, 300, 370, 
     //Pass in the new subgroup and its width and height
     m_BorderLayout.AddSubGroupLayout( m_LeftLayout, ( m_BorderLayout.GetW() / 2)- borderPaddingWidth, m_BorderLayout.GetRemainY() );
     //Adds the divider box/label
-    m_LeftLayout.AddDividerBox( "Sets" );
+    m_LeftLayout.AddDividerBox( _("Sets") );
     //Adds padding to get correct alignment
     m_BorderLayout.AddX(( m_BorderLayout.GetW() / 2 ) + borderPaddingWidth );
     //Adding the right side subgroup using width and height
     m_BorderLayout.AddSubGroupLayout( m_RightLayout, ( m_BorderLayout.GetW() / 2 ) - borderPaddingWidth, m_BorderLayout.GetRemainY() );
     //Adds the divider box/label
-    m_RightLayout.AddDividerBox( "Geom In Set" );
+    m_RightLayout.AddDividerBox( _("Geom In Set") );
 
     //==== Adding Browsers to the Layouts ====//
     //To get into position, move y down below dividers
@@ -80,25 +80,25 @@ SetEditorScreen::SetEditorScreen(ScreenMgr* mgr ) : BasicScreen( mgr, 300, 370, 
 
     //Add in our copy and select all buttons -- these are unrelated,
     //but this GUI is set up column-wise, so this seems to make more sense.
-    m_BorderLayout.AddButton(m_CopySet, "Copy Set Members", m_BorderLayout.GetW() / 2);
-    m_BorderLayout.AddButton(m_SelectAll, "Add All Geoms", m_BorderLayout.GetW() / 2);
+    m_BorderLayout.AddButton(m_CopySet, _("Copy Set Members"), m_BorderLayout.GetW() / 2);
+    m_BorderLayout.AddButton(m_SelectAll, _("Add All Geoms"), m_BorderLayout.GetW() / 2);
 
     //starts a new line
     m_BorderLayout.ForceNewLine();
 
     //Complete the columns of buttons with paste and unselect
-    m_BorderLayout.AddButton(m_PasteSet, "Paste Set Members", m_BorderLayout.GetW() / 2);
-    m_BorderLayout.AddButton(m_UnselectAll, "Remove All Geoms", m_BorderLayout.GetW() / 2);
+    m_BorderLayout.AddButton(m_PasteSet, _("Paste Set Members"), m_BorderLayout.GetW() / 2);
+    m_BorderLayout.AddButton(m_UnselectAll, _("Remove All Geoms"), m_BorderLayout.GetW() / 2);
 
     //add highlight button on the bottom of screen
     m_BorderLayout.ForceNewLine();
-    m_BorderLayout.AddButton(m_HighlightSet, "Select Set" );
+    m_BorderLayout.AddButton(m_HighlightSet, _("Select Set") );
 
     m_BorderLayout.AddYGap();
 
     //add our toggle for copying geoms with their sets
     m_BorderLayout.ForceNewLine();
-    m_BorderLayout.AddButton(m_CopySetToggle, "Copy Set Membership When Copying Geoms");
+    m_BorderLayout.AddButton(m_CopySetToggle, _("Copy Set Membership When Copying Geoms"));
 
     //Browser objects need to have there static callbacks set in SetEditorScreen's constructor
     m_SetBrowser->callback( staticScreenCB, this );

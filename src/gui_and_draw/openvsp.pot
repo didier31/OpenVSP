@@ -1,0 +1,7048 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-27 14:36+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: AdvLinkScreen.cpp:19
+msgid "Advanced Parameter Links"
+msgstr ""
+
+#: AdvLinkScreen.cpp:33 FeaPartEditScreen.cpp:739 ManageGeomScreen.cpp:44
+#: ManageMeasureScreen.cpp:42 ManageMeasureScreen.cpp:153
+#: ManageMeasureScreen.cpp:254 ScreenBase.cpp:538 VSPAEROScreen.cpp:557
+#: VarPresetScreen.cpp:68 VarPresetScreen.cpp:74
+msgid "Add"
+msgstr ""
+
+#: AdvLinkScreen.cpp:35 AdvLinkScreen.cpp:92 AdvLinkScreen.cpp:108
+msgid "Del"
+msgstr ""
+
+#: AdvLinkScreen.cpp:37 AdvLinkScreen.cpp:94 AdvLinkScreen.cpp:110
+msgid "Del All"
+msgstr ""
+
+#: AdvLinkScreen.cpp:43 CfdMeshScreen.cpp:329 ManageMeasureScreen.cpp:39
+#: ManageMeasureScreen.cpp:150 ManageMeasureScreen.cpp:251
+#: ManageTextureScreen.cpp:53 ParmScreen.cpp:37 ScreenBase.cpp:300
+#: UserParmScreen.cpp:50 UserParmScreen.cpp:80
+msgid "Name:"
+msgstr ""
+
+#: AdvLinkScreen.cpp:49
+msgid "Parm Picker"
+msgstr ""
+
+#: AdvLinkScreen.cpp:55
+msgid "Var Name:"
+msgstr ""
+
+#: AdvLinkScreen.cpp:62
+msgid "Add Input Var"
+msgstr ""
+
+#: AdvLinkScreen.cpp:64
+msgid "Add Output Var"
+msgstr ""
+
+#: AdvLinkScreen.cpp:80
+msgid "Input Parms"
+msgstr ""
+
+#: AdvLinkScreen.cpp:96
+msgid "Output Parms"
+msgstr ""
+
+#: AdvLinkScreen.cpp:120
+msgid "Compile"
+msgstr ""
+
+#: AdvLinkScreen.cpp:123
+msgid "File Write..."
+msgstr ""
+
+#: AdvLinkScreen.cpp:125
+msgid "File Read..."
+msgstr ""
+
+#: AdvLinkScreen.cpp:467 AdvLinkScreen.cpp:478
+msgid "Select Code File"
+msgstr ""
+
+#: AeroStructScreen.cpp:29
+msgid "Aero Structure Coupled Analysis"
+msgstr ""
+
+#: AeroStructScreen.cpp:42
+msgid "Show VSPAERO GUI"
+msgstr ""
+
+#: AeroStructScreen.cpp:43
+msgid "Execute VSPAERO"
+msgstr ""
+
+#: AeroStructScreen.cpp:46
+msgid "FEA Mesh"
+msgstr ""
+
+#: AeroStructScreen.cpp:48 IGESStructureOptionsScreen.cpp:40
+#: STEPStructureOptionsScreen.cpp:38 StructAssemblyScreen.cpp:136
+#: StructScreen.cpp:36 StructScreen.cpp:82
+msgid "Structure"
+msgstr ""
+
+#: AeroStructScreen.cpp:55
+msgid "Show FEA Structure GUI"
+msgstr ""
+
+#: AeroStructScreen.cpp:56
+msgid "Show FEA Assembly GUI"
+msgstr ""
+
+#: AeroStructScreen.cpp:60
+msgid "Remesh All"
+msgstr ""
+
+#: AeroStructScreen.cpp:61 StructAssemblyScreen.cpp:81
+msgid "Mesh Unmeshed"
+msgstr ""
+
+#: AeroStructScreen.cpp:67
+msgid "Export FEA Mesh"
+msgstr ""
+
+#: AeroStructScreen.cpp:69
+msgid "Visualize Mesh in cgx"
+msgstr ""
+
+#: AeroStructScreen.cpp:76
+msgid "Dynamic Pressure"
+msgstr ""
+
+#: AeroStructScreen.cpp:77
+msgid "Apply Loads"
+msgstr ""
+
+#: AeroStructScreen.cpp:79
+msgid "Visualize Input in cgx"
+msgstr ""
+
+#: AeroStructScreen.cpp:84
+msgid "Solve Structure"
+msgstr ""
+
+#: AeroStructScreen.cpp:87
+msgid "Viewer"
+msgstr ""
+
+#: AeroStructScreen.cpp:89
+msgid "Visualize Results in vspviewer"
+msgstr ""
+
+#: AeroStructScreen.cpp:90
+msgid "Visualize Results in cgx"
+msgstr ""
+
+#: AeroStructScreen.cpp:409 AeroStructScreen.cpp:507
+msgid "Done\n"
+msgstr ""
+
+#: AeroStructScreen.cpp:499 AeroStructScreen.cpp:504 StructScreen.cpp:2731
+msgid "Exporting Mesh Files\n"
+msgstr ""
+
+#: AirfoilExportScreen.cpp:18
+msgid "Selig Airfoil Options"
+msgstr ""
+
+#: AirfoilExportScreen.cpp:27 AirfoilExportScreen.cpp:120
+msgid "Append Geom ID to Airfoil File Names"
+msgstr ""
+
+#: AirfoilExportScreen.cpp:32
+msgid "W Tess Factor"
+msgstr ""
+
+#: AirfoilExportScreen.cpp:40 BEMOptionsScreen.cpp:38 DXFOptionsScreen.cpp:216
+#: IGESOptionsScreen.cpp:79 IGESStructureOptionsScreen.cpp:68
+#: PickSetScreen.cpp:43 STEPOptionsScreen.cpp:81
+#: STEPStructureOptionsScreen.cpp:71 STLOptionsScreen.cpp:38
+#: SVGOptionsScreen.cpp:182
+msgid "OK"
+msgstr ""
+
+#: AirfoilExportScreen.cpp:42 BEMOptionsScreen.cpp:40
+#: CustomGeomExportScreen.cpp:44 DXFOptionsScreen.cpp:218
+#: IGESOptionsScreen.cpp:81 IGESStructureOptionsScreen.cpp:70
+#: MainVSPScreen.cpp:265 MaterialEditScreen.cpp:48 PickSetScreen.cpp:46
+#: STEPOptionsScreen.cpp:83 STEPStructureOptionsScreen.cpp:73
+#: STLOptionsScreen.cpp:40 SVGOptionsScreen.cpp:184 SelectFileScreen.cpp:83
+msgid "Cancel"
+msgstr ""
+
+#: AirfoilExportScreen.cpp:111
+msgid "Bezier Airfoil Options"
+msgstr ""
+
+#: BEMOptionsScreen.cpp:18
+msgid "BEM Options"
+msgstr ""
+
+#: BORScreen.cpp:15
+msgid "BOR"
+msgstr ""
+
+#: BORScreen.cpp:29
+msgid "Flowthrough"
+msgstr ""
+
+#: BORScreen.cpp:30 FeaPartEditScreen.cpp:872 ParmLinkScreen.cpp:93
+#: ParmLinkScreen.cpp:95
+msgid "Upper"
+msgstr ""
+
+#: BORScreen.cpp:31 FeaPartEditScreen.cpp:873 ParmLinkScreen.cpp:82
+msgid "Lower"
+msgstr ""
+
+#: BORScreen.cpp:32 StructAssemblyScreen.cpp:184 StructScreen.cpp:787
+msgid "Mode"
+msgstr ""
+
+#: BORScreen.cpp:36
+msgid "Flowthrough Control"
+msgstr ""
+
+#: BORScreen.cpp:37 BORScreen.cpp:124 PropScreen.cpp:42 ScreenBase.cpp:1369
+#: ScreenBase.cpp:1406
+msgid "Diameter"
+msgstr ""
+
+#: BORScreen.cpp:47
+msgid "Amin"
+msgstr ""
+
+#: BORScreen.cpp:48
+msgid "Amin W"
+msgstr ""
+
+#: BORScreen.cpp:55 PropScreen.cpp:438 WingScreen.cpp:72
+msgid "Tessellation Control"
+msgstr ""
+
+#: BORScreen.cpp:56 PropScreen.cpp:439 WingScreen.cpp:73
+msgid "LE Clustering"
+msgstr ""
+
+#: BORScreen.cpp:57 PropScreen.cpp:440 WingScreen.cpp:74
+msgid "TE Clustering"
+msgstr ""
+
+#: BORScreen.cpp:60 FuselageScreen.cpp:69 PropScreen.cpp:406 StackScreen.cpp:63
+#: WingScreen.cpp:36
+msgid "Cap Tess"
+msgstr ""
+
+#: BORScreen.cpp:64 ScreenBase.cpp:1289 ScreenBase.cpp:3010
+msgid "XSec"
+msgstr ""
+
+#: BORScreen.cpp:68 PropScreen.cpp:216
+msgid "Cross Section"
+msgstr ""
+
+#: BORScreen.cpp:72 CfdMeshScreen.cpp:311 GroupLayout.cpp:1584
+#: ParasiteDragScreen.cpp:455 ScreenBase.cpp:536 ScreenBase.cpp:1308
+#: StructScreen.cpp:318 StructScreen.cpp:434 StructScreen.cpp:772
+#: WireScreen.cpp:28
+msgid "Type"
+msgstr ""
+
+#: BORScreen.cpp:74 ScreenBase.cpp:1311
+msgid "POINT"
+msgstr ""
+
+#: BORScreen.cpp:75 ScreenBase.cpp:1313
+msgid "CIRCLE"
+msgstr ""
+
+#: BORScreen.cpp:76 ScreenBase.cpp:1314
+msgid "ELLIPSE"
+msgstr ""
+
+#: BORScreen.cpp:77 ScreenBase.cpp:1315
+msgid "SUPER_ELLIPSE"
+msgstr ""
+
+#: BORScreen.cpp:78 ScreenBase.cpp:1316
+msgid "ROUNDED_RECTANGLE"
+msgstr ""
+
+#: BORScreen.cpp:79 ScreenBase.cpp:1317
+msgid "GENERAL_FUSE"
+msgstr ""
+
+#: BORScreen.cpp:80 ScreenBase.cpp:1318
+msgid "FUSE_FILE"
+msgstr ""
+
+#: BORScreen.cpp:81 ScreenBase.cpp:1319
+msgid "FOUR_SERIES"
+msgstr ""
+
+#: BORScreen.cpp:82 ScreenBase.cpp:1320
+msgid "SIX_SERIES"
+msgstr ""
+
+#: BORScreen.cpp:83 ScreenBase.cpp:1321
+msgid "BICONVEX"
+msgstr ""
+
+#: BORScreen.cpp:84 ScreenBase.cpp:1322
+msgid "WEDGE"
+msgstr ""
+
+#: BORScreen.cpp:85 ScreenBase.cpp:1323
+msgid "EDIT_CURVE"
+msgstr ""
+
+#: BORScreen.cpp:86 ScreenBase.cpp:1324
+msgid "AF_FILE"
+msgstr ""
+
+#: BORScreen.cpp:87 ScreenBase.cpp:1325
+msgid "CST_AIRFOIL"
+msgstr ""
+
+#: BORScreen.cpp:88 ScreenBase.cpp:1326
+msgid "KARMAN_TREFFTZ"
+msgstr ""
+
+#: BORScreen.cpp:89 ScreenBase.cpp:1327
+msgid "FOUR_DIGIT_MOD"
+msgstr ""
+
+#: BORScreen.cpp:90 ScreenBase.cpp:1328
+msgid "FIVE_DIGIT"
+msgstr ""
+
+#: BORScreen.cpp:91 ScreenBase.cpp:1329
+msgid "FIVE_DIGIT_MOD"
+msgstr ""
+
+#: BORScreen.cpp:92 ScreenBase.cpp:1330
+msgid "16_SERIES"
+msgstr ""
+
+#: BORScreen.cpp:97 ScreenBase.cpp:1337
+msgid "Choose Type:"
+msgstr ""
+
+#: BORScreen.cpp:103 ManageGeomScreen.cpp:95 ManageGeomScreen.cpp:120
+#: ScreenBase.cpp:1340 StructScreen.cpp:280
+msgid "Show"
+msgstr ""
+
+#: BORScreen.cpp:108 ScreenBase.cpp:1345
+msgid "Convert CEDIT"
+msgstr ""
+
+#: BORScreen.cpp:113 CurveEditScreen.cpp:25 ScreenBase.cpp:1350
+msgid "Edit Curve"
+msgstr ""
+
+#: BORScreen.cpp:128 BORScreen.cpp:133 BORScreen.cpp:147 BORScreen.cpp:190
+#: BORScreen.cpp:325 CfdMeshScreen.cpp:433 CurveEditScreen.cpp:95
+#: ScreenBase.cpp:1364 ScreenBase.cpp:1382 ScreenBase.cpp:1419
+#: ScreenBase.cpp:1433 ScreenBase.cpp:1485 ScreenBase.cpp:1629
+#: ScreenshotScreen.cpp:43 ScreenshotScreen.cpp:75 StructScreen.cpp:691
+msgid "Height"
+msgstr ""
+
+#: BORScreen.cpp:129 BORScreen.cpp:134 BORScreen.cpp:148 BORScreen.cpp:191
+#: BORScreen.cpp:326 CfdMeshScreen.cpp:432 CurveEditScreen.cpp:94
+#: ScreenBase.cpp:1362 ScreenBase.cpp:1383 ScreenBase.cpp:1420
+#: ScreenBase.cpp:1434 ScreenBase.cpp:1486 ScreenBase.cpp:1630
+#: ScreenshotScreen.cpp:42 ScreenshotScreen.cpp:69 StructScreen.cpp:682
+msgid "Width"
+msgstr ""
+
+#: BORScreen.cpp:136 BORScreen.cpp:193 ScreenBase.cpp:1387 ScreenBase.cpp:1490
+msgid "MaxWLoc"
+msgstr ""
+
+#: BORScreen.cpp:138 DXFOptionsScreen.cpp:35 IGESOptionsScreen.cpp:43
+#: STEPOptionsScreen.cpp:41 SVGOptionsScreen.cpp:30 ScreenBase.cpp:1389
+#: StructScreen.cpp:1090 SurfaceIntersectionScreen.cpp:200
+msgid "M"
+msgstr ""
+
+#: BORScreen.cpp:139 ScreenBase.cpp:445 ScreenBase.cpp:1390
+msgid "N"
+msgstr ""
+
+#: BORScreen.cpp:141 ScreenBase.cpp:1392
+msgid "T/B Symmetric Exponents"
+msgstr ""
+
+#: BORScreen.cpp:142 ScreenBase.cpp:1393
+msgid "M Bottom"
+msgstr ""
+
+#: BORScreen.cpp:143 ScreenBase.cpp:1394
+msgid "N Bottom"
+msgstr ""
+
+#: BORScreen.cpp:150 PropScreen.cpp:150 ScreenBase.cpp:1438
+msgid "Skew"
+msgstr ""
+
+#: BORScreen.cpp:151 ScreenBase.cpp:1439
+msgid "VSkew"
+msgstr ""
+
+#: BORScreen.cpp:152 ScreenBase.cpp:1440
+msgid "Keystone"
+msgstr ""
+
+#: BORScreen.cpp:160 ScreenBase.cpp:1448
+msgid "Symmetry:"
+msgstr ""
+
+#: BORScreen.cpp:163 DXFOptionsScreen.cpp:149 DXFOptionsScreen.cpp:164
+#: DXFOptionsScreen.cpp:179 DXFOptionsScreen.cpp:194 FeaPartEditScreen.cpp:169
+#: FeaPartEditScreen.cpp:470 FeaPartEditScreen.cpp:756
+#: FeaPartEditScreen.cpp:796 FeaPartEditScreen.cpp:861 FuselageScreen.cpp:41
+#: FuselageScreen.cpp:55 IGESOptionsScreen.cpp:70
+#: IGESStructureOptionsScreen.cpp:59 ManageGeomScreen.cpp:108
+#: ProjectionScreen.cpp:65 PropScreen.cpp:410 PropScreen.cpp:424
+#: STEPOptionsScreen.cpp:72 STEPStructureOptionsScreen.cpp:62
+#: SVGOptionsScreen.cpp:119 SVGOptionsScreen.cpp:134 SVGOptionsScreen.cpp:149
+#: SVGOptionsScreen.cpp:164 ScreenBase.cpp:480 ScreenBase.cpp:492
+#: ScreenBase.cpp:1451 StackScreen.cpp:35 StackScreen.cpp:49
+#: StructScreen.cpp:1085 SurfaceIntersectionScreen.cpp:195
+#: WaveDragScreen.cpp:147 WingScreen.cpp:40 WingScreen.cpp:54 WireScreen.cpp:47
+#: WireScreen.cpp:54 WireScreen.cpp:61 WireScreen.cpp:68
+msgid "None"
+msgstr ""
+
+#: BORScreen.cpp:164 ScreenBase.cpp:1452
+msgid "R//L"
+msgstr ""
+
+#: BORScreen.cpp:165 ScreenBase.cpp:1453
+msgid "T//B"
+msgstr ""
+
+#: BORScreen.cpp:166 ManageMeasureScreen.cpp:74 ScreenBase.cpp:1454
+msgid "All"
+msgstr ""
+
+#: BORScreen.cpp:180 ScreenBase.cpp:1468
+msgid "TR Radius"
+msgstr ""
+
+#: BORScreen.cpp:181 ScreenBase.cpp:1469
+msgid "TL Radius"
+msgstr ""
+
+#: BORScreen.cpp:182 ScreenBase.cpp:1470
+msgid "BL Radius"
+msgstr ""
+
+#: BORScreen.cpp:183 ScreenBase.cpp:1471
+msgid "BR Radius"
+msgstr ""
+
+#: BORScreen.cpp:186 ScreenBase.cpp:1473
+msgid "Key Corner"
+msgstr ""
+
+#: BORScreen.cpp:194 ScreenBase.cpp:1491
+msgid "CornerRad"
+msgstr ""
+
+#: BORScreen.cpp:196 ScreenBase.cpp:1493
+msgid "TopTanAng"
+msgstr ""
+
+#: BORScreen.cpp:197 ScreenBase.cpp:1494
+msgid "BotTanAng"
+msgstr ""
+
+#: BORScreen.cpp:199 ScreenBase.cpp:1496
+msgid "TopStr"
+msgstr ""
+
+#: BORScreen.cpp:200 ScreenBase.cpp:1497
+msgid "BotStr"
+msgstr ""
+
+#: BORScreen.cpp:201 ScreenBase.cpp:1498
+msgid "UpStr"
+msgstr ""
+
+#: BORScreen.cpp:202 ScreenBase.cpp:1499
+msgid "LowStr"
+msgstr ""
+
+#: BORScreen.cpp:206 BORScreen.cpp:264 BORScreen.cpp:332 BORScreen.cpp:424
+#: BORScreen.cpp:478 BORScreen.cpp:500 BORScreen.cpp:525
+#: MaterialEditScreen.cpp:22 ParasiteDragScreen.cpp:467 ScreenBase.cpp:1503
+#: ScreenBase.cpp:1560 ScreenBase.cpp:1637 ScreenBase.cpp:1729
+#: ScreenBase.cpp:1783 ScreenBase.cpp:1805 ScreenBase.cpp:1830
+#: VSPAEROScreen.cpp:472
+msgid "Name"
+msgstr ""
+
+#: BORScreen.cpp:208 BORScreen.cpp:279 BORScreen.cpp:297 BORScreen.cpp:302
+#: BORScreen.cpp:334 BORScreen.cpp:357 BORScreen.cpp:405 BORScreen.cpp:426
+#: BORScreen.cpp:480 BORScreen.cpp:502 PropScreen.cpp:147 ScreenBase.cpp:1505
+#: ScreenBase.cpp:1575 ScreenBase.cpp:1593 ScreenBase.cpp:1598
+#: ScreenBase.cpp:1639 ScreenBase.cpp:1662 ScreenBase.cpp:1710
+#: ScreenBase.cpp:1731 ScreenBase.cpp:1785 ScreenBase.cpp:1807
+#: ScreenBase.cpp:1832 WingScreen.cpp:29
+msgid "Chord"
+msgstr ""
+
+#: BORScreen.cpp:209 BORScreen.cpp:280 BORScreen.cpp:298 BORScreen.cpp:303
+#: BORScreen.cpp:335 BORScreen.cpp:351 BORScreen.cpp:410 BORScreen.cpp:427
+#: BORScreen.cpp:481 BORScreen.cpp:503 BORScreen.cpp:528 ScreenBase.cpp:1506
+#: ScreenBase.cpp:1576 ScreenBase.cpp:1594 ScreenBase.cpp:1599
+#: ScreenBase.cpp:1640 ScreenBase.cpp:1656 ScreenBase.cpp:1715
+#: ScreenBase.cpp:1732 ScreenBase.cpp:1786 ScreenBase.cpp:1808
+#: ScreenBase.cpp:1833
+msgid "T/C"
+msgstr ""
+
+#: BORScreen.cpp:222 BORScreen.cpp:312 BORScreen.cpp:437 ScreenBase.cpp:1519
+#: ScreenBase.cpp:1608 ScreenBase.cpp:1742
+msgid "Camber"
+msgstr ""
+
+#: BORScreen.cpp:231 BORScreen.cpp:282 BORScreen.cpp:446 BORScreen.cpp:483
+#: BORScreen.cpp:505 BORScreen.cpp:530 ScreenBase.cpp:1528 ScreenBase.cpp:1578
+#: ScreenBase.cpp:1751 ScreenBase.cpp:1788 ScreenBase.cpp:1810
+#: ScreenBase.cpp:1835
+msgid "Ideal CL"
+msgstr ""
+
+#: BORScreen.cpp:247 BORScreen.cpp:459 BORScreen.cpp:484 BORScreen.cpp:506
+#: ScreenBase.cpp:1544 ScreenBase.cpp:1764 ScreenBase.cpp:1789
+#: ScreenBase.cpp:1811
+msgid "CamberLoc"
+msgstr ""
+
+#: BORScreen.cpp:249 BORScreen.cpp:285 BORScreen.cpp:319 BORScreen.cpp:338
+#: BORScreen.cpp:354 BORScreen.cpp:412 BORScreen.cpp:464 BORScreen.cpp:486
+#: BORScreen.cpp:511 BORScreen.cpp:532 ScreenBase.cpp:1546 ScreenBase.cpp:1581
+#: ScreenBase.cpp:1615 ScreenBase.cpp:1643 ScreenBase.cpp:1659
+#: ScreenBase.cpp:1717 ScreenBase.cpp:1769 ScreenBase.cpp:1791
+#: ScreenBase.cpp:1816 ScreenBase.cpp:1837
+msgid "Invert Airfoil"
+msgstr ""
+
+#: BORScreen.cpp:251 BORScreen.cpp:466 BORScreen.cpp:488 BORScreen.cpp:513
+#: BORScreen.cpp:534 ScreenBase.cpp:1548 ScreenBase.cpp:1771
+#: ScreenBase.cpp:1793 ScreenBase.cpp:1818 ScreenBase.cpp:1839
+msgid "Sharpen TE"
+msgstr ""
+
+#: BORScreen.cpp:257 BORScreen.cpp:290 BORScreen.cpp:343 BORScreen.cpp:417
+#: BORScreen.cpp:471 BORScreen.cpp:493 BORScreen.cpp:518 BORScreen.cpp:539
+#: ScreenBase.cpp:1553 ScreenBase.cpp:1586 ScreenBase.cpp:1648
+#: ScreenBase.cpp:1722 ScreenBase.cpp:1776 ScreenBase.cpp:1798
+#: ScreenBase.cpp:1823 ScreenBase.cpp:1844
+msgid "Fit CST"
+msgstr ""
+
+#: BORScreen.cpp:260 BORScreen.cpp:293 BORScreen.cpp:346 BORScreen.cpp:365
+#: BORScreen.cpp:388 BORScreen.cpp:420 BORScreen.cpp:474 BORScreen.cpp:496
+#: BORScreen.cpp:521 BORScreen.cpp:542 ScreenBase.cpp:1556 ScreenBase.cpp:1589
+#: ScreenBase.cpp:1651 ScreenBase.cpp:1670 ScreenBase.cpp:1693
+#: ScreenBase.cpp:1725 ScreenBase.cpp:1779 ScreenBase.cpp:1801
+#: ScreenBase.cpp:1826 ScreenBase.cpp:1847
+msgid "Degree"
+msgstr ""
+
+#: BORScreen.cpp:275 ScreenBase.cpp:1571
+msgid "Series"
+msgstr ""
+
+#: BORScreen.cpp:305 ScreenBase.cpp:1601
+msgid "Thick X"
+msgstr ""
+
+#: BORScreen.cpp:306 ScreenBase.cpp:1602
+msgid "Flat Up"
+msgstr ""
+
+#: BORScreen.cpp:308 ScreenBase.cpp:1604
+msgid "Symm Thickness"
+msgstr ""
+
+#: BORScreen.cpp:309 ScreenBase.cpp:1605
+msgid "Thick X Low"
+msgstr ""
+
+#: BORScreen.cpp:310 ScreenBase.cpp:1606
+msgid "Flat Low"
+msgstr ""
+
+#: BORScreen.cpp:314 ScreenBase.cpp:1610
+msgid "U Fwd Up"
+msgstr ""
+
+#: BORScreen.cpp:315 ScreenBase.cpp:1611
+msgid "U Fwd Low"
+msgstr ""
+
+#: BORScreen.cpp:316 ScreenBase.cpp:1612
+msgid "dU Flat Up"
+msgstr ""
+
+#: BORScreen.cpp:317 ScreenBase.cpp:1613
+msgid "dU Flat Low"
+msgstr ""
+
+#: BORScreen.cpp:323 BORScreen.cpp:330 ScreenBase.cpp:1619 ScreenBase.cpp:1635
+msgid "Read File"
+msgstr ""
+
+#: BORScreen.cpp:336 ScreenBase.cpp:1641
+msgid "Base T/C"
+msgstr ""
+
+#: BORScreen.cpp:353 ScreenBase.cpp:1658
+msgid "Enforce Continuous LE Radius"
+msgstr ""
+
+#: BORScreen.cpp:360 ScreenBase.cpp:1665
+msgid "Upper Surface"
+msgstr ""
+
+#: BORScreen.cpp:367 ScreenBase.cpp:1672 ScreenBase.cpp:1695
+msgid "Demote"
+msgstr ""
+
+#: BORScreen.cpp:368 ScreenBase.cpp:1673 ScreenBase.cpp:1696
+msgid "Promote"
+msgstr ""
+
+#: BORScreen.cpp:383 ScreenBase.cpp:1688
+msgid "Lower Surface"
+msgstr ""
+
+#: BORScreen.cpp:407 ScreenBase.cpp:1712
+msgid "Epsilon"
+msgstr ""
+
+#: BORScreen.cpp:408 ScreenBase.cpp:1713
+msgid "Kappa"
+msgstr ""
+
+#: BORScreen.cpp:409 ScreenBase.cpp:1714
+msgid "Tau"
+msgstr ""
+
+#: BORScreen.cpp:461 BORScreen.cpp:508 ScreenBase.cpp:1766 ScreenBase.cpp:1813
+msgid "T/CLoc"
+msgstr ""
+
+#: BORScreen.cpp:462 BORScreen.cpp:509 ScreenBase.cpp:1767 ScreenBase.cpp:1814
+msgid "LERadIndx"
+msgstr ""
+
+#: BORScreen.cpp:561 PropScreen.cpp:225 WingScreen.cpp:238
+msgid "Delta X/C"
+msgstr ""
+
+#: BORScreen.cpp:562 PropScreen.cpp:226 WingScreen.cpp:239
+msgid "Delta Y/C"
+msgstr ""
+
+#: BORScreen.cpp:563 FeaPartEditScreen.cpp:847 PropScreen.cpp:227
+#: ScreenBase.cpp:616 ScreenBase.cpp:642 WingScreen.cpp:240
+msgid "Theta"
+msgstr ""
+
+#: BORScreen.cpp:564 MultTransScreen.cpp:32 ParmLinkScreen.cpp:70
+#: ParmLinkScreen.cpp:72 PropScreen.cpp:228 ScreenBase.cpp:461
+#: ScreenBase.cpp:569 WingScreen.cpp:241
+msgid "Scale"
+msgstr ""
+
+#: BORScreen.cpp:565 PropScreen.cpp:229 WingScreen.cpp:242
+msgid "Shift LE"
+msgstr ""
+
+#: BORScreen.cpp:571 FeaPartEditScreen.cpp:879 PropScreen.cpp:235
+#: ScreenBase.cpp:670 ScreenBase.cpp:3273 WingScreen.cpp:248
+msgid "Leading Edge"
+msgstr ""
+
+#: BORScreen.cpp:577 FeaPartEditScreen.cpp:40 PropScreen.cpp:241
+#: WingScreen.cpp:254
+msgid "Cap"
+msgstr ""
+
+#: BORScreen.cpp:579 BORScreen.cpp:657 CfdMeshScreen.cpp:431
+#: FeaPartEditScreen.cpp:901 FuselageScreen.cpp:29 FuselageScreen.cpp:48
+#: FuselageScreen.cpp:62 PodScreen.cpp:24 PropScreen.cpp:243 PropScreen.cpp:321
+#: PropScreen.cpp:417 PropScreen.cpp:431 ScreenBase.cpp:691 StackScreen.cpp:42
+#: StackScreen.cpp:56 WingScreen.cpp:47 WingScreen.cpp:61 WingScreen.cpp:256
+#: WingScreen.cpp:334
+msgid "Length"
+msgstr ""
+
+#: BORScreen.cpp:580 BORScreen.cpp:658 ConformalScreen.cpp:24
+#: FuselageScreen.cpp:49 FuselageScreen.cpp:63 ParmLinkScreen.cpp:59
+#: ParmLinkScreen.cpp:61 PropScreen.cpp:244 PropScreen.cpp:322
+#: PropScreen.cpp:418 PropScreen.cpp:432 StackScreen.cpp:43 StackScreen.cpp:57
+#: WingScreen.cpp:48 WingScreen.cpp:62 WingScreen.cpp:257 WingScreen.cpp:335
+msgid "Offset"
+msgstr ""
+
+#: BORScreen.cpp:581 BORScreen.cpp:659 FuselageScreen.cpp:50
+#: FuselageScreen.cpp:64 PropScreen.cpp:245 PropScreen.cpp:323
+#: PropScreen.cpp:419 PropScreen.cpp:433 ScreenBase.cpp:2702
+#: ScreenBase.cpp:2711 ScreenBase.cpp:2726 ScreenBase.cpp:2741
+#: ScreenBase.cpp:3297 ScreenBase.cpp:3315 ScreenBase.cpp:3344
+#: ScreenBase.cpp:3362 StackScreen.cpp:44 StackScreen.cpp:58 WingScreen.cpp:49
+#: WingScreen.cpp:63 WingScreen.cpp:258 WingScreen.cpp:336
+msgid "Strength"
+msgstr ""
+
+#: BORScreen.cpp:583 BORScreen.cpp:661 ManageGeomScreen.cpp:26
+#: PropScreen.cpp:247 PropScreen.cpp:281 PropScreen.cpp:325 PropScreen.cpp:357
+#: ScreenBase.cpp:3022 WingScreen.cpp:260 WingScreen.cpp:294 WingScreen.cpp:338
+#: WingScreen.cpp:370
+msgid "NONE"
+msgstr ""
+
+#: BORScreen.cpp:584 BORScreen.cpp:662 PropScreen.cpp:248 PropScreen.cpp:326
+#: WingScreen.cpp:261 WingScreen.cpp:339
+msgid "SKEW LOWER"
+msgstr ""
+
+#: BORScreen.cpp:585 BORScreen.cpp:663 PropScreen.cpp:249 PropScreen.cpp:327
+#: WingScreen.cpp:262 WingScreen.cpp:340
+msgid "SKEW UPPER"
+msgstr ""
+
+#: BORScreen.cpp:586 BORScreen.cpp:664 PropScreen.cpp:250 PropScreen.cpp:328
+#: WingScreen.cpp:263 WingScreen.cpp:341
+msgid "SKEW BOTH"
+msgstr ""
+
+#: BORScreen.cpp:596 BORScreen.cpp:627 BORScreen.cpp:675 BORScreen.cpp:703
+#: CfdMeshScreen.cpp:421 HingeScreen.cpp:98 HingeScreen.cpp:129
+#: HingeScreen.cpp:171 PropScreen.cpp:260 PropScreen.cpp:291 PropScreen.cpp:339
+#: PropScreen.cpp:367 ScreenBase.cpp:366 WingScreen.cpp:88 WingScreen.cpp:100
+#: WingScreen.cpp:273 WingScreen.cpp:304 WingScreen.cpp:352 WingScreen.cpp:380
+msgid "Abs"
+msgstr ""
+
+#: BORScreen.cpp:597 BORScreen.cpp:628 BORScreen.cpp:676 BORScreen.cpp:704
+#: CfdMeshScreen.cpp:420 HingeScreen.cpp:97 HingeScreen.cpp:128
+#: HingeScreen.cpp:170 PropScreen.cpp:261 PropScreen.cpp:292 PropScreen.cpp:340
+#: PropScreen.cpp:368 ScreenBase.cpp:365 WingScreen.cpp:87 WingScreen.cpp:99
+#: WingScreen.cpp:274 WingScreen.cpp:305 WingScreen.cpp:353 WingScreen.cpp:381
+msgid "Rel"
+msgstr ""
+
+#: BORScreen.cpp:613 BORScreen.cpp:645 BORScreen.cpp:689 BORScreen.cpp:718
+#: ManageMeasureScreen.cpp:292 PropScreen.cpp:309 PropScreen.cpp:353
+#: PropScreen.cpp:382 WingScreen.cpp:290 WingScreen.cpp:322 WingScreen.cpp:366
+#: WingScreen.cpp:395
+msgid "T"
+msgstr ""
+
+#: BORScreen.cpp:624 BORScreen.cpp:700 PropScreen.cpp:288 PropScreen.cpp:364
+#: WingScreen.cpp:301 WingScreen.cpp:377
+msgid "Trim:"
+msgstr ""
+
+#: BORScreen.cpp:644 BORScreen.cpp:717 FuselageScreen.cpp:93
+#: ManageMeasureScreen.cpp:75 ManageMeasureScreen.cpp:210
+#: ManageMeasureScreen.cpp:312 PropScreen.cpp:282 PropScreen.cpp:308
+#: PropScreen.cpp:358 PropScreen.cpp:381 ScreenBase.cpp:422
+#: StructAssemblyScreen.cpp:197 StructAssemblyScreen.cpp:204
+#: VSPAEROPlotScreen.cpp:390 VSPAEROScreen.cpp:480 WaveDragScreen.cpp:136
+#: WingScreen.cpp:295 WingScreen.cpp:321 WingScreen.cpp:371 WingScreen.cpp:394
+msgid "X"
+msgstr ""
+
+#: BORScreen.cpp:649 PropScreen.cpp:313 ScreenBase.cpp:3320 WingScreen.cpp:326
+msgid "Trailing Edge"
+msgstr ""
+
+#: BORScreen.cpp:665 PropScreen.cpp:329 WingScreen.cpp:342
+msgid "EXTRAPOLATE"
+msgstr ""
+
+#: BORScreen.cpp:672 PropScreen.cpp:257 PropScreen.cpp:336 WingScreen.cpp:270
+#: WingScreen.cpp:349
+msgid "Closure:"
+msgstr ""
+
+#: BORScreen.cpp:1442 ScreenBase.cpp:2431
+msgid "Fuselage Cross Section"
+msgstr ""
+
+#: BORScreen.cpp:1459 ScreenBase.cpp:2454
+msgid "Airfoil File"
+msgstr ""
+
+#: BORScreen.cpp:1638 BORScreen.cpp:1657 DesignVarScreen.cpp:209
+#: FitModelScreen.cpp:496 ParmDebugScreen.cpp:44 ScreenBase.cpp:2631
+#: ScreenBase.cpp:2650 SnapToScreen.cpp:61 UserParmScreen.cpp:40
+#: UserParmScreen.cpp:219 VarPresetScreen.cpp:294
+msgid "AUTO_UPDATE"
+msgstr ""
+
+#: BlankScreen.cpp:16
+msgid "Blank"
+msgstr ""
+
+#: CfdMeshScreen.cpp:19
+msgid "CFD Mesh"
+msgstr ""
+
+#: CfdMeshScreen.cpp:53
+msgid "Mesh and Export"
+msgstr ""
+
+#: CfdMeshScreen.cpp:64 SurfaceIntersectionScreen.cpp:60
+msgid "Global"
+msgstr ""
+
+#: CfdMeshScreen.cpp:71
+msgid "Global Mesh Control"
+msgstr ""
+
+#: CfdMeshScreen.cpp:76 CfdMeshScreen.cpp:379 StructScreen.cpp:881
+msgid "Max Edge Len"
+msgstr ""
+
+#: CfdMeshScreen.cpp:77 StructScreen.cpp:882
+msgid "Min Edge Len"
+msgstr ""
+
+#: CfdMeshScreen.cpp:79 CfdMeshScreen.cpp:381 StructScreen.cpp:884
+msgid "Num Circle Segments"
+msgstr ""
+
+#: CfdMeshScreen.cpp:80 StructScreen.cpp:885
+msgid "Growth Ratio"
+msgstr ""
+
+#: CfdMeshScreen.cpp:83 StructScreen.cpp:891
+msgid "Rigorous 3D Growth Limiting"
+msgstr ""
+
+#: CfdMeshScreen.cpp:85 StructScreen.cpp:893 SurfaceIntersectionScreen.cpp:75
+msgid "Curve Adaptation Tolerance"
+msgstr ""
+
+#: CfdMeshScreen.cpp:87
+msgid "Global Source Control"
+msgstr ""
+
+#: CfdMeshScreen.cpp:96
+msgid "Adjust Len"
+msgstr ""
+
+#: CfdMeshScreen.cpp:102
+msgid "Adjust Rad"
+msgstr ""
+
+#: CfdMeshScreen.cpp:111 StructScreen.cpp:888 SurfaceIntersectionScreen.cpp:72
+msgid "Geometry Control"
+msgstr ""
+
+#: CfdMeshScreen.cpp:113 SurfaceIntersectionScreen.cpp:78
+msgid "Intersect Subsurfaces"
+msgstr ""
+
+#: CfdMeshScreen.cpp:117 SurfaceIntersectionScreen.cpp:82
+msgid "Use Set"
+msgstr ""
+
+#: CfdMeshScreen.cpp:122 IGESOptionsScreen.cpp:55
+#: IGESStructureOptionsScreen.cpp:46 STEPOptionsScreen.cpp:57
+#: STEPStructureOptionsScreen.cpp:48 StructScreen.cpp:897
+#: SurfaceIntersectionScreen.cpp:85
+msgid "Demote Surfs to Cubic"
+msgstr ""
+
+#: CfdMeshScreen.cpp:123 StructScreen.cpp:898 SurfaceIntersectionScreen.cpp:86
+msgid "Cubic Tolerance"
+msgstr ""
+
+#: CfdMeshScreen.cpp:126 StructScreen.cpp:904
+msgid "Convert to Quads"
+msgstr ""
+
+#: CfdMeshScreen.cpp:133 CurveEditScreen.cpp:31
+#: SurfaceIntersectionScreen.cpp:93
+msgid "Display"
+msgstr ""
+
+#: CfdMeshScreen.cpp:139
+msgid "Mesh Display"
+msgstr ""
+
+#: CfdMeshScreen.cpp:141
+msgid "Show Mesh"
+msgstr ""
+
+#: CfdMeshScreen.cpp:142
+msgid "Color Tags"
+msgstr ""
+
+#: CfdMeshScreen.cpp:143
+msgid "Show Bad Edges and Triangles"
+msgstr ""
+
+#: CfdMeshScreen.cpp:145
+msgid "Show Sources and Wake Preview"
+msgstr ""
+
+#: CfdMeshScreen.cpp:146
+msgid "Show Wake"
+msgstr ""
+
+#: CfdMeshScreen.cpp:147
+msgid "Show Symmetry Plane"
+msgstr ""
+
+#: CfdMeshScreen.cpp:148
+msgid "Show Far Field Preview"
+msgstr ""
+
+#: CfdMeshScreen.cpp:149
+msgid "Show Far Field"
+msgstr ""
+
+#: CfdMeshScreen.cpp:152 StructScreen.cpp:1146
+msgid "Intersection Curve Display"
+msgstr ""
+
+#: CfdMeshScreen.cpp:155 StructScreen.cpp:1153
+#: SurfaceIntersectionScreen.cpp:103
+msgid "Show Intersection Curves"
+msgstr ""
+
+#: CfdMeshScreen.cpp:156 StructScreen.cpp:1154
+#: SurfaceIntersectionScreen.cpp:104
+msgid "Show Border Curves"
+msgstr ""
+
+#: CfdMeshScreen.cpp:158 StructScreen.cpp:1157
+#: SurfaceIntersectionScreen.cpp:106
+msgid "Show Curves"
+msgstr ""
+
+#: CfdMeshScreen.cpp:159 StructScreen.cpp:1158
+#: SurfaceIntersectionScreen.cpp:107
+msgid "Show Points"
+msgstr ""
+
+#: CfdMeshScreen.cpp:161 StructScreen.cpp:1161
+#: SurfaceIntersectionScreen.cpp:109
+msgid "Show Raw Curve"
+msgstr ""
+
+#: CfdMeshScreen.cpp:162 StructScreen.cpp:1162
+#: SurfaceIntersectionScreen.cpp:110
+msgid "Show Binary Adapted"
+msgstr ""
+
+#: CfdMeshScreen.cpp:169 SurfaceIntersectionScreen.cpp:117
+msgid "Output"
+msgstr ""
+
+#: CfdMeshScreen.cpp:174 SurfaceIntersectionScreen.cpp:131
+msgid "Export File Names"
+msgstr ""
+
+#: CfdMeshScreen.cpp:192
+msgid "Tagged Multi Sold STL (Non-Standard)"
+msgstr ""
+
+#: CfdMeshScreen.cpp:283
+msgid "Select Comp"
+msgstr ""
+
+#: CfdMeshScreen.cpp:286
+msgid "Add Default Sources"
+msgstr ""
+
+#: CfdMeshScreen.cpp:291
+msgid "Select Surface"
+msgstr ""
+
+#: CfdMeshScreen.cpp:295
+msgid "Sources"
+msgstr ""
+
+#: CfdMeshScreen.cpp:313
+msgid "Add Source"
+msgstr ""
+
+#: CfdMeshScreen.cpp:315
+msgid "Delete Source"
+msgstr ""
+
+#: CfdMeshScreen.cpp:325
+msgid "Edit Source"
+msgstr ""
+
+#: CfdMeshScreen.cpp:338
+msgid "UW Position 1"
+msgstr ""
+
+#: CfdMeshScreen.cpp:341 CfdMeshScreen.cpp:350 FeaPartEditScreen.cpp:950
+#: FitModelScreen.cpp:110 ManageMeasureScreen.cpp:189 ScreenBase.cpp:506
+#: ScreenBase.cpp:560
+msgid "U"
+msgstr ""
+
+#: CfdMeshScreen.cpp:342 CfdMeshScreen.cpp:351 FeaPartEditScreen.cpp:951
+#: FitModelScreen.cpp:123 ManageMeasureScreen.cpp:190 ScreenBase.cpp:507
+#: ScreenBase.cpp:561
+msgid "W"
+msgstr ""
+
+#: CfdMeshScreen.cpp:344 CfdMeshScreen.cpp:353
+msgid "Rad"
+msgstr ""
+
+#: CfdMeshScreen.cpp:345 CfdMeshScreen.cpp:354 ManageMeasureScreen.cpp:191
+#: ManageMeasureScreen.cpp:293 ManageViewScreen.cpp:81
+msgid "Len"
+msgstr ""
+
+#: CfdMeshScreen.cpp:347
+msgid "UW Position 2"
+msgstr ""
+
+#: CfdMeshScreen.cpp:361
+msgid "Domain"
+msgstr ""
+
+#: CfdMeshScreen.cpp:368 StructScreen.cpp:895
+msgid "Generate Half Mesh"
+msgstr ""
+
+#: CfdMeshScreen.cpp:370
+msgid "Generate Far Field Mesh"
+msgstr ""
+
+#: CfdMeshScreen.cpp:376
+msgid "Far Field Mesh Control"
+msgstr ""
+
+#: CfdMeshScreen.cpp:380 StructScreen.cpp:883
+msgid "Max Gap"
+msgstr ""
+
+#: CfdMeshScreen.cpp:385
+msgid "Far Field Type"
+msgstr ""
+
+#: CfdMeshScreen.cpp:392
+msgid "Component:"
+msgstr ""
+
+#: CfdMeshScreen.cpp:399 StructScreen.cpp:497
+msgid "Box"
+msgstr ""
+
+#: CfdMeshScreen.cpp:408
+msgid "Symmetry Plane Splitting"
+msgstr ""
+
+#: CfdMeshScreen.cpp:445
+msgid "Cen"
+msgstr ""
+
+#: CfdMeshScreen.cpp:446
+msgid "Man"
+msgstr ""
+
+#: CfdMeshScreen.cpp:460 ManageLightingScreen.cpp:50 WaveDragScreen.cpp:131
+msgid "X Loc"
+msgstr ""
+
+#: CfdMeshScreen.cpp:461 ManageLightingScreen.cpp:51
+msgid "Y Loc"
+msgstr ""
+
+#: CfdMeshScreen.cpp:462 ManageLightingScreen.cpp:52
+msgid "Z Loc"
+msgstr ""
+
+#: CfdMeshScreen.cpp:470 SurfaceIntersectionScreen.cpp:256
+msgid "Wakes"
+msgstr ""
+
+#: CfdMeshScreen.cpp:478 SurfaceIntersectionScreen.cpp:264
+msgid "Scale Wake"
+msgstr ""
+
+#: CfdMeshScreen.cpp:480 SurfaceIntersectionScreen.cpp:266
+msgid "Wake Angle"
+msgstr ""
+
+#: CfdMeshScreen.cpp:488 ScreenBase.cpp:481 ScreenBase.cpp:493
+#: SurfaceIntersectionScreen.cpp:274
+msgid "Comp"
+msgstr ""
+
+#: CfdMeshScreen.cpp:492 SurfaceIntersectionScreen.cpp:278
+msgid "Add Wake"
+msgstr ""
+
+#: ClippingScreen.cpp:18
+msgid "View Clipping"
+msgstr ""
+
+#: ClippingScreen.cpp:30 ClippingScreen.cpp:36 ClippingScreen.cpp:42
+#: ClippingScreen.cpp:54 ClippingScreen.cpp:60
+msgid "Active"
+msgstr ""
+
+#: ClippingScreen.cpp:32
+msgid "X >"
+msgstr ""
+
+#: ClippingScreen.cpp:38
+msgid "X <"
+msgstr ""
+
+#: ClippingScreen.cpp:44
+msgid "Y >"
+msgstr ""
+
+#: ClippingScreen.cpp:50
+msgid "Y <"
+msgstr ""
+
+#: ClippingScreen.cpp:56
+msgid "Z >"
+msgstr ""
+
+#: ClippingScreen.cpp:62
+msgid "Z <"
+msgstr ""
+
+#: CompGeomScreen.cpp:12
+msgid "Comp Geom - Mesh, Intersect, Trim"
+msgstr ""
+
+#: CompGeomScreen.cpp:46
+msgid "Parasite Drag Output"
+msgstr ""
+
+#: CompGeomScreen.cpp:68 ExportScreen.cpp:40
+msgid "Normal Set:"
+msgstr ""
+
+#: CompGeomScreen.cpp:69 ExportScreen.cpp:41
+msgid "Degen Set:"
+msgstr ""
+
+#: CompGeomScreen.cpp:73
+msgid "Half Mesh"
+msgstr ""
+
+#: CompGeomScreen.cpp:75
+msgid "Subsurfs"
+msgstr ""
+
+#: CompGeomScreen.cpp:82 ParasiteDragScreen.cpp:155
+msgid "Execute"
+msgstr ""
+
+#: ConformalScreen.cpp:15
+msgid "Conformal"
+msgstr ""
+
+#: ConformalScreen.cpp:17 EllipsoidScreen.cpp:17 EllipsoidScreen.cpp:21
+#: FuselageScreen.cpp:23 FuselageScreen.cpp:28 PodScreen.cpp:17
+#: PodScreen.cpp:21 PropScreen.cpp:23 PropScreen.cpp:37 StackScreen.cpp:19
+#: StackScreen.cpp:24
+msgid "Design"
+msgstr ""
+
+#: ConformalScreen.cpp:32
+msgid "Trim U"
+msgstr ""
+
+#: ConformalScreen.cpp:33
+msgid "U Min"
+msgstr ""
+
+#: ConformalScreen.cpp:34
+msgid "U Max"
+msgstr ""
+
+#: ConformalScreen.cpp:37
+msgid "Trim V1"
+msgstr ""
+
+#: ConformalScreen.cpp:38
+msgid "V1 Begin"
+msgstr ""
+
+#: ConformalScreen.cpp:39
+msgid "V1 End"
+msgstr ""
+
+#: ConformalScreen.cpp:41
+msgid "Trim V2"
+msgstr ""
+
+#: ConformalScreen.cpp:42
+msgid "V2 Begin"
+msgstr ""
+
+#: ConformalScreen.cpp:43
+msgid "V2 End"
+msgstr ""
+
+#: ConformalScreen.cpp:51
+msgid "Wing Trim"
+msgstr ""
+
+#: ConformalScreen.cpp:58
+msgid "Trim Chord"
+msgstr ""
+
+#: ConformalScreen.cpp:59
+msgid "Chord Min"
+msgstr ""
+
+#: ConformalScreen.cpp:60
+msgid "Chord Max"
+msgstr ""
+
+#: CurveEditScreen.cpp:30 PropScreen.cpp:165
+msgid "Curve"
+msgstr ""
+
+#: CurveEditScreen.cpp:43 DXFOptionsScreen.cpp:29 StructScreen.cpp:106
+#: StructScreen.cpp:492
+msgid "General"
+msgstr ""
+
+#: CurveEditScreen.cpp:51 StructScreen.cpp:493
+msgid "Circle"
+msgstr ""
+
+#: CurveEditScreen.cpp:52
+msgid "Ellipse"
+msgstr ""
+
+#: CurveEditScreen.cpp:53 StructScreen.cpp:496
+msgid "Rectangle"
+msgstr ""
+
+#: CurveEditScreen.cpp:56
+msgid "Init Shape"
+msgstr ""
+
+#: CurveEditScreen.cpp:59
+msgid "Close Curve"
+msgstr ""
+
+#: CurveEditScreen.cpp:60
+msgid "View Abs"
+msgstr ""
+
+#: CurveEditScreen.cpp:61
+msgid "R-L Symmetry"
+msgstr ""
+
+#: CurveEditScreen.cpp:70
+msgid "Current Type:"
+msgstr ""
+
+#: CurveEditScreen.cpp:74 GroupLayout.cpp:1597
+msgid "Linear"
+msgstr ""
+
+#: CurveEditScreen.cpp:75 GroupLayout.cpp:1598
+msgid "Spline (PCHIP)"
+msgstr ""
+
+#: CurveEditScreen.cpp:76 GroupLayout.cpp:1599
+msgid "Cubic Bezier"
+msgstr ""
+
+#: CurveEditScreen.cpp:78 GroupLayout.cpp:1591
+msgid "Convert to:"
+msgstr ""
+
+#: CurveEditScreen.cpp:80 GroupLayout.cpp:1586 MeshScreen.cpp:26
+msgid "Convert"
+msgstr ""
+
+#: CurveEditScreen.cpp:96 ProjectionScreen.cpp:199 ScreenBase.cpp:1363
+#: ScreenBase.cpp:1370 WaveDragScreen.cpp:204 WingScreen.cpp:30
+#: WingScreen.cpp:163
+msgid "Area"
+msgstr ""
+
+#: CurveEditScreen.cpp:97 ScreenBase.cpp:1365
+msgid "H/W Ratio"
+msgstr ""
+
+#: CurveEditScreen.cpp:103
+msgid "Depth"
+msgstr ""
+
+#: CurveEditScreen.cpp:109
+msgid "Reparameterize by Arc Length"
+msgstr ""
+
+#: CurveEditScreen.cpp:114
+msgid "Split Curve"
+msgstr ""
+
+#: CurveEditScreen.cpp:116
+msgid "U Parameter"
+msgstr ""
+
+#: CurveEditScreen.cpp:123
+msgid "Split U"
+msgstr ""
+
+#: CurveEditScreen.cpp:124 GroupLayout.cpp:1643 GroupLayout.cpp:1647
+msgid "Split Pick"
+msgstr ""
+
+#: CurveEditScreen.cpp:133
+msgid "Selected Point"
+msgstr ""
+
+#: CurveEditScreen.cpp:141
+msgid "Delete Point"
+msgstr ""
+
+#: CurveEditScreen.cpp:146
+msgid "Delete Selected"
+msgstr ""
+
+#: CurveEditScreen.cpp:147
+msgid "Delete Pick"
+msgstr ""
+
+#: CurveEditScreen.cpp:155
+msgid "Line Color"
+msgstr ""
+
+#: CurveEditScreen.cpp:168
+msgid "Point Color"
+msgstr ""
+
+#: CurveEditScreen.cpp:175
+msgid "Point Size"
+msgstr ""
+
+#: CurveEditScreen.cpp:176
+msgid "Line Thick"
+msgstr ""
+
+#: CurveEditScreen.cpp:180 ManageBackgroundScreen.cpp:21
+msgid "Background"
+msgstr ""
+
+#: CurveEditScreen.cpp:186
+msgid "Border"
+msgstr ""
+
+#: CurveEditScreen.cpp:187
+msgid "Axis"
+msgstr ""
+
+#: CurveEditScreen.cpp:188
+msgid "Grid"
+msgstr ""
+
+#: CurveEditScreen.cpp:199 ManageBackgroundScreen.cpp:42
+msgid "Image"
+msgstr ""
+
+#: CurveEditScreen.cpp:211 ManageBackgroundScreen.cpp:52
+#: SelectFileScreen.cpp:72
+msgid "File:"
+msgstr ""
+
+#: CurveEditScreen.cpp:221 ManageBackgroundScreen.cpp:61
+msgid "Preserve Aspect"
+msgstr ""
+
+#: CurveEditScreen.cpp:223
+msgid "Lock Image"
+msgstr ""
+
+#: CurveEditScreen.cpp:224
+msgid "Flip Image"
+msgstr ""
+
+#: CurveEditScreen.cpp:238 ManageBackgroundScreen.cpp:72
+#: ManageMeasureScreen.cpp:102
+msgid "X Offset"
+msgstr ""
+
+#: CurveEditScreen.cpp:239 ManageBackgroundScreen.cpp:73
+#: ManageMeasureScreen.cpp:103
+msgid "Y Offset"
+msgstr ""
+
+#: CurveEditScreen.cpp:243
+msgid "Copy Settings to All XSecs"
+msgstr ""
+
+#: CurveEditScreen.cpp:249
+msgid "Reset Background"
+msgstr ""
+
+#: CurveEditScreen.cpp:250
+msgid "Reset Zoom && Pan"
+msgstr ""
+
+#: CustomGeomExportScreen.cpp:13
+msgid "Export Custom Script"
+msgstr ""
+
+#: CustomGeomExportScreen.cpp:42
+msgid "Save To File"
+msgstr ""
+
+#: CustomGeomExportScreen.cpp:95
+msgid "Save Custom Geom Script"
+msgstr ""
+
+#: CustomScreen.cpp:15 ScreenBase.cpp:313 ScreenBase.cpp:1182
+msgid "Custom"
+msgstr ""
+
+#: CustomScreen.cpp:17
+msgid "Custom Geom"
+msgstr ""
+
+#: DXFOptionsScreen.cpp:19
+msgid "DXF Options"
+msgstr ""
+
+#: DXFOptionsScreen.cpp:33 IGESOptionsScreen.cpp:41 STEPOptionsScreen.cpp:39
+#: SVGOptionsScreen.cpp:28 StructScreen.cpp:1088
+#: SurfaceIntersectionScreen.cpp:198
+msgid "MM"
+msgstr ""
+
+#: DXFOptionsScreen.cpp:34 IGESOptionsScreen.cpp:42 STEPOptionsScreen.cpp:40
+#: SVGOptionsScreen.cpp:29 StructScreen.cpp:1089
+#: SurfaceIntersectionScreen.cpp:199
+msgid "CM"
+msgstr ""
+
+#: DXFOptionsScreen.cpp:36 IGESOptionsScreen.cpp:44 STEPOptionsScreen.cpp:42
+#: SVGOptionsScreen.cpp:31 StructScreen.cpp:1091
+#: SurfaceIntersectionScreen.cpp:201
+msgid "IN"
+msgstr ""
+
+#: DXFOptionsScreen.cpp:37 IGESOptionsScreen.cpp:45 STEPOptionsScreen.cpp:43
+#: SVGOptionsScreen.cpp:32 StructScreen.cpp:1092
+#: SurfaceIntersectionScreen.cpp:202
+msgid "FT"
+msgstr ""
+
+#: DXFOptionsScreen.cpp:38 STEPOptionsScreen.cpp:44 SVGOptionsScreen.cpp:33
+#: StructScreen.cpp:1093
+msgid "YD"
+msgstr ""
+
+#: DXFOptionsScreen.cpp:39 SVGOptionsScreen.cpp:34
+msgid "Dimensionless"
+msgstr ""
+
+#: DXFOptionsScreen.cpp:40 HumanGeomScreen.cpp:30 IGESOptionsScreen.cpp:46
+#: ManageMeasureScreen.cpp:32 ManageMeasureScreen.cpp:143
+#: ManageMeasureScreen.cpp:244 STEPOptionsScreen.cpp:45 SVGOptionsScreen.cpp:35
+#: StructScreen.cpp:1094 SurfaceIntersectionScreen.cpp:204
+msgid "Length Unit"
+msgstr ""
+
+#: DXFOptionsScreen.cpp:44 SVGOptionsScreen.cpp:43
+msgid "Force XSecs"
+msgstr ""
+
+#: DXFOptionsScreen.cpp:51
+msgid "Color Layers"
+msgstr ""
+
+#: DXFOptionsScreen.cpp:59
+msgid "3D Export"
+msgstr ""
+
+#: DXFOptionsScreen.cpp:60
+msgid "2D Export"
+msgstr ""
+
+#: DXFOptionsScreen.cpp:78 SVGOptionsScreen.cpp:50
+msgid "Outline"
+msgstr ""
+
+#: DXFOptionsScreen.cpp:82 SVGOptionsScreen.cpp:54
+msgid "Refinement"
+msgstr ""
+
+#: DXFOptionsScreen.cpp:91 SVGOptionsScreen.cpp:63
+msgid "2D View Type"
+msgstr ""
+
+#: DXFOptionsScreen.cpp:143 DXFOptionsScreen.cpp:158 DXFOptionsScreen.cpp:173
+#: DXFOptionsScreen.cpp:188 SVGOptionsScreen.cpp:113 SVGOptionsScreen.cpp:128
+#: SVGOptionsScreen.cpp:143 SVGOptionsScreen.cpp:158 ScreenBase.cpp:3072
+#: ScreenBase.cpp:3086 ScreenBase.cpp:3100
+msgid "Left"
+msgstr ""
+
+#: DXFOptionsScreen.cpp:144 DXFOptionsScreen.cpp:159 DXFOptionsScreen.cpp:174
+#: DXFOptionsScreen.cpp:189 SVGOptionsScreen.cpp:114 SVGOptionsScreen.cpp:129
+#: SVGOptionsScreen.cpp:144 SVGOptionsScreen.cpp:159
+msgid "Right"
+msgstr ""
+
+#: DXFOptionsScreen.cpp:145 DXFOptionsScreen.cpp:160 DXFOptionsScreen.cpp:175
+#: DXFOptionsScreen.cpp:190 SVGOptionsScreen.cpp:115 SVGOptionsScreen.cpp:130
+#: SVGOptionsScreen.cpp:145 SVGOptionsScreen.cpp:160 ScreenBase.cpp:3073
+#: ScreenBase.cpp:3087 ScreenBase.cpp:3101 StructScreen.cpp:188
+msgid "Top"
+msgstr ""
+
+#: DXFOptionsScreen.cpp:146 DXFOptionsScreen.cpp:161 DXFOptionsScreen.cpp:176
+#: DXFOptionsScreen.cpp:191 SVGOptionsScreen.cpp:116 SVGOptionsScreen.cpp:131
+#: SVGOptionsScreen.cpp:146 SVGOptionsScreen.cpp:161 ScreenBase.cpp:3071
+#: ScreenBase.cpp:3085 ScreenBase.cpp:3099
+msgid "Bottom"
+msgstr ""
+
+#: DXFOptionsScreen.cpp:147 DXFOptionsScreen.cpp:162 DXFOptionsScreen.cpp:177
+#: DXFOptionsScreen.cpp:192 SVGOptionsScreen.cpp:117 SVGOptionsScreen.cpp:132
+#: SVGOptionsScreen.cpp:147 SVGOptionsScreen.cpp:162 StructScreen.cpp:187
+msgid "Front"
+msgstr ""
+
+#: DXFOptionsScreen.cpp:148 DXFOptionsScreen.cpp:163 DXFOptionsScreen.cpp:178
+#: DXFOptionsScreen.cpp:193 SVGOptionsScreen.cpp:118 SVGOptionsScreen.cpp:133
+#: SVGOptionsScreen.cpp:148 SVGOptionsScreen.cpp:163
+msgid "Rear"
+msgstr ""
+
+#: DegenGeomScreen.cpp:15
+msgid "Degen Geom - Compute Models, File IO"
+msgstr ""
+
+#: DegenGeomScreen.cpp:27 MassPropScreen.cpp:84 StructAssemblyScreen.cpp:211
+msgid "File Export"
+msgstr ""
+
+#: DegenGeomScreen.cpp:69
+msgid "Make MeshGeom"
+msgstr ""
+
+#: DegenGeomScreen.cpp:176
+msgid ""
+"\n"
+"Writing output...\n"
+msgstr ""
+
+#: DesignVarScreen.cpp:19
+msgid "Design Variables"
+msgstr ""
+
+#: DesignVarScreen.cpp:23 ManageGeomScreen.cpp:93
+msgid "Pick"
+msgstr ""
+
+#: DesignVarScreen.cpp:27 UserParmScreen.cpp:26 VarPresetScreen.cpp:33
+msgid "Adjust"
+msgstr ""
+
+#: DesignVarScreen.cpp:34 FitModelScreen.cpp:149 VarPresetScreen.cpp:80
+msgid "Variable"
+msgstr ""
+
+#: DesignVarScreen.cpp:70 FitModelScreen.cpp:173 VarPresetScreen.cpp:102
+msgid "Variable List"
+msgstr ""
+
+#: DesignVarScreen.cpp:86
+msgid "File Type:"
+msgstr ""
+
+#: DesignVarScreen.cpp:288 DesignVarScreen.cpp:307
+msgid "Design File"
+msgstr ""
+
+#: DesignVarScreen.cpp:296 DesignVarScreen.cpp:316
+msgid "Cart3D XDDM File"
+msgstr ""
+
+#: EllipsoidScreen.cpp:15
+msgid "Ellipsoid"
+msgstr ""
+
+#: ExportScreen.cpp:25
+msgid "Export"
+msgstr ""
+
+#: ExportScreen.cpp:56
+msgid "Untrimmed STEP (.stp)"
+msgstr ""
+
+#: ExportScreen.cpp:57
+msgid "Untrimmed STEP Struct (.stp)"
+msgstr ""
+
+#: ExportScreen.cpp:58
+msgid "Untrimmed IGES (.igs)"
+msgstr ""
+
+#: ExportScreen.cpp:59
+msgid "Untrimmed IGES Struct (.igs)"
+msgstr ""
+
+#: ExportScreen.cpp:60 ImportScreen.cpp:34
+msgid "Blade Element (.bem)"
+msgstr ""
+
+#: ExportScreen.cpp:66
+msgid "Airfoil Points (.dat)"
+msgstr ""
+
+#: ExportScreen.cpp:67
+msgid "Airfoil Curves (.bz)"
+msgstr ""
+
+#: ExportScreen.cpp:68
+msgid "Custom Script (.vsppart)"
+msgstr ""
+
+#: ExportScreen.cpp:120
+msgid "Write XSec File?"
+msgstr ""
+
+#: ExportScreen.cpp:124
+msgid "Write PLOT3D File?"
+msgstr ""
+
+#: ExportScreen.cpp:130
+msgid "Write STL File?"
+msgstr ""
+
+#: ExportScreen.cpp:135
+msgid "Write NASCART Files?"
+msgstr ""
+
+#: ExportScreen.cpp:139
+msgid "Write Cart3D Files?"
+msgstr ""
+
+#: ExportScreen.cpp:143
+msgid "Write OBJ Files?"
+msgstr ""
+
+#: ExportScreen.cpp:147
+msgid "Write VSPGeom Files?"
+msgstr ""
+
+#: ExportScreen.cpp:151
+msgid "Write GMsh Files?"
+msgstr ""
+
+#: ExportScreen.cpp:155
+msgid "Write POVRAY File?"
+msgstr ""
+
+#: ExportScreen.cpp:159
+msgid "Write X3D File?"
+msgstr ""
+
+#: ExportScreen.cpp:165
+msgid "Write STEP File?"
+msgstr ""
+
+#: ExportScreen.cpp:172
+msgid "Write STEP Structures File?"
+msgstr ""
+
+#: ExportScreen.cpp:179
+msgid "Write IGES File?"
+msgstr ""
+
+#: ExportScreen.cpp:186
+msgid "Write IGES Structures File?"
+msgstr ""
+
+#: ExportScreen.cpp:193
+msgid "Write Blade Element File?"
+msgstr ""
+
+#: ExportScreen.cpp:200
+msgid "Write DXF File?"
+msgstr ""
+
+#: ExportScreen.cpp:207
+msgid "Write SVG File?"
+msgstr ""
+
+#: ExportScreen.cpp:212
+msgid "Write Facet File?"
+msgstr ""
+
+#: ExportScreen.cpp:217
+msgid "Write PMARC File?"
+msgstr ""
+
+#: ExportScreen.cpp:223 ExportScreen.cpp:230
+msgid "Write Airfoil Metadata File?"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:18
+msgid "FEA Part Edit"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:33
+msgid "Elements"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:39
+msgid "Shell"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:41
+msgid "Shell and Cap"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:55
+msgid "Global X"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:56
+msgid "Global Y"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:57
+msgid "Global Z"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:58
+msgid "Comp X"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:59
+msgid "Comp Y"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:60
+msgid "Comp Z"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:61
+msgid "Part U"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:62
+msgid "Part V"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:63
+msgid "OML U"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:64
+msgid "OML V"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:65
+msgid "OML R"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:66
+msgid "OML S"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:67
+msgid "OML T"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:70 FeaPartEditScreen.cpp:102 FeaPartEditScreen.cpp:614
+#: StructScreen.cpp:180
+msgid "Orientation"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:71
+msgid "Cap Property"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:82
+msgid "Skin"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:84
+msgid "Remove Skin"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:90 VSPAEROPlotScreen.cpp:371
+msgid "Slice"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:95 FeaPartEditScreen.cpp:607
+msgid "XY_Body"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:96 FeaPartEditScreen.cpp:608
+msgid "YZ_Body"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:97 FeaPartEditScreen.cpp:609
+msgid "XZ_Body"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:98 FeaPartEditScreen.cpp:610
+msgid "XY_Abs"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:99 FeaPartEditScreen.cpp:611
+msgid "YZ_Abs"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:100 FeaPartEditScreen.cpp:612
+msgid "XZ_Abs"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:101 FeaPartEditScreen.cpp:613
+msgid "Spine_Normal"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:122 FeaPartEditScreen.cpp:227
+#: FeaPartEditScreen.cpp:310 ManageLightingScreen.cpp:49
+msgid "Location"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:134
+msgid "Rotation Axis"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:138 FeaPartEditScreen.cpp:686
+msgid "X Axis"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:139 FeaPartEditScreen.cpp:687
+msgid "Y Axis"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:140 FeaPartEditScreen.cpp:688
+msgid "Z Axis"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:153 FeaPartEditScreen.cpp:701 MultTransScreen.cpp:26
+#: ScreenBase.cpp:382
+msgid "XRot"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:154 FeaPartEditScreen.cpp:702 MultTransScreen.cpp:27
+#: ScreenBase.cpp:383
+msgid "YRot"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:155 FeaPartEditScreen.cpp:703 MultTransScreen.cpp:28
+#: ScreenBase.cpp:384
+msgid "ZRot"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:168
+msgid "Normal Type:"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:170 FeaPartEditScreen.cpp:471
+msgid "LE"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:171 FeaPartEditScreen.cpp:472
+msgid "TE"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:172 FeaPartEditScreen.cpp:262
+#: FeaPartEditScreen.cpp:473
+msgid "Spar"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:186
+msgid "Perpendicular Spar"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:190
+msgid "Limit Rib to Section"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:204 FeaPartEditScreen.cpp:279
+msgid "Start:"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:207 FeaPartEditScreen.cpp:282
+msgid "End:"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:213 FeaPartEditScreen.cpp:288
+#: FeaPartEditScreen.cpp:514
+msgid "Distance:"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:215 FeaPartEditScreen.cpp:621
+msgid "Relative"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:216 FeaPartEditScreen.cpp:622
+msgid "Absolute"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:243 FeaPartEditScreen.cpp:323
+#: FeaPartEditScreen.cpp:581
+msgid "Rotation"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:250 FeaPartEditScreen.cpp:332
+#: FeaPartEditScreen.cpp:588
+msgid "Trim to Bounding Box"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:251 FeaPartEditScreen.cpp:589
+msgid "Rotate to Match Dihedral"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:268
+msgid "Limit Spar to Section"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:301
+msgid "Parameterize by Chord"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:327
+msgid "Root X/C"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:328
+msgid "Tip X/C"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:338
+msgid "Fixed Point"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:345
+msgid "U Location"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:346
+msgid "W Location"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:349
+msgid "Element"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:362 HumanGeomScreen.cpp:54
+#: StructAssemblyScreen.cpp:235 StructScreen.cpp:942
+msgid "Mass"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:373
+msgid "Dome"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:375
+msgid "Flip Direction"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:379
+msgid "Attach to Spine"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:383
+msgid "Spine U Loc"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:390
+msgid "A Radius"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:400
+msgid "B Radius"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:410
+msgid "C Radius"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:421 MultTransScreen.cpp:21 ScreenBase.cpp:378
+msgid "XLoc"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:431 MultTransScreen.cpp:22 ScreenBase.cpp:379
+msgid "YLoc"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:463
+msgid "RibArray"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:491
+msgid "Limit Rib Array to Section"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:530 ManageMeasureScreen.cpp:79
+#: ProjectionScreen.cpp:103 PtCloudScreen.cpp:37
+msgid "Direction"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:531 FeaPartEditScreen.cpp:633
+#: FeaPartEditScreen.cpp:962
+msgid "Positive"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:532 FeaPartEditScreen.cpp:634
+#: FeaPartEditScreen.cpp:963
+msgid "Negative"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:545 FeaPartEditScreen.cpp:646
+#: FeaPartEditScreen.cpp:973 PSliceScreen.cpp:49
+msgid "Start Location"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:555 FeaPartEditScreen.cpp:656
+#: FeaPartEditScreen.cpp:974 PSliceScreen.cpp:51
+msgid "End Location"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:565 FeaPartEditScreen.cpp:666
+#: FeaPartEditScreen.cpp:975
+msgid "Spacing"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:596
+msgid "Individualize Rib Array"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:602
+msgid "SliceArray"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:707
+msgid "Individualize Slice Array"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:731
+msgid "Trim Part"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:734
+msgid "Flip Dir"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:740 ManageGeomScreen.cpp:78 ManageMeasureScreen.cpp:55
+#: ManageMeasureScreen.cpp:166 ManageMeasureScreen.cpp:267
+#: ManageTextureScreen.cpp:49 ScreenBase.cpp:524 UserParmScreen.cpp:68
+msgid "Delete"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:748
+msgid "Line Sub-Surface"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:754 ScreenBase.cpp:580
+msgid "Greater"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:755 ScreenBase.cpp:581
+msgid "Less"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:765 FeaPartEditScreen.cpp:948
+msgid "Line Type"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:782 ParasiteDragScreen.cpp:468 ParmDebugScreen.cpp:38
+msgid "Value"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:788
+msgid "Rectangle Sub-Surface"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:794 FeaPartEditScreen.cpp:859 ScreenBase.cpp:601
+#: ScreenBase.cpp:626 ScreenBase.cpp:652
+msgid "Inside"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:795 FeaPartEditScreen.cpp:860 ScreenBase.cpp:602
+#: ScreenBase.cpp:627 ScreenBase.cpp:653
+msgid "Outside"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:842 FeaPartEditScreen.cpp:937 ScreenBase.cpp:637
+#: ScreenBase.cpp:726
+msgid "Num Points"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:843 ScreenBase.cpp:612 ScreenBase.cpp:638
+msgid "Center U"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:844 ScreenBase.cpp:613 ScreenBase.cpp:639
+msgid "Center W"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:845 ScreenBase.cpp:614 ScreenBase.cpp:640
+msgid "U Length"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:846 ScreenBase.cpp:615 ScreenBase.cpp:641
+msgid "W Length"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:874 PropScreen.cpp:31
+msgid "Both"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:886 ScreenBase.cpp:677
+msgid "Spanwise"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:890 ManageMeasureScreen.cpp:88 ScreenBase.cpp:679
+msgid "Start U"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:891 ManageMeasureScreen.cpp:93 ScreenBase.cpp:680
+msgid "End U"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:894 ScreenBase.cpp:683
+msgid "Chordwise"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:902 ScreenBase.cpp:692
+msgid "Length/C"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:903 ScreenBase.cpp:693
+msgid "Constant"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:915 ScreenBase.cpp:703
+msgid "Start Length"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:916 ScreenBase.cpp:704
+msgid "Start Length/C"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:917 ScreenBase.cpp:706
+msgid "End Length"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:918 ScreenBase.cpp:707
+msgid "End Length/C"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:921 ScreenBase.cpp:710
+msgid "Surface End Angle"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:926 ScreenBase.cpp:715 StructAssemblyScreen.cpp:163
+msgid "Start"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:927 ScreenBase.cpp:716 StructAssemblyScreen.cpp:168
+msgid "End"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:928 ScreenBase.cpp:717
+msgid "Same Angle"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:934 ScreenBase.cpp:723
+msgid "Start Angle"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:935 ScreenBase.cpp:724
+msgid "End Angle"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:943
+msgid "Line Array Sub-Surface"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:979
+msgid "Individualize SSLine Array"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:985
+msgid "Finite Line Sub-Surface"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:994 ScreenBase.cpp:736
+msgid "U Start"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:995 ScreenBase.cpp:737
+msgid "U End"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:996 ScreenBase.cpp:738 ScreenBase.cpp:3067
+msgid "W Start"
+msgstr ""
+
+#: FeaPartEditScreen.cpp:997 ScreenBase.cpp:739 ScreenBase.cpp:3081
+msgid "W End"
+msgstr ""
+
+#: FitModelScreen.cpp:19 FitModelScreen.cpp:34
+msgid "Fit Model"
+msgstr ""
+
+#: FitModelScreen.cpp:25
+msgid "Pick Points"
+msgstr ""
+
+#: FitModelScreen.cpp:26
+msgid "Pick Vars"
+msgstr ""
+
+#: FitModelScreen.cpp:30
+msgid "Var Tree"
+msgstr ""
+
+#: FitModelScreen.cpp:36
+msgid "Save/Import"
+msgstr ""
+
+#: FitModelScreen.cpp:45
+msgid "Point Selection"
+msgstr ""
+
+#: FitModelScreen.cpp:48
+msgid "Num Selected"
+msgstr ""
+
+#: FitModelScreen.cpp:54
+msgid "Select One"
+msgstr ""
+
+#: FitModelScreen.cpp:55
+msgid "Hide Selection"
+msgstr ""
+
+#: FitModelScreen.cpp:59
+msgid "Select Region"
+msgstr ""
+
+#: FitModelScreen.cpp:60
+msgid "Hide Unselected"
+msgstr ""
+
+#: FitModelScreen.cpp:64
+msgid "Select All"
+msgstr ""
+
+#: FitModelScreen.cpp:65 ManageMeasureScreen.cpp:61 ManageMeasureScreen.cpp:172
+#: ManageMeasureScreen.cpp:273
+msgid "Hide All"
+msgstr ""
+
+#: FitModelScreen.cpp:69
+msgid "Select None"
+msgstr ""
+
+#: FitModelScreen.cpp:70 ManageMeasureScreen.cpp:60 ManageMeasureScreen.cpp:171
+#: ManageMeasureScreen.cpp:272
+msgid "Show All"
+msgstr ""
+
+#: FitModelScreen.cpp:74
+msgid "Invert Selection"
+msgstr ""
+
+#: FitModelScreen.cpp:75
+msgid "Invert Hidden"
+msgstr ""
+
+#: FitModelScreen.cpp:84
+msgid "Target Points"
+msgstr ""
+
+#: FitModelScreen.cpp:107 FitModelScreen.cpp:119 ScreenBase.cpp:3069
+#: ScreenBase.cpp:3083 ScreenBase.cpp:3097
+msgid "Free"
+msgstr ""
+
+#: FitModelScreen.cpp:108 FitModelScreen.cpp:120
+msgid "Fix"
+msgstr ""
+
+#: FitModelScreen.cpp:133
+msgid "Add Target"
+msgstr ""
+
+#: FitModelScreen.cpp:134
+msgid "Delete Target"
+msgstr ""
+
+#: FitModelScreen.cpp:135
+msgid "Clear Target"
+msgstr ""
+
+#: FitModelScreen.cpp:142
+msgid "Num Target Pts."
+msgstr ""
+
+#: FitModelScreen.cpp:159 VarPresetScreen.cpp:92
+msgid "Add Variable"
+msgstr ""
+
+#: FitModelScreen.cpp:160 VarPresetScreen.cpp:93
+msgid "Delete Variable"
+msgstr ""
+
+#: FitModelScreen.cpp:161 FitModelScreen.cpp:191
+msgid "Clear Variables"
+msgstr ""
+
+#: FitModelScreen.cpp:169
+msgid "Num Variables"
+msgstr ""
+
+#: FitModelScreen.cpp:188
+msgid "Variable Tree"
+msgstr ""
+
+#: FitModelScreen.cpp:214
+msgid "Optimizer Control"
+msgstr ""
+
+#: FitModelScreen.cpp:223
+msgid "DOF"
+msgstr ""
+
+#: FitModelScreen.cpp:224
+msgid "Conditions"
+msgstr ""
+
+#: FitModelScreen.cpp:231
+msgid "Search UW"
+msgstr ""
+
+#: FitModelScreen.cpp:232
+msgid "Refine UW"
+msgstr ""
+
+#: FitModelScreen.cpp:236
+msgid "Update Distance"
+msgstr ""
+
+#: FitModelScreen.cpp:237
+msgid "Fit"
+msgstr ""
+
+#: FitModelScreen.cpp:245
+msgid "Distance Metric"
+msgstr ""
+
+#: FitModelScreen.cpp:251
+msgid "Save Targets & Variables"
+msgstr ""
+
+#: FitModelScreen.cpp:259 FitModelScreen.cpp:278 MainVSPScreen.cpp:171
+msgid "File Name:"
+msgstr ""
+
+#: FitModelScreen.cpp:268 MainVSPScreen.cpp:265
+msgid "Save"
+msgstr ""
+
+#: FitModelScreen.cpp:271
+msgid "Import Targets & Variables"
+msgstr ""
+
+#: FitModelScreen.cpp:287 ImportScreen.cpp:15
+msgid "Import"
+msgstr ""
+
+#: FitModelScreen.cpp:670
+msgid ""
+"Invalid inputs to least squares optimizer.\n"
+"Variables may not be independent, or may not change metric."
+msgstr ""
+
+#: FitModelScreen.cpp:691
+msgid "Create or Select .fit file."
+msgstr ""
+
+#: FitModelScreen.cpp:699
+msgid "Select .fit file."
+msgstr ""
+
+#: FuselageScreen.cpp:19
+msgid "Fuselage"
+msgstr ""
+
+#: FuselageScreen.cpp:32 StackScreen.cpp:27
+msgid "Design Policy"
+msgstr ""
+
+#: FuselageScreen.cpp:33
+msgid "MONOTONIC"
+msgstr ""
+
+#: FuselageScreen.cpp:34 StackScreen.cpp:29
+msgid "LOOP"
+msgstr ""
+
+#: FuselageScreen.cpp:35 ScreenBase.cpp:3280 ScreenBase.cpp:3299
+#: ScreenBase.cpp:3328 ScreenBase.cpp:3347 StackScreen.cpp:28
+msgid "FREE"
+msgstr ""
+
+#: FuselageScreen.cpp:36 StackScreen.cpp:30
+msgid "XSec Order: "
+msgstr ""
+
+#: FuselageScreen.cpp:39 PropScreen.cpp:405 StackScreen.cpp:33
+#: WingScreen.cpp:35
+msgid "Tip Treatment"
+msgstr ""
+
+#: FuselageScreen.cpp:42 FuselageScreen.cpp:56 PropScreen.cpp:411
+#: PropScreen.cpp:425 StackScreen.cpp:36 StackScreen.cpp:50 WingScreen.cpp:41
+#: WingScreen.cpp:55
+msgid "Flat"
+msgstr ""
+
+#: FuselageScreen.cpp:43 FuselageScreen.cpp:57 PropScreen.cpp:412
+#: PropScreen.cpp:426 StackScreen.cpp:37 StackScreen.cpp:51 WingScreen.cpp:42
+#: WingScreen.cpp:56
+msgid "Round"
+msgstr ""
+
+#: FuselageScreen.cpp:44 FuselageScreen.cpp:58 PropScreen.cpp:413
+#: PropScreen.cpp:427 StackScreen.cpp:38 StackScreen.cpp:52 WingScreen.cpp:43
+#: WingScreen.cpp:57
+msgid "Edge"
+msgstr ""
+
+#: FuselageScreen.cpp:45 FuselageScreen.cpp:59 PropScreen.cpp:414
+#: PropScreen.cpp:428 StackScreen.cpp:39 StackScreen.cpp:53 WingScreen.cpp:44
+#: WingScreen.cpp:58
+msgid "Sharp"
+msgstr ""
+
+#: FuselageScreen.cpp:46 StackScreen.cpp:40
+msgid "Nose Cap Type"
+msgstr ""
+
+#: FuselageScreen.cpp:51 FuselageScreen.cpp:65 PropScreen.cpp:420
+#: PropScreen.cpp:434 StackScreen.cpp:45 StackScreen.cpp:59 WingScreen.cpp:50
+#: WingScreen.cpp:64
+msgid "Sweep Stretch"
+msgstr ""
+
+#: FuselageScreen.cpp:60 StackScreen.cpp:54
+msgid "Tail Cap Type"
+msgstr ""
+
+#: FuselageScreen.cpp:75 PropScreen.cpp:184 StackScreen.cpp:69
+#: WingScreen.cpp:132
+msgid "Insert"
+msgstr ""
+
+#: FuselageScreen.cpp:77 ManageGeomScreen.cpp:84 PropScreen.cpp:186
+#: StackScreen.cpp:71 WingScreen.cpp:129
+msgid "Cut"
+msgstr ""
+
+#: FuselageScreen.cpp:79 ManageGeomScreen.cpp:82 PropScreen.cpp:188
+#: StackScreen.cpp:73 WingScreen.cpp:130 WingScreen.cpp:208
+msgid "Copy"
+msgstr ""
+
+#: FuselageScreen.cpp:81 ManageGeomScreen.cpp:83 PropScreen.cpp:190
+#: StackScreen.cpp:75 WingScreen.cpp:131 WingScreen.cpp:210
+msgid "Paste"
+msgstr ""
+
+#: FuselageScreen.cpp:90 StackScreen.cpp:84 WingScreen.cpp:147
+msgid "Num U"
+msgstr ""
+
+#: FuselageScreen.cpp:94 ManageMeasureScreen.cpp:76 ManageMeasureScreen.cpp:211
+#: ManageMeasureScreen.cpp:313 ScreenBase.cpp:423 StructAssemblyScreen.cpp:198
+#: StructAssemblyScreen.cpp:205 VSPAEROPlotScreen.cpp:391 VSPAEROScreen.cpp:481
+msgid "Y"
+msgstr ""
+
+#: FuselageScreen.cpp:95 ManageMeasureScreen.cpp:77 ManageMeasureScreen.cpp:212
+#: ManageMeasureScreen.cpp:314 ScreenBase.cpp:424 StructAssemblyScreen.cpp:199
+#: StructAssemblyScreen.cpp:206 VSPAEROPlotScreen.cpp:392 VSPAEROScreen.cpp:482
+msgid "Z"
+msgstr ""
+
+#: FuselageScreen.cpp:99 StackScreen.cpp:93
+msgid "Rot X"
+msgstr ""
+
+#: FuselageScreen.cpp:100 StackScreen.cpp:94
+msgid "Rot Y"
+msgstr ""
+
+#: FuselageScreen.cpp:101 StackScreen.cpp:95
+msgid "Rot Z"
+msgstr ""
+
+#: FuselageScreen.cpp:102 StackScreen.cpp:96
+msgid "Spin"
+msgstr ""
+
+#: GroupLayout.cpp:753
+#, c-format
+msgid ""
+"ERROR: xdata.size() != ydata.size() \n"
+"\tFile: %s \tLine:%d\n"
+msgstr ""
+
+#: GroupLayout.cpp:1204 ParmDebugScreen.cpp:32
+msgid "Container"
+msgstr ""
+
+#: GroupLayout.cpp:1500
+msgid "Enforce"
+msgstr ""
+
+#: GroupLayout.cpp:1546 ManageMeasureScreen.cpp:187 ManageMeasureScreen.cpp:288
+#: ProjectionScreen.cpp:39 ProjectionScreen.cpp:74 ProjectionScreen.cpp:140
+#: StructScreen.cpp:150
+msgid "Geom"
+msgstr ""
+
+#: GroupLayout.cpp:1600
+msgid "Approximate Cubic Bezier"
+msgstr ""
+
+#: GroupLayout.cpp:1621
+msgid "r/R Split"
+msgstr ""
+
+#: GroupLayout.cpp:1630 GroupLayout.cpp:1635 WingScreen.cpp:128
+msgid "Split"
+msgstr ""
+
+#: GroupLayout.cpp:1678 GroupLayout.cpp:1682
+msgid "Del Pick"
+msgstr ""
+
+#: GroupLayout.cpp:1694
+msgid "Control Points"
+msgstr ""
+
+#: GroupLayout.cpp:1728
+#, c-format
+msgid ""
+"Error:  Column width array not zero terminated or column length mismatch: "
+msgstr ""
+
+#: GroupLayout.cpp:1890
+#, c-format
+msgid "'%s' insufficient width.\n"
+msgstr ""
+
+#: GroupLayout.cpp:1894
+#, c-format
+msgid "'%s' insufficient height.\n"
+msgstr ""
+
+#: GuiDevice.cpp:1190
+#, c-format
+msgid "Error: Non-BoolParm %s associated with CheckButton %s.\n"
+msgstr ""
+
+#: GuiDevice.cpp:1263
+#, c-format
+msgid "Error: Non-IntParm %s associated with CheckButtonBit %s.\n"
+msgstr ""
+
+#: GuiDevice.cpp:1341
+#, c-format
+msgid "Error: Non-BoolParm %s associated with RadioButton %s.\n"
+msgstr ""
+
+#: GuiDevice.cpp:1414
+#, c-format
+msgid "Error: Non-BoolParm %s associated with ToggleButton %s.\n"
+msgstr ""
+
+#: GuiDevice.cpp:1702
+#, c-format
+msgid "Error: Non-IntParm %s associated with Choice %s.\n"
+msgstr ""
+
+#: GuiDevice.cpp:1947 GuiDevice.cpp:1983
+#, c-format
+msgid "Error: Non-FractionParm %s associated with FractParmSlider.\n"
+msgstr ""
+
+#: GuiDevice.cpp:2980
+#, c-format
+msgid ""
+"Error: multiple same-name groups where there shouldn't be any. \n"
+"\tFile: %s \tLine:%d\n"
+msgstr ""
+
+#: HingeScreen.cpp:16
+msgid "Hinge"
+msgstr ""
+
+#: HingeScreen.cpp:18
+msgid "Orient"
+msgstr ""
+
+#: HingeScreen.cpp:23
+msgid "Orient Base"
+msgstr ""
+
+#: HingeScreen.cpp:25
+msgid "Rotations (Use XForm Tab)"
+msgstr ""
+
+#: HingeScreen.cpp:26 HingeScreen.cpp:34
+msgid "Vectors"
+msgstr ""
+
+#: HingeScreen.cpp:62
+msgid "Reference"
+msgstr ""
+
+#: HingeScreen.cpp:80
+msgid "VECTOR3D"
+msgstr ""
+
+#: HingeScreen.cpp:81
+msgid "POINT3D"
+msgstr ""
+
+#: HingeScreen.cpp:82
+msgid "SURFPT"
+msgstr ""
+
+#: HingeScreen.cpp:83
+msgid "UDIR"
+msgstr ""
+
+#: HingeScreen.cpp:84
+msgid "WDIR"
+msgstr ""
+
+#: HingeScreen.cpp:85
+msgid "NDIR"
+msgstr ""
+
+#: HingeScreen.cpp:95
+msgid "Direction Vector:"
+msgstr ""
+
+#: HingeScreen.cpp:126
+msgid "Offset:"
+msgstr ""
+
+#: HingeScreen.cpp:163
+msgid "Reference Vector"
+msgstr ""
+
+#: HingeScreen.cpp:169
+msgid "Reference Vec"
+msgstr ""
+
+#: HingeScreen.cpp:189
+msgid "Motion"
+msgstr ""
+
+#: HingeScreen.cpp:201
+msgid "DOF and Coordinates"
+msgstr ""
+
+#: HingeScreen.cpp:205 HingeScreen.cpp:226
+msgid "Translate"
+msgstr ""
+
+#: HingeScreen.cpp:212 HingeScreen.cpp:233 HingeScreen.cpp:249
+#: HingeScreen.cpp:270 HumanGeomScreen.cpp:97 MassPropScreen.cpp:36
+#: PSliceScreen.cpp:82 ProjectionScreen.cpp:33 ProjectionScreen.cpp:68
+msgid "Set"
+msgstr ""
+
+#: HingeScreen.cpp:215 HingeScreen.cpp:252
+msgid "Min"
+msgstr ""
+
+#: HingeScreen.cpp:223 HingeScreen.cpp:260
+msgid "Rng"
+msgstr ""
+
+#: HingeScreen.cpp:236 HingeScreen.cpp:273
+msgid "Max"
+msgstr ""
+
+#: HingeScreen.cpp:242 HingeScreen.cpp:263 PropScreen.cpp:54
+msgid "Rotate"
+msgstr ""
+
+#: HumanGeomScreen.cpp:15
+msgid "Human"
+msgstr ""
+
+#: HumanGeomScreen.cpp:17 HumanGeomScreen.cpp:41
+msgid "Anthropometric"
+msgstr ""
+
+#: HumanGeomScreen.cpp:22
+msgid "Units"
+msgstr ""
+
+#: HumanGeomScreen.cpp:38
+msgid "Mass Unit"
+msgstr ""
+
+#: HumanGeomScreen.cpp:43
+msgid "MALE"
+msgstr ""
+
+#: HumanGeomScreen.cpp:44
+msgid "FEMALE"
+msgstr ""
+
+#: HumanGeomScreen.cpp:45
+msgid "Gender"
+msgstr ""
+
+#: HumanGeomScreen.cpp:48
+msgid "Stature"
+msgstr ""
+
+#: HumanGeomScreen.cpp:49
+#, c-format
+msgid "% Stature"
+msgstr ""
+
+#: HumanGeomScreen.cpp:52
+msgid "BMI"
+msgstr ""
+
+#: HumanGeomScreen.cpp:53
+msgid "% BMI"
+msgstr ""
+
+#: HumanGeomScreen.cpp:57
+msgid "Volume"
+msgstr ""
+
+#: HumanGeomScreen.cpp:60
+msgid "Auto Density"
+msgstr ""
+
+#: HumanGeomScreen.cpp:68
+msgid "Age"
+msgstr ""
+
+#: HumanGeomScreen.cpp:71
+msgid "Sitting H / H"
+msgstr ""
+
+#: HumanGeomScreen.cpp:76
+msgid "Show Skeleton"
+msgstr ""
+
+#: HumanGeomScreen.cpp:79 HumanGeomScreen.cpp:83
+msgid "Pose"
+msgstr ""
+
+#: HumanGeomScreen.cpp:87
+msgid "STANDING"
+msgstr ""
+
+#: HumanGeomScreen.cpp:88
+msgid "SITTING"
+msgstr ""
+
+#: HumanGeomScreen.cpp:94
+msgid "Preset"
+msgstr ""
+
+#: HumanGeomScreen.cpp:104
+msgid "Body"
+msgstr ""
+
+#: HumanGeomScreen.cpp:106
+msgid "Back"
+msgstr ""
+
+#: HumanGeomScreen.cpp:107
+msgid "Waist"
+msgstr ""
+
+#: HumanGeomScreen.cpp:113 ScreenBase.cpp:3131
+msgid "Right Side"
+msgstr ""
+
+#: HumanGeomScreen.cpp:118
+msgid "Arm"
+msgstr ""
+
+#: HumanGeomScreen.cpp:123 HumanGeomScreen.cpp:153
+msgid "Shoulder AB/AD"
+msgstr ""
+
+#: HumanGeomScreen.cpp:124 HumanGeomScreen.cpp:154
+msgid "Shoulder FE"
+msgstr ""
+
+#: HumanGeomScreen.cpp:125 HumanGeomScreen.cpp:155
+msgid "Shoulder IE"
+msgstr ""
+
+#: HumanGeomScreen.cpp:126 HumanGeomScreen.cpp:156
+msgid "Elbow"
+msgstr ""
+
+#: HumanGeomScreen.cpp:129
+msgid "Leg"
+msgstr ""
+
+#: HumanGeomScreen.cpp:131 HumanGeomScreen.cpp:161
+msgid "Hip AB/AD"
+msgstr ""
+
+#: HumanGeomScreen.cpp:132 HumanGeomScreen.cpp:162
+msgid "Hip FE"
+msgstr ""
+
+#: HumanGeomScreen.cpp:133
+msgid "Knee"
+msgstr ""
+
+#: HumanGeomScreen.cpp:134 HumanGeomScreen.cpp:164
+msgid "Ankle"
+msgstr ""
+
+#: HumanGeomScreen.cpp:141 ScreenBase.cpp:2731 ScreenBase.cpp:3152
+msgid "Left Side"
+msgstr ""
+
+#: HumanGeomScreen.cpp:143 ScreenBase.cpp:2733 ScreenBase.cpp:3154
+msgid "R/L Sym"
+msgstr ""
+
+#: HumanGeomScreen.cpp:163
+msgid "Knee "
+msgstr ""
+
+#: IGESOptionsScreen.cpp:18
+msgid "Untrimmed IGES Options"
+msgstr ""
+
+#: IGESOptionsScreen.cpp:49 IGESStructureOptionsScreen.cpp:44
+#: STEPOptionsScreen.cpp:49 STEPStructureOptionsScreen.cpp:44
+msgid "Split Surfaces"
+msgstr ""
+
+#: IGESOptionsScreen.cpp:51 STEPOptionsScreen.cpp:51
+msgid "Split U/W-Const Sub-Surfaces"
+msgstr ""
+
+#: IGESOptionsScreen.cpp:53 STEPOptionsScreen.cpp:53
+msgid "Omit TE Surfaces"
+msgstr ""
+
+#: IGESOptionsScreen.cpp:56 IGESStructureOptionsScreen.cpp:47
+#: STEPOptionsScreen.cpp:46 STEPOptionsScreen.cpp:58
+#: STEPStructureOptionsScreen.cpp:42 STEPStructureOptionsScreen.cpp:49
+msgid "Tolerance"
+msgstr ""
+
+#: IGESOptionsScreen.cpp:58 STEPOptionsScreen.cpp:60
+msgid "Export Props At Origin"
+msgstr ""
+
+#: IGESOptionsScreen.cpp:61 STEPOptionsScreen.cpp:64
+#: STEPStructureOptionsScreen.cpp:54
+msgid "Surface Name"
+msgstr ""
+
+#: IGESOptionsScreen.cpp:62 IGESStructureOptionsScreen.cpp:51
+#: STEPOptionsScreen.cpp:65 STEPStructureOptionsScreen.cpp:55
+#: StructScreen.cpp:1073 SurfaceIntersectionScreen.cpp:183
+msgid "Geom ID"
+msgstr ""
+
+#: IGESOptionsScreen.cpp:63 IGESStructureOptionsScreen.cpp:52
+#: STEPOptionsScreen.cpp:66 STEPStructureOptionsScreen.cpp:56
+#: StructScreen.cpp:1074 SurfaceIntersectionScreen.cpp:184
+msgid "Geom Name"
+msgstr ""
+
+#: IGESOptionsScreen.cpp:64 IGESStructureOptionsScreen.cpp:53
+#: STEPOptionsScreen.cpp:67 STEPStructureOptionsScreen.cpp:57
+msgid "Surface Number"
+msgstr ""
+
+#: IGESOptionsScreen.cpp:65 IGESStructureOptionsScreen.cpp:54
+#: StructScreen.cpp:1076 SurfaceIntersectionScreen.cpp:186
+msgid "Split Number"
+msgstr ""
+
+#: IGESOptionsScreen.cpp:67 IGESStructureOptionsScreen.cpp:56
+#: STEPOptionsScreen.cpp:69 STEPStructureOptionsScreen.cpp:59
+#: StructScreen.cpp:1082 SurfaceIntersectionScreen.cpp:192
+msgid "Comma"
+msgstr ""
+
+#: IGESOptionsScreen.cpp:68 IGESStructureOptionsScreen.cpp:57
+#: STEPOptionsScreen.cpp:70 STEPStructureOptionsScreen.cpp:60
+#: StructScreen.cpp:1083 SurfaceIntersectionScreen.cpp:193
+msgid "Underscore"
+msgstr ""
+
+#: IGESOptionsScreen.cpp:69 IGESStructureOptionsScreen.cpp:58
+#: STEPOptionsScreen.cpp:71 STEPStructureOptionsScreen.cpp:61
+#: StructScreen.cpp:1084 SurfaceIntersectionScreen.cpp:194
+msgid "Space"
+msgstr ""
+
+#: IGESOptionsScreen.cpp:71 IGESStructureOptionsScreen.cpp:60
+#: STEPOptionsScreen.cpp:73 STEPStructureOptionsScreen.cpp:63
+#: StructScreen.cpp:1086 SurfaceIntersectionScreen.cpp:196
+msgid "Delimiter"
+msgstr ""
+
+#: IGESStructureOptionsScreen.cpp:19
+msgid "Untrimmed IGES Struct Options"
+msgstr ""
+
+#: ImportScreen.cpp:30
+msgid "XSec as Tri Mesh (.hrm)"
+msgstr ""
+
+#: ImportScreen.cpp:31
+msgid "XSec as Wireframe (.hrm)"
+msgstr ""
+
+#: ImportScreen.cpp:32
+msgid "Point Cloud (.pts)"
+msgstr ""
+
+#: ImportScreen.cpp:35
+msgid "Plot3D as Wireframe (.p3d)"
+msgstr ""
+
+#: ImportScreen.cpp:51
+msgid "Import STL file?"
+msgstr ""
+
+#: ImportScreen.cpp:55
+msgid "Import NASCART file?"
+msgstr ""
+
+#: ImportScreen.cpp:59
+msgid "Import Cart3D Tri File?"
+msgstr ""
+
+#: ImportScreen.cpp:63
+msgid "Import XSec File?"
+msgstr ""
+
+#: ImportScreen.cpp:67
+msgid "Import Points File?"
+msgstr ""
+
+#: ImportScreen.cpp:71
+msgid "Import OpenVSP v2 File?"
+msgstr ""
+
+#: ImportScreen.cpp:75
+msgid "Import Blade Element File?"
+msgstr ""
+
+#: ImportScreen.cpp:79
+msgid "Import Plot3D Unformatted File?"
+msgstr ""
+
+#: MainGLWindow.cpp:52
+msgid "VSP GL Window"
+msgstr ""
+
+#: MainVSPScreen.cpp:73
+msgid "File/New"
+msgstr ""
+
+#: MainVSPScreen.cpp:74
+msgid "File/Open..."
+msgstr ""
+
+#: MainVSPScreen.cpp:75
+msgid "File/Save..."
+msgstr ""
+
+#: MainVSPScreen.cpp:76
+msgid "File/Save As..."
+msgstr ""
+
+#: MainVSPScreen.cpp:77
+msgid "File/Save Set..."
+msgstr ""
+
+#: MainVSPScreen.cpp:78
+msgid "File/Insert..."
+msgstr ""
+
+#: MainVSPScreen.cpp:79
+msgid "File/Import..."
+msgstr ""
+
+#: MainVSPScreen.cpp:80
+msgid "File/Export..."
+msgstr ""
+
+#: MainVSPScreen.cpp:82
+msgid "File/Run Script..."
+msgstr ""
+
+#: MainVSPScreen.cpp:83
+msgid "File/Exit"
+msgstr ""
+
+#: MainVSPScreen.cpp:85
+msgid "Edit/Undo Parameter Change"
+msgstr ""
+
+#: MainVSPScreen.cpp:86
+msgid "Edit/Cut"
+msgstr ""
+
+#: MainVSPScreen.cpp:87
+msgid "Edit/Copy"
+msgstr ""
+
+#: MainVSPScreen.cpp:88
+msgid "Edit/Paste"
+msgstr ""
+
+#: MainVSPScreen.cpp:89
+msgid "Edit/Delete"
+msgstr ""
+
+#: MainVSPScreen.cpp:90
+msgid "Edit/Select All"
+msgstr ""
+
+#: MainVSPScreen.cpp:91
+msgid "Edit/Toggle Pick Mode"
+msgstr ""
+
+#: MainVSPScreen.cpp:93
+msgid "Window/One"
+msgstr ""
+
+#: MainVSPScreen.cpp:94
+msgid "Window/Four"
+msgstr ""
+
+#: MainVSPScreen.cpp:95
+msgid "Window/Two Horizontal"
+msgstr ""
+
+#: MainVSPScreen.cpp:96
+msgid "Window/Two Vertical"
+msgstr ""
+
+#: MainVSPScreen.cpp:97
+msgid "Window/Background..."
+msgstr ""
+
+#: MainVSPScreen.cpp:98
+msgid "Window/Screenshot..."
+msgstr ""
+
+#: MainVSPScreen.cpp:99
+msgid "Window/Axis Toggle"
+msgstr ""
+
+#: MainVSPScreen.cpp:101
+msgid "Window/Border Toggle"
+msgstr ""
+
+#: MainVSPScreen.cpp:104
+msgid "View/Top"
+msgstr ""
+
+#: MainVSPScreen.cpp:105
+msgid "View/Front"
+msgstr ""
+
+#: MainVSPScreen.cpp:106
+msgid "View/Left"
+msgstr ""
+
+#: MainVSPScreen.cpp:107
+msgid "View/Left Iso"
+msgstr ""
+
+#: MainVSPScreen.cpp:108
+msgid "View/Bottom"
+msgstr ""
+
+#: MainVSPScreen.cpp:109
+msgid "View/Rear"
+msgstr ""
+
+#: MainVSPScreen.cpp:110
+msgid "View/Right"
+msgstr ""
+
+#: MainVSPScreen.cpp:111
+msgid "View/Right Iso"
+msgstr ""
+
+#: MainVSPScreen.cpp:112
+msgid "View/Center"
+msgstr ""
+
+#: MainVSPScreen.cpp:113
+msgid "View/Set Rotation Center"
+msgstr ""
+
+#: MainVSPScreen.cpp:114
+msgid "View/Fit On Screen"
+msgstr ""
+
+#: MainVSPScreen.cpp:115
+msgid "View/Adjust..."
+msgstr ""
+
+#: MainVSPScreen.cpp:118
+msgid "Model/Geometry..."
+msgstr ""
+
+#: MainVSPScreen.cpp:119
+msgid "Model/Set Editor..."
+msgstr ""
+
+#: MainVSPScreen.cpp:120
+msgid "Model/Link..."
+msgstr ""
+
+#: MainVSPScreen.cpp:121
+msgid "Model/Design Variables..."
+msgstr ""
+
+#: MainVSPScreen.cpp:122
+msgid "Model/Measure..."
+msgstr ""
+
+#: MainVSPScreen.cpp:123
+msgid "Model/Lighting..."
+msgstr ""
+
+#: MainVSPScreen.cpp:124
+msgid "Model/Clipping..."
+msgstr ""
+
+#: MainVSPScreen.cpp:125
+msgid "Model/Texture..."
+msgstr ""
+
+#: MainVSPScreen.cpp:126
+msgid "Model/Adv Link..."
+msgstr ""
+
+#: MainVSPScreen.cpp:127
+msgid "Model/User Parms..."
+msgstr ""
+
+#: MainVSPScreen.cpp:128
+msgid "Model/Fit Model..."
+msgstr ""
+
+#: MainVSPScreen.cpp:129
+msgid "Model/Snap To..."
+msgstr ""
+
+#: MainVSPScreen.cpp:130
+msgid "Model/Variable Presets..."
+msgstr ""
+
+#: MainVSPScreen.cpp:132
+msgid "Analysis/CompGeom..."
+msgstr ""
+
+#: MainVSPScreen.cpp:133
+msgid "Analysis/Planar Slice..."
+msgstr ""
+
+#: MainVSPScreen.cpp:134
+msgid "Analysis/Mass Prop..."
+msgstr ""
+
+#: MainVSPScreen.cpp:135
+msgid "Analysis/Projected Area..."
+msgstr ""
+
+#: MainVSPScreen.cpp:136
+msgid "Analysis/DegenGeom..."
+msgstr ""
+
+#: MainVSPScreen.cpp:137
+msgid "Analysis/Trimmed Surfaces..."
+msgstr ""
+
+#: MainVSPScreen.cpp:138
+msgid "Analysis/CFD Mesh..."
+msgstr ""
+
+#: MainVSPScreen.cpp:140
+msgid "Analysis/Structure/FEA Structure..."
+msgstr ""
+
+#: MainVSPScreen.cpp:141
+msgid "Analysis/Structure/FEA Assembly..."
+msgstr ""
+
+#: MainVSPScreen.cpp:142
+msgid "Analysis/Structure/Aero Structural..."
+msgstr ""
+
+#: MainVSPScreen.cpp:144
+msgid "Analysis/Aero/VSPAERO..."
+msgstr ""
+
+#: MainVSPScreen.cpp:145
+msgid "Analysis/Aero/Wave Drag..."
+msgstr ""
+
+#: MainVSPScreen.cpp:146
+msgid "Analysis/Aero/Parasite Drag..."
+msgstr ""
+
+#: MainVSPScreen.cpp:153 ProjectionScreen.cpp:178 WaveDragScreen.cpp:89
+msgid "File"
+msgstr ""
+
+#: MainVSPScreen.cpp:154 VarPresetScreen.cpp:52
+msgid "Edit"
+msgstr ""
+
+#: MainVSPScreen.cpp:155
+msgid "Window"
+msgstr ""
+
+#: MainVSPScreen.cpp:156
+msgid "View"
+msgstr ""
+
+#: MainVSPScreen.cpp:157
+msgid "Model"
+msgstr ""
+
+#: MainVSPScreen.cpp:158
+msgid "Analysis"
+msgstr ""
+
+#: MainVSPScreen.cpp:159
+msgid "Undo"
+msgstr ""
+
+#: MainVSPScreen.cpp:258
+msgid "File Name: "
+msgstr ""
+
+#: MainVSPScreen.cpp:265
+msgid "VSP is exiting. Save or discard your changes."
+msgstr ""
+
+#: MainVSPScreen.cpp:265
+msgid "Discard"
+msgstr ""
+
+#: MainVSPScreen.cpp:278 MainVSPScreen.cpp:324
+msgid "Save VSP File"
+msgstr ""
+
+#: MainVSPScreen.cpp:304
+msgid "Open VSP File"
+msgstr ""
+
+#: MainVSPScreen.cpp:337
+msgid "Save VSP File As"
+msgstr ""
+
+#: MainVSPScreen.cpp:348
+msgid "Pick Save Set"
+msgstr ""
+
+#: MainVSPScreen.cpp:352
+msgid "Save VSP Set File As"
+msgstr ""
+
+#: MainVSPScreen.cpp:361
+msgid "Insert VSP File"
+msgstr ""
+
+#: MainVSPScreen.cpp:372
+msgid "Script File To Run"
+msgstr ""
+
+#: ManageBackgroundScreen.cpp:33
+msgid "Color"
+msgstr ""
+
+#: ManageBackgroundScreen.cpp:65 ManageTextureScreen.cpp:65
+msgid "W Scale"
+msgstr ""
+
+#: ManageBackgroundScreen.cpp:70
+msgid "H Scale"
+msgstr ""
+
+#: ManageBackgroundScreen.cpp:77
+msgid "Reset Defaults"
+msgstr ""
+
+#: ManageBackgroundScreen.cpp:240 ManageTextureScreen.cpp:258
+#: ScreenBase.cpp:3927
+msgid "Select Image File"
+msgstr ""
+
+#: ManageGeomScreen.cpp:18
+msgid "Geom Browser"
+msgstr ""
+
+#: ManageGeomScreen.cpp:51
+msgid "Active:"
+msgstr ""
+
+#: ManageGeomScreen.cpp:81
+msgid "Clipboard"
+msgstr ""
+
+#: ManageGeomScreen.cpp:91
+msgid "Selection"
+msgstr ""
+
+#: ManageGeomScreen.cpp:92
+msgid "Sel All"
+msgstr ""
+
+#: ManageGeomScreen.cpp:94 ManageGeomScreen.cpp:119
+msgid "Show Only"
+msgstr ""
+
+#: ManageGeomScreen.cpp:96 ManageGeomScreen.cpp:121
+msgid "NoShow"
+msgstr ""
+
+#: ManageGeomScreen.cpp:99 ManageMeasureScreen.cpp:87
+#: ManageMeasureScreen.cpp:92 ManageMeasureScreen.cpp:188
+#: ManageMeasureScreen.cpp:289 PtCloudScreen.cpp:35 ScreenBase.cpp:537
+#: StructScreen.cpp:151
+msgid "Surface"
+msgstr ""
+
+#: ManageGeomScreen.cpp:104
+msgid "Wire"
+msgstr ""
+
+#: ManageGeomScreen.cpp:105
+msgid "Hidden"
+msgstr ""
+
+#: ManageGeomScreen.cpp:106
+msgid "Shade"
+msgstr ""
+
+#: ManageGeomScreen.cpp:107 ManageTextureScreen.cpp:33
+msgid "Texture"
+msgstr ""
+
+#: ManageGeomScreen.cpp:111
+msgid "Lines"
+msgstr ""
+
+#: ManageGeomScreen.cpp:112 ScreenBase.cpp:288
+msgid "Sub"
+msgstr ""
+
+#: ManageGeomScreen.cpp:113
+msgid "Feature"
+msgstr ""
+
+#: ManageGeomScreen.cpp:116 PickSetScreen.cpp:37 SetEditorScreen.cpp:52
+msgid "Sets"
+msgstr ""
+
+#: ManageGeomScreen.cpp:122
+msgid "Select"
+msgstr ""
+
+#: ManageGeomScreen.cpp:413 ManageMeasureScreen.cpp:216
+msgid "Normal"
+msgstr ""
+
+#: ManageGeomScreen.cpp:414
+msgid "Surface Degen"
+msgstr ""
+
+#: ManageGeomScreen.cpp:415
+msgid "Plate Degen"
+msgstr ""
+
+#: ManageGeomScreen.cpp:416
+msgid "Camber Degen"
+msgstr ""
+
+#: ManageGeomScreen.cpp:425
+msgid "Multiple"
+msgstr ""
+
+#: ManageLightingScreen.cpp:6
+msgid "Manage Lighting"
+msgstr ""
+
+#: ManageLightingScreen.cpp:11
+msgid "Activate Lights"
+msgstr ""
+
+#: ManageLightingScreen.cpp:18
+msgid "Light 0"
+msgstr ""
+
+#: ManageLightingScreen.cpp:19
+msgid "Light 1"
+msgstr ""
+
+#: ManageLightingScreen.cpp:21
+msgid "Light 2"
+msgstr ""
+
+#: ManageLightingScreen.cpp:22
+msgid "Light 3"
+msgstr ""
+
+#: ManageLightingScreen.cpp:24
+msgid "Light 4"
+msgstr ""
+
+#: ManageLightingScreen.cpp:25
+msgid "Light 5"
+msgstr ""
+
+#: ManageLightingScreen.cpp:27
+msgid "Light 6"
+msgstr ""
+
+#: ManageLightingScreen.cpp:28
+msgid "Light 7"
+msgstr ""
+
+#: ManageLightingScreen.cpp:38
+msgid "Edit Lights"
+msgstr ""
+
+#: ManageLightingScreen.cpp:43
+#, c-format
+msgid "Light %d"
+msgstr ""
+
+#: ManageLightingScreen.cpp:46
+msgid "Light:"
+msgstr ""
+
+#: ManageLightingScreen.cpp:55
+msgid "Light Quality"
+msgstr ""
+
+#: ManageLightingScreen.cpp:56
+msgid "Ambient"
+msgstr ""
+
+#: ManageLightingScreen.cpp:57
+msgid "Diffuse"
+msgstr ""
+
+#: ManageLightingScreen.cpp:58
+msgid "Specular"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:7
+msgid "Measure"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:9
+msgid "Rulers"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:13
+msgid "Probe"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:17
+msgid "RST Probe"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:24 ManageMeasureScreen.cpp:135
+#: ManageMeasureScreen.cpp:236 ParasiteDragScreen.cpp:204
+msgid "mm"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:25 ManageMeasureScreen.cpp:136
+#: ManageMeasureScreen.cpp:237 ParasiteDragScreen.cpp:205
+msgid "cm"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:26 ManageMeasureScreen.cpp:137
+#: ManageMeasureScreen.cpp:238 ParasiteDragScreen.cpp:206
+#: ParasiteDragScreen.cpp:336
+msgid "m"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:27 ManageMeasureScreen.cpp:138
+#: ManageMeasureScreen.cpp:239 ParasiteDragScreen.cpp:207
+msgid "in"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:28 ManageMeasureScreen.cpp:139
+#: ManageMeasureScreen.cpp:240 ParasiteDragScreen.cpp:208
+#: ParasiteDragScreen.cpp:282 ParasiteDragScreen.cpp:335
+msgid "ft"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:29 ManageMeasureScreen.cpp:140
+#: ManageMeasureScreen.cpp:241 ParasiteDragScreen.cpp:209
+msgid "yd"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:30 ManageMeasureScreen.cpp:141
+#: ManageMeasureScreen.cpp:242 ParasiteDragScreen.cpp:210
+msgid "Unitless"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:56 ManageMeasureScreen.cpp:167
+#: ManageMeasureScreen.cpp:268 VSPAEROScreen.cpp:454
+msgid "Delete All"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:86
+msgid "Start Geom"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:89
+msgid "Start W"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:91
+msgid "End Geom"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:94
+msgid "End W"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:98 ManageMeasureScreen.cpp:195
+#: ManageMeasureScreen.cpp:297
+msgid "Re-Attach"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:104
+msgid "Z Offset"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:108 ManageMeasureScreen.cpp:199
+#: ManageMeasureScreen.cpp:301
+msgid "Precision"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:109 ManageMeasureScreen.cpp:200
+#: ManageMeasureScreen.cpp:302
+msgid "Visible"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:113 ManageMeasureScreen.cpp:204
+#: ManageMeasureScreen.cpp:306
+msgid "Results"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:117
+msgid "Displacement"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:119 StackScreen.cpp:87
+msgid "Delta X"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:120 StackScreen.cpp:88
+msgid "Delta Y"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:121 StackScreen.cpp:89
+msgid "Delta Z"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:125 ManageMeasureScreen.cpp:127
+msgid "Distance"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:181 ManageMeasureScreen.cpp:282
+msgid "Probe Control"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:208 ManageMeasureScreen.cpp:310
+#: VSPAEROScreen.cpp:486
+msgid "Position"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:218
+msgid "N_X"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:219
+msgid "N_Y"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:220
+msgid "N_Z"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:224 ScreenBase.cpp:2703 ScreenBase.cpp:2712
+#: ScreenBase.cpp:2727 ScreenBase.cpp:2742
+msgid "Curvature"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:226
+msgid "K Max"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:227
+msgid "K Min"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:228
+msgid "K Mean"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:229
+msgid "K Gaussian"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:290 ParasiteDragScreen.cpp:349
+msgid "R"
+msgstr ""
+
+#: ManageMeasureScreen.cpp:291
+msgid "S"
+msgstr ""
+
+#: ManageTextureScreen.cpp:10
+msgid "Texture Mgr"
+msgstr ""
+
+#: ManageTextureScreen.cpp:30
+msgid "Comp:"
+msgstr ""
+
+#: ManageTextureScreen.cpp:36
+msgid "Add..."
+msgstr ""
+
+#: ManageTextureScreen.cpp:46
+msgid "Edit:"
+msgstr ""
+
+#: ManageTextureScreen.cpp:60
+msgid "U Position"
+msgstr ""
+
+#: ManageTextureScreen.cpp:61
+msgid "W Position"
+msgstr ""
+
+#: ManageTextureScreen.cpp:64
+msgid "U Scale"
+msgstr ""
+
+#: ManageTextureScreen.cpp:68 ScreenshotScreen.cpp:92
+msgid "Transparency"
+msgstr ""
+
+#: ManageTextureScreen.cpp:71
+msgid "Texture Coords"
+msgstr ""
+
+#: ManageTextureScreen.cpp:79
+msgid "Flip U"
+msgstr ""
+
+#: ManageTextureScreen.cpp:81
+msgid "Flip W"
+msgstr ""
+
+#: ManageViewScreen.cpp:17
+msgid "Adjust View"
+msgstr ""
+
+#: ManageViewScreen.cpp:31 ScreenshotScreen.cpp:39
+msgid "Viewport Size"
+msgstr ""
+
+#: ManageViewScreen.cpp:34
+msgid "Width:"
+msgstr ""
+
+#: ManageViewScreen.cpp:35
+msgid "Height:"
+msgstr ""
+
+#: ManageViewScreen.cpp:37
+msgid "Reset Viewport Size"
+msgstr ""
+
+#: ManageViewScreen.cpp:42
+msgid "Center of Rotation"
+msgstr ""
+
+#: ManageViewScreen.cpp:45
+msgid "X:"
+msgstr ""
+
+#: ManageViewScreen.cpp:46
+msgid "Y:"
+msgstr ""
+
+#: ManageViewScreen.cpp:47
+msgid "Z:"
+msgstr ""
+
+#: ManageViewScreen.cpp:50
+msgid "Pick Point"
+msgstr ""
+
+#: ManageViewScreen.cpp:52
+msgid "Reset To Origin"
+msgstr ""
+
+#: ManageViewScreen.cpp:57
+msgid "Camera Movement"
+msgstr ""
+
+#: ManageViewScreen.cpp:62
+msgid "Pan X:"
+msgstr ""
+
+#: ManageViewScreen.cpp:63
+msgid "Pan Y:"
+msgstr ""
+
+#: ManageViewScreen.cpp:66
+msgid "Zoom:"
+msgstr ""
+
+#: ManageViewScreen.cpp:70
+msgid "X Rot:"
+msgstr ""
+
+#: ManageViewScreen.cpp:71
+msgid "Y Rot:"
+msgstr ""
+
+#: ManageViewScreen.cpp:72
+msgid "Z Rot:"
+msgstr ""
+
+#: ManageViewScreen.cpp:75
+msgid "Reset Camera"
+msgstr ""
+
+#: ManageViewScreen.cpp:78
+msgid "Axis Marker Size"
+msgstr ""
+
+#: ManageViewScreen.cpp:84
+msgid "Text Label Size"
+msgstr ""
+
+#: ManageViewScreen.cpp:87
+msgid "Size"
+msgstr ""
+
+#: MassPropScreen.cpp:11 ScreenBase.cpp:326
+msgid "Mass Properties"
+msgstr ""
+
+#: MassPropScreen.cpp:33 PSliceScreen.cpp:34
+msgid "Num Slice:"
+msgstr ""
+
+#: MassPropScreen.cpp:39
+msgid "Compute"
+msgstr ""
+
+#: MassPropScreen.cpp:42
+msgid "Draw Cg"
+msgstr ""
+
+#: MassPropScreen.cpp:48
+msgid "Total Mass"
+msgstr ""
+
+#: MassPropScreen.cpp:52
+msgid "X Cg"
+msgstr ""
+
+#: MassPropScreen.cpp:55
+msgid "Y Cg"
+msgstr ""
+
+#: MassPropScreen.cpp:58
+msgid "Z Cg"
+msgstr ""
+
+#: MassPropScreen.cpp:62
+msgid "I xx"
+msgstr ""
+
+#: MassPropScreen.cpp:65
+msgid "I yy"
+msgstr ""
+
+#: MassPropScreen.cpp:68
+msgid "I zz"
+msgstr ""
+
+#: MassPropScreen.cpp:72
+msgid "I xy"
+msgstr ""
+
+#: MassPropScreen.cpp:75
+msgid "I xz"
+msgstr ""
+
+#: MassPropScreen.cpp:78
+msgid "I yz"
+msgstr ""
+
+#: MaterialEditScreen.cpp:15
+msgid "Material Edit"
+msgstr ""
+
+#: MaterialEditScreen.cpp:25
+msgid "Ambient Reflection"
+msgstr ""
+
+#: MaterialEditScreen.cpp:28
+msgid "Diffuse Reflection"
+msgstr ""
+
+#: MaterialEditScreen.cpp:31
+msgid "Specular Reflection"
+msgstr ""
+
+#: MaterialEditScreen.cpp:34
+msgid "Emitted Light"
+msgstr ""
+
+#: MaterialEditScreen.cpp:38 VSPAEROScreen.cpp:208
+msgid "Alpha"
+msgstr ""
+
+#: MaterialEditScreen.cpp:39
+msgid "Shininess"
+msgstr ""
+
+#: MaterialEditScreen.cpp:47 VarPresetScreen.cpp:49
+msgid "Apply"
+msgstr ""
+
+#: MaterialEditScreen.cpp:158
+msgid "Please enter a unique name for your material."
+msgstr ""
+
+#: MeshScreen.cpp:15 MeshScreen.cpp:32 StructScreen.cpp:46
+msgid "Mesh"
+msgstr ""
+
+#: MeshScreen.cpp:19 VSPAEROScreen.cpp:326
+msgid "Other"
+msgstr ""
+
+#: MeshScreen.cpp:23
+msgid "Convert to Point Cloud"
+msgstr ""
+
+#: MeshScreen.cpp:29
+msgid "Visualize Meshes"
+msgstr ""
+
+#: MeshScreen.cpp:33
+msgid "Slices"
+msgstr ""
+
+#: MeshScreen.cpp:37
+msgid "Start Color Degree"
+msgstr ""
+
+#: MultTransScreen.cpp:6
+msgid "Group Modifications"
+msgstr ""
+
+#: MultTransScreen.cpp:14 ScreenBase.cpp:287
+msgid "XForm"
+msgstr ""
+
+#: MultTransScreen.cpp:19
+msgid "Transformations and Scaling"
+msgstr ""
+
+#: MultTransScreen.cpp:23 ScreenBase.cpp:380
+msgid "ZLoc"
+msgstr ""
+
+#: MultTransScreen.cpp:31
+msgid "Scale Translations"
+msgstr ""
+
+#: MultTransScreen.cpp:39 ScreenBase.cpp:464 SelectFileScreen.cpp:80
+msgid "Accept"
+msgstr ""
+
+#: MultTransScreen.cpp:40 ScreenBase.cpp:463
+msgid "Reset"
+msgstr ""
+
+#: MultTransScreen.cpp:43 ScreenBase.cpp:286
+msgid "Gen"
+msgstr ""
+
+#: MultTransScreen.cpp:48
+msgid "Material & Color"
+msgstr ""
+
+#: PSliceScreen.cpp:12
+msgid "Planar Slicing"
+msgstr ""
+
+#: PSliceScreen.cpp:37
+msgid "X-Axis"
+msgstr ""
+
+#: PSliceScreen.cpp:38
+msgid "Y-Axis"
+msgstr ""
+
+#: PSliceScreen.cpp:39
+msgid "Z-Axis"
+msgstr ""
+
+#: PSliceScreen.cpp:41
+msgid "Normal Axis"
+msgstr ""
+
+#: PSliceScreen.cpp:44
+msgid "Slicing Bounds"
+msgstr ""
+
+#: PSliceScreen.cpp:46 VSPAEROScreen.cpp:634
+msgid "Auto"
+msgstr ""
+
+#: PSliceScreen.cpp:54 ProjectionScreen.cpp:173 WaveDragScreen.cpp:82
+msgid "Output File"
+msgstr ""
+
+#: PSliceScreen.cpp:85
+msgid "Start Slicing"
+msgstr ""
+
+#: PSliceScreen.cpp:199
+msgid "Select Mass Prop output file."
+msgstr ""
+
+#: ParasiteDragScreen.cpp:52 VSPAEROScreen.cpp:77
+msgid "Overview"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:53
+msgid "Excrescence"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:54
+msgid "Documentation"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:156
+msgid "Calculate CD0"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:160
+msgid "Export Sub-Components"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:161 VSPAEROScreen.cpp:69
+msgid "Export to *.csv"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:171 ParasiteDragScreen.cpp:1573
+msgid "C_D"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:172 ParasiteDragScreen.cpp:1578
+msgid "% Total"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:179
+msgid "Geom:"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:186
+msgid "Excres:"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:194
+msgid "Total:"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:201
+msgid "Geometry"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:202 WaveDragScreen.cpp:43
+msgid "Geometry Set: "
+msgstr ""
+
+#: ParasiteDragScreen.cpp:203 VSPAEROScreen.cpp:717
+msgid "Model Length Unit"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:216
+msgid "Lam. Cf Eqn:"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:217
+msgid "Blasius"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:220
+msgid "Turb. Cf Eqn:"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:221
+msgid "Explicit Fit of Spalding"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:222
+msgid "Explicit Fit of Spalding-Chi"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:223
+msgid "Explicit Fit of Schoenherr"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:224
+msgid "Implicit Schoenherr"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:225
+msgid "Implicit Karman-Schoenherr"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:226
+msgid "Power Law Blasius"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:227
+msgid "Power Law Prandtl Low Re"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:228
+msgid "Power Law Prandtl Medium Re"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:229
+msgid "Power Law Prandtl High Re"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:230
+msgid "Schlichting Compressible"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:231
+msgid "_Schultz-Grunow Estimate of Schoenherr"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:233
+msgid "_Roughness Schlichting Avg"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:235
+msgid "_Roughness Schlichting Avg Compressible"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:237
+msgid "Heat Transfer White-Christoph"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:264 WaveDragScreen.cpp:56
+msgid "Reference Area"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:269 VSPAEROScreen.cpp:147 WaveDragScreen.cpp:63
+msgid "Manual"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:270 VSPAEROScreen.cpp:148 WaveDragScreen.cpp:64
+msgid "From Model"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:275 VSPAEROScreen.cpp:156 WaveDragScreen.cpp:72
+msgid "Ref. Wing"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:281 VSPAEROScreen.cpp:158 WaveDragScreen.cpp:74
+msgid "Sref"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:297 VSPAEROPlotScreen.cpp:65
+#: VSPAEROPlotScreen.cpp:190 VSPAEROPlotScreen.cpp:288
+#: VSPAEROPlotScreen.cpp:534 VSPAEROScreen.cpp:202 WaveDragScreen.cpp:50
+msgid "Flow Condition"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:298
+msgid "Atmosphere"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:299
+msgid "US Standard Atmosphere 1976"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:300
+msgid "USAF 1966"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:301
+msgid "Pres + Density Control"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:302
+msgid "Pres + Temp Control"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:303
+msgid "Density + Temp Control"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:304
+msgid "Re\\/L + Mach Control"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:319 VSPAEROScreen.cpp:399
+msgid "Vinf"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:321
+msgid "ft\\/s"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:322
+msgid "m\\/s"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:323
+msgid "mph"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:324
+msgid "km\\/hr"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:325
+msgid "KEAS"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:326
+msgid "KTAS"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:327 ParasiteDragScreen.cpp:426 VSPAEROScreen.cpp:210
+#: WaveDragScreen.cpp:52
+msgid "Mach"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:333
+msgid "Alt"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:342
+msgid "Temp"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:344
+msgid "K"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:345
+msgid "C"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:347 ParasiteDragScreen.cpp:355
+msgid "F"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:354
+msgid "dTemp"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:363
+msgid "Pres"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:365
+msgid "lbf\\/ft"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:367
+msgid "lbf\\/in"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:369
+msgid "Ba"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:370
+msgid "Pa"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:371
+msgid "kPa"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:372
+msgid "MPa"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:373
+msgid "inchHg"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:374
+msgid "mmHg"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:375
+msgid "mmH20"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:376
+msgid "mB"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:382 ScreenBase.cpp:333
+msgid "Density"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:390
+msgid "Gamma"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:394
+msgid "Dyn Visc"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:418
+msgid "Re/L"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:419
+msgid "1/ft"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:451
+msgid "Delete Excrescence"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:456
+msgid "Drag Counts"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:457
+msgid "CD"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:458
+#, c-format
+msgid "% of CD_Geom"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:459
+msgid "% Margin"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:460
+msgid "Drag Area, D\\/q"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:462
+msgid " Add Excrescence "
+msgstr ""
+
+#: ParasiteDragScreen.cpp:466
+msgid "Excrescence Parameters"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:486
+msgid "-- Component Table Quantities -- \n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:487
+msgid ""
+"S_wet \t\t : \t Wetted Area of Geometry, Calculated through DegenGeom \n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:488
+msgid ""
+"L_ref \t\t : \t Reference Length of Geometry, Calculated through Length of "
+"Bounding Box in X direction or Chord on a Wing\n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:489
+msgid ""
+"t/c or l/d \t : \t Thickness to Chord Ratio or Fineness Ratio, "
+"respectively \n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:490
+msgid ""
+"FF Equation \t : \t Chosen Form Factor Equation for Internal Calculations \n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:491
+msgid "FF \t\t : \t Form Factor of Specific Geometry \n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:492
+msgid "Re \t\t : \t Reynolds Number for the component \n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:493
+#, c-format
+msgid "% Lam \t\t : \t % Laminar of Flow over Specific Geometry \n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:494
+msgid ""
+"C_f \t\t : \t Friction Coefficient Calculated Using Specified Laminar and "
+"Turbulent Equation Choices \n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:495
+msgid "Q \t\t : \t Interference Factor for Specific Geometry \n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:496
+msgid "f \t\t : \t Flat Plat Drag \n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:497
+msgid "C_D \t\t : \t Drag Coefficient for Specific Geometry \n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:498
+msgid ""
+"% Total \t : \t Total Percentage of the Drag Contribution of Specific "
+"Geometry \n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:500
+msgid "-- Excrescence Table Quantities -- \n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:501
+#, c-format
+msgid ""
+"Excres. Type \t : \t Chosen type of excrescence (Drag Counts, CD, % of C_D "
+"Geom, Drag Area ) \n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:502
+msgid ""
+"Excres. Input \t : \t User Input Value for Excrescence of Described Type \n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:504
+msgid "-- User Input Options -- \n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:505
+msgid ""
+"Lam. Cf Eqn \t : \t Chosen Laminar Equation from Documented List at Link "
+"Below \n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:506
+msgid ""
+"Turb. Cf Eqn \t : \t Chosen Turbulent Equation from Documented List at Link "
+"Below \n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:507
+msgid ""
+"Spec. Method \t : \t Which Inputs Are to be Used to Determine Re/L and "
+"Mach \n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:508
+#, c-format
+msgid "Vinf \t\t : \t %s \n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:510
+#, c-format
+msgid "Altitude \t : \t %s \n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:512
+#, c-format
+msgid "Temperature \t : \t %s \n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:514
+#, c-format
+msgid "Delta Temp. \t : \t %s \n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:516
+#, c-format
+msgid "Pressure \t : \t %s \n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:518
+#, c-format
+msgid "Density \t : \t %s \n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:520
+#, c-format
+msgid "Dynamic Visc. \t : \t %s \n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:524
+#, c-format
+msgid "Re/L \t\t : \t %s \n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:526
+#, c-format
+msgid "Mach \t\t : \t %s \n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:529
+msgid "-- Input Unit Types -- \n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:558
+#, c-format
+msgid "Length Units \t : \t %s \n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:573
+#, c-format
+msgid "Vinf Units \t : \t %s \n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:591
+#, c-format
+msgid "Temp Units \t : \t %s \n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:606
+#, c-format
+msgid "Pres Units \t : \t %s \n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:610
+msgid "-- Component Labels Legend --\n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:611
+msgid ""
+"(+) \t : \t Indicates there are additional components contributing to wetted "
+"area\n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:612
+msgid ""
+"v \t : \t Indicates the geometry list has been expanded to show all surfaces "
+"associated with this geometry\n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:613
+msgid "[ss] \t : \t Indicates a subsurface on the parented geometry\n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:614
+msgid "[B] \t : \t Indicates the body components of a custom geometry\n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:615
+msgid "[W] \t : \t Indicates the wing components of a custom geometry\n"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:622
+msgid "Link to Complete Wiki Parasite Drag Documentation"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:1483
+msgid "Component"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:1485
+msgid "Geometry Name"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:1489
+msgid "S_wet (ft2)"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:1491
+msgid "Wetted Area of Geometry"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:1494 ParmDebugScreen.cpp:33 VSPAEROPlotScreen.cpp:512
+#: VarPresetScreen.cpp:47 VarPresetScreen.cpp:66
+msgid "Group"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:1497
+msgid "Option to blend individual component with ancestor"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:1500
+msgid "FF Equation"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:1503
+msgid ""
+"Form Factor Equation Choice \n"
+" One per Geometry"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:1506
+msgid "FF"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:1509
+msgid "Manual or Calculated Form Factor"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:1512
+msgid "L_ref (ft)"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:1515
+msgid "Reference Length of Geometry"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:1518
+msgid "t/c or l/d"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:1521
+msgid ""
+"Thickness over Chord \n"
+" \t or \n"
+" Fineness Ratio"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:1524 ParasiteDragScreen.cpp:2469
+msgid "Re (1e6)"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:1527
+msgid "Unitless Reynolds Number"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:1532
+msgid "Te/Tw"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:1535
+msgid "Freestream Temperature over Wall Temperature"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:1538
+msgid "Taw/Tw"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:1541
+msgid "Adiabatic Wall Temperature over Wall Temperature"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:1550
+#, c-format
+msgid "% Lam"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:1553
+msgid ""
+"Percentage of Flow that is Turbulent \n"
+" Values should be input from 0 - 100"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:1556
+msgid "C_f (1e-3)"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:1559
+msgid "Friction Coefficient Calculated from Selected Equations"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:1562
+msgid "Q"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:1565
+msgid "Interference Factor"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:1568
+msgid "f"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:1571
+msgid "Flat Plate Friction Drag"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:1576
+msgid "Coefficient of Parasite Drag Per Component"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:1580
+msgid "Percentage Total Contributed to Final Cd0"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:2429
+msgid "Rough. Ht. (mm)"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:2433
+msgid "Rough. Ht. (cm)"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:2437
+msgid "Rough. Ht. (m)"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:2441
+msgid "Rough. Ht. (in)"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:2445
+msgid "Rough. Ht. (ft)"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:2449
+msgid "Rough. Ht. (yd)"
+msgstr ""
+
+#: ParasiteDragScreen.cpp:2453
+msgid "Rough. Ht."
+msgstr ""
+
+#: ParasiteDragScreen.cpp:2456
+msgid "Roughness Height"
+msgstr ""
+
+#: ParmDebugScreen.cpp:19
+msgid "Parameter Debug"
+msgstr ""
+
+#: ParmDebugScreen.cpp:34 ParmScreen.cpp:23
+msgid "Parm"
+msgstr ""
+
+#: ParmDebugScreen.cpp:35
+msgid "Description"
+msgstr ""
+
+#: ParmDebugScreen.cpp:36
+msgid "Minimum"
+msgstr ""
+
+#: ParmDebugScreen.cpp:37
+msgid "Maximum"
+msgstr ""
+
+#: ParmLinkScreen.cpp:16
+msgid "Parm Link: ( A * Scale + Offset = B )"
+msgstr ""
+
+#: ParmLinkScreen.cpp:36
+msgid "Parm A"
+msgstr ""
+
+#: ParmLinkScreen.cpp:41
+msgid "Parm B"
+msgstr ""
+
+#: ParmLinkScreen.cpp:48 ParmLinkScreen.cpp:49
+msgid "Link All"
+msgstr ""
+
+#: ParmLinkScreen.cpp:77
+msgid "Constraints"
+msgstr ""
+
+#: ParmLinkScreen.cpp:106
+msgid "Add Link"
+msgstr ""
+
+#: ParmLinkScreen.cpp:108
+msgid "Delete Link"
+msgstr ""
+
+#: ParmLinkScreen.cpp:110
+msgid "Delete All Links"
+msgstr ""
+
+#: ParmLinkScreen.cpp:116
+msgid "Sort by A"
+msgstr ""
+
+#: ParmLinkScreen.cpp:118
+msgid "Sort by B"
+msgstr ""
+
+#: ParmLinkScreen.cpp:125
+msgid "Parm Link List"
+msgstr ""
+
+#: ParmLinkScreen.cpp:310
+msgid "Error: Identical Parms or Already Linked"
+msgstr ""
+
+#: ParmLinkScreen.cpp:326
+msgid "Error: Identical Comps"
+msgstr ""
+
+#: ParmLinkScreen.cpp:334
+msgid "Error: Identical Group"
+msgstr ""
+
+#: ParmScreen.cpp:26
+msgid "Info"
+msgstr ""
+
+#: ParmScreen.cpp:28
+msgid "Links"
+msgstr ""
+
+#: ParmScreen.cpp:30
+msgid "Adv Links"
+msgstr ""
+
+#: ParmScreen.cpp:35
+msgid "Parm Info"
+msgstr ""
+
+#: ParmScreen.cpp:38 UserParmScreen.cpp:51 UserParmScreen.cpp:81
+msgid "Group:"
+msgstr ""
+
+#: ParmScreen.cpp:39 UserParmScreen.cpp:52 UserParmScreen.cpp:82
+msgid "Desc:"
+msgstr ""
+
+#: ParmScreen.cpp:43
+msgid "Min Val:"
+msgstr ""
+
+#: ParmScreen.cpp:44
+msgid "Curr Val:"
+msgstr ""
+
+#: ParmScreen.cpp:45
+msgid "Max Val:"
+msgstr ""
+
+#: PickSetScreen.cpp:15
+msgid "Pick Set"
+msgstr ""
+
+#: PodScreen.cpp:15
+msgid "Pod"
+msgstr ""
+
+#: PodScreen.cpp:25
+msgid "Fine Ratio"
+msgstr ""
+
+#: ProjectionScreen.cpp:13
+msgid "Projected Area Analysis"
+msgstr ""
+
+#: ProjectionScreen.cpp:62
+msgid "Boundary"
+msgstr ""
+
+#: ProjectionScreen.cpp:109
+msgid "Vector"
+msgstr ""
+
+#: ProjectionScreen.cpp:193
+msgid "Execute Projected Area"
+msgstr ""
+
+#: ProjectionScreen.cpp:195 WaveDragScreen.cpp:223
+msgid "START"
+msgstr ""
+
+#: ProjectionScreen.cpp:347
+msgid "Choose Projected Area Output File"
+msgstr ""
+
+#: PropScreen.cpp:19
+msgid "Propeller"
+msgstr ""
+
+#: PropScreen.cpp:29
+msgid "Modeling"
+msgstr ""
+
+#: PropScreen.cpp:30
+msgid "Blades"
+msgstr ""
+
+#: PropScreen.cpp:32
+msgid "Disk"
+msgstr ""
+
+#: PropScreen.cpp:33
+msgid "Prop Mode"
+msgstr ""
+
+#: PropScreen.cpp:44
+msgid "Num Blades"
+msgstr ""
+
+#: PropScreen.cpp:46
+msgid "Cylindrical Foils"
+msgstr ""
+
+#: PropScreen.cpp:51
+msgid "Rev"
+msgstr ""
+
+#: PropScreen.cpp:72
+msgid "Feather"
+msgstr ""
+
+#: PropScreen.cpp:78
+msgid "Pre-cone"
+msgstr ""
+
+#: PropScreen.cpp:79
+msgid "Construct X/C"
+msgstr ""
+
+#: PropScreen.cpp:80
+msgid "Feather Axis"
+msgstr ""
+
+#: PropScreen.cpp:81
+msgid "Feather Offset"
+msgstr ""
+
+#: PropScreen.cpp:89
+msgid "Prop / Rotor Metrics"
+msgstr ""
+
+#: PropScreen.cpp:92
+msgid "Activity Factor"
+msgstr ""
+
+#: PropScreen.cpp:100 PropScreen.cpp:155
+msgid "CLi"
+msgstr ""
+
+#: PropScreen.cpp:108
+msgid "C/R"
+msgstr ""
+
+#: PropScreen.cpp:109
+msgid "C_T/R"
+msgstr ""
+
+#: PropScreen.cpp:110
+msgid "C_P/R"
+msgstr ""
+
+#: PropScreen.cpp:148 WingScreen.cpp:188 WingScreen.cpp:189
+msgid "Twist"
+msgstr ""
+
+#: PropScreen.cpp:149
+msgid "Rake"
+msgstr ""
+
+#: PropScreen.cpp:151 ScreenBase.cpp:3295 ScreenBase.cpp:3313
+#: ScreenBase.cpp:3342 ScreenBase.cpp:3360 WingScreen.cpp:181
+#: WingScreen.cpp:183
+msgid "Sweep"
+msgstr ""
+
+#: PropScreen.cpp:152
+msgid "Axial"
+msgstr ""
+
+#: PropScreen.cpp:153
+msgid "Tangential"
+msgstr ""
+
+#: PropScreen.cpp:154
+msgid "Thick"
+msgstr ""
+
+#: PropScreen.cpp:167
+msgid "Approximate All"
+msgstr ""
+
+#: PropScreen.cpp:168
+msgid "Reset Thick"
+msgstr ""
+
+#: PropScreen.cpp:200 StructScreen.cpp:574
+msgid "Radius"
+msgstr ""
+
+#: PropScreen.cpp:210 ScreenBase.cpp:3004 WingScreen.cpp:223
+msgid "Modify"
+msgstr ""
+
+#: PropScreen.cpp:223 WingScreen.cpp:236
+msgid "Shift, Rotate, & Scale"
+msgstr ""
+
+#: PropScreen.cpp:236 PropScreen.cpp:314 WingScreen.cpp:249
+msgid "FLAT"
+msgstr ""
+
+#: PropScreen.cpp:237 PropScreen.cpp:315 WingScreen.cpp:250
+msgid "ROUND"
+msgstr ""
+
+#: PropScreen.cpp:238 PropScreen.cpp:316 WingScreen.cpp:251
+msgid "EDGE"
+msgstr ""
+
+#: PropScreen.cpp:239 PropScreen.cpp:317 WingScreen.cpp:252
+msgid "SHARP"
+msgstr ""
+
+#: PropScreen.cpp:283 PropScreen.cpp:359 WingScreen.cpp:296 WingScreen.cpp:372
+msgid "THICK"
+msgstr ""
+
+#: PropScreen.cpp:319 WingScreen.cpp:332
+msgid "Cap:"
+msgstr ""
+
+#: PropScreen.cpp:384
+msgid "More"
+msgstr ""
+
+#: PropScreen.cpp:392
+msgid "Folding"
+msgstr ""
+
+#: PropScreen.cpp:394 ScreenBase.cpp:2700 ScreenBase.cpp:2709
+#: ScreenBase.cpp:2724 ScreenBase.cpp:2739 ScreenBase.cpp:3127
+#: ScreenBase.cpp:3134 ScreenBase.cpp:3147 ScreenBase.cpp:3160
+msgid "Angle"
+msgstr ""
+
+#: PropScreen.cpp:395
+msgid "Radial/R"
+msgstr ""
+
+#: PropScreen.cpp:396
+msgid "Axial/R"
+msgstr ""
+
+#: PropScreen.cpp:397
+msgid "Offset/R"
+msgstr ""
+
+#: PropScreen.cpp:398
+msgid "Azimuth"
+msgstr ""
+
+#: PropScreen.cpp:399
+msgid "Elevation"
+msgstr ""
+
+#: PropScreen.cpp:415 WingScreen.cpp:45
+msgid "Root Cap Type"
+msgstr ""
+
+#: PropScreen.cpp:429 WingScreen.cpp:59
+msgid "Tip Cap Type"
+msgstr ""
+
+#: PropScreen.cpp:441
+msgid "Root Clustering"
+msgstr ""
+
+#: PropScreen.cpp:442
+msgid "Tip Clustering"
+msgstr ""
+
+#: PropScreen.cpp:446 WingScreen.cpp:77
+msgid "Minimum LE/TE Panel Width"
+msgstr ""
+
+#: PropScreen.cpp:447 WingScreen.cpp:78
+msgid "Maximum Growth Ratio"
+msgstr ""
+
+#: PtCloudScreen.cpp:15
+msgid "Point Cloud"
+msgstr ""
+
+#: PtCloudScreen.cpp:20 PtCloudScreen.cpp:45
+msgid "Project"
+msgstr ""
+
+#: PtCloudScreen.cpp:24
+msgid "Project Points to Geom"
+msgstr ""
+
+#: PtCloudScreen.cpp:90
+#, c-format
+msgid "Surf_%d"
+msgstr ""
+
+#: STEPStructureOptionsScreen.cpp:17
+msgid "Untrimmed STEP Struct Options"
+msgstr ""
+
+#: STLOptionsScreen.cpp:16
+msgid "STL Options"
+msgstr ""
+
+#: STLOptionsScreen.cpp:29
+msgid "Tagged Multi Solid File (Non-Standard)"
+msgstr ""
+
+#: STLOptionsScreen.cpp:30
+msgid "Export Unintersected Props At Origin"
+msgstr ""
+
+#: SVGOptionsScreen.cpp:18
+msgid "SVG Options"
+msgstr ""
+
+#: SVGOptionsScreen.cpp:59
+msgid "One"
+msgstr ""
+
+#: SVGOptionsScreen.cpp:60
+msgid "Two Horizontal"
+msgstr ""
+
+#: SVGOptionsScreen.cpp:61
+msgid "Two Vertical"
+msgstr ""
+
+#: SVGOptionsScreen.cpp:62
+msgid "Four"
+msgstr ""
+
+#: ScreenBase.cpp:299
+msgid "Name & Color"
+msgstr ""
+
+#: ScreenBase.cpp:310
+msgid "Material:"
+msgstr ""
+
+#: ScreenBase.cpp:321
+msgid "Tessellation"
+msgstr ""
+
+#: ScreenBase.cpp:322
+msgid "Num_U"
+msgstr ""
+
+#: ScreenBase.cpp:323
+msgid "Num_W"
+msgstr ""
+
+#: ScreenBase.cpp:334
+msgid "Priority"
+msgstr ""
+
+#: ScreenBase.cpp:336
+msgid "Thin Shell"
+msgstr ""
+
+#: ScreenBase.cpp:337
+msgid "Mass/Area"
+msgstr ""
+
+#: ScreenBase.cpp:344
+msgid "CFDMesh Negative Volume"
+msgstr ""
+
+#: ScreenBase.cpp:346
+msgid "Negative Volume"
+msgstr ""
+
+#: ScreenBase.cpp:349
+msgid "Set Export/Analysis"
+msgstr ""
+
+#: ScreenBase.cpp:358
+msgid "Transforms"
+msgstr ""
+
+#: ScreenBase.cpp:363
+msgid "Coord System:"
+msgstr ""
+
+#: ScreenBase.cpp:387
+msgid "Rot Origin(X)"
+msgstr ""
+
+#: ScreenBase.cpp:400
+msgid "About:"
+msgstr ""
+
+#: ScreenBase.cpp:402
+msgid "Attach"
+msgstr ""
+
+#: ScreenBase.cpp:403
+msgid "Object"
+msgstr ""
+
+#: ScreenBase.cpp:413
+msgid "XY"
+msgstr ""
+
+#: ScreenBase.cpp:414
+msgid "XZ"
+msgstr ""
+
+#: ScreenBase.cpp:415
+msgid "YZ"
+msgstr ""
+
+#: ScreenBase.cpp:455
+msgid "Scale Factor"
+msgstr ""
+
+#: ScreenBase.cpp:471
+msgid "Attach To Parent"
+msgstr ""
+
+#: ScreenBase.cpp:478
+msgid "Translate:"
+msgstr ""
+
+#: ScreenBase.cpp:482 ScreenBase.cpp:494
+msgid "UW"
+msgstr ""
+
+#: ScreenBase.cpp:513
+msgid "Sub-Surface List"
+msgstr ""
+
+#: ScreenBase.cpp:546
+msgid "Sub-Surface Parameters"
+msgstr ""
+
+#: ScreenBase.cpp:579
+msgid "Test"
+msgstr ""
+
+#: ScreenBase.cpp:590
+msgid "Value01"
+msgstr ""
+
+#: ScreenBase.cpp:591
+msgid "Value0N"
+msgstr ""
+
+#: ScreenBase.cpp:667
+msgid "Upper/Lower"
+msgstr ""
+
+#: ScreenBase.cpp:1579
+msgid "A"
+msgstr ""
+
+#: ScreenBase.cpp:2668
+msgid "Skinning"
+msgstr ""
+
+#: ScreenBase.cpp:2673
+msgid "Skin Cross Section"
+msgstr ""
+
+#: ScreenBase.cpp:2688 ScreenBase.cpp:3119
+msgid "Top Side"
+msgstr ""
+
+#: ScreenBase.cpp:2690 ScreenBase.cpp:3121
+msgid "All Sym"
+msgstr ""
+
+#: ScreenBase.cpp:2701 ScreenBase.cpp:2710 ScreenBase.cpp:2725
+#: ScreenBase.cpp:2740 ScreenBase.cpp:3128 ScreenBase.cpp:3135
+#: ScreenBase.cpp:3148 ScreenBase.cpp:3161
+msgid "Slew"
+msgstr ""
+
+#: ScreenBase.cpp:2718 ScreenBase.cpp:3141
+msgid "T/B Sym"
+msgstr ""
+
+#: ScreenBase.cpp:3020
+msgid "Chevron"
+msgstr ""
+
+#: ScreenBase.cpp:3023
+msgid "PARTIAL"
+msgstr ""
+
+#: ScreenBase.cpp:3024
+msgid "FULL"
+msgstr ""
+
+#: ScreenBase.cpp:3025 UserParmScreen.cpp:49
+msgid "Type:"
+msgstr ""
+
+#: ScreenBase.cpp:3027
+msgid "Number"
+msgstr ""
+
+#: ScreenBase.cpp:3030
+msgid "Corner Rounding Radius"
+msgstr ""
+
+#: ScreenBase.cpp:3035
+msgid "Peak"
+msgstr ""
+
+#: ScreenBase.cpp:3037
+msgid "Valley"
+msgstr ""
+
+#: ScreenBase.cpp:3042
+msgid "Waveform"
+msgstr ""
+
+#: ScreenBase.cpp:3045
+msgid "% On"
+msgstr ""
+
+#: ScreenBase.cpp:3047
+msgid "% Off"
+msgstr ""
+
+#: ScreenBase.cpp:3057
+msgid "Start \\/ End"
+msgstr ""
+
+#: ScreenBase.cpp:3058
+msgid "Center \\/ Width"
+msgstr ""
+
+#: ScreenBase.cpp:3059
+msgid "Mode:"
+msgstr ""
+
+#: ScreenBase.cpp:3070 ScreenBase.cpp:3084 ScreenBase.cpp:3098
+msgid "Right 0"
+msgstr ""
+
+#: ScreenBase.cpp:3074 ScreenBase.cpp:3088 ScreenBase.cpp:3102
+msgid "Right 1"
+msgstr ""
+
+#: ScreenBase.cpp:3076
+msgid "W Start:"
+msgstr ""
+
+#: ScreenBase.cpp:3095
+msgid "W Center"
+msgstr ""
+
+#: ScreenBase.cpp:3110
+msgid "W Width"
+msgstr ""
+
+#: ScreenBase.cpp:3126 ScreenBase.cpp:3133 ScreenBase.cpp:3146
+#: ScreenBase.cpp:3159
+msgid "Amplitude"
+msgstr ""
+
+#: ScreenBase.cpp:3139
+msgid "Bottom Side"
+msgstr ""
+
+#: ScreenBase.cpp:3262
+msgid "Blending"
+msgstr ""
+
+#: ScreenBase.cpp:3267
+msgid "Blend Airfoil"
+msgstr ""
+
+#: ScreenBase.cpp:3281 ScreenBase.cpp:3300 ScreenBase.cpp:3329
+#: ScreenBase.cpp:3348
+msgid "ANGLES"
+msgstr ""
+
+#: ScreenBase.cpp:3282 ScreenBase.cpp:3301 ScreenBase.cpp:3330
+#: ScreenBase.cpp:3349
+msgid "IN_LE_TRAP"
+msgstr ""
+
+#: ScreenBase.cpp:3283 ScreenBase.cpp:3302 ScreenBase.cpp:3331
+#: ScreenBase.cpp:3350
+msgid "IN_TE_TRAP"
+msgstr ""
+
+#: ScreenBase.cpp:3284 ScreenBase.cpp:3303 ScreenBase.cpp:3332
+#: ScreenBase.cpp:3351
+msgid "OUT_LE_TRAP"
+msgstr ""
+
+#: ScreenBase.cpp:3285 ScreenBase.cpp:3304 ScreenBase.cpp:3333
+#: ScreenBase.cpp:3352
+msgid "OUT_TE_TRAP"
+msgstr ""
+
+#: ScreenBase.cpp:3286 ScreenBase.cpp:3305 ScreenBase.cpp:3334
+#: ScreenBase.cpp:3353
+msgid "IN_ANGLES"
+msgstr ""
+
+#: ScreenBase.cpp:3287 ScreenBase.cpp:3306 ScreenBase.cpp:3335
+#: ScreenBase.cpp:3354
+msgid "LE_ANGLES"
+msgstr ""
+
+#: ScreenBase.cpp:3293 ScreenBase.cpp:3340
+msgid "Inboard"
+msgstr ""
+
+#: ScreenBase.cpp:3294 ScreenBase.cpp:3312 ScreenBase.cpp:3341
+#: ScreenBase.cpp:3359
+msgid "Match:"
+msgstr ""
+
+#: ScreenBase.cpp:3296 ScreenBase.cpp:3314 ScreenBase.cpp:3343
+#: ScreenBase.cpp:3361 WingScreen.cpp:196 WingScreen.cpp:197
+msgid "Dihedral"
+msgstr ""
+
+#: ScreenBase.cpp:3311 ScreenBase.cpp:3358
+msgid "Outboard"
+msgstr ""
+
+#: ScreenshotScreen.cpp:20
+msgid "Screenshot"
+msgstr ""
+
+#: ScreenshotScreen.cpp:53
+msgid "Output Size"
+msgstr ""
+
+#: ScreenshotScreen.cpp:63
+msgid "Ratio"
+msgstr ""
+
+#: ScreenshotScreen.cpp:82
+msgid "Reset to Viewport Size"
+msgstr ""
+
+#: ScreenshotScreen.cpp:94
+msgid "Transparent Background"
+msgstr ""
+
+#: ScreenshotScreen.cpp:95
+msgid "Auto Crop Transparent Background"
+msgstr ""
+
+#: ScreenshotScreen.cpp:98
+msgid "Capture PNG"
+msgstr ""
+
+#: ScreenshotScreen.cpp:131
+msgid ""
+"Some features may be disabled due to a lower version of OpenGL.\n"
+"Upgrade to OpenGL 2.1 or higher."
+msgstr ""
+
+#: ScreenshotScreen.cpp:275
+msgid "Create or Select a PNG File"
+msgstr ""
+
+#: SelectFileScreen.cpp:25
+msgid "Open VSP File (*.vsp3)"
+msgstr ""
+
+#: SelectFileScreen.cpp:51
+msgid "Favs"
+msgstr ""
+
+#: SelectFileScreen.cpp:313
+msgid "Add to Favorites"
+msgstr ""
+
+#: SelectFileScreen.cpp:314
+msgid "Delete All Favorites"
+msgstr ""
+
+#: SelectFileScreen.cpp:315
+msgid "Home"
+msgstr ""
+
+#: SelectFileScreen.cpp:316
+msgid "VSP Path"
+msgstr ""
+
+#: SetEditorScreen.cpp:58
+msgid "Geom In Set"
+msgstr ""
+
+#: SetEditorScreen.cpp:83
+msgid "Copy Set Members"
+msgstr ""
+
+#: SetEditorScreen.cpp:84
+msgid "Add All Geoms"
+msgstr ""
+
+#: SetEditorScreen.cpp:90
+msgid "Paste Set Members"
+msgstr ""
+
+#: SetEditorScreen.cpp:91
+msgid "Remove All Geoms"
+msgstr ""
+
+#: SetEditorScreen.cpp:95
+msgid "Select Set"
+msgstr ""
+
+#: SetEditorScreen.cpp:101
+msgid "Copy Set Membership When Copying Geoms"
+msgstr ""
+
+#: SnapToScreen.cpp:16
+msgid "Snap To"
+msgstr ""
+
+#: SnapToScreen.cpp:34
+msgid "Target Min Dist"
+msgstr ""
+
+#: SnapToScreen.cpp:38
+msgid "Result Min Dist"
+msgstr ""
+
+#: SnapToScreen.cpp:40
+msgid "Check Clearance"
+msgstr ""
+
+#: SnapToScreen.cpp:43
+msgid "Collision Set And Method"
+msgstr ""
+
+#: SnapToScreen.cpp:44
+msgid "Set:"
+msgstr ""
+
+#: SnapToScreen.cpp:45
+msgid "Method:"
+msgstr ""
+
+#: SnapToScreen.cpp:49
+msgid "Interactive Collision Detection"
+msgstr ""
+
+#: SnapToScreen.cpp:50
+msgid "Press Alt (Option) Key and change parm"
+msgstr ""
+
+#: SnapToScreen.cpp:56
+msgid "Manual Collision Detection"
+msgstr ""
+
+#: SnapToScreen.cpp:67
+msgid "Decrease"
+msgstr ""
+
+#: SnapToScreen.cpp:69
+msgid "Increase"
+msgstr ""
+
+#: SnapToScreen.cpp:104
+msgid "Mesh - Faster"
+msgstr ""
+
+#: SnapToScreen.cpp:112
+msgid "  Touching No Soln "
+msgstr ""
+
+#: SnapToScreen.cpp:114
+msgid "  Not Touching No Soln "
+msgstr ""
+
+#: StackScreen.cpp:15
+msgid "Stack"
+msgstr ""
+
+#: StructAssemblyScreen.cpp:30
+msgid "FEA Assembly"
+msgstr ""
+
+#: StructAssemblyScreen.cpp:36
+msgid "Assembly"
+msgstr ""
+
+#: StructAssemblyScreen.cpp:38
+msgid "Structures"
+msgstr ""
+
+#: StructAssemblyScreen.cpp:40
+msgid "Connections"
+msgstr ""
+
+#: StructAssemblyScreen.cpp:42 StructScreen.cpp:48
+msgid "FEM"
+msgstr ""
+
+#: StructAssemblyScreen.cpp:72
+msgid "Draw as Mesh When Ready"
+msgstr ""
+
+#: StructAssemblyScreen.cpp:80
+msgid "Re-Mesh All"
+msgstr ""
+
+#: StructAssemblyScreen.cpp:86 StructScreen.cpp:99
+msgid "Export FEM"
+msgstr ""
+
+#: StructAssemblyScreen.cpp:93
+msgid "Assembly Selection"
+msgstr ""
+
+#: StructAssemblyScreen.cpp:113
+msgid "Add Assembly"
+msgstr ""
+
+#: StructAssemblyScreen.cpp:114
+msgid "Delete Assembly"
+msgstr ""
+
+#: StructAssemblyScreen.cpp:122
+msgid "Assembly Name"
+msgstr ""
+
+#: StructAssemblyScreen.cpp:129 StructScreen.cpp:132
+msgid "Structure Selection"
+msgstr ""
+
+#: StructAssemblyScreen.cpp:143
+msgid "Add Structure"
+msgstr ""
+
+#: StructAssemblyScreen.cpp:144
+msgid "Delete Structure"
+msgstr ""
+
+#: StructAssemblyScreen.cpp:150
+msgid "Connection Selection"
+msgstr ""
+
+#: StructAssemblyScreen.cpp:164 StructAssemblyScreen.cpp:169
+msgid "Index"
+msgstr ""
+
+#: StructAssemblyScreen.cpp:175
+msgid "Add Connection"
+msgstr ""
+
+#: StructAssemblyScreen.cpp:176
+msgid "Delete Connection"
+msgstr ""
+
+#: StructAssemblyScreen.cpp:182
+msgid "Connection Properties"
+msgstr ""
+
+#: StructAssemblyScreen.cpp:244 StructScreen.cpp:951
+msgid "Nastran"
+msgstr ""
+
+#: StructAssemblyScreen.cpp:251 StructScreen.cpp:958
+msgid "Nkey"
+msgstr ""
+
+#: StructAssemblyScreen.cpp:260 StructScreen.cpp:967
+msgid "Calculix"
+msgstr ""
+
+#: StructAssemblyScreen.cpp:270 StructScreen.cpp:978
+msgid "FEM Display"
+msgstr ""
+
+#: StructAssemblyScreen.cpp:276 StructScreen.cpp:985
+msgid "Draw Mesh"
+msgstr ""
+
+#: StructAssemblyScreen.cpp:280 StructScreen.cpp:989
+msgid "Draw Nodes"
+msgstr ""
+
+#: StructAssemblyScreen.cpp:284 StructScreen.cpp:993
+msgid "Draw BCs"
+msgstr ""
+
+#: StructAssemblyScreen.cpp:303 StructScreen.cpp:1013
+msgid "Draw All Elements"
+msgstr ""
+
+#: StructAssemblyScreen.cpp:304 StructScreen.cpp:1014
+msgid "Hide All Elements"
+msgstr ""
+
+#: StructAssemblyScreen.cpp:902
+msgid "Select .stl file."
+msgstr ""
+
+#: StructAssemblyScreen.cpp:913
+msgid "Select mass .txt file."
+msgstr ""
+
+#: StructAssemblyScreen.cpp:924
+msgid "Select NASTRAN .dat file."
+msgstr ""
+
+#: StructAssemblyScreen.cpp:935
+msgid "Select NASTRAN key file."
+msgstr ""
+
+#: StructAssemblyScreen.cpp:946
+msgid "Select Calculix .dat file."
+msgstr ""
+
+#: StructAssemblyScreen.cpp:957
+msgid "Select .msh file."
+msgstr ""
+
+#: StructScreen.cpp:30
+msgid "FEA Structure"
+msgstr ""
+
+#: StructScreen.cpp:38 StructScreen.cpp:780
+msgid "Part"
+msgstr ""
+
+#: StructScreen.cpp:40 StructScreen.cpp:462 StructScreen.cpp:485
+msgid "Material"
+msgstr ""
+
+#: StructScreen.cpp:42
+msgid "Property"
+msgstr ""
+
+#: StructScreen.cpp:44
+msgid "BCs"
+msgstr ""
+
+#: StructScreen.cpp:50
+msgid "CAD"
+msgstr ""
+
+#: StructScreen.cpp:90
+msgid "Reset Part Display"
+msgstr ""
+
+#: StructScreen.cpp:91
+msgid "Reset Mesh Display"
+msgstr ""
+
+#: StructScreen.cpp:94
+msgid "Intersect Only"
+msgstr ""
+
+#: StructScreen.cpp:95
+msgid "Export CAD"
+msgstr ""
+
+#: StructScreen.cpp:98
+msgid "Intersect and Mesh"
+msgstr ""
+
+#: StructScreen.cpp:108
+msgid "Link to FEA Mesh Wiki Documentation"
+msgstr ""
+
+#: StructScreen.cpp:117
+msgid "SI (kg, m)"
+msgstr ""
+
+#: StructScreen.cpp:118
+msgid "CGS (g, cm)"
+msgstr ""
+
+#: StructScreen.cpp:119
+msgid "MPA (tonne, mm)"
+msgstr ""
+
+#: StructScreen.cpp:120
+msgid "BFT (slug, ft)"
+msgstr ""
+
+#: StructScreen.cpp:124
+msgid "Unit System (Mass, Length)"
+msgstr ""
+
+#: StructScreen.cpp:174
+msgid "Struct Name"
+msgstr ""
+
+#: StructScreen.cpp:189
+msgid "Side"
+msgstr ""
+
+#: StructScreen.cpp:197
+msgid "Orient Wing"
+msgstr ""
+
+#: StructScreen.cpp:204
+msgid "FEA Part Selection"
+msgstr ""
+
+#: StructScreen.cpp:264
+msgid "Part Name"
+msgstr ""
+
+#: StructScreen.cpp:265
+msgid "Edit Part"
+msgstr ""
+
+#: StructScreen.cpp:281
+msgid "Hide"
+msgstr ""
+
+#: StructScreen.cpp:290
+msgid "Material Selection"
+msgstr ""
+
+#: StructScreen.cpp:304
+msgid "Add Material"
+msgstr ""
+
+#: StructScreen.cpp:305
+msgid "Delete Material"
+msgstr ""
+
+#: StructScreen.cpp:314
+msgid "Material Name"
+msgstr ""
+
+#: StructScreen.cpp:319
+msgid "Isotropic"
+msgstr ""
+
+#: StructScreen.cpp:320
+msgid "Orthotropic"
+msgstr ""
+
+#: StructScreen.cpp:325
+msgid "Material Properties"
+msgstr ""
+
+#: StructScreen.cpp:441
+msgid "Add Property"
+msgstr ""
+
+#: StructScreen.cpp:442
+msgid "Delete Property"
+msgstr ""
+
+#: StructScreen.cpp:451
+msgid "Property Name"
+msgstr ""
+
+#: StructScreen.cpp:457
+msgid "Shell Properties"
+msgstr ""
+
+#: StructScreen.cpp:470
+msgid "Thickness"
+msgstr ""
+
+#: StructScreen.cpp:480
+msgid "Beam Properties"
+msgstr ""
+
+#: StructScreen.cpp:494
+msgid "Pipe"
+msgstr ""
+
+#: StructScreen.cpp:495
+msgid "I"
+msgstr ""
+
+#: StructScreen.cpp:498
+msgid "Cross Section Type"
+msgstr ""
+
+#: StructScreen.cpp:500
+msgid "Show XSec"
+msgstr ""
+
+#: StructScreen.cpp:509
+msgid "General XSec"
+msgstr ""
+
+#: StructScreen.cpp:518
+msgid "Cross-Sect Area"
+msgstr ""
+
+#: StructScreen.cpp:527
+msgid "Izz"
+msgstr ""
+
+#: StructScreen.cpp:536
+msgid "Iyy"
+msgstr ""
+
+#: StructScreen.cpp:545
+msgid "Izy"
+msgstr ""
+
+#: StructScreen.cpp:554
+msgid "Ixx"
+msgstr ""
+
+#: StructScreen.cpp:565
+msgid "Circle XSec"
+msgstr ""
+
+#: StructScreen.cpp:583
+msgid "Pipe XSec"
+msgstr ""
+
+#: StructScreen.cpp:592
+msgid "R_outer"
+msgstr ""
+
+#: StructScreen.cpp:601
+msgid "R_inner"
+msgstr ""
+
+#: StructScreen.cpp:610
+msgid "I XSec"
+msgstr ""
+
+#: StructScreen.cpp:619 StructScreen.cpp:709
+msgid "Dim1"
+msgstr ""
+
+#: StructScreen.cpp:628 StructScreen.cpp:718
+msgid "Dim2"
+msgstr ""
+
+#: StructScreen.cpp:637 StructScreen.cpp:727
+msgid "Dim3"
+msgstr ""
+
+#: StructScreen.cpp:646 StructScreen.cpp:736
+msgid "Dim4"
+msgstr ""
+
+#: StructScreen.cpp:655
+msgid "Dim5"
+msgstr ""
+
+#: StructScreen.cpp:664
+msgid "Dim6"
+msgstr ""
+
+#: StructScreen.cpp:673
+msgid "Rectangle XSec"
+msgstr ""
+
+#: StructScreen.cpp:700
+msgid "Box XSec"
+msgstr ""
+
+#: StructScreen.cpp:745
+msgid "Boundary Condition Selection"
+msgstr ""
+
+#: StructScreen.cpp:770
+msgid "BC Properties"
+msgstr ""
+
+#: StructScreen.cpp:781
+msgid "Sub Surface"
+msgstr ""
+
+#: StructScreen.cpp:785
+msgid "Degrees of Freedom"
+msgstr ""
+
+#: StructScreen.cpp:819
+msgid "Region"
+msgstr ""
+
+#: StructScreen.cpp:876
+msgid "Mesh Control"
+msgstr ""
+
+#: StructScreen.cpp:901
+msgid "Element Type"
+msgstr ""
+
+#: StructScreen.cpp:905
+msgid "High order Elements"
+msgstr ""
+
+#: StructScreen.cpp:906
+msgid "Beam Per-Element Normal Vectors"
+msgstr ""
+
+#: StructScreen.cpp:909
+msgid "FEA Index Offsets"
+msgstr ""
+
+#: StructScreen.cpp:912
+msgid "Node Offset"
+msgstr ""
+
+#: StructScreen.cpp:913
+msgid "Element Offset"
+msgstr ""
+
+#: StructScreen.cpp:918
+msgid "FEM Export"
+msgstr ""
+
+#: StructScreen.cpp:986
+msgid "Color Elements"
+msgstr ""
+
+#: StructScreen.cpp:990
+msgid "Draw Element Orientation"
+msgstr ""
+
+#: StructScreen.cpp:1000
+msgid "Element Sets"
+msgstr ""
+
+#: StructScreen.cpp:1025
+msgid "Surface and Curve Export"
+msgstr ""
+
+#: StructScreen.cpp:1027 SurfaceIntersectionScreen.cpp:127
+msgid "Export Raw Points"
+msgstr ""
+
+#: StructScreen.cpp:1059 SurfaceIntersectionScreen.cpp:170
+msgid "Include X,Y,Z Intersection Curves"
+msgstr ""
+
+#: StructScreen.cpp:1065
+msgid "Trimmed CAD Export"
+msgstr ""
+
+#: StructScreen.cpp:1075 SurfaceIntersectionScreen.cpp:185
+msgid "Surf Number"
+msgstr ""
+
+#: StructScreen.cpp:1125 SurfaceIntersectionScreen.cpp:235
+msgid "STEP Tolerance"
+msgstr ""
+
+#: StructScreen.cpp:1133 SurfaceIntersectionScreen.cpp:243
+msgid "Shell Representation"
+msgstr ""
+
+#: StructScreen.cpp:1134 SurfaceIntersectionScreen.cpp:244
+msgid "BREP Solid Representation"
+msgstr ""
+
+#: StructScreen.cpp:2747
+msgid "Exporting CAD Files\n"
+msgstr ""
+
+#: SurfaceIntersectionScreen.cpp:17
+msgid "Trimmed Surfaces"
+msgstr ""
+
+#: SurfaceIntersectionScreen.cpp:49
+msgid "Intersect and Export"
+msgstr ""
+
+#: SurfaceIntersectionScreen.cpp:101
+msgid "Show Wake Preview"
+msgstr ""
+
+#: SurfaceIntersectionScreen.cpp:122
+msgid "Export Options"
+msgstr ""
+
+#: SurfaceIntersectionScreen.cpp:158
+msgid "Surfaces and Intersection Curves"
+msgstr ""
+
+#: SurfaceIntersectionScreen.cpp:176
+msgid "Trimmed CAD Options"
+msgstr ""
+
+#: SurfaceIntersectionScreen.cpp:586
+msgid "Select .srf file."
+msgstr ""
+
+#: SurfaceIntersectionScreen.cpp:594
+msgid "Select GridTool .curv file."
+msgstr ""
+
+#: SurfaceIntersectionScreen.cpp:602
+msgid "Select Plot3D .p3d file."
+msgstr ""
+
+#: SurfaceIntersectionScreen.cpp:610
+msgid "Select IGES .igs file."
+msgstr ""
+
+#: SurfaceIntersectionScreen.cpp:618
+msgid "Select STEP .stp file."
+msgstr ""
+
+#: UserParmScreen.cpp:14
+msgid "User Parms"
+msgstr ""
+
+#: UserParmScreen.cpp:24
+msgid "Predef"
+msgstr ""
+
+#: UserParmScreen.cpp:25 UserParmScreen.cpp:57 VarPresetScreen.cpp:29
+msgid "Create"
+msgstr ""
+
+#: UserParmScreen.cpp:33
+msgid "Predefined"
+msgstr ""
+
+#: UserParmScreen.cpp:46
+msgid "Create Parm"
+msgstr ""
+
+#: UserParmScreen.cpp:47
+msgid "    Double"
+msgstr ""
+
+#: UserParmScreen.cpp:48
+msgid "    Int"
+msgstr ""
+
+#: UserParmScreen.cpp:53 UserParmScreen.cpp:83
+msgid "Min:"
+msgstr ""
+
+#: UserParmScreen.cpp:54
+msgid "Value:"
+msgstr ""
+
+#: UserParmScreen.cpp:55 UserParmScreen.cpp:84
+msgid "Max:"
+msgstr ""
+
+#: UserParmScreen.cpp:59
+msgid "User Defined Parms"
+msgstr ""
+
+#: UserParmScreen.cpp:70
+msgid "DeleteAll"
+msgstr ""
+
+#: UserParmScreen.cpp:79
+msgid "Edit User Defined Parms"
+msgstr ""
+
+#: VSPAEROPlotScreen.cpp:24
+msgid "Results Manager - VSPAERO"
+msgstr ""
+
+#: VSPAEROPlotScreen.cpp:37
+msgid "Convergence"
+msgstr ""
+
+#: VSPAEROPlotScreen.cpp:57 VSPAEROPlotScreen.cpp:156 VSPAEROPlotScreen.cpp:280
+#: VSPAEROPlotScreen.cpp:498
+msgid "Y-Data"
+msgstr ""
+
+#: VSPAEROPlotScreen.cpp:71 VSPAEROPlotScreen.cpp:196 VSPAEROPlotScreen.cpp:294
+#: VSPAEROPlotScreen.cpp:540 WaveDragScreen.cpp:187
+msgid "Legend"
+msgstr ""
+
+#: VSPAEROPlotScreen.cpp:80 VSPAEROPlotScreen.cpp:205 VSPAEROPlotScreen.cpp:303
+#: VSPAEROPlotScreen.cpp:422 VSPAEROPlotScreen.cpp:549
+msgid "Actions:"
+msgstr ""
+
+#: VSPAEROPlotScreen.cpp:81
+msgid "Residual log10(|Y(i)-Y(i-1) |)"
+msgstr ""
+
+#: VSPAEROPlotScreen.cpp:93 VSPAEROPlotScreen.cpp:214 VSPAEROPlotScreen.cpp:312
+#: VSPAEROPlotScreen.cpp:431 VSPAEROPlotScreen.cpp:558
+msgid "Xmin"
+msgstr ""
+
+#: VSPAEROPlotScreen.cpp:102 VSPAEROPlotScreen.cpp:223
+#: VSPAEROPlotScreen.cpp:321 VSPAEROPlotScreen.cpp:440
+#: VSPAEROPlotScreen.cpp:567
+msgid "Xmax"
+msgstr ""
+
+#: VSPAEROPlotScreen.cpp:111 VSPAEROPlotScreen.cpp:232
+#: VSPAEROPlotScreen.cpp:330 VSPAEROPlotScreen.cpp:449
+#: VSPAEROPlotScreen.cpp:576
+msgid "Ymin"
+msgstr ""
+
+#: VSPAEROPlotScreen.cpp:120 VSPAEROPlotScreen.cpp:241
+#: VSPAEROPlotScreen.cpp:339 VSPAEROPlotScreen.cpp:458
+#: VSPAEROPlotScreen.cpp:585
+msgid "Ymax"
+msgstr ""
+
+#: VSPAEROPlotScreen.cpp:169
+msgid "Load"
+msgstr ""
+
+#: VSPAEROPlotScreen.cpp:170
+msgid "Blade"
+msgstr ""
+
+#: VSPAEROPlotScreen.cpp:182 VSPAEROPlotScreen.cpp:526
+msgid "Group/Rotor Selection"
+msgstr ""
+
+#: VSPAEROPlotScreen.cpp:272
+msgid "X-Data"
+msgstr ""
+
+#: VSPAEROPlotScreen.cpp:355
+msgid "Cp Slice"
+msgstr ""
+
+#: VSPAEROPlotScreen.cpp:379
+msgid "X-Axis Plotting"
+msgstr ""
+
+#: VSPAEROPlotScreen.cpp:395
+msgid "X Cut Position Axis"
+msgstr ""
+
+#: VSPAEROPlotScreen.cpp:396
+msgid "Y Cut Position Axis"
+msgstr ""
+
+#: VSPAEROPlotScreen.cpp:397
+msgid "Z Cut Position Axis"
+msgstr ""
+
+#: VSPAEROPlotScreen.cpp:465
+msgid "Flip Y Axis"
+msgstr ""
+
+#: VSPAEROPlotScreen.cpp:466
+msgid "Plot Lines"
+msgstr ""
+
+#: VSPAEROPlotScreen.cpp:481
+msgid "Unsteady"
+msgstr ""
+
+#: VSPAEROPlotScreen.cpp:506
+msgid "Data Type Selection"
+msgstr ""
+
+#: VSPAEROPlotScreen.cpp:511
+msgid "History"
+msgstr ""
+
+#: VSPAEROPlotScreen.cpp:513
+msgid "Rotor"
+msgstr ""
+
+#: VSPAEROScreen.cpp:58
+msgid "Launch Solver"
+msgstr ""
+
+#: VSPAEROScreen.cpp:59
+msgid "Kill Solver"
+msgstr ""
+
+#: VSPAEROScreen.cpp:63
+msgid "Show Results Mgr"
+msgstr ""
+
+#: VSPAEROScreen.cpp:64
+msgid "Launch Viewer"
+msgstr ""
+
+#: VSPAEROScreen.cpp:68
+msgid "Load Previous Results"
+msgstr ""
+
+#: VSPAEROScreen.cpp:101 WaveDragScreen.cpp:41
+msgid "Case Setup"
+msgstr ""
+
+#: VSPAEROScreen.cpp:108
+msgid "Vortex Lattice (VLM)"
+msgstr ""
+
+#: VSPAEROScreen.cpp:109
+msgid "Panel Method"
+msgstr ""
+
+#: VSPAEROScreen.cpp:125
+msgid "Geometry Set:"
+msgstr ""
+
+#: VSPAEROScreen.cpp:129
+msgid "Preview VLM Geometry"
+msgstr ""
+
+#: VSPAEROScreen.cpp:140
+msgid "Reference Area, Lengths"
+msgstr ""
+
+#: VSPAEROScreen.cpp:159
+msgid "bref"
+msgstr ""
+
+#: VSPAEROScreen.cpp:160
+msgid "cref"
+msgstr ""
+
+#: VSPAEROScreen.cpp:174
+msgid "Moment Reference Position"
+msgstr ""
+
+#: VSPAEROScreen.cpp:179
+msgid "Mass Set:"
+msgstr ""
+
+#: VSPAEROScreen.cpp:181
+msgid "Calc CG"
+msgstr ""
+
+#: VSPAEROScreen.cpp:189 WaveDragScreen.cpp:44
+msgid "Num Slices"
+msgstr ""
+
+#: VSPAEROScreen.cpp:190
+msgid "Xref"
+msgstr ""
+
+#: VSPAEROScreen.cpp:191
+msgid "Yref"
+msgstr ""
+
+#: VSPAEROScreen.cpp:192
+msgid "Zref"
+msgstr ""
+
+#: VSPAEROScreen.cpp:209
+msgid "Beta"
+msgstr ""
+
+#: VSPAEROScreen.cpp:211
+msgid "ReCref"
+msgstr ""
+
+#: VSPAEROScreen.cpp:217
+msgid "Control Group Angles"
+msgstr ""
+
+#: VSPAEROScreen.cpp:231 VSPAEROScreen.cpp:678
+msgid "Advanced"
+msgstr ""
+
+#: VSPAEROScreen.cpp:261
+msgid "Degen"
+msgstr ""
+
+#: VSPAEROScreen.cpp:272
+msgid "Panel"
+msgstr ""
+
+#: VSPAEROScreen.cpp:282
+msgid "Use Alternate File Format"
+msgstr ""
+
+#: VSPAEROScreen.cpp:288
+msgid "Num CPU"
+msgstr ""
+
+#: VSPAEROScreen.cpp:290
+msgid "X-Z Symmetry"
+msgstr ""
+
+#: VSPAEROScreen.cpp:294
+msgid "Matrix"
+msgstr ""
+
+#: VSPAEROScreen.cpp:295
+msgid "Jacobi"
+msgstr ""
+
+#: VSPAEROScreen.cpp:296
+msgid "SSOR"
+msgstr ""
+
+#: VSPAEROScreen.cpp:297
+msgid "Preconditioner"
+msgstr ""
+
+#: VSPAEROScreen.cpp:299
+msgid "2nd Order Karman-Tsien Mach Correction"
+msgstr ""
+
+#: VSPAEROScreen.cpp:300
+msgid "Write 2D FEM"
+msgstr ""
+
+#: VSPAEROScreen.cpp:308
+msgid "Wake"
+msgstr ""
+
+#: VSPAEROScreen.cpp:309
+msgid "Fixed Wake"
+msgstr ""
+
+#: VSPAEROScreen.cpp:314
+msgid "Num It."
+msgstr ""
+
+#: VSPAEROScreen.cpp:315
+msgid "Wake Nodes"
+msgstr ""
+
+#: VSPAEROScreen.cpp:329
+msgid "Stall Model"
+msgstr ""
+
+#: VSPAEROScreen.cpp:330 VSPAEROScreen.cpp:383
+msgid "Off"
+msgstr ""
+
+#: VSPAEROScreen.cpp:331
+msgid "2D Clmax"
+msgstr ""
+
+#: VSPAEROScreen.cpp:332
+msgid "Carlson Pressure Correlation"
+msgstr ""
+
+#: VSPAEROScreen.cpp:335
+msgid "Clmax"
+msgstr ""
+
+#: VSPAEROScreen.cpp:343
+msgid "Max Turning Angle"
+msgstr ""
+
+#: VSPAEROScreen.cpp:348
+msgid "Far Field Dist"
+msgstr ""
+
+#: VSPAEROScreen.cpp:353
+msgid "Ground Effect Dist"
+msgstr ""
+
+#: VSPAEROScreen.cpp:368
+msgid "Actuator Disk"
+msgstr ""
+
+#: VSPAEROScreen.cpp:369
+msgid "Rotating Blades"
+msgstr ""
+
+#: VSPAEROScreen.cpp:375
+msgid "Run Mode"
+msgstr ""
+
+#: VSPAEROScreen.cpp:382
+msgid "Stability Type"
+msgstr ""
+
+#: VSPAEROScreen.cpp:384
+msgid "Steady"
+msgstr ""
+
+#: VSPAEROScreen.cpp:385
+msgid "Pitch"
+msgstr ""
+
+#: VSPAEROScreen.cpp:386
+msgid "P Analysis"
+msgstr ""
+
+#: VSPAEROScreen.cpp:387
+msgid "Q Analysis"
+msgstr ""
+
+#: VSPAEROScreen.cpp:388
+msgid "R Analysis"
+msgstr ""
+
+#: VSPAEROScreen.cpp:398
+msgid "Advanced Flow Conditions"
+msgstr ""
+
+#: VSPAEROScreen.cpp:409
+msgid "VRef"
+msgstr ""
+
+#: VSPAEROScreen.cpp:414
+msgid "MachRef"
+msgstr ""
+
+#: VSPAEROScreen.cpp:418
+msgid "Rho"
+msgstr ""
+
+#: VSPAEROScreen.cpp:432
+msgid "Activate Slicer"
+msgstr ""
+
+#: VSPAEROScreen.cpp:433
+msgid "Slice Latest *.adb File"
+msgstr ""
+
+#: VSPAEROScreen.cpp:452
+msgid "Add Slice"
+msgstr ""
+
+#: VSPAEROScreen.cpp:453
+msgid "Delete Slice"
+msgstr ""
+
+#: VSPAEROScreen.cpp:473
+msgid "Show Cut"
+msgstr ""
+
+#: VSPAEROScreen.cpp:483
+msgid "Slice Type"
+msgstr ""
+
+#: VSPAEROScreen.cpp:495
+msgid "Control Grouping"
+msgstr ""
+
+#: VSPAEROScreen.cpp:505
+msgid "Control Surface Grouping"
+msgstr ""
+
+#: VSPAEROScreen.cpp:507
+msgid "User Groups"
+msgstr ""
+
+#: VSPAEROScreen.cpp:509
+msgid "Available Control Surfaces"
+msgstr ""
+
+#: VSPAEROScreen.cpp:511
+msgid " Grouped Control Surfaces"
+msgstr ""
+
+#: VSPAEROScreen.cpp:550
+msgid "Add Selected"
+msgstr ""
+
+#: VSPAEROScreen.cpp:552
+msgid "Remove Selected"
+msgstr ""
+
+#: VSPAEROScreen.cpp:558
+msgid "Remove"
+msgstr ""
+
+#: VSPAEROScreen.cpp:562
+msgid "Add All"
+msgstr ""
+
+#: VSPAEROScreen.cpp:564
+msgid "Remove All"
+msgstr ""
+
+#: VSPAEROScreen.cpp:571
+msgid "Auto Group Remaining Control Surfaces"
+msgstr ""
+
+#: VSPAEROScreen.cpp:581
+msgid "Current Control Surface Group Details"
+msgstr ""
+
+#: VSPAEROScreen.cpp:584
+msgid "Group Name"
+msgstr ""
+
+#: VSPAEROScreen.cpp:587
+msgid "Deflection Gain per Surface"
+msgstr ""
+
+#: VSPAEROScreen.cpp:613
+msgid "Rotor Disk Element Settings"
+msgstr ""
+
+#: VSPAEROScreen.cpp:628
+msgid "Dia."
+msgstr ""
+
+#: VSPAEROScreen.cpp:638
+msgid "Hub Dia."
+msgstr ""
+
+#: VSPAEROScreen.cpp:644
+msgid "RPM"
+msgstr ""
+
+#: VSPAEROScreen.cpp:645
+msgid "CT"
+msgstr ""
+
+#: VSPAEROScreen.cpp:646
+msgid "CP"
+msgstr ""
+
+#: VSPAEROScreen.cpp:668
+msgid "Auto Time Step"
+msgstr ""
+
+#: VSPAEROScreen.cpp:669
+msgid "Num Revs"
+msgstr ""
+
+#: VSPAEROScreen.cpp:673
+msgid "Time Step"
+msgstr ""
+
+#: VSPAEROScreen.cpp:674
+msgid "Num Time Step"
+msgstr ""
+
+#: VSPAEROScreen.cpp:686
+msgid "Hover Ramp"
+msgstr ""
+
+#: VSPAEROScreen.cpp:694
+msgid "From Steady State"
+msgstr ""
+
+#: VSPAEROScreen.cpp:697
+msgid "Noise Analysis"
+msgstr ""
+
+#: VSPAEROScreen.cpp:703
+msgid "Enable Noise Calc"
+msgstr ""
+
+#: VSPAEROScreen.cpp:704
+msgid "Analyze Latest *.adb"
+msgstr ""
+
+#: VSPAEROScreen.cpp:711
+msgid "Noise Type"
+msgstr ""
+
+#: VSPAEROScreen.cpp:725
+msgid "Propellers"
+msgstr ""
+
+#: VSPAEROScreen.cpp:994
+msgid ""
+"WARNING: Possible transonic Mach number detected - transonic flow is not "
+"supported.\n"
+"\n"
+msgstr ""
+
+#: VSPAEROScreen.cpp:1068
+msgid "Select degen geom VSPGEOM output file."
+msgstr ""
+
+#: VSPAEROScreen.cpp:1077
+msgid "Select comp geom VSPGEOM output file."
+msgstr ""
+
+#: VSPAEROScreen.cpp:1117
+msgid "Select CSV File"
+msgstr ""
+
+#: VSPAEROScreen.cpp:1123
+#, c-format
+msgid ""
+"File export failed\n"
+"File: %s"
+msgstr ""
+
+#: VarPresetScreen.cpp:19
+msgid "Variable Presets"
+msgstr ""
+
+#: VarPresetScreen.cpp:46
+msgid "Select Preset"
+msgstr ""
+
+#: VarPresetScreen.cpp:48 VarPresetScreen.cpp:72
+msgid "Setting"
+msgstr ""
+
+#: VarPresetScreen.cpp:57 VarPresetScreen.cpp:372
+msgid "Save Changes"
+msgstr ""
+
+#: VarPresetScreen.cpp:59
+msgid "Delete Current"
+msgstr ""
+
+#: VarPresetScreen.cpp:64
+msgid "Create Preset"
+msgstr ""
+
+#: VarPresetScreen.cpp:222
+#, c-format
+msgid "@b@.COMP:@b@.GROUP:@b@.PARM"
+msgstr ""
+
+#: VarPresetScreen.cpp:365
+msgid "*SAVE CHANGES*"
+msgstr ""
+
+#: VarPresetScreen.cpp:489
+msgid "Error: At least 1 setting required before switching groups."
+msgstr ""
+
+#: WaveDragScreen.cpp:18
+msgid "Wave Drag"
+msgstr ""
+
+#: WaveDragScreen.cpp:27
+msgid "Setup"
+msgstr ""
+
+#: WaveDragScreen.cpp:28
+msgid "Inflow/Outflow"
+msgstr ""
+
+#: WaveDragScreen.cpp:29
+msgid "Plot"
+msgstr ""
+
+#: WaveDragScreen.cpp:45
+msgid "Num Rotations"
+msgstr ""
+
+#: WaveDragScreen.cpp:46
+msgid "Run with X-Z Symmetry"
+msgstr ""
+
+#: WaveDragScreen.cpp:122
+msgid "Slice Reference"
+msgstr ""
+
+#: WaveDragScreen.cpp:125
+msgid "Plane"
+msgstr ""
+
+#: WaveDragScreen.cpp:137
+msgid "X, Rot"
+msgstr ""
+
+#: WaveDragScreen.cpp:145
+msgid "Optimal Distribution"
+msgstr ""
+
+#: WaveDragScreen.cpp:148
+msgid "Sears-Haack Body (Len-Vol)"
+msgstr ""
+
+#: WaveDragScreen.cpp:149
+msgid "Von Karman Ogive (Len-Diam)"
+msgstr ""
+
+#: WaveDragScreen.cpp:150
+msgid "Lighthill Body (Len-Diam)"
+msgstr ""
+
+#: WaveDragScreen.cpp:151
+msgid "Select:"
+msgstr ""
+
+#: WaveDragScreen.cpp:157
+msgid "Plot Style"
+msgstr ""
+
+#: WaveDragScreen.cpp:162
+msgid "Plot:"
+msgstr ""
+
+#: WaveDragScreen.cpp:165
+msgid "Total"
+msgstr ""
+
+#: WaveDragScreen.cpp:166
+msgid "Parts"
+msgstr ""
+
+#: WaveDragScreen.cpp:167
+msgid "Buildup"
+msgstr ""
+
+#: WaveDragScreen.cpp:168
+msgid "Points"
+msgstr ""
+
+#: WaveDragScreen.cpp:200
+msgid "Cross-Sectional Area Plot"
+msgstr ""
+
+#: WaveDragScreen.cpp:204
+msgid "Axis Location"
+msgstr ""
+
+#: WaveDragScreen.cpp:212
+msgid "Select Inflow/Outflow Subsurfaces"
+msgstr ""
+
+#: WaveDragScreen.cpp:222
+msgid "Execute Wave Drag"
+msgstr ""
+
+#: WaveDragScreen.cpp:229
+msgid "CD0_w"
+msgstr ""
+
+#: WaveDragScreen.cpp:462
+msgid "Choose Wave Drag Output File"
+msgstr ""
+
+#: WaveDragScreen.cpp:616
+msgid "Sears-Haack Body"
+msgstr ""
+
+#: WaveDragScreen.cpp:621
+msgid "Von Karman Ogive"
+msgstr ""
+
+#: WaveDragScreen.cpp:626
+msgid "Lighthill Body"
+msgstr ""
+
+#: WingScreen.cpp:15
+msgid "Wing"
+msgstr ""
+
+#: WingScreen.cpp:19
+msgid "Plan"
+msgstr ""
+
+#: WingScreen.cpp:24
+msgid "Total Planform"
+msgstr ""
+
+#: WingScreen.cpp:27 WingScreen.cpp:162
+msgid "Span"
+msgstr ""
+
+#: WingScreen.cpp:28
+msgid "Proj Span"
+msgstr ""
+
+#: WingScreen.cpp:31
+msgid "Aspect Ratio"
+msgstr ""
+
+#: WingScreen.cpp:67
+msgid "Root Incidence"
+msgstr ""
+
+#: WingScreen.cpp:68
+msgid "Incidence"
+msgstr ""
+
+#: WingScreen.cpp:81
+msgid "Wing Loft Control"
+msgstr ""
+
+#: WingScreen.cpp:85
+msgid "Twist Reference:"
+msgstr ""
+
+#: WingScreen.cpp:97
+msgid "Dihedral Reference:"
+msgstr ""
+
+#: WingScreen.cpp:110
+msgid "Rotate All Foils To Match Dihedral"
+msgstr ""
+
+#: WingScreen.cpp:111
+msgid "Rotate Wing Root Foil To Match Dihedral"
+msgstr ""
+
+#: WingScreen.cpp:112
+msgid "Correct Foil Thickness For Dihedral Rotation"
+msgstr ""
+
+#: WingScreen.cpp:114
+msgid "Sect"
+msgstr ""
+
+#: WingScreen.cpp:118
+msgid "Wing Section"
+msgstr ""
+
+#: WingScreen.cpp:141
+msgid "Num Sections"
+msgstr ""
+
+#: WingScreen.cpp:146
+msgid "Interpolated XSecs"
+msgstr ""
+
+#: WingScreen.cpp:148
+msgid "Rt. Cluster"
+msgstr ""
+
+#: WingScreen.cpp:149
+msgid "Tip Cluster"
+msgstr ""
+
+#: WingScreen.cpp:153
+msgid "Section Planform"
+msgstr ""
+
+#: WingScreen.cpp:161
+msgid "AR"
+msgstr ""
+
+#: WingScreen.cpp:164
+msgid "Taper"
+msgstr ""
+
+#: WingScreen.cpp:165
+msgid "Ave C"
+msgstr ""
+
+#: WingScreen.cpp:166
+msgid "Root C"
+msgstr ""
+
+#: WingScreen.cpp:167
+msgid "Tip C"
+msgstr ""
+
+#: WingScreen.cpp:168
+msgid "Sec SW"
+msgstr ""
+
+#: WingScreen.cpp:177
+msgid "Projected Span"
+msgstr ""
+
+#: WingScreen.cpp:184
+msgid "Sweep Loc"
+msgstr ""
+
+#: WingScreen.cpp:185
+msgid "Sec SW Loc"
+msgstr ""
+
+#: WingScreen.cpp:190
+msgid "Twist Loc"
+msgstr ""
+
+#: WingScreen.cpp:201
+msgid "Rotate Section Tip Foil To Match Dihedral"
+msgstr ""
+
+#: WingScreen.cpp:215
+msgid "Airfoil"
+msgstr ""
+
+#: WingScreen.cpp:216 WingScreen.cpp:229
+msgid "Airfoil Section"
+msgstr ""
+
+#: WireScreen.cpp:14
+msgid "Wireframe"
+msgstr ""
+
+#: WireScreen.cpp:24
+msgid "Wireframe Characteristics"
+msgstr ""
+
+#: WireScreen.cpp:26
+msgid "Lifting"
+msgstr ""
+
+#: WireScreen.cpp:27
+msgid "Non-Lifting"
+msgstr ""
+
+#: WireScreen.cpp:31
+msgid "Normal Vector"
+msgstr ""
+
+#: WireScreen.cpp:32
+msgid "Invert"
+msgstr ""
+
+#: WireScreen.cpp:35
+msgid "Swap Point Ordering"
+msgstr ""
+
+#: WireScreen.cpp:36
+msgid "Swap I/J"
+msgstr ""
+
+#: WireScreen.cpp:41
+msgid "Reverse I"
+msgstr ""
+
+#: WireScreen.cpp:42
+msgid "Reverse J"
+msgstr ""
+
+#: WireScreen.cpp:45
+msgid "Patch"
+msgstr ""
+
+#: WireScreen.cpp:48 WireScreen.cpp:55 WireScreen.cpp:62 WireScreen.cpp:69
+msgid "Point"
+msgstr ""
+
+#: WireScreen.cpp:49 WireScreen.cpp:56 WireScreen.cpp:63 WireScreen.cpp:70
+msgid "Line"
+msgstr ""
+
+#: WireScreen.cpp:50 WireScreen.cpp:57 WireScreen.cpp:64 WireScreen.cpp:71
+msgid "Copy Opposite"
+msgstr ""
+
+#: WireScreen.cpp:51 WireScreen.cpp:58 WireScreen.cpp:65 WireScreen.cpp:72
+msgid "Halfway Opposite"
+msgstr ""
+
+#: WireScreen.cpp:52
+msgid "I Start"
+msgstr ""
+
+#: WireScreen.cpp:59
+msgid "I End"
+msgstr ""
+
+#: WireScreen.cpp:66
+msgid "J Start"
+msgstr ""
+
+#: WireScreen.cpp:73
+msgid "J End"
+msgstr ""
+
+#: WireScreen.cpp:76
+msgid "Start/End Skip"
+msgstr ""
+
+#: WireScreen.cpp:78
+msgid "I Start Skip"
+msgstr ""
+
+#: WireScreen.cpp:79
+msgid "I End Skip"
+msgstr ""
+
+#: WireScreen.cpp:80
+msgid "J Start Skip"
+msgstr ""
+
+#: WireScreen.cpp:81
+msgid "J End Skip"
+msgstr ""
+
+#: WireScreen.cpp:86
+msgid "I Stride"
+msgstr ""
+
+#: WireScreen.cpp:87
+msgid "J Stride"
+msgstr ""

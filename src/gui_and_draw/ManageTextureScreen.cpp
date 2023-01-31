@@ -7,7 +7,7 @@
 #include "Background.h"
 #include "GraphicSingletons.h"
 
-ManageTextureScreen::ManageTextureScreen( ScreenMgr * mgr ) : BasicScreen( mgr, 290, 630, "Texture Mgr")
+ManageTextureScreen::ManageTextureScreen( ScreenMgr * mgr ) : BasicScreen( mgr, 290, 630, _("Texture Mgr"))
 {
     m_FLTK_Window->callback( staticCloseCB, this );
     m_MainLayout.SetGroupAndScreen( m_FLTK_Window, this );

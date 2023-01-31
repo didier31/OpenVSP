@@ -16,7 +16,9 @@
 #include "Background.h"
 #include "GraphicSingletons.h"
 
-ManageBackgroundScreen::ManageBackgroundScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 210, 347, "Background" )
+#include <intl.h>
+
+ManageBackgroundScreen::ManageBackgroundScreen( ScreenMgr* mgr ) : BasicScreen( mgr, 210, 347, _("Background") )
 {
     m_FLTK_Window->callback( staticCloseCB, this );
     m_MainLayout.SetGroupAndScreen( m_FLTK_Window, this );
@@ -28,7 +30,7 @@ ManageBackgroundScreen::ManageBackgroundScreen( ScreenMgr* mgr ) : BasicScreen( 
     m_MainLayout.AddSubGroupLayout( m_BorderLayout, m_MainLayout.GetRemainX() - 5.0,
                                     m_MainLayout.GetRemainY() - 5.0);
 
-    m_BorderLayout.AddButton(m_Color, "Color");
+    m_BorderLayout.AddButton(m_Color, _("Color"));
     m_BorderLayout.AddYGap();
 
     m_BorderLayout.AddSubGroupLayout(m_ColorLayout, m_BorderLayout.GetRemainX(), 100);
@@ -37,7 +39,7 @@ ManageBackgroundScreen::ManageBackgroundScreen( ScreenMgr* mgr ) : BasicScreen( 
     colorChooser = m_ColorLayout.AddFlColorChooser( 95 );
     colorChooser->callback( staticScreenCB, this );
 
-    m_BorderLayout.AddButton(m_Image, "Image");
+    m_BorderLayout.AddButton(m_Image, _("Image"));
     m_BorderLayout.AddYGap();
 
     m_BorderLayout.AddSubGroupLayout(m_ImageLayout, m_BorderLayout.GetRemainX(), m_BorderLayout.GetRemainY() - 20);
@@ -47,7 +49,7 @@ ManageBackgroundScreen::ManageBackgroundScreen( ScreenMgr* mgr ) : BasicScreen( 
 
     m_ImageLayout.SetInputWidth( m_ImageLayout.GetRemainX() - 70 );
     m_ImageLayout.SetButtonWidth( 40 );
-    m_ImageLayout.AddOutput( m_FileOutput, "File:");
+    m_ImageLayout.AddOutput( m_FileOutput, _("File:"));
     m_ImageLayout.SetButtonWidth( 30 );
     m_ImageLayout.AddButton( m_FileSelect, "..." );
     m_ImageLayout.ForceNewLine();
@@ -56,23 +58,23 @@ ManageBackgroundScreen::ManageBackgroundScreen( ScreenMgr* mgr ) : BasicScreen( 
     m_ImageLayout.SetFitWidthFlag( true );
     m_ImageLayout.SetSameLineFlag( false );
 
-    m_ImageLayout.AddButton(m_PreserveAspect, "Preserve Aspect");
+    m_ImageLayout.AddButton(m_PreserveAspect, _("Preserve Aspect"));
     m_ImageLayout.AddYGap();
     m_ImageLayout.SetButtonWidth( 60 );
     m_ImageLayout.SetInputWidth( 50 );
-    m_ImageLayout.AddSlider(m_WScale, "W Scale", 1.0, "%7.3f");
+    m_ImageLayout.AddSlider(m_WScale, _("W Scale"), 1.0, "%7.3f");
     m_ImageLayout.AddSubGroupLayout(m_PreserveAspectLayout, m_ImageLayout.GetRemainX(), 25);
     m_ImageLayout.AddY(25);
     m_PreserveAspectLayout.SetButtonWidth( 60 );
     m_PreserveAspectLayout.SetInputWidth( 50 );
-    m_PreserveAspectLayout.AddSlider(m_HScale, "H Scale", 1.0, "%7.3f");
+    m_PreserveAspectLayout.AddSlider(m_HScale, _("H Scale"), 1.0, "%7.3f");
 
-    m_ImageLayout.AddSlider(m_XOffset, "X Offset", 0.500, "%7.3f");
-    m_ImageLayout.AddSlider(m_YOffset, "Y Offset", 0.500, "%7.3f");
+    m_ImageLayout.AddSlider(m_XOffset, _("X Offset"), 0.500, "%7.3f");
+    m_ImageLayout.AddSlider(m_YOffset, _("Y Offset"), 0.500, "%7.3f");
     m_ImageLayout.AddYGap();
 
     m_BorderLayout.AddY( 143 );
-    m_BorderLayout.AddButton(m_ResetDefaults, "Reset Defaults");
+    m_BorderLayout.AddButton(m_ResetDefaults, _("Reset Defaults"));
 
     //Initialize Variables
     colorChooser->rgb(242.0/255.0, 242.0/255.0, 242.0/255.0);
@@ -235,7 +237,7 @@ void ManageBackgroundScreen::GuiDeviceCallBack( GuiDevice* device )
     else if ( device == &m_FileSelect )
     {
         std::string fileName = m_ScreenMgr->GetSelectFileScreen()->FileChooser(
-                "Select Image File", "*.{jpg,png,tga,bmp,gif}", false );
+                _("Select Image File"), "*.{jpg,png,tga,bmp,gif}", false );
 
         if( !fileName.empty() )
         {

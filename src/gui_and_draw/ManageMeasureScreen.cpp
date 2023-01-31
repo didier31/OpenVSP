@@ -4,42 +4,42 @@
 #include "VSP_Geom_API.h"
 #include "UnitConversion.h"
 
-ManageMeasureScreen::ManageMeasureScreen( ScreenMgr * mgr ) : TabScreen( mgr, 300, 700+35, "Measure" )
+ManageMeasureScreen::ManageMeasureScreen( ScreenMgr * mgr ) : TabScreen( mgr, 300, 700+35, _("Measure") )
 {
-    Fl_Group* ruler_tab = AddTab( "Rulers" );
+    Fl_Group* ruler_tab = AddTab( _("Rulers") );
     Fl_Group* ruler_group = AddSubGroup( ruler_tab, 5 );
     m_RulerLayout.SetGroupAndScreen( ruler_group, this );
 
-    Fl_Group* probe_tab = AddTab( "Probe" );
+    Fl_Group* probe_tab = AddTab( _("Probe") );
     Fl_Group* probe_group = AddSubGroup( probe_tab, 5 );
     m_ProbeLayout.SetGroupAndScreen( probe_group, this );
 
-    Fl_Group* RSTprobe_tab = AddTab( "RST Probe" );
+    Fl_Group* RSTprobe_tab = AddTab( _("RST Probe") );
     Fl_Group* RSTprobe_group = AddSubGroup( RSTprobe_tab, 5 );
     m_RSTProbeLayout.SetGroupAndScreen( RSTprobe_group, this );
 
     m_RulerLayout.SetInputWidth( 100 );
     m_RulerLayout.SetButtonWidth( 75 );
 
-    m_RulerLengthUnitChoice.AddItem( "mm" );
-    m_RulerLengthUnitChoice.AddItem( "cm" );
-    m_RulerLengthUnitChoice.AddItem( "m" );
-    m_RulerLengthUnitChoice.AddItem( "in" );
-    m_RulerLengthUnitChoice.AddItem( "ft" );
-    m_RulerLengthUnitChoice.AddItem( "yd" );
-    m_RulerLengthUnitChoice.AddItem( "Unitless" );
+    m_RulerLengthUnitChoice.AddItem( _("mm") );
+    m_RulerLengthUnitChoice.AddItem( _("cm") );
+    m_RulerLengthUnitChoice.AddItem( _("m") );
+    m_RulerLengthUnitChoice.AddItem( _("in") );
+    m_RulerLengthUnitChoice.AddItem( _("ft") );
+    m_RulerLengthUnitChoice.AddItem( _("yd") );
+    m_RulerLengthUnitChoice.AddItem( _("Unitless") );
 
-    m_RulerLayout.AddChoice( m_RulerLengthUnitChoice, "Length Unit" );
+    m_RulerLayout.AddChoice( m_RulerLengthUnitChoice, _("Length Unit") );
 
     m_RulerLayout.SetSameLineFlag( true );
     m_RulerLayout.SetFitWidthFlag( false );
 
     m_RulerLayout.AddYGap();
 
-    m_RulerLayout.AddInput( m_RulerNameInput, "Name:" );
+    m_RulerLayout.AddInput( m_RulerNameInput, _("Name:") );
 
     m_RulerLayout.SetFitWidthFlag( true );
-    m_RulerLayout.AddButton( m_AddRulerButton, "Add", m_RulerLayout.GetX() );
+    m_RulerLayout.AddButton( m_AddRulerButton, _("Add"), m_RulerLayout.GetX() );
 
     m_RulerLayout.ForceNewLine();
     m_RulerLayout.SetSameLineFlag( false );
@@ -52,13 +52,13 @@ ManageMeasureScreen::ManageMeasureScreen( ScreenMgr * mgr ) : TabScreen( mgr, 30
     m_RulerLayout.SetSameLineFlag( true );
     m_RulerLayout.SetFitWidthFlag( false );
 
-    m_RulerLayout.AddButton( m_RemoveRulerButton, "Delete" );
-    m_RulerLayout.AddButton( m_RemoveAllRulersButton, "Delete All" );
+    m_RulerLayout.AddButton( m_RemoveRulerButton, _("Delete") );
+    m_RulerLayout.AddButton( m_RemoveAllRulersButton, _("Delete All") );
 
     m_RulerLayout.ForceNewLine();
 
-    m_RulerLayout.AddButton( m_ShowAllRulersButton, "Show All" );
-    m_RulerLayout.AddButton( m_HideAllRulersButton, "Hide All" );
+    m_RulerLayout.AddButton( m_ShowAllRulersButton, _("Show All") );
+    m_RulerLayout.AddButton( m_HideAllRulersButton, _("Hide All") );
 
     m_RulerLayout.ForceNewLine();
     m_RulerLayout.SetSameLineFlag( false );
@@ -71,60 +71,60 @@ ManageMeasureScreen::ManageMeasureScreen( ScreenMgr * mgr ) : TabScreen( mgr, 30
 
     m_RulerLayout.AddYGap();
 
-    m_RulerDirectionChoice.AddItem( "All", vsp::ALL_DIR );
-    m_RulerDirectionChoice.AddItem( "X", vsp::X_DIR );
-    m_RulerDirectionChoice.AddItem( "Y", vsp::Y_DIR );
-    m_RulerDirectionChoice.AddItem( "Z", vsp::Z_DIR );
+    m_RulerDirectionChoice.AddItem( _("All"), vsp::ALL_DIR );
+    m_RulerDirectionChoice.AddItem( _("X"), vsp::X_DIR );
+    m_RulerDirectionChoice.AddItem( _("Y"), vsp::Y_DIR );
+    m_RulerDirectionChoice.AddItem( _("Z"), vsp::Z_DIR );
 
-    m_RulerLayout.AddChoice( m_RulerDirectionChoice, "Direction" );
+    m_RulerLayout.AddChoice( m_RulerDirectionChoice, _("Direction") );
 
     m_RulerLayout.AddYGap();
 
     m_StartGeom.AddExcludeType( PT_CLOUD_GEOM_TYPE );
     m_EndGeom.AddExcludeType( PT_CLOUD_GEOM_TYPE );
 
-    m_RulerLayout.AddGeomPicker( m_StartGeom, 0, "Start Geom" );
-    m_RulerLayout.AddChoice( m_StartSurfChoice, "Surface" );
-    m_RulerLayout.AddSlider( m_StartUSlider, "Start U", 1.0, "%5.4f" );
-    m_RulerLayout.AddSlider( m_StartWSlider, "Start W", 1.0, "%5.4f" );
+    m_RulerLayout.AddGeomPicker( m_StartGeom, 0, _("Start Geom") );
+    m_RulerLayout.AddChoice( m_StartSurfChoice, _("Surface") );
+    m_RulerLayout.AddSlider( m_StartUSlider, _("Start U"), 1.0, "%5.4f" );
+    m_RulerLayout.AddSlider( m_StartWSlider, _("Start W"), 1.0, "%5.4f" );
 
-    m_RulerLayout.AddGeomPicker( m_EndGeom, 0, "End Geom" );
-    m_RulerLayout.AddChoice( m_EndSurfChoice, "Surface" );
-    m_RulerLayout.AddSlider( m_EndUSlider, "End U", 1.0, "%5.4f" );
-    m_RulerLayout.AddSlider( m_EndWSlider, "End W", 1.0, "%5.4f" );
-
-    m_RulerLayout.AddYGap();
-
-    m_RulerLayout.AddButton( m_AttachRulerButton, "Re-Attach" );
+    m_RulerLayout.AddGeomPicker( m_EndGeom, 0, _("End Geom") );
+    m_RulerLayout.AddChoice( m_EndSurfChoice, _("Surface") );
+    m_RulerLayout.AddSlider( m_EndUSlider, _("End U"), 1.0, "%5.4f" );
+    m_RulerLayout.AddSlider( m_EndWSlider, _("End W"), 1.0, "%5.4f" );
 
     m_RulerLayout.AddYGap();
 
-    m_RulerLayout.AddSlider( m_XOffsetSlider, "X Offset", 10.0, "%5.4f" );
-    m_RulerLayout.AddSlider( m_YOffsetSlider, "Y Offset", 10.0, "%5.4f" );
-    m_RulerLayout.AddSlider( m_ZOffsetSlider, "Z Offset", 10.0, "%5.4f" );
+    m_RulerLayout.AddButton( m_AttachRulerButton, _("Re-Attach") );
 
     m_RulerLayout.AddYGap();
 
-    m_RulerLayout.AddSlider( m_PrecisionSlider, "Precision", 10.0, "%5.0f" );
-    m_RulerLayout.AddButton( m_VisibleRulerButton, "Visible" );
+    m_RulerLayout.AddSlider( m_XOffsetSlider, _("X Offset"), 10.0, "%5.4f" );
+    m_RulerLayout.AddSlider( m_YOffsetSlider, _("Y Offset"), 10.0, "%5.4f" );
+    m_RulerLayout.AddSlider( m_ZOffsetSlider, _("Z Offset"), 10.0, "%5.4f" );
 
     m_RulerLayout.AddYGap();
 
-    m_RulerLayout.AddDividerBox( "Results" );
+    m_RulerLayout.AddSlider( m_PrecisionSlider, _("Precision"), 10.0, "%5.0f" );
+    m_RulerLayout.AddButton( m_VisibleRulerButton, _("Visible") );
 
     m_RulerLayout.AddYGap();
 
-    m_RulerLayout.AddDividerBox( "Displacement" );
-
-    m_RulerLayout.AddOutput( m_DeltaXOutput, "Delta X", "%6.5g" );
-    m_RulerLayout.AddOutput( m_DeltaYOutput, "Delta Y", "%6.5g" );
-    m_RulerLayout.AddOutput( m_DeltaZOutput, "Delta Z", "%6.5g" );
+    m_RulerLayout.AddDividerBox( _("Results") );
 
     m_RulerLayout.AddYGap();
 
-    m_RulerLayout.AddDividerBox( "Distance" );
+    m_RulerLayout.AddDividerBox( _("Displacement") );
 
-    m_RulerLayout.AddOutput( m_DistanceOutput, "Distance", "%6.5g" );
+    m_RulerLayout.AddOutput( m_DeltaXOutput, _("Delta X"), "%6.5g" );
+    m_RulerLayout.AddOutput( m_DeltaYOutput, _("Delta Y"), "%6.5g" );
+    m_RulerLayout.AddOutput( m_DeltaZOutput, _("Delta Z"), "%6.5g" );
+
+    m_RulerLayout.AddYGap();
+
+    m_RulerLayout.AddDividerBox( _("Distance") );
+
+    m_RulerLayout.AddOutput( m_DistanceOutput, _("Distance"), "%6.5g" );
 
 
     /* Probe Layout  ***********************************************/
@@ -132,25 +132,25 @@ ManageMeasureScreen::ManageMeasureScreen( ScreenMgr * mgr ) : TabScreen( mgr, 30
     m_ProbeLayout.SetInputWidth( 100 );
     m_ProbeLayout.SetButtonWidth( 75 );
 
-    m_ProbeLengthUnitChoice.AddItem( "mm" );
-    m_ProbeLengthUnitChoice.AddItem( "cm" );
-    m_ProbeLengthUnitChoice.AddItem( "m" );
-    m_ProbeLengthUnitChoice.AddItem( "in" );
-    m_ProbeLengthUnitChoice.AddItem( "ft" );
-    m_ProbeLengthUnitChoice.AddItem( "yd" );
-    m_ProbeLengthUnitChoice.AddItem( "Unitless" );
+    m_ProbeLengthUnitChoice.AddItem( _("mm") );
+    m_ProbeLengthUnitChoice.AddItem( _("cm") );
+    m_ProbeLengthUnitChoice.AddItem( _("m") );
+    m_ProbeLengthUnitChoice.AddItem( _("in") );
+    m_ProbeLengthUnitChoice.AddItem( _("ft") );
+    m_ProbeLengthUnitChoice.AddItem( _("yd") );
+    m_ProbeLengthUnitChoice.AddItem( _("Unitless") );
 
-    m_ProbeLayout.AddChoice( m_ProbeLengthUnitChoice, "Length Unit" );
+    m_ProbeLayout.AddChoice( m_ProbeLengthUnitChoice, _("Length Unit") );
 
     m_ProbeLayout.SetSameLineFlag( true );
     m_ProbeLayout.SetFitWidthFlag( false );
 
     m_ProbeLayout.AddYGap();
 
-    m_ProbeLayout.AddInput( m_ProbeNameInput, "Name:" );
+    m_ProbeLayout.AddInput( m_ProbeNameInput, _("Name:") );
 
     m_ProbeLayout.SetFitWidthFlag( true );
-    m_ProbeLayout.AddButton( m_AddProbeButton, "Add", m_ProbeLayout.GetX() );
+    m_ProbeLayout.AddButton( m_AddProbeButton, _("Add"), m_ProbeLayout.GetX() );
 
     m_ProbeLayout.ForceNewLine();
     m_ProbeLayout.SetSameLineFlag( false );
@@ -163,13 +163,13 @@ ManageMeasureScreen::ManageMeasureScreen( ScreenMgr * mgr ) : TabScreen( mgr, 30
     m_ProbeLayout.SetSameLineFlag( true );
     m_ProbeLayout.SetFitWidthFlag( false );
 
-    m_ProbeLayout.AddButton( m_RemoveProbeButton, "Delete" );
-    m_ProbeLayout.AddButton( m_RemoveAllProbesButton, "Delete All" );
+    m_ProbeLayout.AddButton( m_RemoveProbeButton, _("Delete") );
+    m_ProbeLayout.AddButton( m_RemoveAllProbesButton, _("Delete All") );
 
     m_ProbeLayout.ForceNewLine();
 
-    m_ProbeLayout.AddButton( m_ShowAllProbesButton, "Show All" );
-    m_ProbeLayout.AddButton( m_HideAllProbesButton, "Hide All" );
+    m_ProbeLayout.AddButton( m_ShowAllProbesButton, _("Show All") );
+    m_ProbeLayout.AddButton( m_HideAllProbesButton, _("Hide All") );
 
     m_ProbeLayout.ForceNewLine();
     m_ProbeLayout.SetSameLineFlag( false );
@@ -178,80 +178,80 @@ ManageMeasureScreen::ManageMeasureScreen( ScreenMgr * mgr ) : TabScreen( mgr, 30
 
     m_ProbeLayout.AddYGap();
 
-    m_ProbeLayout.AddDividerBox( "Probe Control" );
+    m_ProbeLayout.AddDividerBox( _("Probe Control") );
 
     m_ProbeLayout.AddYGap();
 
     m_ProbeGeom.AddExcludeType( PT_CLOUD_GEOM_TYPE );
 
-    m_ProbeLayout.AddGeomPicker( m_ProbeGeom, 0, "Geom" );
-    m_ProbeLayout.AddChoice( m_ProbeSurfChoice, "Surface" );
-    m_ProbeLayout.AddSlider( m_ProbeUSlider, "U", 1.0, "%5.4f" );
-    m_ProbeLayout.AddSlider( m_ProbeWSlider, "W", 1.0, "%5.4f" );
-    m_ProbeLayout.AddSlider( m_ProbeLenSlider, "Len", 1.0, "%5.2f" );
+    m_ProbeLayout.AddGeomPicker( m_ProbeGeom, 0, _("Geom") );
+    m_ProbeLayout.AddChoice( m_ProbeSurfChoice, _("Surface") );
+    m_ProbeLayout.AddSlider( m_ProbeUSlider, _("U"), 1.0, "%5.4f" );
+    m_ProbeLayout.AddSlider( m_ProbeWSlider, _("W"), 1.0, "%5.4f" );
+    m_ProbeLayout.AddSlider( m_ProbeLenSlider, _("Len"), 1.0, "%5.2f" );
 
     m_ProbeLayout.AddYGap();
 
-    m_ProbeLayout.AddButton( m_AttachProbeButton, "Re-Attach" );
+    m_ProbeLayout.AddButton( m_AttachProbeButton, _("Re-Attach") );
 
     m_ProbeLayout.AddYGap();
 
-    m_ProbeLayout.AddSlider( m_ProbePrecisionSlider, "Precision", 10.0, "%5.0f" );
-    m_ProbeLayout.AddButton( m_VisibleProbeButton, "Visible" );
+    m_ProbeLayout.AddSlider( m_ProbePrecisionSlider, _("Precision"), 10.0, "%5.0f" );
+    m_ProbeLayout.AddButton( m_VisibleProbeButton, _("Visible") );
 
     m_ProbeLayout.AddYGap();
 
-    m_ProbeLayout.AddDividerBox( "Results" );
+    m_ProbeLayout.AddDividerBox( _("Results") );
 
     m_ProbeLayout.AddYGap();
 
-    m_ProbeLayout.AddDividerBox( "Position" );
+    m_ProbeLayout.AddDividerBox( _("Position") );
 
-    m_ProbeLayout.AddOutput( m_XOutput, "X", "%6.5g" );
-    m_ProbeLayout.AddOutput( m_YOutput, "Y", "%6.5g" );
-    m_ProbeLayout.AddOutput( m_ZOutput, "Z", "%6.5g" );
-
-    m_ProbeLayout.AddYGap();
-
-    m_ProbeLayout.AddDividerBox( "Normal" );
-
-    m_ProbeLayout.AddOutput( m_NXOutput, "N_X", "%6.5g" );
-    m_ProbeLayout.AddOutput( m_NYOutput, "N_Y", "%6.5g" );
-    m_ProbeLayout.AddOutput( m_NZOutput, "N_Z", "%6.5g" );
+    m_ProbeLayout.AddOutput( m_XOutput, _("X"), "%6.5g" );
+    m_ProbeLayout.AddOutput( m_YOutput, _("Y"), "%6.5g" );
+    m_ProbeLayout.AddOutput( m_ZOutput, _("Z"), "%6.5g" );
 
     m_ProbeLayout.AddYGap();
 
-    m_ProbeLayout.AddDividerBox( "Curvature" );
+    m_ProbeLayout.AddDividerBox( _("Normal") );
 
-    m_ProbeLayout.AddOutput( m_K1Output, "K Max", "%6.5g" );
-    m_ProbeLayout.AddOutput( m_K2Output, "K Min", "%6.5g" );
-    m_ProbeLayout.AddOutput( m_KaOutput, "K Mean", "%6.5g" );
-    m_ProbeLayout.AddOutput( m_KgOutput, "K Gaussian", "%6.5g" );
+    m_ProbeLayout.AddOutput( m_NXOutput, _("N_X"), "%6.5g" );
+    m_ProbeLayout.AddOutput( m_NYOutput, _("N_Y"), "%6.5g" );
+    m_ProbeLayout.AddOutput( m_NZOutput, _("N_Z"), "%6.5g" );
+
+    m_ProbeLayout.AddYGap();
+
+    m_ProbeLayout.AddDividerBox( _("Curvature") );
+
+    m_ProbeLayout.AddOutput( m_K1Output, _("K Max"), "%6.5g" );
+    m_ProbeLayout.AddOutput( m_K2Output, _("K Min"), "%6.5g" );
+    m_ProbeLayout.AddOutput( m_KaOutput, _("K Mean"), "%6.5g" );
+    m_ProbeLayout.AddOutput( m_KgOutput, _("K Gaussian"), "%6.5g" );
 
     /* RSTprobe Layout  ***********************************************/
 
     m_RSTProbeLayout.SetInputWidth( 100 );
     m_RSTProbeLayout.SetButtonWidth( 75 );
 
-    m_RSTProbeLengthUnitChoice.AddItem( "mm" );
-    m_RSTProbeLengthUnitChoice.AddItem( "cm" );
-    m_RSTProbeLengthUnitChoice.AddItem( "m" );
-    m_RSTProbeLengthUnitChoice.AddItem( "in" );
-    m_RSTProbeLengthUnitChoice.AddItem( "ft" );
-    m_RSTProbeLengthUnitChoice.AddItem( "yd" );
-    m_RSTProbeLengthUnitChoice.AddItem( "Unitless" );
+    m_RSTProbeLengthUnitChoice.AddItem( _("mm") );
+    m_RSTProbeLengthUnitChoice.AddItem( _("cm") );
+    m_RSTProbeLengthUnitChoice.AddItem( _("m") );
+    m_RSTProbeLengthUnitChoice.AddItem( _("in") );
+    m_RSTProbeLengthUnitChoice.AddItem( _("ft") );
+    m_RSTProbeLengthUnitChoice.AddItem( _("yd") );
+    m_RSTProbeLengthUnitChoice.AddItem( _("Unitless") );
 
-    m_RSTProbeLayout.AddChoice( m_RSTProbeLengthUnitChoice, "Length Unit" );
+    m_RSTProbeLayout.AddChoice( m_RSTProbeLengthUnitChoice, _("Length Unit") );
 
     m_RSTProbeLayout.SetSameLineFlag( true );
     m_RSTProbeLayout.SetFitWidthFlag( false );
 
     m_RSTProbeLayout.AddYGap();
 
-    m_RSTProbeLayout.AddInput( m_RSTProbeNameInput, "Name:" );
+    m_RSTProbeLayout.AddInput( m_RSTProbeNameInput, _("Name:") );
 
     m_RSTProbeLayout.SetFitWidthFlag( true );
-    m_RSTProbeLayout.AddButton( m_AddRSTProbeButton, "Add", m_RSTProbeLayout.GetX() );
+    m_RSTProbeLayout.AddButton( m_AddRSTProbeButton, _("Add"), m_RSTProbeLayout.GetX() );
 
     m_RSTProbeLayout.ForceNewLine();
     m_RSTProbeLayout.SetSameLineFlag( false );
@@ -264,13 +264,13 @@ ManageMeasureScreen::ManageMeasureScreen( ScreenMgr * mgr ) : TabScreen( mgr, 30
     m_RSTProbeLayout.SetSameLineFlag( true );
     m_RSTProbeLayout.SetFitWidthFlag( false );
 
-    m_RSTProbeLayout.AddButton( m_RemoveRSTProbeButton, "Delete" );
-    m_RSTProbeLayout.AddButton( m_RemoveAllRSTProbesButton, "Delete All" );
+    m_RSTProbeLayout.AddButton( m_RemoveRSTProbeButton, _("Delete") );
+    m_RSTProbeLayout.AddButton( m_RemoveAllRSTProbesButton, _("Delete All") );
 
     m_RSTProbeLayout.ForceNewLine();
 
-    m_RSTProbeLayout.AddButton( m_ShowAllRSTProbesButton, "Show All" );
-    m_RSTProbeLayout.AddButton( m_HideAllRSTProbesButton, "Hide All" );
+    m_RSTProbeLayout.AddButton( m_ShowAllRSTProbesButton, _("Show All") );
+    m_RSTProbeLayout.AddButton( m_HideAllRSTProbesButton, _("Hide All") );
 
     m_RSTProbeLayout.ForceNewLine();
     m_RSTProbeLayout.SetSameLineFlag( false );
@@ -279,39 +279,39 @@ ManageMeasureScreen::ManageMeasureScreen( ScreenMgr * mgr ) : TabScreen( mgr, 30
 
     m_RSTProbeLayout.AddYGap();
 
-    m_RSTProbeLayout.AddDividerBox( "Probe Control" );
+    m_RSTProbeLayout.AddDividerBox( _("Probe Control") );
 
     m_RSTProbeLayout.AddYGap();
 
     m_RSTProbeGeom.AddExcludeType( PT_CLOUD_GEOM_TYPE );
 
-    m_RSTProbeLayout.AddGeomPicker( m_RSTProbeGeom, 0, "Geom" );
-    m_RSTProbeLayout.AddChoice( m_RSTProbeSurfChoice, "Surface" );
-    m_RSTProbeLayout.AddSlider( m_ProbeRSlider, "R", 1.0, "%5.4f" );
-    m_RSTProbeLayout.AddSlider( m_ProbeSSlider, "S", 1.0, "%5.4f" );
-    m_RSTProbeLayout.AddSlider( m_ProbeTSlider, "T", 1.0, "%5.4f" );
-    m_RSTProbeLayout.AddSlider( m_RSTProbeLenSlider, "Len", 1.0, "%5.2f" );
+    m_RSTProbeLayout.AddGeomPicker( m_RSTProbeGeom, 0, _("Geom") );
+    m_RSTProbeLayout.AddChoice( m_RSTProbeSurfChoice, _("Surface") );
+    m_RSTProbeLayout.AddSlider( m_ProbeRSlider, _("R"), 1.0, "%5.4f" );
+    m_RSTProbeLayout.AddSlider( m_ProbeSSlider, _("S"), 1.0, "%5.4f" );
+    m_RSTProbeLayout.AddSlider( m_ProbeTSlider, _("T"), 1.0, "%5.4f" );
+    m_RSTProbeLayout.AddSlider( m_RSTProbeLenSlider, _("Len"), 1.0, "%5.2f" );
 
     m_RSTProbeLayout.AddYGap();
 
-    m_RSTProbeLayout.AddButton( m_AttachRSTProbeButton, "Re-Attach" );
+    m_RSTProbeLayout.AddButton( m_AttachRSTProbeButton, _("Re-Attach") );
 
     m_RSTProbeLayout.AddYGap();
 
-    m_RSTProbeLayout.AddSlider( m_RSTProbePrecisionSlider, "Precision", 10.0, "%5.0f" );
-    m_RSTProbeLayout.AddButton( m_VisibleRSTProbeButton, "Visible" );
+    m_RSTProbeLayout.AddSlider( m_RSTProbePrecisionSlider, _("Precision"), 10.0, "%5.0f" );
+    m_RSTProbeLayout.AddButton( m_VisibleRSTProbeButton, _("Visible") );
 
     m_RSTProbeLayout.AddYGap();
 
-    m_RSTProbeLayout.AddDividerBox( "Results" );
+    m_RSTProbeLayout.AddDividerBox( _("Results") );
 
     m_RSTProbeLayout.AddYGap();
 
-    m_RSTProbeLayout.AddDividerBox( "Position" );
+    m_RSTProbeLayout.AddDividerBox( _("Position") );
 
-    m_RSTProbeLayout.AddOutput( m_RSTXOutput, "X", "%6.5g" );
-    m_RSTProbeLayout.AddOutput( m_RSTYOutput, "Y", "%6.5g" );
-    m_RSTProbeLayout.AddOutput( m_RSTZOutput, "Z", "%6.5g" );
+    m_RSTProbeLayout.AddOutput( m_RSTXOutput, _("X"), "%6.5g" );
+    m_RSTProbeLayout.AddOutput( m_RSTYOutput, _("Y"), "%6.5g" );
+    m_RSTProbeLayout.AddOutput( m_RSTZOutput, _("Z"), "%6.5g" );
 
     ruler_tab->show();
 }

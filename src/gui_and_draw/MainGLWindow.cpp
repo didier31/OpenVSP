@@ -40,6 +40,8 @@
 #include "CurveEditScreen.h"
 #include "BORGeom.h"
 
+#include <intl.h>
+
 #pragma warning(disable:4244)
 
 using namespace VSPGraphic;
@@ -47,7 +49,7 @@ using namespace VSPGraphic;
 namespace VSPGUI
 {
 VspGlWindow::VspGlWindow( int x, int y, int w, int h, ScreenMgr * mgr, DrawObj::ScreenEnum drawObjScreen )
-    : Fl_Gl_Window( x, y, w, h, "VSP GL Window" )
+    : Fl_Gl_Window( x, y, w, h, _("VSP GL Window") )
 {
     mode( FL_RGB | FL_ALPHA | FL_DEPTH | FL_DOUBLE | FL_MULTISAMPLE );
     m_GEngine = new VSPGraphic::GraphicEngine();

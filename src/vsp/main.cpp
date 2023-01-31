@@ -203,10 +203,24 @@ void ThreadCheckVersionNumber()
 int main( int argc, char** argv )
 {
     //==== Internationalization ====//
-      setlocale(LC_ALL, "");
-      bindtextdomain ("fr", getenv("PWD"));
-      textdomain ("fr");
-      printf("%s\n", gettext("Aero Structure Coupled Analysis"));
+    setlocale(LC_CTYPE, "");
+    setlocale(LC_MESSAGES, "");
+    setlocale(LC_COLLATE, "");
+    setlocale(LC_MONETARY, "");
+    setlocale(LC_NUMERIC, "");
+    setlocale(LC_TIME, "");
+    setlocale(LC_ALL, "");
+    char* dirname = bindtextdomain( "openvsp", getenv("PWD") );
+    if ( dirname == NULL )
+    {
+       perror( "Error" );
+    }
+    char* domainname = textdomain( "openvsp" );
+    if ( domainname == NULL)
+    {
+       perror( "Error" );       
+    }
+    printf( "%s\n", gettext( "Aero Structure Coupled Analysis" ) );
 
     //==== Get Vehicle Ptr ====//
     Vehicle* vPtr = VehicleMgr.GetVehicle();

@@ -9,15 +9,16 @@
 #include "ScreenMgr.h"
 #include "EllipsoidGeom.h"
 
+#include <intl.h>
 
 //==== Constructor ====//
-EllipsoidScreen::EllipsoidScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 525, "Ellipsoid" )
+EllipsoidScreen::EllipsoidScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 525, _("Ellipsoid") )
 {
-    Fl_Group* design_tab = AddTab( "Design" );
+    Fl_Group* design_tab = AddTab( _("Design") );
     Fl_Group* design_group = AddSubGroup( design_tab, 5 );
 
     m_DesignLayout.SetGroupAndScreen( design_group, this );
-    m_DesignLayout.AddDividerBox( "Design" );
+    m_DesignLayout.AddDividerBox( _("Design") );
 
     //==== Design ====//
     m_DesignLayout.AddSlider( m_ARadiusSlider, "A Radius", 10, "%7.3f" );

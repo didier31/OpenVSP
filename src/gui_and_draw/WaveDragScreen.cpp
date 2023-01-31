@@ -15,7 +15,7 @@
 
 /////////////////// Construction/Destruction /////////////////////////
 
-WaveDragScreen::WaveDragScreen( ScreenMgr* mgr ) : TabScreen( mgr, 310 + 470, 450 + 72, "Wave Drag", 80, 470 )
+WaveDragScreen::WaveDragScreen( ScreenMgr* mgr ) : TabScreen( mgr, 310 + 470, 450 + 72, _("Wave Drag"), 80, 470 )
 {
     Vehicle *veh = VehicleMgr.GetVehicle();
 
@@ -24,9 +24,9 @@ WaveDragScreen::WaveDragScreen( ScreenMgr* mgr ) : TabScreen( mgr, 310 + 470, 45
 
     if (!veh) return;
 
-    Fl_Group* run_tab = AddTab( "Setup" );
-    Fl_Group* flow_tab = AddTab( "Inflow/Outflow" );
-    Fl_Group* plot_tab = AddTab( "Plot" );
+    Fl_Group* run_tab = AddTab( _("Setup") );
+    Fl_Group* flow_tab = AddTab( _("Inflow/Outflow") );
+    Fl_Group* plot_tab = AddTab( _("Plot") );
 
     run_tab->show();
 
@@ -38,30 +38,30 @@ WaveDragScreen::WaveDragScreen( ScreenMgr* mgr ) : TabScreen( mgr, 310 + 470, 45
     m_RunLayout.SetChoiceButtonWidth( 100 );
 
     // Slice Number, Rotation, and Set
-    m_RunLayout.AddDividerBox( "Case Setup" );
+    m_RunLayout.AddDividerBox( _("Case Setup") );
 
-    m_RunLayout.AddChoice( m_SelectedSetChoice, "Geometry Set: " );
-    m_RunLayout.AddSlider( m_NumSlicesSlider, "Num Slices", 80, "%7.0f" );
-    m_RunLayout.AddSlider( m_NumRotSectsSlider, "Num Rotations", 20, "%7.0f" );
-    m_RunLayout.AddButton( m_SymmToggle, "Run with X-Z Symmetry" );
+    m_RunLayout.AddChoice( m_SelectedSetChoice, _("Geometry Set: ") );
+    m_RunLayout.AddSlider( m_NumSlicesSlider, _("Num Slices"), 80, "%7.0f" );
+    m_RunLayout.AddSlider( m_NumRotSectsSlider, _("Num Rotations"), 20, "%7.0f" );
+    m_RunLayout.AddButton( m_SymmToggle, _("Run with X-Z Symmetry") );
 
     // Mach
     m_RunLayout.AddYGap();
-    m_RunLayout.AddDividerBox( "Flow Condition" );
+    m_RunLayout.AddDividerBox( _("Flow Condition") );
 
-    m_RunLayout.AddSlider( m_MachNumberSlider, "Mach", 5.0, "%7.3f" );
+    m_RunLayout.AddSlider( m_MachNumberSlider, _("Mach"), 5.0, "%7.3f" );
 
     // Reference Area
     m_RunLayout.AddYGap();
-    m_RunLayout.AddDividerBox( "Reference Area" );
+    m_RunLayout.AddDividerBox( _("Reference Area") );
 
     m_RunLayout.SetSameLineFlag( true );
     m_RunLayout.SetFitWidthFlag( false );
 
     m_RunLayout.SetButtonWidth( m_RunLayout.GetW()/2 );
 
-    m_RunLayout.AddButton( m_RefManualToggle, "Manual" );
-    m_RunLayout.AddButton( m_RefChoiceToggle, "From Model" );
+    m_RunLayout.AddButton( m_RefManualToggle, _("Manual") );
+    m_RunLayout.AddButton( m_RefChoiceToggle, _("From Model") );
     m_RunLayout.ForceNewLine();
 
     m_RunLayout.InitWidthHeightVals();
@@ -69,9 +69,9 @@ WaveDragScreen::WaveDragScreen( ScreenMgr* mgr ) : TabScreen( mgr, 310 + 470, 45
     m_RunLayout.SetSameLineFlag( false );
     m_RunLayout.SetFitWidthFlag( true );
 
-    m_RunLayout.AddChoice( m_RefWingChoice, "Ref. Wing" );
+    m_RunLayout.AddChoice( m_RefWingChoice, _("Ref. Wing") );
 
-    m_RunLayout.AddSlider( m_SrefSlider, "Sref", 1000.0, "%7.3f" );
+    m_RunLayout.AddSlider( m_SrefSlider, _("Sref"), 1000.0, "%7.3f" );
 
     m_RefToggle.Init( this );
     m_RefToggle.AddButton( m_RefManualToggle.GetFlButton() );
@@ -79,14 +79,14 @@ WaveDragScreen::WaveDragScreen( ScreenMgr* mgr ) : TabScreen( mgr, 310 + 470, 45
 
     // Output
     m_RunLayout.AddYGap();
-    m_RunLayout.AddDividerBox( "Output File" );
+    m_RunLayout.AddDividerBox( _("Output File") );
 
     m_RunLayout.SetSameLineFlag( true );
     m_RunLayout.SetFitWidthFlag( false );
 
     m_RunLayout.SetButtonWidth( 50 );
     m_RunLayout.SetInputWidth( 300 - 50 - 25 );
-    m_RunLayout.AddOutput( m_FileSelect, "File" );
+    m_RunLayout.AddOutput( m_FileSelect, _("File") );
 
     m_RunLayout.SetButtonWidth( 25 );
     m_RunLayout.AddButton( m_FileTrigger, "..." );
@@ -119,22 +119,22 @@ WaveDragScreen::WaveDragScreen( ScreenMgr* mgr ) : TabScreen( mgr, 310 + 470, 45
 
     m_PlotLayout.SetSameLineFlag( true );
     m_PlotLayout.SetFitWidthFlag( true );
-    m_PlotLayout.AddDividerBox( "Slice Reference", m_PlotLayout.GetButtonWidth() );
+    m_PlotLayout.AddDividerBox( _("Slice Reference"), m_PlotLayout.GetButtonWidth() );
 
     m_PlotLayout.SetFitWidthFlag( false );
-    m_PlotLayout.AddButton( m_PlaneToggle, "Plane" );
+    m_PlotLayout.AddButton( m_PlaneToggle, _("Plane") );
 
     m_PlotLayout.ForceNewLine();
 
     m_PlotLayout.SetSameLineFlag( true );
     m_PlotLayout.SetFitWidthFlag( true );
-    m_PlotLayout.AddSlider( m_SlicingLocSlider, "X Loc", 10, "%5.3f", 100 );
+    m_PlotLayout.AddSlider( m_SlicingLocSlider, _("X Loc"), 10, "%5.3f", 100 );
 
     m_PlotLayout.SetFitWidthFlag( false );
 
     m_PlotLayout.SetButtonWidth( m_PlotLayout.GetRemainX()/2 );
-    m_PlotLayout.AddButton( m_LocDragTrigger, "X" );
-    m_PlotLayout.AddButton( m_GlobalDragTrigger, "X, Rot" );
+    m_PlotLayout.AddButton( m_LocDragTrigger, _("X") );
+    m_PlotLayout.AddButton( m_GlobalDragTrigger, _("X, Rot") );
     m_PlotLayout.ForceNewLine();
 
     m_PlotLayout.SetSameLineFlag( false );
@@ -142,30 +142,30 @@ WaveDragScreen::WaveDragScreen( ScreenMgr* mgr ) : TabScreen( mgr, 310 + 470, 45
 
     // Bodies of revolution
     m_PlotLayout.AddYGap();
-    m_PlotLayout.AddDividerBox( "Optimal Distribution" );
+    m_PlotLayout.AddDividerBox( _("Optimal Distribution") );
     m_PlotLayout.SetChoiceButtonWidth( 60 );
-    m_SelectedBodyRev.AddItem( "None" );
-    m_SelectedBodyRev.AddItem( "Sears-Haack Body (Len-Vol)" );
-    m_SelectedBodyRev.AddItem( "Von Karman Ogive (Len-Diam)" );
-    m_SelectedBodyRev.AddItem( "Lighthill Body (Len-Diam)" );
-    m_PlotLayout.AddChoice( m_SelectedBodyRev, "Select:" );
+    m_SelectedBodyRev.AddItem( _("None") );
+    m_SelectedBodyRev.AddItem( _("Sears-Haack Body (Len-Vol)") );
+    m_SelectedBodyRev.AddItem( _("Von Karman Ogive (Len-Diam)") );
+    m_SelectedBodyRev.AddItem( _("Lighthill Body (Len-Diam)") );
+    m_PlotLayout.AddChoice( m_SelectedBodyRev, _("Select:") );
 
     // Visualizer
     m_PlotLayout.AddYGap();
 
 
-    m_PlotLayout.AddDividerBox( "Plot Style" );
+    m_PlotLayout.AddDividerBox( _("Plot Style") );
 
     m_PlotLayout.SetFitWidthFlag( false );
     m_PlotLayout.SetSameLineFlag( true );
 
-    m_PlotLayout.AddLabel( "Plot:", 60 );
+    m_PlotLayout.AddLabel( _("Plot:"), 60 );
     m_PlotLayout.SetButtonWidth( m_PlotLayout.GetRemainX() / 4 );
 
-    m_PlotLayout.AddButton( m_AreaTotalButton, "Total" );
-    m_PlotLayout.AddButton( m_AreaComponentsButton, "Parts" );
-    m_PlotLayout.AddButton( m_AreaBuildupButton, "Buildup" );
-    m_PlotLayout.AddButton( m_PointToggle, "Points" );
+    m_PlotLayout.AddButton( m_AreaTotalButton, _("Total") );
+    m_PlotLayout.AddButton( m_AreaComponentsButton, _("Parts") );
+    m_PlotLayout.AddButton( m_AreaBuildupButton, _("Buildup") );
+    m_PlotLayout.AddButton( m_PointToggle, _("Points") );
 
     m_PlotLayout.ForceNewLine();
 
@@ -184,7 +184,7 @@ WaveDragScreen::WaveDragScreen( ScreenMgr* mgr ) : TabScreen( mgr, 310 + 470, 45
     m_PlotLayout.SetFitWidthFlag( true );
 
     m_PlotLayout.AddYGap();
-    m_PlotLayout.AddDividerBox( "Legend" );
+    m_PlotLayout.AddDividerBox( _("Legend") );
 
     m_LegendGroup = m_PlotLayout.AddFlScroll( m_PlotLayout.GetRemainY() );
     m_LegendGroup->type( Fl_Scroll::VERTICAL_ALWAYS );
@@ -197,11 +197,11 @@ WaveDragScreen::WaveDragScreen( ScreenMgr* mgr ) : TabScreen( mgr, 310 + 470, 45
     m_FLTK_Window->add( plottitle_group );
     m_JustPlotLayout.SetGroupAndScreen( plottitle_group, this );
 
-    m_JustPlotLayout.AddDividerBox( "Cross-Sectional Area Plot" );
+    m_JustPlotLayout.AddDividerBox( _("Cross-Sectional Area Plot") );
 
     m_JustPlotLayout.AddY( 50 );
     m_JustPlotLayout.AddX( 25 );
-    m_canvas = m_JustPlotLayout.AddCanvas( 400, 400, 0, 1, 0, 1, "", "Axis Location", "Area" );
+    m_canvas = m_JustPlotLayout.AddCanvas( 400, 400, 0, 1, 0, 1, "", _("Axis Location"), _("Area") );
 
     m_canvas->callback( staticScreenCB, this );
 
@@ -209,7 +209,7 @@ WaveDragScreen::WaveDragScreen( ScreenMgr* mgr ) : TabScreen( mgr, 310 + 470, 45
     Fl_Group* flow_group = AddSubGroup( flow_tab, 5 );
     m_FlowLayout.SetGroupAndScreen( flow_group, this );
 
-    m_FlowLayout.AddDividerBox( "Select Inflow/Outflow Subsurfaces" );
+    m_FlowLayout.AddDividerBox( _("Select Inflow/Outflow Subsurfaces") );
     m_SubSurfFlowBrowser = m_FlowLayout.AddCheckBrowser( m_FlowLayout.GetRemainY() );
     m_SubSurfFlowBrowser->callback( staticScreenCB, this );
 
@@ -219,14 +219,14 @@ WaveDragScreen::WaveDragScreen( ScreenMgr* mgr ) : TabScreen( mgr, 310 + 470, 45
     m_FLTK_Window->add( execute_group );
     m_ExecuteLayout.SetGroupAndScreen( execute_group, this );
 
-    m_ExecuteLayout.AddDividerBox( "Execute Wave Drag" );
-    m_ExecuteLayout.AddButton( m_StartSlicingTrigger, "START" );
+    m_ExecuteLayout.AddDividerBox( _("Execute Wave Drag") );
+    m_ExecuteLayout.AddButton( m_StartSlicingTrigger, _("START") );
 
     // Drag Results
     m_ExecuteLayout.AddYGap();
     m_ExecuteLayout.SetButtonWidth( 50 );
 
-    m_ExecuteLayout.AddOutput( m_CDwResult, "CD0_w" );
+    m_ExecuteLayout.AddOutput( m_CDwResult, _("CD0_w") );
 
     m_SetMaxDragFlag = false;
     m_Dragging = false;
@@ -459,7 +459,7 @@ void WaveDragScreen::GuiDeviceCallBack( GuiDevice* gui_device )
 
     if ( gui_device == &m_FileTrigger  )
     {
-        string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Choose Wave Drag Output File", "*.txt" );
+        string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Choose Wave Drag Output File"), "*.txt" );
         veh->setExportFileName( vsp::WAVE_DRAG_TXT_TYPE, newfile );
     }
     else if ( gui_device == &m_StartSlicingTrigger )
@@ -613,17 +613,17 @@ void WaveDragScreen::RedrawPlot()
         if ( WaveDragMgr.m_IdealBodyType.Get() == 1 ) // Sears-Haack curve
         {
             WaveDragMgr.SearsHaack( WaveDragMgr.m_XNormFit, S_ideal, Vol, len );
-            m_LegendLayout.AddLegendEntry( "Sears-Haack Body", FL_BLUE );
+            m_LegendLayout.AddLegendEntry( _("Sears-Haack Body"), FL_BLUE );
         }
         else if ( WaveDragMgr.m_IdealBodyType.Get() == 2 ) // von Karman curve
         {
             WaveDragMgr.vonKarman( WaveDragMgr.m_XNormFit, S_ideal, Smax );
-            m_LegendLayout.AddLegendEntry( "Von Karman Ogive", FL_BLUE );
+            m_LegendLayout.AddLegendEntry( _("Von Karman Ogive"), FL_BLUE );
         }
         else if ( WaveDragMgr.m_IdealBodyType.Get() == 3 ) // Lighthill curve
         {
             WaveDragMgr.Lighthill( WaveDragMgr.m_XNormFit, S_ideal, Smax );
-            m_LegendLayout.AddLegendEntry( "Lighthill Body", FL_BLUE );
+            m_LegendLayout.AddLegendEntry( _("Lighthill Body"), FL_BLUE );
         }
 
         if ( WaveDragMgr.m_AreaPlotType() != WaveDragSingleton::AREA_TOTAL )

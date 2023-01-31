@@ -11,7 +11,7 @@
 #include "ParmMgr.h"
 
 //==== Constructor ====//
-UserParmScreen::UserParmScreen( ScreenMgr* mgr ) : TabScreen( mgr, 570, 580, "User Parms" )
+UserParmScreen::UserParmScreen( ScreenMgr* mgr ) : TabScreen( mgr, 570, 580, _("User Parms") )
 {
     //==== Variables =====//
     m_NumParmsLast = 0;
@@ -21,42 +21,42 @@ UserParmScreen::UserParmScreen( ScreenMgr* mgr ) : TabScreen( mgr, 570, 580, "Us
     m_DescText = "Default_Desc";
 
     //==== Tabs And Groups ====//
-    Fl_Group* predef_tab = AddTab( "Predef" );
-    Fl_Group* create_tab = AddTab( "Create" );
-    Fl_Group* adj_tab = AddTab( "Adjust" );
+    Fl_Group* predef_tab = AddTab( _("Predef") );
+    Fl_Group* create_tab = AddTab( _("Create") );
+    Fl_Group* adj_tab = AddTab( _("Adjust") );
 
     Fl_Group* predef_group = AddSubGroup( predef_tab, 5 );
     Fl_Group* create_group = AddSubGroup( create_tab, 5 );
  
     //===== Predefined ====//
     m_PredefGroup.SetGroupAndScreen( predef_group, this );
-    m_PredefGroup.AddDividerBox( "Predefined" );
+    m_PredefGroup.AddDividerBox( _("Predefined") );
     unsigned int num_sliders = LinkMgr.GetNumPredefinedUserParms();
     m_PredefSliderVec.resize( num_sliders );
 
     for ( int i = 0 ; i < num_sliders ; i++ )
     {
         m_PredefGroup.SetButtonWidth( 150 );
-        m_PredefGroup.AddSlider( m_PredefSliderVec[i], "AUTO_UPDATE", 10, "%6.5f" );
+        m_PredefGroup.AddSlider( m_PredefSliderVec[i], _("AUTO_UPDATE"), 10, "%6.5f" );
     }
 
     //===== Create ====//
     m_CreateGroup.SetGroupAndScreen( create_group, this );
 
-    m_CreateGroup.AddDividerBox( "Create Parm" );
-    m_ParmTypeChoice.AddItem( "    Double" );
-    m_ParmTypeChoice.AddItem( "    Int" );
-    m_CreateGroup.AddChoice( m_ParmTypeChoice, "Type:" );
-    m_CreateGroup.AddInput( m_ParmNameInput, "Name:" );
-    m_CreateGroup.AddInput( m_ParmGroupInput, "Group:" );
-    m_CreateGroup.AddInput( m_ParmDescInput, "Desc:" );
-    m_CreateGroup.AddInput( m_ParmMinInput, "Min:", "%6.0f" );
-    m_CreateGroup.AddInput( m_ParmValueInput, "Value:", "%6.5f" );
-    m_CreateGroup.AddInput( m_ParmMaxInput, "Max:", "%6.0f" );
+    m_CreateGroup.AddDividerBox( _("Create Parm") );
+    m_ParmTypeChoice.AddItem( _("    Double") );
+    m_ParmTypeChoice.AddItem( _("    Int") );
+    m_CreateGroup.AddChoice( m_ParmTypeChoice, _("Type:") );
+    m_CreateGroup.AddInput( m_ParmNameInput, _("Name:") );
+    m_CreateGroup.AddInput( m_ParmGroupInput, _("Group:") );
+    m_CreateGroup.AddInput( m_ParmDescInput, _("Desc:") );
+    m_CreateGroup.AddInput( m_ParmMinInput, _("Min:"), "%6.0f" );
+    m_CreateGroup.AddInput( m_ParmValueInput, _("Value:"), "%6.5f" );
+    m_CreateGroup.AddInput( m_ParmMaxInput, _("Max:"), "%6.0f" );
     m_CreateGroup.AddYGap();
-    m_CreateGroup.AddButton( m_CreateParm, "Create" );
+    m_CreateGroup.AddButton( m_CreateParm, _("Create") );
     m_CreateGroup.AddYGap();
-    m_CreateGroup.AddDividerBox( "User Defined Parms" );
+    m_CreateGroup.AddDividerBox( _("User Defined Parms") );
     m_UserDefinedBrowser = m_CreateGroup.AddFlBrowser( 150 );
     m_CreateGroup.AddYGap();
 
@@ -65,9 +65,9 @@ UserParmScreen::UserParmScreen( ScreenMgr* mgr ) : TabScreen( mgr, 570, 580, "Us
 
     m_CreateGroup.SetButtonWidth( 170 );
     m_CreateGroup.AddX( 95 );
-    m_CreateGroup.AddButton( m_DeleteParm, "Delete" );
+    m_CreateGroup.AddButton( m_DeleteParm, _("Delete") );
     m_CreateGroup.AddX( 40 );
-    m_CreateGroup.AddButton( m_DeleteAllParm, "DeleteAll" );
+    m_CreateGroup.AddButton( m_DeleteAllParm, _("DeleteAll") );
 
     m_CreateGroup.SetFitWidthFlag( true );
     m_CreateGroup.SetSameLineFlag( false );
@@ -76,12 +76,12 @@ UserParmScreen::UserParmScreen( ScreenMgr* mgr ) : TabScreen( mgr, 570, 580, "Us
 
     m_CreateGroup.SetButtonWidth( 70 );
 
-    m_CreateGroup.AddDividerBox( "Edit User Defined Parms" );
-    m_CreateGroup.AddInput( m_EditParmNameInput, "Name:" );
-    m_CreateGroup.AddInput( m_EditParmGroupInput, "Group:" );
-    m_CreateGroup.AddInput( m_EditParmDescInput, "Desc:" );
-    m_CreateGroup.AddInput( m_EditParmMinInput, "Min:" );
-    m_CreateGroup.AddInput( m_EditParmMaxInput, "Max:" );
+    m_CreateGroup.AddDividerBox( _("Edit User Defined Parms") );
+    m_CreateGroup.AddInput( m_EditParmNameInput, _("Name:") );
+    m_CreateGroup.AddInput( m_EditParmGroupInput, _("Group:") );
+    m_CreateGroup.AddInput( m_EditParmDescInput, _("Desc:") );
+    m_CreateGroup.AddInput( m_EditParmMinInput, _("Min:") );
+    m_CreateGroup.AddInput( m_EditParmMaxInput, _("Max:") );
 
     m_UserDefinedBrowser->callback( staticScreenCB, this );
 
@@ -216,7 +216,7 @@ void UserParmScreen::RebuildAdjustGroup()
             m_AdjustLayout.AddDividerBox( groupName );
         }
         m_AdjustLayout.SetButtonWidth( 300 );
-        m_AdjustLayout.AddSlider( m_ParmSliderVec[i], "AUTO_UPDATE", 10, "%7.3f" );
+        m_AdjustLayout.AddSlider( m_ParmSliderVec[i], _("AUTO_UPDATE"), 10, "%7.3f" );
         m_ParmSliderVec[i].Update( pID );
     }
 

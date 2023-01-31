@@ -10,11 +10,13 @@
 #include "CfdMeshScreen.h"
 #include "CfdMeshMgr.h"
 
+#include <intl.h>
+
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-CfdMeshScreen::CfdMeshScreen( ScreenMgr* mgr ) : TabScreen( mgr, 415, 642, "CFD Mesh", 150 )
+CfdMeshScreen::CfdMeshScreen( ScreenMgr* mgr ) : TabScreen( mgr, 415, 642, _("CFD Mesh"), 150 )
 {
     m_Vehicle = m_ScreenMgr->GetVehiclePtr();
 
@@ -48,7 +50,7 @@ CfdMeshScreen::CfdMeshScreen( ScreenMgr* mgr ) : TabScreen( mgr, 415, 642, "CFD 
 
     m_BorderConsoleLayout.AddYGap();
 
-    m_BorderConsoleLayout.AddButton(m_MeshAndExport, "Mesh and Export");
+    m_BorderConsoleLayout.AddButton(m_MeshAndExport, _("Mesh and Export"));
 }
 
 CfdMeshScreen::~CfdMeshScreen()
@@ -59,30 +61,30 @@ CfdMeshScreen::~CfdMeshScreen()
 
 void CfdMeshScreen::CreateGlobalTab()
 {
-    Fl_Group* globalTab = AddTab( "Global" );
+    Fl_Group* globalTab = AddTab( _("Global") );
     Fl_Group* globalTabGroup = AddSubGroup( globalTab, 5 );
 
     m_GlobalTabLayout.SetGroupAndScreen( globalTabGroup, this );
 
     //=== GLOBAL TAB INIT ===//
 
-    m_GlobalTabLayout.AddDividerBox("Global Mesh Control");
+    m_GlobalTabLayout.AddDividerBox(_("Global Mesh Control"));
 
     m_GlobalTabLayout.AddYGap();
 
     m_GlobalTabLayout.SetButtonWidth(175.0);
-    m_GlobalTabLayout.AddSlider(m_MaxEdgeLen, "Max Edge Len", 1.0, "%7.5f");
-    m_GlobalTabLayout.AddSlider(m_MinEdgeLen, "Min Edge Len", 1.0, "%7.5f");
+    m_GlobalTabLayout.AddSlider(m_MaxEdgeLen, _("Max Edge Len"), 1.0, "%7.5f");
+    m_GlobalTabLayout.AddSlider(m_MinEdgeLen, _("Min Edge Len"), 1.0, "%7.5f");
     m_GlobalTabLayout.AddSlider(m_MaxGap, "Max Gap", 1.0, "%7.5f");
-    m_GlobalTabLayout.AddSlider(m_NumCircleSegments, "Num Circle Segments", 100.0, "%7.5f");
-    m_GlobalTabLayout.AddSlider(m_GrowthRatio, "Growth Ratio", 2.0, "%7.5f");
+    m_GlobalTabLayout.AddSlider(m_NumCircleSegments, _("Num Circle Segments"), 100.0, "%7.5f");
+    m_GlobalTabLayout.AddSlider(m_GrowthRatio, _("Growth Ratio"), 2.0, "%7.5f");
 
     m_GlobalTabLayout.AddYGap();
-    m_GlobalTabLayout.AddButton(m_Rig3dGrowthLimit, "Rigorous 3D Growth Limiting");
+    m_GlobalTabLayout.AddButton(m_Rig3dGrowthLimit, _("Rigorous 3D Growth Limiting"));
     m_GlobalTabLayout.AddYGap();
-    m_GlobalTabLayout.AddSlider( m_RelCurveTolSlider, "Curve Adaptation Tolerance", 0.01, "%7.5f" );
+    m_GlobalTabLayout.AddSlider( m_RelCurveTolSlider, _("Curve Adaptation Tolerance"), 0.01, "%7.5f" );
     m_GlobalTabLayout.AddYGap();
-    m_GlobalTabLayout.AddDividerBox("Global Source Control");
+    m_GlobalTabLayout.AddDividerBox(_("Global Source Control"));
     m_GlobalTabLayout.AddYGap();
 
     m_GlobalTabLayout.SetFitWidthFlag( false );
@@ -91,13 +93,13 @@ void CfdMeshScreen::CreateGlobalTab()
     m_GlobalTabLayout.SetButtonWidth(20.0);
     m_GlobalTabLayout.AddButton(m_GlobSrcAdjustLenLftLft, "<<");
     m_GlobalTabLayout.AddButton(m_GlobSrcAdjustLenLft, "<");
-    m_GlobalTabLayout.AddLabel("Adjust Len", 100.0);
+    m_GlobalTabLayout.AddLabel(_("Adjust Len"), 100.0);
     m_GlobalTabLayout.AddButton(m_GlobSrcAdjustLenRht, ">");
     m_GlobalTabLayout.AddButton(m_GlobSrcAdjustLenRhtRht, ">>");
     m_GlobalTabLayout.AddX(45.0);
     m_GlobalTabLayout.AddButton(m_GlobSrcAdjustRadLftLft, "<<");
     m_GlobalTabLayout.AddButton(m_GlobSrcAdjustRadLft, "<");
-    m_GlobalTabLayout.AddLabel("Adjust Rad", 100.0);
+    m_GlobalTabLayout.AddLabel(_("Adjust Rad"), 100.0);
     m_GlobalTabLayout.AddButton(m_GlobSrcAdjustRadRht, ">");
     m_GlobalTabLayout.AddButton(m_GlobSrcAdjustRadRhtRht, ">>");
     m_GlobalTabLayout.ForceNewLine();
@@ -106,70 +108,70 @@ void CfdMeshScreen::CreateGlobalTab()
     m_GlobalTabLayout.SetFitWidthFlag( true );
     m_GlobalTabLayout.SetSameLineFlag( false );
 
-    m_GlobalTabLayout.AddDividerBox("Geometry Control");
+    m_GlobalTabLayout.AddDividerBox(_("Geometry Control"));
     m_GlobalTabLayout.AddYGap();
-    m_GlobalTabLayout.AddButton(m_IntersectSubsurfaces, "Intersect Subsurfaces");
+    m_GlobalTabLayout.AddButton(m_IntersectSubsurfaces, _("Intersect Subsurfaces"));
     m_GlobalTabLayout.AddYGap();
 
     m_GlobalTabLayout.SetChoiceButtonWidth(m_GlobalTabLayout.GetRemainX() / 2.0);
-    m_GlobalTabLayout.AddChoice(m_UseSet, "Use Set");
+    m_GlobalTabLayout.AddChoice(m_UseSet, _("Use Set"));
 
     m_GlobalTabLayout.AddYGap();
     m_GlobalTabLayout.SetButtonWidth( 175.0 );
 
-    m_GlobalTabLayout.AddButton( m_ToCubicToggle, "Demote Surfs to Cubic" );
-    m_GlobalTabLayout.AddSlider( m_ToCubicTolSlider, "Cubic Tolerance", 10, "%5.4g", 0, true );
+    m_GlobalTabLayout.AddButton( m_ToCubicToggle, _("Demote Surfs to Cubic") );
+    m_GlobalTabLayout.AddSlider( m_ToCubicTolSlider, _("Cubic Tolerance"), 10, "%5.4g", 0, true );
 
     m_GlobalTabLayout.AddYGap();
-    m_GlobalTabLayout.AddButton( m_ConvertToQuadsToggle, "Convert to Quads" );
+    m_GlobalTabLayout.AddButton( m_ConvertToQuadsToggle, _("Convert to Quads") );
 
     globalTab->show();
 }
 
 void CfdMeshScreen::CreateDisplayTab()
 {
-    Fl_Group* displayTab = AddTab( "Display" );
+    Fl_Group* displayTab = AddTab( _("Display") );
     Fl_Group* displayTabGroup = AddSubGroup( displayTab, 5 );
 
     m_DisplayTabLayout.SetGroupAndScreen( displayTabGroup, this );
     m_DisplayTabLayout.SetButtonWidth( 175 );
 
-    m_DisplayTabLayout.AddDividerBox( "Mesh Display" );
+    m_DisplayTabLayout.AddDividerBox( _("Mesh Display") );
     m_DisplayTabLayout.AddYGap();
-    m_DisplayTabLayout.AddButton(m_ShowMesh, "Show Mesh");
-    m_DisplayTabLayout.AddButton(m_ColorTags, "Color Tags");
-    m_DisplayTabLayout.AddButton(m_ShowBadEdgesAndTriangles, "Show Bad Edges and Triangles");
+    m_DisplayTabLayout.AddButton(m_ShowMesh, _("Show Mesh") );
+    m_DisplayTabLayout.AddButton(m_ColorTags, _("Color Tags") );
+    m_DisplayTabLayout.AddButton(m_ShowBadEdgesAndTriangles, _("Show Bad Edges and Triangles") );
     m_DisplayTabLayout.AddYGap();
-    m_DisplayTabLayout.AddButton(m_ShowSourcesAndWakePreview, "Show Sources and Wake Preview");
-    m_DisplayTabLayout.AddButton(m_ShowWake, "Show Wake");
-    m_DisplayTabLayout.AddButton(m_ShowSymmetryPlane, "Show Symmetry Plane");
-    m_DisplayTabLayout.AddButton(m_ShowFarFieldPreview, "Show Far Field Preview");
-    m_DisplayTabLayout.AddButton(m_ShowFarField, "Show Far Field");
+    m_DisplayTabLayout.AddButton(m_ShowSourcesAndWakePreview, _("Show Sources and Wake Preview") );
+    m_DisplayTabLayout.AddButton(m_ShowWake, _("Show Wake"));
+    m_DisplayTabLayout.AddButton(m_ShowSymmetryPlane, _("Show Symmetry Plane") );
+    m_DisplayTabLayout.AddButton(m_ShowFarFieldPreview, _("Show Far Field Preview") );
+    m_DisplayTabLayout.AddButton(m_ShowFarField, _("Show Far Field") );
     m_DisplayTabLayout.AddYGap();
 
-    m_DisplayTabLayout.AddDividerBox( "Intersection Curve Display" );
+    m_DisplayTabLayout.AddDividerBox( _("Intersection Curve Display") );
 
     m_DisplayTabLayout.AddYGap();
-    m_DisplayTabLayout.AddButton( m_DrawIsect, "Show Intersection Curves");
-    m_DisplayTabLayout.AddButton( m_DrawBorder, "Show Border Curves");
+    m_DisplayTabLayout.AddButton( m_DrawIsect, _("Show Intersection Curves"));
+    m_DisplayTabLayout.AddButton( m_DrawBorder, _("Show Border Curves"));
     m_DisplayTabLayout.AddYGap();
-    m_DisplayTabLayout.AddButton( m_ShowCurve, "Show Curves");
-    m_DisplayTabLayout.AddButton( m_ShowPts, "Show Points");
+    m_DisplayTabLayout.AddButton( m_ShowCurve, _("Show Curves"));
+    m_DisplayTabLayout.AddButton( m_ShowPts, _("Show Points"));
     m_DisplayTabLayout.AddYGap();
-    m_DisplayTabLayout.AddButton( m_ShowRaw, "Show Raw Curve");
-    m_DisplayTabLayout.AddButton( m_ShowBinAdapt, "Show Binary Adapted");
+    m_DisplayTabLayout.AddButton( m_ShowRaw, _("Show Raw Curve"));
+    m_DisplayTabLayout.AddButton( m_ShowBinAdapt, _("Show Binary Adapted"));
 
     displayTab->show();
 }
 
 void CfdMeshScreen::CreateOutputTab()
 {
-    Fl_Group* outputTab = AddTab( "Output" );
+    Fl_Group* outputTab = AddTab( _("Output") );
     Fl_Group* outputTabGroup = AddSubGroup( outputTab, 5 );
 
     m_OutputTabLayout.SetGroupAndScreen( outputTabGroup, this );
 
-    m_OutputTabLayout.AddDividerBox("Export File Names");
+    m_OutputTabLayout.AddDividerBox(_("Export File Names"));
     m_OutputTabLayout.AddYGap();
 
     m_OutputTabLayout.SetFitWidthFlag( false );
@@ -187,7 +189,7 @@ void CfdMeshScreen::CreateOutputTab()
     m_OutputTabLayout.ForceNewLine();
 
     m_OutputTabLayout.SetFitWidthFlag( true );
-    m_OutputTabLayout.AddButton(m_TaggedMultiSolid, "Tagged Multi Sold STL (Non-Standard)");
+    m_OutputTabLayout.AddButton(m_TaggedMultiSolid, _("Tagged Multi Sold STL (Non-Standard)"));
     m_OutputTabLayout.SetFitWidthFlag( false );
     m_OutputTabLayout.ForceNewLine();
     m_OutputTabLayout.AddYGap();
@@ -278,19 +280,19 @@ void CfdMeshScreen::CreateSourcesTab()
     m_SourcesTabLayout.SetSameLineFlag( true );
 
     m_SourcesTabLayout.SetChoiceButtonWidth(100);
-    m_SourcesTabLayout.AddChoice(m_SourcesSelectComp, "Select Comp", 140);
+    m_SourcesTabLayout.AddChoice(m_SourcesSelectComp, _("Select Comp"), 140);
     m_SourcesTabLayout.SetFitWidthFlag( false );
     m_SourcesTabLayout.SetButtonWidth(140);
-    m_SourcesTabLayout.AddButton(m_AddDefaultSources, "Add Default Sources");
+    m_SourcesTabLayout.AddButton(m_AddDefaultSources, _("Add Default Sources"));
     m_SourcesTabLayout.ForceNewLine();
     m_SourcesTabLayout.AddYGap();
 
     m_SourcesTabLayout.SetFitWidthFlag( true );
-    m_SourcesTabLayout.AddChoice(m_SourcesSelectSurface, "Select Surface");
+    m_SourcesTabLayout.AddChoice(m_SourcesSelectSurface, _("Select Surface"));
     m_SourcesTabLayout.ForceNewLine();
     m_SourcesTabLayout.AddYGap();
 
-    m_SourcesTabLayout.AddDividerBox("Sources");
+    m_SourcesTabLayout.AddDividerBox(_("Sources"));
     m_SourcesTabLayout.ForceNewLine();
 
     m_SourcesTabLayout.AddSubGroupLayout(m_SourcesLeft, m_SourcesTabLayout.GetRemainX() / 2.0 - 5.0, 300);
@@ -306,11 +308,11 @@ void CfdMeshScreen::CreateSourcesTab()
     m_SourcesType.AddItem("Box");
     m_SourcesType.AddItem("U Line");
     m_SourcesType.AddItem("W Line");
-    m_SourcesLeft.AddChoice(m_SourcesType, "Type");
+    m_SourcesLeft.AddChoice(m_SourcesType, _("Type"));
     m_SourcesLeft.AddYGap();
-    m_SourcesLeft.AddButton(m_AddSource, "Add Source");
+    m_SourcesLeft.AddButton(m_AddSource, _("Add Source"));
     m_SourcesLeft.AddYGap();
-    m_SourcesLeft.AddButton(m_DeleteSource, "Delete Source");
+    m_SourcesLeft.AddButton(m_DeleteSource, _("Delete Source"));
 
     m_SourceBrowser = m_SourcesRight.AddFlBrowser(75);
     m_SourceBrowser->callback( staticScreenCB, this );
@@ -320,11 +322,11 @@ void CfdMeshScreen::CreateSourcesTab()
     m_SourcesTabLayout.ForceNewLine();
     m_SourcesTabLayout.ForceNewLine();
 
-    m_SourcesTabLayout.AddDividerBox("Edit Source");
+    m_SourcesTabLayout.AddDividerBox(_("Edit Source"));
 
     m_SourcesTabLayout.ForceNewLine();
 
-    m_SourcesTabLayout.AddInput(m_SourceName, "Name:");
+    m_SourcesTabLayout.AddInput(m_SourceName, _("Name:"));
 
     m_SourcesTabLayout.ForceNewLine();
     m_SourcesTabLayout.AddYGap();
@@ -333,68 +335,68 @@ void CfdMeshScreen::CreateSourcesTab()
     m_SourcesTabLayout.AddX(m_SourcesTabLayout.GetRemainX() / 2.0 + 5.0);
     m_SourcesTabLayout.AddSubGroupLayout(m_UWPosition2, m_SourcesTabLayout.GetRemainX() - 5.0, 400);
 
-    m_UWPosition1.AddDividerBox("UW Position 1");
+    m_UWPosition1.AddDividerBox(_("UW Position 1"));
     m_UWPosition1.AddYGap();
     m_UWPosition1.SetButtonWidth(40);
-    m_UWPosition1.AddSlider(m_SourceU1, "U", 1.0, "%7.3f");
-    m_UWPosition1.AddSlider(m_SourceW1, "W", 1.0, "%7.3f");
+    m_UWPosition1.AddSlider(m_SourceU1, _("U"), 1.0, "%7.3f");
+    m_UWPosition1.AddSlider(m_SourceW1, _("W"), 1.0, "%7.3f");
     m_UWPosition1.AddYGap();
-    m_UWPosition1.AddSlider(m_SourceRad1, "Rad", 1.0, "%7.2g");
-    m_UWPosition1.AddSlider(m_SourceLen1, "Len", 1.0, "%7.2g");
+    m_UWPosition1.AddSlider(m_SourceRad1, _("Rad"), 1.0, "%7.2g");
+    m_UWPosition1.AddSlider(m_SourceLen1, _("Len"), 1.0, "%7.2g");
 
-    m_UWPosition2.AddDividerBox("UW Position 2");
+    m_UWPosition2.AddDividerBox(_("UW Position 2"));
     m_UWPosition2.AddYGap();
     m_UWPosition2.SetButtonWidth(40);
-    m_UWPosition2.AddSlider(m_SourceU2, "U", 1.0, "%7.3f");
-    m_UWPosition2.AddSlider(m_SourceW2, "W", 1.0, "%7.3f");
+    m_UWPosition2.AddSlider(m_SourceU2, _("U"), 1.0, "%7.3f");
+    m_UWPosition2.AddSlider(m_SourceW2, _("W"), 1.0, "%7.3f");
     m_UWPosition2.AddYGap();
-    m_UWPosition2.AddSlider(m_SourceRad2, "Rad", 1.0, "%7.2g");
-    m_UWPosition2.AddSlider(m_SourceLen2, "Len", 1.0, "%7.2g");
+    m_UWPosition2.AddSlider(m_SourceRad2, _("Rad"), 1.0, "%7.2g");
+    m_UWPosition2.AddSlider(m_SourceLen2, _("Len"), 1.0, "%7.2g");
 
     sourcesTab->show();
 }
 
 void CfdMeshScreen::CreateDomainTab()
 {
-    Fl_Group* domainTab = AddTab( "Domain" );
+    Fl_Group* domainTab = AddTab( _("Domain") );
     Fl_Group* domainTabGroup = AddSubGroup( domainTab, 5 );
 
     m_DomainTabLayout.SetGroupAndScreen( domainTabGroup, this );
 
     m_DomainTabLayout.AddYGap();
 
-    m_DomainTabLayout.AddButton(m_GenerateHalfMesh, "Generate Half Mesh");
+    m_DomainTabLayout.AddButton(m_GenerateHalfMesh, _("Generate Half Mesh"));
     m_DomainTabLayout.AddYGap();
-    m_DomainTabLayout.AddButton(m_GenerateFarFieldMesh, "Generate Far Field Mesh");
+    m_DomainTabLayout.AddButton(m_GenerateFarFieldMesh, _("Generate Far Field Mesh"));
     m_DomainTabLayout.AddYGap();
 
     m_DomainTabLayout.AddSubGroupLayout(m_FarParametersLayout, m_DomainTabLayout.GetRemainX(),
                                         m_DomainTabLayout.GetRemainY());
 
-    m_FarParametersLayout.AddDividerBox("Far Field Mesh Control");
+    m_FarParametersLayout.AddDividerBox(_("Far Field Mesh Control"));
     m_FarParametersLayout.AddYGap();
     m_FarParametersLayout.SetButtonWidth(m_DomainTabLayout.GetRemainX() / 2.0);
-    m_FarParametersLayout.AddSlider(m_DomainMaxEdgeLen, "Max Edge Len", 1.0, "%7.5f");
-    m_FarParametersLayout.AddSlider(m_DomainMaxGap, "Max Gap", 1.0, "%7.5f");
-    m_FarParametersLayout.AddSlider(m_DomainNumCircleSegments, "Num Circle Segments", 100.0, "%7.5f");
+    m_FarParametersLayout.AddSlider(m_DomainMaxEdgeLen, _("Max Edge Len"), 1.0, "%7.5f");
+    m_FarParametersLayout.AddSlider(m_DomainMaxGap, _("Max Gap"), 1.0, "%7.5f");
+    m_FarParametersLayout.AddSlider(m_DomainNumCircleSegments, _("Num Circle Segments"), 100.0, "%7.5f");
     m_FarParametersLayout.AddYGap();
 
     //=== Far Field Type Area ===//
-    m_FarParametersLayout.AddDividerBox("Far Field Type");
+    m_FarParametersLayout.AddDividerBox(_("Far Field Type"));
     m_FarParametersLayout.AddYGap();
 
     m_FarParametersLayout.SetFitWidthFlag( false );
     m_FarParametersLayout.SetSameLineFlag( true );
 
     m_FarParametersLayout.SetButtonWidth(100);
-    m_FarParametersLayout.AddButton(m_FarFieldTypeComponent, "Component:", -1);
+    m_FarParametersLayout.AddButton(m_FarFieldTypeComponent, _("Component:"), -1);
     m_FarParametersLayout.SetFitWidthFlag( true );
     m_FarParametersLayout.SetChoiceButtonWidth(0);
     m_FarParametersLayout.AddChoice(m_ComponentChoice, "", 100);
 
     m_FarParametersLayout.ForceNewLine();
     m_FarParametersLayout.SetFitWidthFlag( false );
-    m_FarParametersLayout.AddButton(m_FarFieldTypeBox, "Box", 1);
+    m_FarParametersLayout.AddButton(m_FarFieldTypeBox, _("Box"), 1);
     m_FarFieldTypeBox.GetFlButton()->value( 1 );
 
     m_FarParametersLayout.ForceNewLine();
@@ -403,7 +405,7 @@ void CfdMeshScreen::CreateDomainTab()
                                             m_FarParametersLayout.GetRemainY());
 
     //=== Symmetry Plane Splitting Toggle Button ===//
-    m_FarBoxLayout.AddButton(m_SymPlaneSplit, "Symmetry Plane Splitting");
+    m_FarBoxLayout.AddButton(m_SymPlaneSplit, _("Symmetry Plane Splitting"));
     m_FarBoxLayout.AddYGap();
 
     //=== Size Area ===//
@@ -415,8 +417,8 @@ void CfdMeshScreen::CreateDomainTab()
     m_FarBoxLayout.SetFitWidthFlag( false );
 
     m_FarBoxLayout.SetButtonWidth(60.0);
-    m_FarBoxLayout.AddButton(m_DomainRel, "Rel");
-    m_FarBoxLayout.AddButton(m_DomainAbs, "Abs");
+    m_FarBoxLayout.AddButton(m_DomainRel, _("Rel"));
+    m_FarBoxLayout.AddButton(m_DomainAbs, _("Abs"));
     m_DomainRel.GetFlButton()->value( 1 );
 
     m_FarBoxLayout.ForceNewLine();
@@ -426,9 +428,9 @@ void CfdMeshScreen::CreateDomainTab()
 
     m_FarBoxLayout.AddYGap();
     m_FarBoxLayout.SetButtonWidth(m_DomainTabLayout.GetRemainX() / 3.0);
-    m_FarBoxLayout.AddSlider(m_DomainLength, "Length", 10.0, "%7.5f");
-    m_FarBoxLayout.AddSlider(m_DomainWidth, "Width", 10.0, "%7.5f");
-    m_FarBoxLayout.AddSlider(m_DomainHeight, "Height", 10.0, "%7.5f");
+    m_FarBoxLayout.AddSlider(m_DomainLength, _("Length"), 10.0, "%7.5f");
+    m_FarBoxLayout.AddSlider(m_DomainWidth, _("Width"), 10.0, "%7.5f");
+    m_FarBoxLayout.AddSlider(m_DomainHeight, _("Height"), 10.0, "%7.5f");
     m_FarBoxLayout.AddYGap();
 
     //=== Location Area ===//
@@ -440,8 +442,8 @@ void CfdMeshScreen::CreateDomainTab()
     m_FarBoxLayout.SetFitWidthFlag( false );
 
     m_FarBoxLayout.SetButtonWidth(60.0);
-    m_FarBoxLayout.AddButton(m_DomainCen, "Cen");
-    m_FarBoxLayout.AddButton(m_DomainMan, "Man");
+    m_FarBoxLayout.AddButton(m_DomainCen, _("Cen"));
+    m_FarBoxLayout.AddButton(m_DomainMan, _("Man"));
     m_DomainCen.GetFlButton()->value( 1 );
 
     m_FarBoxLayout.ForceNewLine();
@@ -455,9 +457,9 @@ void CfdMeshScreen::CreateDomainTab()
                                      m_FarBoxLayout.GetRemainY());
 
     m_FarXYZLocationLayout.SetButtonWidth(m_DomainTabLayout.GetRemainX() / 3.0);
-    m_FarXYZLocationLayout.AddSlider(m_DomainXLoc, "X Loc", 5.0, "%7.5f");
-    m_FarXYZLocationLayout.AddSlider(m_DomainYLoc, "Y Loc", 5.0, "%7.5f");
-    m_FarXYZLocationLayout.AddSlider(m_DomainZLoc, "Z Loc", 5.0, "%7.5f");
+    m_FarXYZLocationLayout.AddSlider(m_DomainXLoc, _("X Loc"), 5.0, "%7.5f");
+    m_FarXYZLocationLayout.AddSlider(m_DomainYLoc, _("Y Loc"), 5.0, "%7.5f");
+    m_FarXYZLocationLayout.AddSlider(m_DomainZLoc, _("Z Loc"), 5.0, "%7.5f");
     m_FarXYZLocationLayout.AddYGap();
 
     domainTab->show();
@@ -465,7 +467,7 @@ void CfdMeshScreen::CreateDomainTab()
 
 void CfdMeshScreen::CreateWakesTab()
 {
-    m_WakesTab = AddTab( "Wakes" );
+    m_WakesTab = AddTab( _("Wakes") );
     Fl_Group* wakesTabGroup = AddSubGroup( m_WakesTab, 5 );
 
     m_WakesTabLayout.SetGroupAndScreen( wakesTabGroup, this );
@@ -473,9 +475,9 @@ void CfdMeshScreen::CreateWakesTab()
     m_WakesTabLayout.AddYGap();
 
     m_WakesTabLayout.SetButtonWidth(175.0);
-    m_WakesTabLayout.AddSlider(m_ScaleWake, "Scale Wake", 10.0, "%7.5f");
+    m_WakesTabLayout.AddSlider(m_ScaleWake, _("Scale Wake"), 10.0, "%7.5f");
     m_WakesTabLayout.AddYGap();
-    m_WakesTabLayout.AddSlider(m_WakeAngle, "Wake Angle", 10.0, "%7.5f");
+    m_WakesTabLayout.AddSlider(m_WakeAngle, _("Wake Angle"), 10.0, "%7.5f");
 
     m_WakesTabLayout.ForceNewLine();
 
@@ -483,11 +485,11 @@ void CfdMeshScreen::CreateWakesTab()
     m_WakesTabLayout.SetSameLineFlag( true );
 
     m_WakesTabLayout.SetChoiceButtonWidth(100);
-    m_WakesTabLayout.AddChoice(m_Comp, "Comp", 100);
+    m_WakesTabLayout.AddChoice(m_Comp, _("Comp"), 100);
 
     m_WakesTabLayout.SetFitWidthFlag(false);
     m_WakesTabLayout.SetButtonWidth(100);
-    m_WakesTabLayout.AddButton(m_AddWake, "Add Wake");
+    m_WakesTabLayout.AddButton(m_AddWake, _("Add Wake"));
 
     m_WakesTab->show();
 }

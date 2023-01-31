@@ -9,11 +9,12 @@
 #include "ScreenMgr.h"
 #include "ParmMgr.h"
 
+#include <intl.h>
 
 //==== Constructor ====//
-CustomScreen::CustomScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 640, "Custom" )
+CustomScreen::CustomScreen( ScreenMgr* mgr ) : GeomScreen( mgr, 300, 640, _("Custom") )
 {
-    m_FLTK_Window->copy_label( "Custom Geom" );
+    m_FLTK_Window->copy_label( _("Custom Geom") );
     m_SameLineFlag = false;
     m_LastChoiceGui = NULL;
     m_ForceWidthFlag = false;

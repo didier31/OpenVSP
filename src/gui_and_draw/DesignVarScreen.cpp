@@ -10,26 +10,28 @@
 #include "DesignVarScreen.h"
 #include "ParmMgr.h"
 
+#include <intl.h>
+
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-DesignVarScreen::DesignVarScreen( ScreenMgr* mgr ) : TabScreen( mgr, 300, 463, "Design Variables" )
+DesignVarScreen::DesignVarScreen( ScreenMgr* mgr ) : TabScreen( mgr, 300, 463, _("Design Variables") )
 {
     m_NVarLast = 0;
 
-    Fl_Group* pick_tab = AddTab( "Pick" );
+    Fl_Group* pick_tab = AddTab( _("Pick") );
     ( (Vsp_Group*) pick_tab )->SetAllowDrop( true );
     pick_tab->callback( staticScreenCB, this );
 
-    Fl_Group* adj_tab = AddTab( "Adjust" );
+    Fl_Group* adj_tab = AddTab( _("Adjust") );
     Fl_Group* pick_group = AddSubGroup( pick_tab, 5 );
     m_AdjustGroup = AddSubScroll( adj_tab, 5 );
     m_AdjustGroup->type( Fl_Scroll::VERTICAL_ALWAYS );
 
     m_PickLayout.SetGroupAndScreen( pick_group, this );
 
-    m_PickLayout.AddDividerBox( "Variable" );
+    m_PickLayout.AddDividerBox( _("Variable") );
 
     m_PickLayout.AddParmPicker( m_ParmPicker );
 
@@ -65,7 +67,7 @@ DesignVarScreen::DesignVarScreen( ScreenMgr* mgr ) : TabScreen( mgr, 300, 463, "
 
     m_PickLayout.AddYGap();
 
-    m_PickLayout.AddDividerBox( "Variable List" );
+    m_PickLayout.AddDividerBox( _("Variable List") );
 
     // Pointer for the widths of each column in the browser to support resizing
     // Last column width must be 0
@@ -81,7 +83,7 @@ DesignVarScreen::DesignVarScreen( ScreenMgr* mgr ) : TabScreen( mgr, 300, 463, "
 
     m_FileTypeChoice.AddItem( "Design file *.des" );
     m_FileTypeChoice.AddItem( "Cart3D XDDM file *.xddm" );
-    m_PickLayout.AddChoice( m_FileTypeChoice, "File Type:" );
+    m_PickLayout.AddChoice( m_FileTypeChoice, _("File Type:") );
 
     m_PickLayout.SetFitWidthFlag( false );
     m_PickLayout.SetSameLineFlag( true );
@@ -204,7 +206,7 @@ void DesignVarScreen::RebuildAdjustTab()
             m_AdjustLayout.AddDividerBox( ParmMgr.FindParmContainer( contID )->GetName() );
         }
 
-        m_AdjustLayout.AddSlider( m_ParmSliderVec[i], "AUTO_UPDATE", 10, "%7.3f" );
+        m_AdjustLayout.AddSlider( m_ParmSliderVec[i], _("AUTO_UPDATE"), 10, "%7.3f" );
         m_ParmSliderVec[i].Update( pID );
     }
 
@@ -283,7 +285,7 @@ void DesignVarScreen::GuiDeviceCallBack( GuiDevice* device )
     {
         if ( m_FileTypeChoice.GetVal() == 0 )
         {
-            string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Design File", "*.des" );
+            string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Design File"), "*.des" );
             if ( newfile.size() != 0 && newfile[ newfile.size() - 1] != '/' )
             {
                 DesignVarMgr.WriteDesVarsDES( newfile );
@@ -291,7 +293,7 @@ void DesignVarScreen::GuiDeviceCallBack( GuiDevice* device )
         }
         else
         {
-            string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Cart3D XDDM File", "*.xddm" );
+            string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Cart3D XDDM File"), "*.xddm" );
             if ( newfile.size() != 0 && newfile[ newfile.size() - 1] != '/' )
             {
                 DesignVarMgr.WriteDesVarsXDDM( newfile );
@@ -302,7 +304,7 @@ void DesignVarScreen::GuiDeviceCallBack( GuiDevice* device )
     {
         if ( m_FileTypeChoice.GetVal() == 0 )
         {
-            string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Design File", "*.des" );
+            string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Design File"), "*.des" );
             if ( newfile.size() != 0 && newfile[ newfile.size() - 1] != '/' )
             {
                 DesignVarMgr.ReadDesVarsDES( newfile );
@@ -311,7 +313,7 @@ void DesignVarScreen::GuiDeviceCallBack( GuiDevice* device )
         }
         else
         {
-            string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( "Cart3D XDDM File", "*.xddm" );
+            string newfile = m_ScreenMgr->GetSelectFileScreen()->FileChooser( _("Cart3D XDDM File"), "*.xddm" );
             if ( newfile.size() != 0 && newfile[ newfile.size() - 1] != '/' )
             {
                 DesignVarMgr.ReadDesVarsXDDM( newfile );
